@@ -33,13 +33,24 @@ def short(uri):
     return uri
 
 
+_ESC = re.compile(r'\\(u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8}|[tnr"\\])')
+
+def unescape(lit):
+    """N-Triples string escapes: \uXXXX, \UXXXXXXXX, \t \n \r \" \\."""
+    def one(m):
+        e = m.group(1)
+        if e[0] in "uU": return chr(int(e[1:], 16))
+        return {"t": "\t", "n": "\n", "r": "\r", '"': '"', "\\": "\\"}[e]
+    return _ESC.sub(one, lit)
+
+
 def read_nt(path):
     with open(path, encoding="utf-8") as f:
         for line in f:
             m = NT.match(line.rstrip("\n"))
             if m:
                 s, p, o_uri, o_lit = m.groups()
-                yield s, p, o_uri if o_uri is not None else None, o_lit
+                yield s, p, o_uri if o_uri is not None else None, (unescape(o_lit) if o_lit is not None else None)
 
 
 def celex_year(celex):
