@@ -16,8 +16,8 @@ Q = {
                 "Cherchez dans les derniers articles de A une phrase du type « Le règlement … est abrogé » / « … is repealed »."),
     "amends": ("modifie", "Le texte de A dit-il qu'il modifie B ?",
                "Souvent dans le titre de A (« modifiant le règlement … ») ou à l'article 1 (« Le règlement … est modifié comme suit »)."),
-    "based_on": ("se fonde sur", "B apparaît-il dans les visas de A ?",
-                 "Les visas sont les lignes « vu le traité … », « vu le règlement … » tout au début du texte de A, avant les considérants."),
+    "based_on": ("se fonde sur", "Le texte de A cite-t-il B comme base ?",
+                 "Dans les visas (« vu le traité … », « vu le règlement … », tout au début, avant les considérants) ; pour un avis ou une résolution, dans la première phrase (« conformément à l'article … du traité »)."),
 }
 
 
