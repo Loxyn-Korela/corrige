@@ -1,3 +1,6 @@
 truths/truth-eurlex-relations-2026-09-09.json
 runs/
 __pycache__/
+runs/*/graph.json
+runs/*/candidate-*.json
+runs/*/verdict-*.json

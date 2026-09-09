@@ -31,14 +31,21 @@ Injected with a sealed seed: 10 % spurious `repeals` and `amends` edges, half of
 a law; 5 % `repeals` removed; 2 % of dated nodes shifted by a year. Then the two witnesses judged
 (`runs/first/verdict-*.json`):
 
-| | dumb baseline | rule without model |
-|---|---|---|
-| spurious edges visible by a law (3,934) | caught 0 | caught **3,934** |
-| spurious edges invisible to the laws (3,936) | caught 0 | caught **0** |
-| removed true edges (719) | beyond reach | beyond reach |
-| shifted dates (5,276) | beyond reach | beyond reach |
-| true facts wrongly broken | 0 | **286** (dated noise made them look illegal) |
-| true facts that really violate a law, removed | 0 | 238 of 239 (one was shifted out of violation) |
+| | dumb baseline | rule without model | **pgrepair** (SciPyWeightedILP, laws L1-L3 as constraints, `--mark`) |
+|---|---|---|---|
+| spurious edges visible by a law (3,934) | caught 0 | caught **3,934** | caught **3,934** |
+| spurious edges invisible to the laws (3,936) | caught 0 | caught **0** | caught **0** |
+| removed true edges (719) | beyond reach | beyond reach | beyond reach |
+| shifted dates (5,276) | beyond reach | beyond reach | beyond reach |
+| true facts wrongly broken | 0 | **286** (dated noise made them look illegal) | **286** |
+| true facts that really violate a law, removed | 0 | 238 of 239 (one was shifted out of violation) | 238 |
+| edges deleted in all | 0 | 4,458 | 4,458 (solver weight 8,916, under a second) |
+
+pgrepair, run on this truth through Neo4j 5.26 with the three laws written as its constraints
+(`workloads/eurlex-laws.toml`, `pg-repair-run --commit repair --mark`), gives the same verdict as
+the rule without model, edge for edge: on these constraints the ILP has nothing to arbitrate,
+every violation is a single edge and deleting it is the only minimal repair. Its value would show
+on constraints where violations overlap; the instrument is what makes that statement checkable.
 
 This is the ceiling of a deletion-only, constraint-based repair on this truth, before pgrepair
 runs: it sees exactly what the laws see and nothing else, and dated noise turns it against the

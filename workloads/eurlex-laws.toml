@@ -1,0 +1,71 @@
+# Le Corrigé — pgrepair workload for the EUR-Lex truth: the three world laws as constraints.
+# Written before any injection, without looking at any journal (design §2).
+# A constraint is a violation pattern: paths that match are repaired by deletion.
+name = "EUR-Lex world laws L1-L3"
+schema = "generic"
+
+[database]
+protocol = "neo4j"
+host = "localhost"
+port = 7687
+name = "neo4j"
+
+[setup]
+random_seed = "2026090900000001"
+
+[setup.database]
+cypher_queries = [
+  """
+  MATCH (n)
+  WITH COLLECT(n) AS node_list
+  WITH node_list, range(0, size(node_list) - 1) AS indices
+  UNWIND indices AS idx
+  WITH idx, node_list[idx] AS n
+  SET n._pgrepair_id = idx
+  """,
+  """
+  MATCH (n)
+  WITH COUNT(n) AS node_count
+  MATCH ()-[e]->()
+  WITH node_count, COLLECT(e) AS edge_list
+  WITH node_count, edge_list, range(0, size(edge_list) - 1) AS indices
+  UNWIND indices AS idx
+  WITH node_count, idx, edge_list[idx] AS e
+  SET e._pgrepair_id = node_count + idx
+  """,
+]
+
+# L1 — an act cannot repeal an act whose date_document is later than its own
+[[constraints]]
+patterns = ["(a:Act)-[r:REPEALS]->(b:Act)"]
+filters = [
+  "a.date_document_status = 'ok'",
+  "b.date_document_status = 'ok'",
+  "date(a.date_document) < date(b.date_document)",
+]
+
+# L1 — same for amends
+[[constraints]]
+patterns = ["(a:Act)-[r:AMENDS]->(b:Act)"]
+filters = [
+  "a.date_document_status = 'ok'",
+  "b.date_document_status = 'ok'",
+  "date(a.date_document) < date(b.date_document)",
+]
+
+# L2 — an act does not amend anything dated after its own end of validity
+[[constraints]]
+patterns = ["(a:Act)-[r:AMENDS]->(b:Act)"]
+filters = [
+  "a.date_end_of_validity IS NOT NULL",
+  "b.date_document_status = 'ok'",
+  "date(b.date_document) > date(a.date_end_of_validity)",
+]
+
+# L3 — a legal basis is an act with a CELEX, never an empty identifier
+[[constraints]]
+patterns = ["(a:Act)-[r:BASED_ON]->(b:Act)"]
+filters = [
+  "(b.celex IS NULL OR b.celex = '')",
+  "coalesce(b.gap, false) = false",
+]

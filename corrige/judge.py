@@ -169,7 +169,8 @@ def judge(truth, cand, journal=None):
 
 
 def main():
-    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    argv = sys.argv[1:]
+    args = [a for i, a in enumerate(argv) if not a.startswith("--") and (i == 0 or argv[i - 1] != "--journal")]
     if len(args) != 3:
         sys.exit(__doc__)
     truth = json.load(open(args[0], encoding="utf-8"))
