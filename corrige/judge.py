@@ -132,7 +132,15 @@ def judge(truth, cand, journal=None):
     if journal is not None:
         inj = journal["injected"]
         sub = {"visible": collections.Counter(), "invisible": collections.Counter(), "beyond_reach": collections.Counter()}
+        anach_inj = collections.Counter()
         for e in inj:
+            if e["damage"] == "ANACHRONISM":
+                cn = cnodes.get(e["node"])
+                fixed = cn is not None and cn.get("date_document") == e["truth_date"]
+                anach_inj["caught" if fixed else "missed"] += 1      # beyond the reach of a deletion-only repairer
+                continue
+            if e["damage"] == "DUPLICATE":
+                continue
             key = (e["s"], e["p"], e["o"])
             if e["damage"] == "MISSING":
                 bucket = "beyond_reach"
@@ -141,9 +149,10 @@ def judge(truth, cand, journal=None):
                 bucket = "visible" if e.get("visible_by_law") else "invisible"
                 caught = not seen.get(key)         # the spurious edge is gone
             sub[bucket]["caught" if caught else "missed"] += 1
-        wrongly_broken = sum(1 for tf in truth["facts"] if per_fact[tf["id"]]["status"] == "missed" and tf["id"] not in fault_facts)
+        injected_missing = {(e["s"], e["p"], e["o"]) for e in inj if e["damage"] == "MISSING"}
+        wrongly_broken = sum(1 for key, tf in tfacts.items() if per_fact[tf["id"]]["status"] == "missed" and tf["id"] not in fault_facts and key not in injected_missing)
         known_removed = sum(1 for tf in truth["facts"] if fault_facts.get(tf["id"]) == "law_violation" and per_fact[tf["id"]]["known_fault"] == "removed")
-        repair = {"visible": dict(sub["visible"]), "invisible": dict(sub["invisible"]), "beyond_reach": dict(sub["beyond_reach"]),
+        repair = {"visible": dict(sub["visible"]), "invisible": dict(sub["invisible"]), "beyond_reach": dict(sub["beyond_reach"]), "anachronism_injected": dict(anach_inj),
                   "wrongly_broken": wrongly_broken, "collateral": len(collateral), "known_violations_removed": known_removed}
 
     verdict = {

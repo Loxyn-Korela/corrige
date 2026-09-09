@@ -38,6 +38,8 @@ def inject(truth, damages, visible=None, seed=b"", duplicate=False):
     facts = {(f["s"], f["p"], f["o"]): dict(f) for f in truth["facts"]}
     fault_facts = {k["fact"] for k in truth.get("known_registry_faults", []) if "fact" in k}
     injected = []
+    # node damages first, so that the visibility of a spurious edge is judged on the final nodes
+    damages = sorted(damages, key=lambda d: 0 if d[1] == "ANACHRONISM" else 1)
     for den, kind, rate in damages:
         rate = _exact_rate(rate)
         if kind == "SPURIOUS_EDGE":
@@ -65,7 +67,7 @@ def inject(truth, damages, visible=None, seed=b"", duplicate=False):
                 raise RuntimeError(f"visible share not met: {made['vis']} of {n_vis}")
         elif kind == "MISSING":
             if den not in RELS: raise ValueError("MISSING needs a relation denominator")
-            pool = sorted(k for k, f in facts.items() if f["p"] == den and f["id"] not in fault_facts and not f.get("injected"))
+            pool = sorted(k for k, f in facts.items() if f["p"] == den and not f.get("injected") and f.get("id") not in fault_facts)
             n = round(rate * len(pool))
             for key in rng.sample(pool, n):
                 f = facts.pop(key)
@@ -76,7 +78,7 @@ def inject(truth, damages, visible=None, seed=b"", duplicate=False):
             n = round(rate * len(pool))
             for nid in rng.sample(pool, n):
                 d = datetime.date.fromisoformat(nodes[nid]["date_document"])
-                new = d.replace(year=d.year + 1).isoformat()
+                new = (d.replace(year=d.year + 1) if not (d.month == 2 and d.day == 29) else d.replace(year=d.year + 1, day=28)).isoformat()
                 injected.append({"damage": "ANACHRONISM", "node": nid, "truth_date": nodes[nid]["date_document"], "injected_date": new})
                 nodes[nid]["date_document"] = new
         else:

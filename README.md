@@ -24,3 +24,23 @@ The full truth (489,223 facts, 202 MB) is not committed: it is rebuilt from the 
 and its sha256 is published here: `4796f91da81289a0…`. The toy truth (200 facts) is committed.
 
 Licence: Apache 2.0 for the tools, CC BY-SA 4.0 for the truth records. Loxyn SAS, Lyon.
+
+## First measure (2026-09-09, full truth, two witnesses, no candidate yet)
+
+Injected with a sealed seed: 10 % spurious `repeals` and `amends` edges, half of them visible by
+a law; 5 % `repeals` removed; 2 % of dated nodes shifted by a year. Then the two witnesses judged
+(`runs/first/verdict-*.json`):
+
+| | dumb baseline | rule without model |
+|---|---|---|
+| spurious edges visible by a law (3,934) | caught 0 | caught **3,934** |
+| spurious edges invisible to the laws (3,936) | caught 0 | caught **0** |
+| removed true edges (719) | beyond reach | beyond reach |
+| shifted dates (5,276) | beyond reach | beyond reach |
+| true facts wrongly broken | 0 | **286** (dated noise made them look illegal) |
+| true facts that really violate a law, removed | 0 | 238 of 239 (one was shifted out of violation) |
+
+This is the ceiling of a deletion-only, constraint-based repair on this truth, before pgrepair
+runs: it sees exactly what the laws see and nothing else, and dated noise turns it against the
+truth. The census control (`known_violations_removed` = census) holds exactly only when no
+ANACHRONISM is injected (T10); with dated noise the small difference is explained, not hidden.
