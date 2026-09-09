@@ -59,7 +59,7 @@ def header(c, auditor, n, n_common, truth):
         "Lisez le TEXTE de l'acte A (lien « ouvrir le texte »). Pour les actes anciens, la page web n'a que le titre : le lien « PDF » ouvre le scan du Journal officiel, qui a une couche texte, on peut y chercher (Cmd+F). Dans ces scans, le signe ° est souvent lu 0 (« n0 3944/87 ») : cherchez le numéro seul (« 3944/87 »). Un PDF du JO contient parfois plusieurs actes à la suite : prenez celui dont le titre est imprimé ici. L'onglet du navigateur affiche « EN » même en français : c'est l'interface, pas le document. Ne regardez JAMAIS le cadre « Relations entre documents » ou « Informations sur le document » d'EUR-Lex : ce cadre, c'est la base qu'on contrôle. S'y fier, c'est faire noter l'élève par lui-même.",
         "OUI seulement si vous avez lu la phrase dans le texte de A ; notez le numéro d'article (ou « titre », ou « visas »). NON si vous avez cherché aux endroits indiqués sans trouver : un NON honnête vaut plus qu'un OUI deviné. ILLISIBLE si le texte est absent ou illisible (scan sans couche texte) : c'est une réponse valable. Pas plus de 5 minutes par fait ; la plupart se règlent en une.",
         "NE JUGEZ JAMAIS SUR LES TITRES. A et B parlent souvent de sujets sans rapport : un avis sur les œufs à couver « se fonde sur » l'article 198 du traité, qui parle du Comité économique et social. La base légale est l'article qui AUTORISE l'acte, pas un texte sur le même thème. La seule question : le texte de A cite-t-il B par son numéro ?",
-        "LA MÉTHODE : sous chaque question, le carnet donne l'extrait trouvé par une recherche automatique du numéro de B dans le texte de A (une recherche de texte, aucun modèle). Ouvrez le texte, retrouvez la phrase (Cmd+F avec le numéro), cochez OUI et notez l'article. Si le carnet dit « aucun extrait trouvé », cherchez vous-même avec Cmd+F et les numéros indiqués ; si rien n'apparaît : NON.",
+        "LA MÉTHODE : sous chaque question, le carnet donne l'extrait trouvé par une recherche automatique du numéro de B dans le texte de A (une recherche de texte, aucun modèle). Ouvrez le texte, retrouvez la phrase (Cmd+F avec le numéro). OUI SEULEMENT SI LA PHRASE DIT LA RELATION : « … est abrogé », « … est modifié comme suit », « vu le règlement … ». Un simple renvoi, une note de bas de page, « dérogeant à », « visé à » ne suffisent pas : c'est NON. Si le carnet dit « aucun extrait trouvé », cherchez vous-même ; si rien n'apparaît : NON.",
         "EXEMPLE RÉSOLU : A = avis du Comité économique et social 51989AC0677, B = article 198 du traité CEE. Le PDF de A commence par « Le 9 mars 1989, le Conseil a décidé, conformément à l'article 198 du Traité … de consulter le Comité ». Réponse : OUI, « première phrase ».",
         "Remplissez les cases directement dans ce PDF (Aperçu, Acrobat, ou un navigateur), enregistrez, renvoyez le fichier à contact@loxyn.ai. Si l'enregistrement des cases ne marche pas chez vous, la dernière page est une feuille de réponses à remplir à la main et à photographier.",
     ]
@@ -79,7 +79,7 @@ def act_links(c, act, y, avail, pdfs, is_a=True):
     if avail.get(act["celex"]) == "title+pdf" and is_a:
         c.setFont(BOLD, 8.6); c.setFillColor(HexColor("#b45309"))
         if shown:
-            c.drawString(x + 10, y, f"← pas de texte en page web : ouvrez le PDF {shown[0]} (scan du JO, avec texte)")
+            c.drawString(x + 10, y, f"← pas de texte en page web : ouvrez le PDF {shown[0]}")
         else:
             c.drawString(x + 10, y, "← aucun texte servi par EUR-Lex, ni page ni PDF : répondez ILLISIBLE")
         c.setFillColor(black)
@@ -90,18 +90,25 @@ def extract_block(c, f, ext, y):
     e = ext.get(f["id"]) if ext else None
     if not e:
         return y
-    src = {"html": "page web", "pdf": "PDF du JO", "error": "texte non récupéré"}.get(e.get("source"), "")
-    if e.get("hits"):
-        h = e["hits"][0]
+    src = {"html": "page web", "pdf": "PDF", "pdf-en": "PDF EN", "error": "texte non récupéré"}.get(e.get("source"), "")
+    keys = ", ".join(f"« {k} »" for k in e.get("keys", [])[:3])
+    good = [h for h in e.get("hits", []) if h.get("has_verb") and h.get("readable", True)]
+    if good:
+        h = good[0]
         c.setFillColor(HexColor("#1d4ed8"))
-        y = wrap(c, f"Extrait trouvé par recherche automatique du numéro « {h['key']} » dans le texte de A ({src}) — à vérifier dans le texte :", M, y, W - 2 * M, size=9, leading=11.4)
+        y = wrap(c, f"Extrait trouvé par recherche automatique du numéro « {h['key']} » dans le texte de A ({src}) — à vérifier dans le texte, puis OUI seulement si la phrase dit bien la relation :", M, y, W - 2 * M, size=9, leading=11.4)
         c.setFillColor(HexColor("#1e3a8a"))
-        sent = h["sentence"].replace("\n", " ")
-        y = wrap(c, "« " + (sent[:420] + " …" if len(sent) > 420 else sent) + " »", M + 10, y, W - 2 * M - 10, size=9.2, leading=11.6)
+        y = wrap(c, "« " + h["sentence"].replace("\n", " ") + " »", M + 10, y, W - 2 * M - 10, size=9.2, leading=11.6)
+    elif e.get("hits"):
+        c.setFillColor(HexColor("#7c2d12"))
+        y = wrap(c, f"Le numéro « {e['hits'][0]['key']} » apparaît dans le texte de A ({src}) mais pas dans une phrase qui dit la relation (renvoi, note, dérogation…) : jugez vous-même. Cherchez (Cmd+F) {keys}.", M, y, W - 2 * M, size=9, leading=11.4)
+    elif not e.get("keys"):
+        c.setFillColor(HexColor("#7c2d12"))
+        y = wrap(c, "B est un accord, une annexe ou un protocole sans numéro cherchable : lisez le titre et l'article 1 de A, qui nomment ce qu'ils modifient ou abrogent.", M, y, W - 2 * M, size=9, leading=11.4)
     else:
         c.setFillColor(HexColor("#7c2d12"))
-        keys = ", ".join(f"« {k} »" for k in e.get("keys", [])[:3])
-        y = wrap(c, f"Aucun extrait trouvé automatiquement ({src}). Cherchez vous-même dans le texte de A (Cmd+F) : {keys}. Si rien n'apparaît : NON.", M, y, W - 2 * M, size=9, leading=11.4)
+        why = f" ({e['note']})" if e.get("note") else ""
+        y = wrap(c, f"Aucun extrait trouvé automatiquement ({src}{why}). Cherchez vous-même dans le texte de A (Cmd+F) : {keys}. Si rien n'apparaît : NON.", M, y, W - 2 * M, size=9, leading=11.4)
     c.setFillColor(black)
     return y - 2
 
@@ -111,7 +118,7 @@ def fact_block(c, f, a, b, titles, common, y, avail, ext=None, pdfs=None):
     rel, q, hint = Q[f["p"]]
     ta = titles.get(a["id"]) or "(titre non disponible)"; tb = titles.get(b["id"]) or "(titre non disponible)"
     e = (ext or {}).get(f["id"]) or {}
-    ext_len = len(simpleSplit((e.get("hits") or [{"sentence": ""}])[0]["sentence"][:380], FONT, 9.2, W - 2 * M - 10)) + 2 if e else 0
+    ext_len = len(simpleSplit((e.get("hits") or [{"sentence": ""}])[0]["sentence"][:460], FONT, 9.2, W - 2 * M - 10)) + 3 if e else 0
     need = 30 + 12.5 * (len(simpleSplit("A : " + ta, FONT, 9.5, W - 2 * M)) + len(simpleSplit("B : " + tb, FONT, 9.5, W - 2 * M)) + len(simpleSplit(q + " " + hint, FONT, 9.5, W - 2 * M)) + ext_len) + 46
     if y - need < M + 20:
         c.showPage(); y = H - M
@@ -134,7 +141,7 @@ def fact_block(c, f, a, b, titles, common, y, avail, ext=None, pdfs=None):
     opts = [("OUI", "oui"), ("NON, je ne le trouve pas", "non"), ("ILLISIBLE (absent, scanné, trop long)", "illisible")]
     x = M
     for label, val in opts:
-        form.radio(name=f"r_{fid}", tooltip="réponse", value=val, selected=False, x=x, y=y - 3, size=12, buttonStyle="check", borderWidth=1, borderColor=black, fillColor=white, fieldFlags="noToggleToOff radio")
+        form.radio(name=f"r_{fid}", tooltip="réponse", value=val, selected=False, x=x, y=y - 3, size=14, buttonStyle="check", borderWidth=1, borderColor=black, fillColor=white, fieldFlags="noToggleToOff radio")
         c.setFont(FONT, 9.5); c.drawString(x + 16, y, label); x += 24 + c.stringWidth(label, FONT, 9.5)
     y -= 20
     c.setFont(FONT, 9.5); c.drawString(M, y, "Si OUI, article n° (ou « titre », « visas ») :")

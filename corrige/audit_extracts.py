@@ -35,7 +35,9 @@ def pdf_text(celex, lang="FR"):
     from pypdf import PdfReader
     data = fetch(f"https://eur-lex.europa.eu/legal-content/{lang}/TXT/PDF/?uri=CELEX:{celex}", timeout=180)
     r = PdfReader(io.BytesIO(data))
-    return "\n".join((p.extract_text() or "") for p in r.pages[:60])
+    if len(r.pages) > 120:
+        raise RuntimeError(f"very long PDF ({len(r.pages)} pages)")
+    return "\n".join((p.extract_text() or "") for p in r.pages)
 
 
 def keys_for(celex):
@@ -47,8 +49,8 @@ def keys_for(celex):
     yy = year[2:]
     if sector == "1":                                   # treaty article: 11957E198 -> article 198
         return [f"article {num}", f"art. {num}", f"articles {num}"]
-    if sector == "2":                                   # international agreement / annex / protocol: search its nature
-        return ["accord", "annexe", "protocole", "convention"]
+    if sector == "2":                                   # international agreement / annex / protocol: no reliable numeric key
+        return []
     if sector == "5":                                   # preparatory act: 52009DC0557 -> COM(2009) 557
         return [f"COM({year}) {num}", f"COM ({year}) {num}", f"({year}) {num}", f"{num}/{year}", f"{year}/{num}"]
     keys = [f"{num}/{year}", f"{year}/{num}", f"{num}/{yy}", f"{yy}/{num}"]
@@ -57,22 +59,37 @@ def keys_for(celex):
     return keys
 
 
+VERB = {"repeals": r"abrog|repeal", "amends": r"modifi|amend|remplac|replac|insér|insert|supprim|delet",
+        "based_on": r"\bvu\b|having regard|conformément|in accordance|fondé|based on|basé"}
+
+
 def sentences(txt):
     for s in re.split(r'(?<=[.;:!?])\s+|\n+', txt):
         s = s.strip()
-        if 12 <= len(s) <= 700:
+        if 12 <= len(s) <= 900:
             yield s
 
 
-def locate(txt, keys):
+def window(s, m, half=210):
+    a, b = max(0, m.start() - half), min(len(s), m.end() + half)
+    return ("… " if a > 0 else "") + s[a:b] + (" …" if b < len(s) else "")
+
+
+def locate(txt, keys, relation):
+    """Sentences of A that name B (numeric key), each tagged has_verb when it also carries the
+    verb of the relation. Verb-bearing sentences first; for repeals the last one (final articles)."""
     hits = []
+    verb = re.compile(VERB[relation], re.I)
     for s in sentences(txt):
+        spaced = s.count(" ") >= len(s) / 25          # a scan whose spaces were lost is not quotable
         for k in keys:
-            if re.search(r'(?<![\d/])' + re.escape(k) + r'(?![\d/])', s, re.I):
-                hits.append({"key": k, "sentence": s[:420]}); break
-        if len(hits) >= 2:
-            break
-    return hits
+            m = re.search(r'(?<![\d/])' + re.escape(k) + r'(?![\d/])', s, re.I)
+            if m:
+                hits.append({"key": k, "sentence": window(s, m), "has_verb": bool(verb.search(s)), "readable": spaced}); break
+    verbed = [h for h in hits if h["has_verb"] and h["readable"]]
+    if relation == "repeals": verbed = verbed[::-1]
+    rest = [h for h in hits if not (h["has_verb"] and h["readable"])]
+    return (verbed + rest)[:2]
 
 
 def main():
@@ -82,29 +99,32 @@ def main():
     facts = {f["id"]: f for f in truth["facts"]}; nodes = {n["id"]: n for n in truth["nodes"]}
     cache = {}
 
+    pdfs = json.load(open(out / "eurlex-pdf-availability.json", encoding="utf-8")) if (out / "eurlex-pdf-availability.json").exists() else {}
+
     def text_of(celex):
         if celex in cache: return cache[celex]
-        src, txt = "html", ""
+        src, txt, note = "html", "", ""
         try:
             if avail.get(celex) == "html":
                 txt = html_text(celex)
             if len(txt) < 2000:
-                src, txt = "pdf", pdf_text(celex)
+                lang = "FR" if pdfs.get(celex, {}).get("FR", True) else "EN"
+                src, txt = ("pdf" if lang == "FR" else "pdf-en"), pdf_text(celex, lang)
         except Exception as e:
-            src, txt = "error", ""
-        cache[celex] = (src, txt); return cache[celex]
+            src, txt, note = "error", "", str(e)[:80]
+        cache[celex] = (src, txt, note); return cache[celex]
 
     def one(fid):
         f = facts[fid]; a, b = nodes[f["s"]], nodes[f["o"]]
-        src, txt = text_of(a["celex"])
+        src, txt, note = text_of(a["celex"])
         keys = keys_for(b["celex"])
-        hits = locate(txt, keys) if txt else []
-        return fid, {"a": a["celex"], "b": b["celex"], "source": src, "chars": len(txt), "keys": keys, "hits": hits}
+        hits = locate(txt, keys, f["p"]) if (txt and keys) else []
+        return fid, {"a": a["celex"], "b": b["celex"], "source": src, "note": note, "chars": len(txt), "keys": keys, "hits": hits}
 
     t0 = time.time(); res = {}
     prev = json.load(open(out / "extracts.json", encoding="utf-8")) if (out / "extracts.json").exists() else {}
     for fid in rec["facts"]:
-        if prev.get(fid, {}).get("hits") or prev.get(fid, {}).get("source") in ("html", "pdf"):
+        if "--fresh" not in sys.argv and (prev.get(fid, {}).get("hits") or prev.get(fid, {}).get("source") in ("html", "pdf", "pdf-en")) and "has_verb" in str(prev.get(fid, {})):
             res[fid] = prev[fid]; continue          # keep what was already located; only retry errors
         res[fid] = one(fid)[1]
     if sum(1 for r in res.values() if r["source"] == "error") == len(res):
