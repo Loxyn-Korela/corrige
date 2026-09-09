@@ -45,13 +45,13 @@
   "hits": [
    {
     "key": "2012/535",
-    "sentence": "Décision d'exécution (UE) 2018/618 de la Commission du 19 avril 2018 modifiant la décision d'exécution 2012/535/UE en ce qui concerne les mesures destinées à prévenir la propagation, dans l'Union, de Bursaphelenchus xylophilus (Steiner et Buhrer) Nickle et al.",
+    "sentence": "Il y a donc lieu de modifier la décision d'exécution 2012/535/UE en conséquence.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "2012/535",
-    "sentence": "modifiant la décision d'exécution 2012/535/UE en ce qui concerne les mesures destinées à prévenir la propagation, dans l'Union, de Bursaphelenchus xylophilus (Steiner et Buhrer) Nickle et al.",
+    "sentence": "L'annexe II de la décision d'exécution 2012/535/UE est modifiée conformément à l'annexe de la présente décision.",
     "has_verb": true,
     "readable": true
    }
@@ -456,15 +456,15 @@
   "hits": [
    {
     "key": "article 109",
-    "sentence": "Opinion of the European Monetary Institute on a consultation received from the Bank of England, under Article 109f (6) of the Treaty establishing the European Community (the “Treaty”) and Article 5.3 of the Statute of the EMI (the “Statute”), in relation to regulations to be made under the UK Companies Act 1989 (the “Act” …",
+    "sentence": "The EMI’s competence to deliver an opinion in this consultation is based on Article 109f (2),",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "article 109",
-    "sentence": "The EMI’s competence to deliver an opinion in this consultation is based on Article 109f (2),",
+    "sentence": "Opinion of the European Monetary Institute on a consultation received from the Bank of England, under Article 109f (6) of the Treaty establishing the European Community (the “Treaty”) and Article 5.3 of the Statute of the EMI (the “Statute”), in relation to regulations to be made under the UK Companies Act 1989 (the “Act” …",
     "has_verb": true,
-    "readable": true
+    "readable": false
    }
   ]
  },
@@ -613,13 +613,13 @@
   "hits": [
    {
     "key": "3007/84",
-    "sentence": "(CEE) n0 3007/84 de la Commissionf), modifié en",
-    "has_verb": true,
+    "sentence": "RÈGLEMENT (CEE) No 2060/91 DE LA COMMISSION du 12 juillet 1991 dérogeant au règlement (CEE) no 3007/84 portant modalités d' application de la prime au bénéfice des producteurs de viande ovine en ce qui concerne la période de dépôt des demandes en Grèce pour la campagne 1991 #.",
+    "has_verb": false,
     "readable": true
    },
    {
     "key": "3007/84",
-    "sentence": "RÈGLEMENT (CEE) No 2060/91 DE LA COMMISSION du 12 juillet 1991 dérogeant au règlement (CEE) no 3007/84 portant modalités d' application de la prime au bénéfice des producteurs de viande ovine en ce qui concerne la période de dépôt des demandes en Grèce pour la campagne 1991 #.",
+    "sentence": "dérogeantau règlement(CEE) n° 3007/84 portantmodalités d'application de la",
     "has_verb": false,
     "readable": true
    }
@@ -960,13 +960,13 @@
   "hits": [
    {
     "key": "2012/389",
-    "sentence": "Décision (PESC) 2020/663 du Conseil du 18 mai 2020 modifiant la décision 2012/389/PESC relative à la mission de l’Union européenne visant au renforcement des capacités en Somalie (EUCAP Somalia).",
+    "sentence": "Le 10 décembre 2018, le Conseil a adopté la décision (PESC) 2018/1942 ( 3 ) modifiant la décision 2012/389/PESC afin de proroger l’EUCAP Somalia et de la doter d’un montant de référence financière pour la période allant du 1 er janvier 2019 au 31 décembre 2020.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "2012/389",
-    "sentence": "modifiant la décision 2012/389/PESC relative à la mission de l’Union européenne visant au renforcement des capacités en Somalie (EUCAP Somalia)",
+    "sentence": "Il y a lieu de modifier la décision 2012/389/PESC en augmentant le montant de référence financière,",
     "has_verb": true,
     "readable": true
    }
@@ -1477,13 +1477,13 @@
   "hits": [
    {
     "key": "1907/2006",
-    "sentence": "Règlement (UE) 2023/2482 de la Commission du 13 novembre 2023 modifiant le règlement (CE) no 1907/2006 du Parlement européen et du Conseil en ce qui concerne la substance phtalate de bis (2-éthylhexyle) (DEHP) dans les dispositifs médicaux.",
+    "sentence": "vu le règlement (CE) n o 1907/2006 du Parlement européen et du Conseil du 18 décembre 2006 concernant l’enregistrement, l’évaluation et l’autorisation des substances chimiques, ainsi que les restrictions applicables à ces substances (REACH), in …",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "1907/2006",
-    "sentence": "modifiant le règlement (CE) n o 1907/2006 du Parlement européen et du Conseil en ce qui concerne la substance phtalate de bis (2-éthylhexyle) (DEHP) dans les dispositifs médicaux",
+    "sentence": "Conformément à l’article 55 du règlement (CE) n o 1907/2006, le DEHP doit être progressivement remplacé par des solutions de remplacement appropriées.",
     "has_verb": true,
     "readable": true
    }
@@ -1900,7 +1900,7 @@
     "key": "2003/299",
     "sentence": "xix) la décision 2003/299/CE du Conseil du 14 avril 2003 relative à la conclusion d’un protocole d’adaptation des aspects commerciaux de l’accord européen établissant une association entre les Communautés européennes et leurs États mem …",
     "has_verb": false,
-    "readable": true
+    "readable": false
    }
   ]
  },
@@ -2463,7 +2463,7 @@
     "key": "78/316",
     "sentence": "directive 78/316/CEE du Conseil du 21 décembre 1977 concernant le rapprochement des législations des États membres relatives à l’aménagement intérieur des véhicules à moteur (identification des commandes, témoins et indicateur …",
     "has_verb": false,
-    "readable": true
+    "readable": false
    }
   ]
  },
@@ -2484,13 +2484,13 @@
   "hits": [
    {
     "key": "2010/452",
-    "sentence": "Décision (PESC) 2015/2008 du Conseil du 10 novembre 2015 modifiant la décision 2010/452/PESC concernant la mission d'observation de l'Union européenne en Géorgie (EUMM Georgia).",
+    "sentence": "Le 16 décembre 2014, le Conseil a adopté la décision 2014/915/PESC ( 3 ) modifiant la décision 2010/452/PESC, qui prorogeait la mission jusqu'au 14 décembre 2016 et prévoyait un montant de référence financière jusqu'au 14 décembre 2015.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "2010/452",
-    "sentence": "modifiant la décision 2010/452/PESC concernant la mission d'observation de l'Union européenne en Géorgie (EUMM Georgia)",
+    "sentence": "Il convient de modifier la décision 2010/452/PESC en conséquence,",
     "has_verb": true,
     "readable": true
    }
@@ -3119,15 +3119,15 @@
   "hits": [
    {
     "key": "2002/309",
-    "sentence": "vu la décision du Conseil et de la Commission concernant l'Accord de coopération scientifique et technologique du 4 avril 2002 relative à la conclusion de sept accords avec la Confédération suisse (2002/309/CE, Euratom), et notamment son article 3,",
-    "has_verb": true,
-    "readable": true
+    "sentence": "La décision (2002/309/CE, Euratom) du Conseil et de la Commission concernant l'Accord de coopération scientifique et technologique du 4 avril 2002 relative à la conclusion de sept accords avec la Confédération suisse prévoit, dans  …",
+    "has_verb": false,
+    "readable": false
    },
    {
     "key": "2002/309",
-    "sentence": "La décision (2002/309/CE, Euratom) du Conseil et de la Commission concernant l'Accord de coopération scientifique et technologique du 4 avril 2002 relative à la conclusion de sept accords avec la Confédération suisse prévoit, dans  …",
+    "sentence": "[1] Décision du Conseil et de la Commission concernant l'Accord de coopération scientifique et technologique du 4 avril 2002 relative à la conclusion de sept accords avec la Confédération suisse (2002/309/CE, Euratom) JO L114 du 30.4.2002, p.",
     "has_verb": false,
-    "readable": true
+    "readable": false
    }
   ]
  },
@@ -3610,15 +3610,15 @@
   "hits": [
    {
     "key": "1109/72",
-    "sentence": "Le règlement (CEE) n° 1109/72estabroge.",
-    "has_verb": true,
+    "sentence": "1109/72 du Conseil du30 mai 1972 (3) ;",
+    "has_verb": false,
     "readable": true
    },
    {
     "key": "1109/72",
-    "sentence": "1109/72 du Conseil du30 mai 1972 (3) ;",
-    "has_verb": false,
-    "readable": true
+    "sentence": "Le règlement (CEE) n° 1109/72estabroge.",
+    "has_verb": true,
+    "readable": false
    }
   ]
  },
@@ -3861,13 +3861,13 @@
   "hits": [
    {
     "key": "91/648",
-    "sentence": "Décision de la Commission du 8 novembre 1993 modifiant la décision 91/648/CEE concernant l'établissement d'un avenant au cadre communautaire d'appui pour les interventions structurelles communautaires au Royaume-Uni (Irlande du Nord) en matière d'amélioration des conditions de trans …",
+    "sentence": "… inancière du concours du Fonds européen d'orientation et de garantie agricole (FEOGA), section « orientation » pour ce qui est du montant total et des montants par secteur prévus par l'article 2 de la décision 91/648/CEE;",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "91/648",
-    "sentence": "Décision de la Commission du 8 novembre 1993 modifiant la décision 91/648/CEE concernant l'établissement d'un avenant au cadre communautaire d'appui pour les interventions structurelles communautaires au Royaume-Uni (Irlande du Nord) en matière d'amélioration des conditions de trans …",
+    "sentence": "L'article 2 de la décision 91/648/CEE est modifié comme suit:",
     "has_verb": true,
     "readable": true
    }
@@ -3959,7 +3959,7 @@
     "key": "1271/2013",
     "sentence": "vu le règlement délégué (UE) n o 1271/2013 de la Commission du 30 septembre 2013 portant règlement financier-cadre des organismes visés à l’article 208 du règlement (UE, Euratom) n o 966/2012 du Parlement européen et du Conseil ( 6 ) , et notamment son …",
     "has_verb": true,
-    "readable": true
+    "readable": false
    }
   ]
  },

@@ -84,7 +84,8 @@ def locate(txt, keys, relation):
     verb = re.compile(VERB[relation], re.I)
     for s in sentences(txt):
         words = s.split()
-        spaced = s.count(" ") >= len(s) / 12 and max((len(w) for w in words), default=0) <= 28   # lost spaces = not quotable
+        spaced = (s.count(" ") >= len(s) / 12 and max((len(w) for w in words), default=0) <= 28
+                  and not re.search(r"\d[a-zé]{3,}|[a-zé]{3,}\)", s))                       # digits glued to letters, "Commissionf)": a scan, not quotable
         for k in keys:
             m = re.search(r'(?<!\d)' + re.escape(k) + r'(?!\d)', s, re.I)
             if m:
