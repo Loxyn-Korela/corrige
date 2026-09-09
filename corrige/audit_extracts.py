@@ -36,7 +36,7 @@ def pdf_text(celex, lang="FR"):
     data = fetch(f"https://eur-lex.europa.eu/legal-content/{lang}/TXT/PDF/?uri=CELEX:{celex}", timeout=180)
     r = PdfReader(io.BytesIO(data))
     if len(r.pages) > 120:
-        raise RuntimeError(f"very long PDF ({len(r.pages)} pages)")
+        raise RuntimeError(f"PDF très long, {len(r.pages)} pages")
     return "\n".join((p.extract_text() or "") for p in r.pages)
 
 
@@ -61,6 +61,8 @@ def keys_for(celex):
 
 VERB = {"repeals": r"abrog|repeal", "amends": r"modifi|amend|remplac|replac|insér|insert|supprim|delet",
         "based_on": r"\bvu\b|having regard|conformément|in accordance|fondé|based on|basé"}
+# passive or reverse phrasings where B is the actor or the sentence is a mere reference: not a relation stated by A
+PASSIVE = re.compile(r"modifié(?:e|s|es)? (?:\w+ )?(?:en dernier lieu )?par|amended (?:last )?by|(?:a|ont|est|sont)(?: \w+)? été modifi|has been amended|doivent être intégr|dérog|note de bas|\bvisé", re.I)
 
 
 def sentences(txt):
@@ -81,11 +83,13 @@ def locate(txt, keys, relation):
     hits = []
     verb = re.compile(VERB[relation], re.I)
     for s in sentences(txt):
-        spaced = s.count(" ") >= len(s) / 25          # a scan whose spaces were lost is not quotable
+        words = s.split()
+        spaced = s.count(" ") >= len(s) / 12 and max((len(w) for w in words), default=0) <= 28   # lost spaces = not quotable
         for k in keys:
-            m = re.search(r'(?<![\d/])' + re.escape(k) + r'(?![\d/])', s, re.I)
+            m = re.search(r'(?<!\d)' + re.escape(k) + r'(?!\d)', s, re.I)
             if m:
-                hits.append({"key": k, "sentence": window(s, m), "has_verb": bool(verb.search(s)), "readable": spaced}); break
+                hv = bool(verb.search(s)) and not (relation == "amends" and PASSIVE.search(s))
+                hits.append({"key": k, "sentence": window(s, m), "has_verb": hv, "readable": spaced}); break
     verbed = [h for h in hits if h["has_verb"] and h["readable"]]
     if relation == "repeals": verbed = verbed[::-1]
     rest = [h for h in hits if not (h["has_verb"] and h["readable"])]
@@ -100,6 +104,7 @@ def main():
     cache = {}
 
     pdfs = json.load(open(out / "eurlex-pdf-availability.json", encoding="utf-8")) if (out / "eurlex-pdf-availability.json").exists() else {}
+    titles = json.load(open(out / "titres-fr.json", encoding="utf-8")) if (out / "titres-fr.json").exists() else {}
 
     def text_of(celex):
         if celex in cache: return cache[celex]
@@ -118,7 +123,9 @@ def main():
         f = facts[fid]; a, b = nodes[f["s"]], nodes[f["o"]]
         src, txt, note = text_of(a["celex"])
         keys = keys_for(b["celex"])
-        hits = locate(txt, keys, f["p"]) if (txt and keys) else []
+        title = titles.get(a["id"]) or ""
+        txt2 = (title + ".\n" + txt) if title else txt          # the title of A is part of its text (« modifiant le règlement … »)
+        hits = locate(txt2, keys, f["p"]) if ((txt or title) and keys) else []
         return fid, {"a": a["celex"], "b": b["celex"], "source": src, "note": note, "chars": len(txt), "keys": keys, "hits": hits}
 
     t0 = time.time(); res = {}

@@ -44,14 +44,14 @@
   ],
   "hits": [
    {
-    "key": "2012/535/",
-    "sentence": "modifiant la décision d'exécution 2012/535/UE en ce qui concerne les mesures destinées à prévenir la propagation, dans l'Union, de Bursaphelenchus xylophilus (Steiner et Buhrer) Nickle et al.",
+    "key": "2012/535",
+    "sentence": "Décision d'exécution (UE) 2018/618 de la Commission du 19 avril 2018 modifiant la décision d'exécution 2012/535/UE en ce qui concerne les mesures destinées à prévenir la propagation, dans l'Union, de Bursaphelenchus xylophilus (Steiner et Buhrer) Nickle et al.",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "2012/535/",
-    "sentence": "Il y a donc lieu de modifier la décision d'exécution 2012/535/UE en conséquence.",
+    "key": "2012/535",
+    "sentence": "modifiant la décision d'exécution 2012/535/UE en ce qui concerne les mesures destinées à prévenir la propagation, dans l'Union, de Bursaphelenchus xylophilus (Steiner et Buhrer) Nickle et al.",
     "has_verb": true,
     "readable": true
    }
@@ -71,7 +71,20 @@
    "2014/29/",
    "14/29/"
   ],
-  "hits": []
+  "hits": [
+   {
+    "key": "2014/29",
+    "sentence": "Décision (UE) 2021/1396 de la Banque centrale européenne du 13 août 2021 modifiant la décision BCE/2014/29 concernant la fourniture à la Banque centrale européenne des données prudentielles déclarées aux autorités compétentes nationales par les entités soumises à la surveillance prudentielle conformément aux règlem …",
+    "has_verb": true,
+    "readable": true
+   },
+   {
+    "key": "2014/29",
+    "sentence": "modifiant la décision BCE/2014/29 concernant la fourniture à la Banque centrale européenne des données prudentielles déclarées aux autorités compétentes nationales par les entités soumises à la surveillance prudentielle conformément aux règlem …",
+    "has_verb": true,
+    "readable": true
+   }
+  ]
  },
  "f-003441": {
   "a": "31994D0775",
@@ -89,14 +102,14 @@
   ],
   "hits": [
    {
-    "key": "94/435/",
-    "sentence": "Décision de la Commission du 28 novembre 1994 modifiant les décisions 94/143/CE, 94/187/CE, 94/309/CE, 94/344/CE, 94/446/CE et 94/435/CE établissant les conditions sanitaires et la certification requises à l'importation de certains produits visés par la directive 92/118/CEE du Conseil (Texte présentant de l'intérêt pour l'EEE)",
+    "key": "94/435",
+    "sentence": "considérant que les décisions 94/143/CE, 94/187/CE, 94/309/CE, 94/344/CE, 94/446/CE et 94/435/CE doivent être modifiées en conséquence;",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "94/435/",
-    "sentence": "DÉCISION DE LA COMMISSION du 28 novembre 1994 modifiant les décisions 94/143/CE, 94/187/CE, 94/309/CE, 94/344/CE, 94/446/CE et 94/435/CE établissant les conditions sanitaires et la certification requises à l'importation de certains produits visés par la directive 92/118/CEE du Conseil (Texte présentant de l'intérêt pour l'EEE) (94/775/CE)",
+    "key": "94/435",
+    "sentence": "À l'article 5 de la décision 94/435/CE, la date du « 1er décembre 1994 » est remplacée par celle du « 28 février 1995 ».",
     "has_verb": true,
     "readable": true
    }
@@ -182,14 +195,14 @@
   ],
   "hits": [
    {
-    "key": "2012/389/",
-    "sentence": "modifiant la décision 2012/389/PESC relative à la mission de l'Union européenne visant au renforcement des capacités maritimes régionales dans la Corne de l'Afrique (EUCAP NESTOR)",
+    "key": "2012/389",
+    "sentence": "Décision (PESC) 2015/1793 du Conseil du 6 octobre 2015 modifiant la décision 2012/389/PESC relative à la mission de l'Union européenne visant au renforcement des capacités maritimes régionales dans la Corne de l'Afrique (EUCAP NESTOR).",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "2012/389/",
-    "sentence": "Le 22 juillet 2014, le Conseil a adopté la décision 2014/485/PESC ( 2 ) modifiant la décision 2012/389/PESC et prorogeant la mission de l'Union européenne visant au renforcement des capacités maritimes régionales dans la Corne de l'Afrique (EUCAP NESTOR) jusqu'au 12 décembre 2016.",
+    "key": "2012/389",
+    "sentence": "modifiant la décision 2012/389/PESC relative à la mission de l'Union européenne visant au renforcement des capacités maritimes régionales dans la Corne de l'Afrique (EUCAP NESTOR)",
     "has_verb": true,
     "readable": true
    }
@@ -337,14 +350,14 @@
   ],
   "hits": [
    {
-    "key": "2001/822/",
+    "key": "2001/822",
     "sentence": "vu la décision 2001/822/CE du Conseil du 27 novembre 2001 relative à l’association des pays et territoires d’outre-mer à la Communauté européenne ( 1 ) , et notamment son annexe III, article 6, paragraphe 5, septième alinéa,",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "2001/822/",
-    "sentence": "Conformément à l’article 6 de l’annexe III de la décision 2001/822/CE, les certificats non utilisés pour l’importation de riz originaire des PTOM les moins développés figurant à l’annexe IB sont mis à disposition pour l’importation de riz en provenance des Antilles néerlandais …",
+    "key": "2001/822",
+    "sentence": "Conformément à l’article 6 de l’annexe III de la décision 2001/822/CE, les certificats non utilisés pour l’importation de riz originaire des PTOM les moins développés figurant à l’annexe IB sont mis à disposition pour l’importation de riz en provenance des Antilles néerlandai …",
     "has_verb": true,
     "readable": true
    }
@@ -366,14 +379,14 @@
   ],
   "hits": [
    {
-    "key": "2005/446/",
-    "sentence": "modifiant la décision 2005/446/CE fixant la date limite d'engagement des fonds du 9 e Fonds européen de développement (FED)",
+    "key": "2005/446",
+    "sentence": "Décision des représentants des gouvernements des États membres, réunis au sein du Conseil, du 26 novembre 2007 modifiant la décision 2005/446/CE fixant la date limite d'engagement des fonds du 9 e Fonds européen de développement (FED).",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "2005/446/",
-    "sentence": "Les articles 1 er et 2 de la décision 2005/446/CE sont remplacés par le texte suivant:",
+    "key": "2005/446",
+    "sentence": "modifiant la décision 2005/446/CE fixant la date limite d'engagement des fonds du 9 e Fonds européen de développement (FED)",
     "has_verb": true,
     "readable": true
    }
@@ -443,14 +456,14 @@
   "hits": [
    {
     "key": "article 109",
-    "sentence": "The EMI’s competence to deliver an opinion in this consultation is based on Article 109f (2),",
+    "sentence": "Opinion of the European Monetary Institute on a consultation received from the Bank of England, under Article 109f (6) of the Treaty establishing the European Community (the “Treaty”) and Article 5.3 of the Statute of the EMI (the “Statute”), in relation to regulations to be made under the UK Companies Act 1989 (the “Act” …",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "article 109",
-    "sentence": "On a consultation received from the Bank of England, under Article 109f (6) of the Treaty establishing",
-    "has_verb": false,
+    "sentence": "The EMI’s competence to deliver an opinion in this consultation is based on Article 109f (2),",
+    "has_verb": true,
     "readable": true
    }
   ]
@@ -471,7 +484,7 @@
   ],
   "hits": [
    {
-    "key": "98/536/",
+    "key": "98/536",
     "sentence": "Décision 98/536/CE de la Commission du Décision de la Commission du 3 septembre 1998 arrêtant la liste des laboratoires nationaux de référence pour la recherche de résidus (JO L 251 du 11.9.1998, p.",
     "has_verb": false,
     "readable": true
@@ -494,13 +507,13 @@
   ],
   "hits": [
    {
-    "key": "89/336/",
+    "key": "89/336",
     "sentence": "La directive 89/336/CEE est abrogée à partir du 20 juillet 2007.",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "89/336/",
+    "key": "89/336",
     "sentence": "La directive 89/336/CEE devrait donc être abrogée,",
     "has_verb": true,
     "readable": true
@@ -563,13 +576,13 @@
   ],
   "hits": [
    {
-    "key": "2002/622/",
+    "key": "2002/622",
     "sentence": "La décision 2002/622/CE est abrogée.",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "2002/622/",
+    "key": "2002/622",
     "sentence": "Vu le nombre de modifications nécessitées par l’entrée en vigueur de la directive (UE) 2018/1972, il convient, par souci de clarté, d’abroger et de remplacer la décision 2002/622/CE.",
     "has_verb": true,
     "readable": true
@@ -606,7 +619,7 @@
    },
    {
     "key": "3007/84",
-    "sentence": "dérogeantau règlement(CEE) n° 3007/84 portantmodalités d'application de la",
+    "sentence": "RÈGLEMENT (CEE) No 2060/91 DE LA COMMISSION du 12 juillet 1991 dérogeant au règlement (CEE) no 3007/84 portant modalités d' application de la prime au bénéfice des producteurs de viande ovine en ce qui concerne la période de dépôt des demandes en Grèce pour la campagne 1991 #.",
     "has_verb": false,
     "readable": true
    }
@@ -703,13 +716,13 @@
   "hits": [
    {
     "key": "231/2012",
-    "sentence": "modifiant l’annexe II du règlement (CE) n o 1333/2008 du Parlement européen et du Conseil et l’annexe du règlement (UE) n o 231/2012 de la Commission en ce qui concerne l’utilisation des glycosides de stéviol glycosylés comme édulcorant",
+    "sentence": "Règlement (UE) 2023/447 de la Commission du 1er mars 2023 modifiant l’annexe II du règlement (CE) no 1333/2008 du Parlement européen et du Conseil et l’annexe du règlement (UE) no 231/2012 de la Commission en ce qui concerne l’utilisation des glycosides de stéviol glucosylés comme édulcorant (Texte présentant de l’intérêt pour l’EEE).",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "231/2012",
-    "sentence": "Il y a lieu d’insérer les spécifications des glycosides de stéviol glycosylés dans le règlement (UE) n o 231/2012 car il s’agit de la première inscription de cette substance sur la liste de l’Union des additifs alimentaires établie à l’annexe II du règlement (CE) n o 1333/2008.",
+    "sentence": "modifiant l’annexe II du règlement (CE) n o 1333/2008 du Parlement européen et du Conseil et l’annexe du règlement (UE) n o 231/2012 de la Commission en ce qui concerne l’utilisation des glycosides de stéviol glycosylés comme édulcorant",
     "has_verb": true,
     "readable": true
    }
@@ -775,13 +788,13 @@
   "hits": [
    {
     "key": "853/2004",
-    "sentence": "modifiant l'annexe III du règlement (CE) n o 853/2004 du Parlement européen et du Conseil et l'annexe I du règlement (CE) n o 854/2004 du Parlement européen et du Conseil en ce qui concerne les exigences spécifiques applicables à la manipulation du gros gibier sa …",
+    "sentence": "Règlement (UE) n ° 633/2014 de la Commission du 13 juin 2014 modifiant l'annexe III du règlement (CE) n ° 853/2004 du Parlement européen et du Conseil et l'annexe I du règlement (CE) n ° 854/2004 du Parlement européen et du Conseil en ce qui concerne les exigences spécifiques applicables à la manipulation du gros gibier sa …",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "853/2004",
-    "sentence": "Il y a donc lieu de modifier le règlement (CE) n o 853/2004 en conséquence.",
+    "sentence": "modifiant l'annexe III du règlement (CE) n o 853/2004 du Parlement européen et du Conseil et l'annexe I du règlement (CE) n o 854/2004 du Parlement européen et du Conseil en ce qui concerne les exigences spécifiques applicables à la manipulation du gros gibier sa …",
     "has_verb": true,
     "readable": true
    }
@@ -853,7 +866,7 @@
   "a": "31981B0816",
   "b": "11951K078",
   "source": "error",
-  "note": "very long PDF (132 pages)",
+  "note": "PDF très long, 132 pages",
   "chars": 0,
   "keys": [
    "article 78",
@@ -878,13 +891,13 @@
   ],
   "hits": [
    {
-    "key": "86/364/",
+    "key": "86/364",
     "sentence": "que, à l'occasion de la nouvelle modification de cette directive, il convient de procéder, pour des raisons de clarté et de rationalisation, à sa refonte, en la réunissant en un seul texte avec la directive 86/364/CEE du Conseil, du 24 juillet 1986, relative à la preuve de la conformité des véhicules à la directive 85/3/CEE (5);",
     "has_verb": false,
     "readable": true
    },
    {
-    "key": "86/364/",
+    "key": "86/364",
     "sentence": "- Directive 86/364/CEE relative à la preuve de la conformité des véhicules à la directive 85/3/CEE relative aux poids, aux dimensions et à certaines autres caractéristiques techniques de certains véhicules routiers",
     "has_verb": false,
     "readable": true
@@ -907,7 +920,7 @@
   ],
   "hits": [
    {
-    "key": "96/10/",
+    "key": "96/10",
     "sentence": "Directive 96/10/CE du Parlement européen et du Conseil",
     "has_verb": false,
     "readable": true
@@ -946,14 +959,14 @@
   ],
   "hits": [
    {
-    "key": "2012/389/",
-    "sentence": "modifiant la décision 2012/389/PESC relative à la mission de l’Union européenne visant au renforcement des capacités en Somalie (EUCAP Somalia)",
+    "key": "2012/389",
+    "sentence": "Décision (PESC) 2020/663 du Conseil du 18 mai 2020 modifiant la décision 2012/389/PESC relative à la mission de l’Union européenne visant au renforcement des capacités en Somalie (EUCAP Somalia).",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "2012/389/",
-    "sentence": "Le 10 décembre 2018, le Conseil a adopté la décision (PESC) 2018/1942 ( 3 ) modifiant la décision 2012/389/PESC afin de proroger l’EUCAP Somalia et de la doter d’un montant de référence financière pour la période allant du 1 er janvier 2019 au 31 décembre 2020.",
+    "key": "2012/389",
+    "sentence": "modifiant la décision 2012/389/PESC relative à la mission de l’Union européenne visant au renforcement des capacités en Somalie (EUCAP Somalia)",
     "has_verb": true,
     "readable": true
    }
@@ -1070,15 +1083,15 @@
   "hits": [
    {
     "key": "3077/78",
-    "sentence": "portantmodification du règlement(CEE) n° 3077/78 relatifà laconstatationde",
+    "sentence": "Règlement (CE) n° 972/95 de la Commission du 28 avril 1995 portant modification du règlement (CEE) n° 3077/78 relatif à la constatation de l'équivalence des attestations accompagnant les houblons importés des pays tiers aux certificats communautaires.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "3077/78",
-    "sentence": "considérant que le règlement (CEE) n0 3077/78 de la",
-    "has_verb": false,
-    "readable": true
+    "sentence": "portantmodification du règlement(CEE) n° 3077/78 relatifà laconstatationde",
+    "has_verb": true,
+    "readable": false
    }
   ]
  },
@@ -1098,7 +1111,7 @@
   ],
   "hits": [
    {
-    "key": "80/799/",
+    "key": "80/799",
     "sentence": "La décision 80/799/CEE de la Commission (18) est abrogée.",
     "has_verb": true,
     "readable": true
@@ -1240,7 +1253,7 @@
   ],
   "hits": [
    {
-    "key": "2002/26/",
+    "key": "2002/26",
     "sentence": "Décision 2002/26/CE de la Commission du 11 janvier 2002 fixant les conditions particulières d'importation des produits de la pêche originaires de la République du Gabon ( 58 ) .",
     "has_verb": false,
     "readable": true
@@ -1334,13 +1347,13 @@
   "hits": [
    {
     "key": "2020/1339",
-    "sentence": "… ’essai pour certaines voitures particulières électriques hybrides non rechargeables de l’extérieur et afin de tenir compte de l’utilisation de carburants de substitution, ainsi que la décision d’exécution (UE) 2020/1339 en ce qui concerne les feux de position arrière",
+    "sentence": "… ’essai pour certaines voitures particulières électriques hybrides non rechargeables de l’extérieur et afin de tenir compte de l’utilisation de carburants de substitution, ainsi que la décision d’exécution (UE) 2020/1339 en ce qui concerne les feux de position arrière (Texte présentant de l’intérêt pour l’EEE).",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "2020/1339",
-    "sentence": "… e statiques, il convient de remplacer les taux d’utilisation existants prévus pour ces feux dans la décision d’exécution (UE) 2019/1119 par des taux plus prudents, comme le prévoit la décision d’exécution (UE) 2020/1339 de la Commission ( 6 ) .",
+    "sentence": "… ’essai pour certaines voitures particulières électriques hybrides non rechargeables de l’extérieur et afin de tenir compte de l’utilisation de carburants de substitution, ainsi que la décision d’exécution (UE) 2020/1339 en ce qui concerne les feux de position arrière",
     "has_verb": true,
     "readable": true
    }
@@ -1362,13 +1375,13 @@
   ],
   "hits": [
    {
-    "key": "63/9/",
+    "key": "63/9",
     "sentence": "Les décisions 63/9/CEE et 63/2/Euratom sont abrogées.",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "63/9/",
+    "key": "63/9",
     "sentence": "(2) il convient d'arrêter une nouvelle décision portant détermination de l'autorité investie du pouvoir de nomination pour le secrétariat général du Conseil et d'abroger les décisions 63/2/Euratom et 63/9/CEE(3),",
     "has_verb": true,
     "readable": true
@@ -1442,7 +1455,7 @@
   ],
   "hits": [
    {
-    "key": "75/36/",
+    "key": "75/36",
     "sentence": "- directive 75/36/CEE du Conseil (JO n° L 14 du 20.",
     "has_verb": false,
     "readable": true
@@ -1464,13 +1477,13 @@
   "hits": [
    {
     "key": "1907/2006",
-    "sentence": "modifiant le règlement (CE) n o 1907/2006 du Parlement européen et du Conseil en ce qui concerne la substance phtalate de bis (2-éthylhexyle) (DEHP) dans les dispositifs médicaux",
+    "sentence": "Règlement (UE) 2023/2482 de la Commission du 13 novembre 2023 modifiant le règlement (CE) no 1907/2006 du Parlement européen et du Conseil en ce qui concerne la substance phtalate de bis (2-éthylhexyle) (DEHP) dans les dispositifs médicaux.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "1907/2006",
-    "sentence": "vu le règlement (CE) n o 1907/2006 du Parlement européen et du Conseil du 18 décembre 2006 concernant l’enregistrement, l’évaluation et l’autorisation des substances chimiques, ainsi que les restrictions applicables à ces substances (REACH), in …",
+    "sentence": "modifiant le règlement (CE) n o 1907/2006 du Parlement européen et du Conseil en ce qui concerne la substance phtalate de bis (2-éthylhexyle) (DEHP) dans les dispositifs médicaux",
     "has_verb": true,
     "readable": true
    }
@@ -1526,13 +1539,13 @@
   ],
   "hits": [
    {
-    "key": "2013/503/",
+    "key": "2013/503",
     "sentence": "Étant donné que les listes figurant dans les décisions 93/52/CEE, 94/963/CE, 95/98/CE, 2003/467/CE, 2004/558/CE, 2008/185/CE et 2009/177/CE, dans le règlement (CE) n o 616/2009 et dans la décision d’exécution 2013/503/UE sont remplacées par les listes figurant dans les annexes du présent règlement, il convient d’abroger ces actes et de les remplacer par le présent règlement.",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "2013/503/",
+    "key": "2013/503",
     "sentence": "La décision d’exécution 2013/503/UE de la Commission ( 13 ) dresse la liste des États membres et des territoires d’États membres reconnus indemnes de varroase conformément à la directive 92/65/CEE.",
     "has_verb": false,
     "readable": true
@@ -1592,13 +1605,13 @@
   "hits": [
    {
     "key": "338/79",
-    "sentence": "Règlement (CEE) n° 2397/79 du Conseil, du 30 octobre 1979, modifiant le règlement (CEE) n° 337/79 portant organisation commune du marché viti-vinicole ainsi que le règlement (CEE) n° 338/79 établissant des dispositions particulières relatives aux vins de qualité produits dans des régions déterminées",
+    "sentence": "Règlement (CEE) n° 2397/79 du Conseil, du 30 octobre 1979, modifiant le règlement (CEE) n° 337/79 portant organisation commune du marché viti-vinicole ainsi que le règlement (CEE) n° 338/79 établissant des dispositions particulières relatives aux vins de qualité produits dans des régions déterminées.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "338/79",
-    "sentence": "MODIFIANT LE REGLEMENT ( CEE ) NO 337/79 PORTANT ORGANISATION COMMUNE DU MARCHE VITI-VINICOLE AINSI QUE LE REGLEMENT ( CEE ) NO 338/79 ETABLISSANT DES DISPOSITIONS PARTICULIERES RELATIVES AUX VINS DE QUALITE PRODUITS DANS DES REGIONS DETERMINEES",
+    "sentence": "Règlement (CEE) n° 2397/79 du Conseil, du 30 octobre 1979, modifiant le règlement (CEE) n° 337/79 portant organisation commune du marché viti-vinicole ainsi que le règlement (CEE) n° 338/79 établissant des dispositions particulières relatives aux vins de qualité produits dans des régions déterminées",
     "has_verb": true,
     "readable": true
    }
@@ -1620,7 +1633,7 @@
   ],
   "hits": [
    {
-    "key": "86/150/",
+    "key": "86/150",
     "sentence": "… u'elles continueront à interdire l'entrée dans les échanges intracommunautaires de viandes fraîches de porc et de produits à base de viandes de porcs soumis à restriction conformément aux décisions 86/139/CEE, 86/150/CEE de la Commission (7), ainsi qu'à la décision 86/302/CEE;",
     "has_verb": false,
     "readable": true
@@ -1690,7 +1703,7 @@
   ],
   "hits": [
    {
-    "key": "2006/692/",
+    "key": "2006/692",
     "sentence": "Décision 2006/692/CE de la Commission",
     "has_verb": false,
     "readable": true
@@ -1712,13 +1725,13 @@
   "hits": [
    {
     "key": "2349/84",
-    "sentence": "Règlement (CE) nº 2131/95 de la Commission, du 7 septembre 1995, modifiant le règlement (CEE) nº 2349/84, concernant l' application de l' article 85 paragraphe 3 du traité (CEE) à des catégories d' accords de licence de brevets",
+    "sentence": "Règlement (CE) nº 2131/95 de la Commission, du 7 septembre 1995, modifiant le règlement (CEE) nº 2349/84, concernant l' application de l' article 85 paragraphe 3 du traité (CEE) à des catégories d' accords de licence de brevets.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "2349/84",
-    "sentence": "RÈGLEMENT (CE) N° 2131/95 DE LA COMMISSION du 7 septembre 1995 modifiant le règlement (CEE) n° 2349/84, concernant l'application de l'article 85 paragraphe 3 du traité (CEE) à des catégories d'accords de licence de brevets",
+    "sentence": "Règlement (CE) nº 2131/95 de la Commission, du 7 septembre 1995, modifiant le règlement (CEE) nº 2349/84, concernant l' application de l' article 85 paragraphe 3 du traité (CEE) à des catégories d' accords de licence de brevets",
     "has_verb": true,
     "readable": true
    }
@@ -1740,7 +1753,7 @@
   ],
   "hits": [
    {
-    "key": "93/14/",
+    "key": "93/14",
     "sentence": "La décision 93/14/CEE de la Commission(2) est abrogée.",
     "has_verb": true,
     "readable": true
@@ -1878,14 +1891,14 @@
   ],
   "hits": [
    {
-    "key": "2003/299/",
+    "key": "2003/299",
     "sentence": "… ) n o 678/2001 et (CE) n o 1361/2002 et les décisions 85/211/CEE, 91/373/CEE, 93/722/CE, 93/724/CE, 93/726/CE, 96/620/CE, 1999/86/CE, 2002/63/CE, 2002/958/CE, 2003/18/CE, 2003/285/CE, 2003/286/CE, 2003/298/CE, 2003/299/CE, 2003/452/CE, 2003/463/CE et 2004/484/CE sont abrogés.",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "2003/299/",
-    "sentence": "xix) la décision 2003/299/CE du Conseil du 14 avril 2003 relative à la conclusion d’un protocole d’adaptation des aspects commerciaux de l’accord européen établissant une association entre les Communautés européennes et leurs États memb …",
+    "key": "2003/299",
+    "sentence": "xix) la décision 2003/299/CE du Conseil du 14 avril 2003 relative à la conclusion d’un protocole d’adaptation des aspects commerciaux de l’accord européen établissant une association entre les Communautés européennes et leurs États mem …",
     "has_verb": false,
     "readable": true
    }
@@ -1906,14 +1919,14 @@
   "hits": [
    {
     "key": "1913/2006",
-    "sentence": "Règlement modifié en dernier lieu par le règlement (CE) n o 1913/2006 ( JO L 365 du 21.12.2006, p.",
-    "has_verb": true,
+    "sentence": "… phe 2, le fait générateur du taux de change de l'euro pour la conversion de l'avance et de l'aide à la transformation pour la quantité en cause est celui visé à l’article 2, paragraphe 6, du règlement (CE) n o 1913/2006.",
+    "has_verb": false,
     "readable": true
    },
    {
     "key": "1913/2006",
-    "sentence": "Règlement modifié en dernier lieu par le règlement (CE) n o 1913/2006.",
-    "has_verb": true,
+    "sentence": "Règlement modifié en dernier lieu par le règlement (CE) n o 1913/2006 ( JO L 365 du 21.12.2006, p.",
+    "has_verb": false,
     "readable": true
    }
   ]
@@ -1961,14 +1974,14 @@
   ],
   "hits": [
    {
-    "key": "2000/439/",
+    "key": "2000/439",
     "sentence": "Le règlement (CE) n o 657/2000 et les décisions 2000/439/CE et 2004/465/CE sont abrogés avec effet au 1 er janvier 2007.",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "2000/439/",
-    "sentence": "Un certain nombre de dispositions de la décision 2000/439/CE du Conseil du 29 juin 2000 relative à une participation financière de la Communauté aux dépenses consenties par les États membres pour la collecte de données, ainsi qu’au financement d’études et de projets p …",
+    "key": "2000/439",
+    "sentence": "Un certain nombre de dispositions de la décision 2000/439/CE du Conseil du 29 juin 2000 relative à une participation financière de la Communauté aux dépenses consenties par les États membres pour la collecte de données, ainsi qu’au financement d’études et de projets  …",
     "has_verb": false,
     "readable": true
    }
@@ -1990,7 +2003,7 @@
   ],
   "hits": [
    {
-    "key": "84/128/",
+    "key": "84/128",
     "sentence": "Décision 84/128/CEE de la Commission, du 29 février 1984, instituant un comité consultatif de la recherche et du développement industriels (IRDAC) (JO n° L 66 du 8.3.1984, p.",
     "has_verb": false,
     "readable": true
@@ -2053,13 +2066,13 @@
   "hits": [
    {
     "key": "2727/75",
-    "sentence": "Règlement (CEE) n° 1254/78 du Conseil, du 12 juin 1978, modifiant le règlement (CEE) n° 2727/75 portant organisation commune des marchés dans le secteur des céréales",
+    "sentence": "Règlement (CEE) n° 1254/78 du Conseil, du 12 juin 1978, modifiant le règlement (CEE) n° 2727/75 portant organisation commune des marchés dans le secteur des céréales.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "2727/75",
-    "sentence": "MODIFIANT LE REGLEMENT ( CEE ) NO 2727/75 PORTANT ORGANISATION COMMUNE DES MARCHES DANS LE SECTEUR DES CEREALES",
+    "sentence": "Règlement (CEE) n° 1254/78 du Conseil, du 12 juin 1978, modifiant le règlement (CEE) n° 2727/75 portant organisation commune des marchés dans le secteur des céréales",
     "has_verb": true,
     "readable": true
    }
@@ -2080,13 +2093,13 @@
   "hits": [
    {
     "key": "2089/84",
-    "sentence": "Règlement (CEE) n° 2553/93 du Conseil du 13 septembre 1993 modifiant le règlement (CEE) n° 2089/84 instituant un droit antidumping définitif sur les importations de certains roulements à billes originaires du Japon et de Singapour",
+    "sentence": "Règlement (CEE) n° 2553/93 du Conseil du 13 septembre 1993 modifiant le règlement (CEE) n° 2089/84 instituant un droit antidumping définitif sur les importations de certains roulements à billes originaires du Japon et de Singapour.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "2089/84",
-    "sentence": "RÈGLEMENT (CEE) No 2553/93 DU CONSEIL du 13 septembre 1993 modifiant le règlement (CEE) no 2089/84 instituant un droit antidumping définitif sur les importations de certains roulements à billes originaires du Japon et de Singapour",
+    "sentence": "Règlement (CEE) n° 2553/93 du Conseil du 13 septembre 1993 modifiant le règlement (CEE) n° 2089/84 instituant un droit antidumping définitif sur les importations de certains roulements à billes originaires du Japon et de Singapour",
     "has_verb": true,
     "readable": true
    }
@@ -2108,7 +2121,7 @@
    {
     "key": "1136/79",
     "sentence": "À l'article 2 du règlement (CEE) no 1136/79 de la Commission, du 8 juin 1979, établissant les modalités d'application relatives au régime spécial à l'importation de certaines viandes bovines congelées destinées à la transformation et abrogeant le règlem …",
-    "has_verb": true,
+    "has_verb": false,
     "readable": true
    }
   ]
@@ -2128,13 +2141,13 @@
   "hits": [
    {
     "key": "2793/77",
-    "sentence": "Règlement (CEE) n° 1715/81 de la Commission, du 26 juin 1981, portant huitième modification du règlement (CEE) n° 2793/77 relatif aux modalités d' application d' une aide spéciale pour le lait écrémé destiné à l' alimentation des animaux à l' exclusion des jeunes veaux",
+    "sentence": "Règlement (CEE) n° 1715/81 de la Commission, du 26 juin 1981, portant huitième modification du règlement (CEE) n° 2793/77 relatif aux modalités d' application d' une aide spéciale pour le lait écrémé destiné à l' alimentation des animaux à l' exclusion des jeunes veaux.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "2793/77",
-    "sentence": "PORTANT HUITIEME MODIFICATION DU REGLEMENT ( CEE ) NO 2793/77 RELATIF AUX MODALITES D ' APPLICATION D ' UNE AIDE SPECIALE POUR LE LAIT ECREME DESTINE A L ' ALIMENTATION DES ANIMAUX A L ' EXCLUSION DES JEUNES VEAUX",
+    "sentence": "Règlement (CEE) n° 1715/81 de la Commission, du 26 juin 1981, portant huitième modification du règlement (CEE) n° 2793/77 relatif aux modalités d' application d' une aide spéciale pour le lait écrémé destiné à l' alimentation des animaux à l' exclusion des jeunes veaux",
     "has_verb": true,
     "readable": true
    }
@@ -2155,8 +2168,8 @@
   "hits": [
    {
     "key": "1439/95",
-    "sentence": "considérant que ces changements doivent être intégrés au règlement (CE) n° 1439/95 de la Commission, du 26 juin 1995, établissant les modalités d'application du règlement (CEE) n° 3013/89 du Conseil en ce qui concerne l'importation et l'exportation de produits du secteur des viandes ovine et …",
-    "has_verb": true,
+    "sentence": "Règlement (CE) nº 284/96 de la Commission, du 14 février 1996, portant dérogation au règlement (CE) nº 1439/95 établissant les modalités d' application du règlement (CEE) nº 3013/89 du Conseil en ce qui concerne l' importation et l' exportation de produits du secteur des viandes ovine et caprine, et au règlement (CE) n …",
+    "has_verb": false,
     "readable": true
    },
    {
@@ -2272,14 +2285,14 @@
   ],
   "hits": [
    {
-    "key": "93/197/",
-    "sentence": "modifiant les décisions 92/260/CEE, 93/195/CEE, 93/197/CEE et 2004/211/CE en ce qui concerne l’importation de chevaux enregistrés en provenance de certaines parties de la Chine et adaptant certaines dénominations de pays tiers",
+    "key": "93/197",
+    "sentence": "Décision de la Commission du 30 avril 2010 modifiant les décisions 92/260/CEE, 93/195/CEE, 93/197/CEE et 2004/211/CE en ce qui concerne l’importation de chevaux enregistrés en provenance de certaines parties de la Chine et adaptant certaines dénominations de pays tiers [notifiée sous le numéro C(2010) 2635 …",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "93/197/",
-    "sentence": "Il est également nécessaire de modifier la décision 93/197/CEE afin d’inscrire cette partie de la Chine sur la liste de pays figurant à l’annexe I de ladite décision et d’adapter l’intitulé et certaines exigences en matière de tests du certificat sanitaire C figurant à …",
+    "key": "93/197",
+    "sentence": "modifiant les décisions 92/260/CEE, 93/195/CEE, 93/197/CEE et 2004/211/CE en ce qui concerne l’importation de chevaux enregistrés en provenance de certaines parties de la Chine et adaptant certaines dénominations de pays tiers",
     "has_verb": true,
     "readable": true
    }
@@ -2336,13 +2349,13 @@
   "hits": [
    {
     "key": "2018/47",
-    "sentence": "rectifiant certaines versions linguistiques du règlement délégué (UE) 2018/47 autorisant l’utilisation d’une variante aux chaluts de type T90 dans les pêcheries de la mer Baltique, par dérogation au règlement (CE) n o 2187/2005 du Conseil",
+    "sentence": "Règlement délégué (UE) 2023/1178 de la Commission du 11 avril 2023 rectifiant certaines versions linguistiques du règlement délégué (UE) 2018/47 autorisant l’utilisation d’une variante aux chaluts de type T90 dans les pêcheries de la mer Baltique, par dérogation au règlement (CE) no 2187/2005 du Conseil.",
     "has_verb": false,
     "readable": true
    },
    {
     "key": "2018/47",
-    "sentence": "Les versions croate, finnoise, grecque, lettone et suédoise du règlement délégué (UE) 2018/47 de la Commission ( 2 ) contiennent des erreurs à l’article 4, paragraphe 1, point b), en ce qui concerne l’autorisation d’utiliser des chaluts de type T90 répondant aux spécifications relatives au nombre de ma …",
+    "sentence": "rectifiant certaines versions linguistiques du règlement délégué (UE) 2018/47 autorisant l’utilisation d’une variante aux chaluts de type T90 dans les pêcheries de la mer Baltique, par dérogation au règlement (CE) n o 2187/2005 du Conseil",
     "has_verb": false,
     "readable": true
    }
@@ -2384,13 +2397,13 @@
   "hits": [
    {
     "key": "318/2007",
-    "sentence": "modifiant le règlement (CE) n o 318/2007 fixant les conditions de police sanitaire applicables aux importations de certains oiseaux dans la Communauté et les conditions de quarantaine qui leur sont applicables",
+    "sentence": "Règlement (UE) n o  239/2010 de la Commission du 22 mars 2010 modifiant le règlement (CE) n o  318/2007 fixant les conditions de police sanitaire applicables aux importations de certains oiseaux dans la Communauté et les conditions de quarantaine qui leur sont applicables (Texte présentant de l'intérêt pour l'EE …",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "318/2007",
-    "sentence": "Dans un souci de simplification de la législation de l’Union, il est nécessaire de modifier l’article 6 et de supprimer l’annexe V du règlement (CE) n o 318/2007 afin de tenir compte des nouvelles procédures d’agrément et d’établissement des listes des installations et centres de quarantaine prévues par la directive 91/496/CEE, modifiée par la directive 2008/73/CE.",
+    "sentence": "modifiant le règlement (CE) n o 318/2007 fixant les conditions de police sanitaire applicables aux importations de certains oiseaux dans la Communauté et les conditions de quarantaine qui leur sont applicables",
     "has_verb": true,
     "readable": true
    }
@@ -2412,14 +2425,14 @@
   ],
   "hits": [
    {
-    "key": "75/268/",
+    "key": "75/268",
     "sentence": "vu la directive 75/268/CEE du Conseil du 28 avril 1975, sur l'agriculture de montagne et de certaines zones défavorisées (1), modifiée en dernier lieu par la directive 80/666/CEE (2), et notamment son article 2 paragraphe 3,",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "75/268/",
-    "sentence": "considérant que conformément à l'article 2 para- graphe 1 de la directive 75/268/CEE, le gouvernement du Royaume-Uni a demandé d'inclure au titre de l'article 3 paragraphe 5 de la directive 75/268/CEE, dans la liste communautaire des zones défavorisées, les îles Scilly disposant d'une super …",
+    "key": "75/268",
+    "sentence": "considérant que conformément à l'article 2 para- graphe 1 de la directive 75/268/CEE, le gouvernement du Royaume-Uni a demandé d'inclure au titre de l'article 3 paragraphe 5 de la directive 75/268/CEE, dans la liste communautaire des zones défavorisées, les îles Scilly disposant d'une supe …",
     "has_verb": true,
     "readable": true
    }
@@ -2441,14 +2454,14 @@
   ],
   "hits": [
    {
-    "key": "78/316/",
-    "sentence": "… /CEE, 74/483/CEE, 75/443/CEE, 76/114/CEE, 76/115/CEE, 76/756/CEE, 76/757/CEE, 76/758/CEE, 76/759/CEE, 76/760/CEE, 76/761/CEE, 76/762/CEE, 77/389/CEE, 77/538/CEE, 77/539/CEE, 77/540/CEE, 77/541/CEE, 77/649/CEE, 78/316/CEE, 78/317/CEE, 78/318/CEE, 78/549/CEE, 78/932/CEE, 89/297/CEE, 91/226/CEE, 92/21/CEE, 92/22/CEE, 92/24/CEE, 92/114/CEE, 94/20/CE, 95/28/CE, 96/27/CE, 96/79/CE, 97/27/CE, 98/91/CE, 2000/40/CE, 2001/56/CE, 2001 …",
+    "key": "78/316",
+    "sentence": "… /CEE, 74/483/CEE, 75/443/CEE, 76/114/CEE, 76/115/CEE, 76/756/CEE, 76/757/CEE, 76/758/CEE, 76/759/CEE, 76/760/CEE, 76/761/CEE, 76/762/CEE, 77/389/CEE, 77/538/CEE, 77/539/CEE, 77/540/CEE, 77/541/CEE, 77/649/CEE, 78/316/CEE, 78/317/CEE, 78/318/CEE, 78/549/CEE, 78/932/CEE, 89/297/CEE, 91/226/CEE, 92/21/CEE, 92/22/CEE, 92/24/CEE, 92/114/CEE, 94/20/CE, 95/28/CE, 96/27/CE, 96/79/CE, 97/27/CE, 98/91/CE, 2000/40/CE, 2001/56/CE, 200 …",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "78/316/",
-    "sentence": "directive 78/316/CEE du Conseil du 21 décembre 1977 concernant le rapprochement des législations des États membres relatives à l’aménagement intérieur des véhicules à moteur (identification des commandes, témoins et indicateurs …",
+    "key": "78/316",
+    "sentence": "directive 78/316/CEE du Conseil du 21 décembre 1977 concernant le rapprochement des législations des États membres relatives à l’aménagement intérieur des véhicules à moteur (identification des commandes, témoins et indicateur …",
     "has_verb": false,
     "readable": true
    }
@@ -2470,14 +2483,14 @@
   ],
   "hits": [
    {
-    "key": "2010/452/",
-    "sentence": "modifiant la décision 2010/452/PESC concernant la mission d'observation de l'Union européenne en Géorgie (EUMM Georgia)",
+    "key": "2010/452",
+    "sentence": "Décision (PESC) 2015/2008 du Conseil du 10 novembre 2015 modifiant la décision 2010/452/PESC concernant la mission d'observation de l'Union européenne en Géorgie (EUMM Georgia).",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "2010/452/",
-    "sentence": "Le 16 décembre 2014, le Conseil a adopté la décision 2014/915/PESC ( 3 ) modifiant la décision 2010/452/PESC, qui prorogeait la mission jusqu'au 14 décembre 2016 et prévoyait un montant de référence financière jusqu'au 14 décembre 2015.",
+    "key": "2010/452",
+    "sentence": "modifiant la décision 2010/452/PESC concernant la mission d'observation de l'Union européenne en Géorgie (EUMM Georgia)",
     "has_verb": true,
     "readable": true
    }
@@ -2511,7 +2524,14 @@
    "684/05",
    "05/684"
   ],
-  "hits": []
+  "hits": [
+   {
+    "key": "2005/684",
+    "sentence": "( 1 ) Décision 2005/684/CE, Euratom du Parlement européen du 28 septembre 2005 portant adoption du statut des députés au Parlement européen ( JO L 262 du 7.10.2005, p.",
+    "has_verb": false,
+    "readable": true
+   }
+  ]
  },
  "f-475415": {
   "a": "32003D0654",
@@ -2529,14 +2549,14 @@
   ],
   "hits": [
    {
-    "key": "80/765/",
+    "key": "80/765",
     "sentence": "La décision 80/765/CEE est abrogée.",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "80/765/",
-    "sentence": "(1) La décision 80/765/CEE de la Commission du 8 juillet 1980 établissant le code et les règles types relatifs à la transcription sous une forme lisible par machine des données se rapportant aux enquêtes statistiques intermédiaires s …",
+    "key": "80/765",
+    "sentence": "(1) La décision 80/765/CEE de la Commission du 8 juillet 1980 établissant le code et les règles types relatifs à la transcription sous une forme lisible par machine des données se rapportant aux enquêtes statistiques intermédiaires  …",
     "has_verb": false,
     "readable": true
    }
@@ -2557,13 +2577,13 @@
   "hits": [
    {
     "key": "2019/1241",
-    "sentence": "modifiant le règlement (UE) 2019/1241 du Parlement européen et du Conseil en ce qui concerne les mesures techniques applicables à certaines pêcheries démersales et pélagiques en mer Celtique, en mer d’Irlande et à l’ouest de l’Écosse",
+    "sentence": "Règlement délégué (UE) 2025/283 de la Commission du 28 novembre 2024 modifiant le règlement (UE) 2019/1241 du Parlement européen et du Conseil en ce qui concerne les mesures techniques applicables à certaines pêcheries démersales et pélagiques en mer Celtique, en mer d’Irlande et à l’ouest de l’Écosse.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "2019/1241",
-    "sentence": "vu le règlement (UE) 2019/1241 du Parlement européen et du Conseil du 20 juin 2019 relatif à la conservation des ressources halieutiques et à la protection des écosystèmes marins par des mesures techniques, modifiant les règlements (CE) n o …",
+    "sentence": "modifiant le règlement (UE) 2019/1241 du Parlement européen et du Conseil en ce qui concerne les mesures techniques applicables à certaines pêcheries démersales et pélagiques en mer Celtique, en mer d’Irlande et à l’ouest de l’Écosse",
     "has_verb": true,
     "readable": true
    }
@@ -2606,13 +2626,13 @@
   ],
   "hits": [
    {
-    "key": "76/580/",
-    "sentence": "Les directives 64/225/CEE, 73/239/CEE, 73/240/CEE, 76/580/CEE, 78/473/CEE, 84/641/CEE, 87/344/CEE, 88/357/CEE, 92/49/CEE, 98/78/CE, 2001/17/CE, 2002/83/CE et 2005/68/CE, telles que modifiées par les actes visés à l'annexe VI, partie A, sont abrogées avec effet au 1 er …",
+    "key": "76/580",
+    "sentence": "Les directives 64/225/CEE, 73/239/CEE, 73/240/CEE, 76/580/CEE, 78/473/CEE, 84/641/CEE, 87/344/CEE, 88/357/CEE, 92/49/CEE, 98/78/CE, 2001/17/CE, 2002/83/CE et 2005/68/CE, telles que modifiées par les actes visés à l'annexe VI, partie A, sont abrogées avec effet au 1 e …",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "76/580/",
+    "key": "76/580",
     "sentence": "Directive 76/580/CEE du Conseil",
     "has_verb": false,
     "readable": true
@@ -2634,13 +2654,13 @@
   "hits": [
    {
     "key": "3418/88",
-    "sentence": "Règlement (CEE) n° 2435/90 de la Commission du 21 août 1990 modifiant le règlement (CEE) n° 3418/88 fixant les prix franco frontière de référence applicables à l'importation de certains produits viti-vinicoles à partir du 1er septembre 1988",
+    "sentence": "Règlement (CEE) n° 2435/90 de la Commission du 21 août 1990 modifiant le règlement (CEE) n° 3418/88 fixant les prix franco frontière de référence applicables à l'importation de certains produits viti-vinicoles à partir du 1er septembre 1988.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "3418/88",
-    "sentence": "modifiant le règlement (CEE) no 3418/88 fixant les prix franco frontière de référence applicables à l'importation de certains produits viti-vinicoles à partir du 1er septembre 1988",
+    "sentence": "Règlement (CEE) n° 2435/90 de la Commission du 21 août 1990 modifiant le règlement (CEE) n° 3418/88 fixant les prix franco frontière de référence applicables à l'importation de certains produits viti-vinicoles à partir du 1er septembre 1988",
     "has_verb": true,
     "readable": true
    }
@@ -2672,13 +2692,13 @@
   "hits": [
    {
     "key": "312/2003",
-    "sentence": "modifiant le règlement (CE) n o 312/2003 du Conseil en ce qui concerne les contingents tarifaires applicables à certains produits originaires du Chili",
+    "sentence": "Règlement (CE) n° 305/2005 de la Commission du 19 octobre 2004 modifiant le règlement (CE) n° 312/2003 du Conseil en ce qui concerne les contingents tarifaires applicables à certains produits originaires du Chili.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "312/2003",
-    "sentence": "L’application de ces contingents tarifaires nécessite une modification du règlement (CE) n o 312/2003.",
+    "sentence": "modifiant le règlement (CE) n o 312/2003 du Conseil en ce qui concerne les contingents tarifaires applicables à certains produits originaires du Chili",
     "has_verb": true,
     "readable": true
    }
@@ -2700,14 +2720,14 @@
   ],
   "hits": [
    {
-    "key": "93/16/",
-    "sentence": "Directive 1999/46/CE de la Commission du 21 mai 1999 modifiant la directive 93/16/CEE du Conseil visant à faciliter la libre circulation des médecins et la reconnaissance mutuelle de leurs diplômes, certificats et autres titres (Texte présentant de l'intérêt pour l'EEE)",
+    "key": "93/16",
+    "sentence": "Directive 1999/46/CE de la Commission du 21 mai 1999 modifiant la directive 93/16/CEE du Conseil visant à faciliter la libre circulation des médecins et la reconnaissance mutuelle de leurs diplômes, certificats et autres titres (Texte présentant de l'intérêt pour l'EEE).",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "93/16/",
-    "sentence": "modifiant la directive 93/16/CEE du Conseil visant à faciliter la libre circulation des médecins et la reconnaissance mutuelle de leurs diplômes, certificats et autres titres",
+    "key": "93/16",
+    "sentence": "Directive 1999/46/CE de la Commission du 21 mai 1999 modifiant la directive 93/16/CEE du Conseil visant à faciliter la libre circulation des médecins et la reconnaissance mutuelle de leurs diplômes, certificats et autres titres (Texte présentant de l'intérêt pour l'EEE)",
     "has_verb": true,
     "readable": true
    }
@@ -2728,13 +2748,13 @@
   "hits": [
    {
     "key": "965/2012",
-    "sentence": "modifiant le règlement (UE) n o 965/2012 en ce qui concerne les opérations de service médical d’urgence par hélicoptère",
+    "sentence": "Règlement d’exécution (UE) 2023/1020 de la Commission du 24 mai 2023 modifiant le règlement (UE) no 965/2012 en ce qui concerne les opérations de service médical d’urgence par hélicoptère (Texte présentant de l’intérêt pour l’EEE).",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "965/2012",
-    "sentence": "Il convient dès lors de modifier le règlement (UE) n o 965/2012 en conséquence.",
+    "sentence": "modifiant le règlement (UE) n o 965/2012 en ce qui concerne les opérations de service médical d’urgence par hélicoptère",
     "has_verb": true,
     "readable": true
    }
@@ -2783,14 +2803,14 @@
   ],
   "hits": [
    {
-    "key": "2010/413/",
-    "sentence": "modifiant la décision 2010/413/PESC concernant des mesures restrictives à l'encontre de l'Iran",
+    "key": "2010/413",
+    "sentence": "Décision 2013/270/PESC du Conseil du 6 juin 2013 modifiant la décision 2010/413/PESC concernant des mesures restrictives à l'encontre de l'Iran.",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "2010/413/",
-    "sentence": "En outre, le Conseil estime qu'il convient de modifier les mentions concernant certaines personnes et entités qui figurent à l'annexe II de la décision 2010/413/PESC.",
+    "key": "2010/413",
+    "sentence": "modifiant la décision 2010/413/PESC concernant des mesures restrictives à l'encontre de l'Iran",
     "has_verb": true,
     "readable": true
    }
@@ -2865,13 +2885,13 @@
   "hits": [
    {
     "key": "2017/2226",
-    "sentence": "établissant le filtrage des ressortissants de pays tiers aux frontières extérieures et modifiant les règlements (CE) n o 767/2008, (UE) 2017/2226, (UE) 2018/1240 et (UE) 2019/817",
+    "sentence": "… èglement (UE) 2024/1356 du Parlement européen et du Conseil du 14 mai 2024 établissant le filtrage des ressortissants de pays tiers aux frontières extérieures et modifiant les règlements (CE) n° 767/2008, (UE) 2017/2226, (UE) 2018/1240 et (UE) 2019/817.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "2017/2226",
-    "sentence": "Avec l’entrée en service du système d’entrée/de sortie créé par le règlement (UE) 2017/2226 du Parlement européen et du Conseil ( 10 ) (EES), dans lequel les cachets sont remplacés par une saisie dans l’EES, cette présomption deviendra plus fiable.",
+    "sentence": "établissant le filtrage des ressortissants de pays tiers aux frontières extérieures et modifiant les règlements (CE) n o 767/2008, (UE) 2017/2226, (UE) 2018/1240 et (UE) 2019/817",
     "has_verb": true,
     "readable": true
    }
@@ -2933,14 +2953,14 @@
   "hits": [
    {
     "key": "2015/96",
-    "sentence": "Règlement (CE) nº 2341/96 de la Commission du 6 décembre 1996 rectifiant la version en langue allemande du règlement (CE) nº 2015/96 modifiant le règlement (CE) nº 1931/96 dérogeant au et modifiant le règlement (CEE) nº 2456/93 portant modalités d'application du règlement (CEE) nº 805/68 du Conseil en ce qui concerne l'intervention publique",
-    "has_verb": true,
+    "sentence": "Règlement (CE) nº 2341/96 de la Commission du 6 décembre 1996 rectifiant la version en langue allemande du règlement (CE) nº 2015/96 modifiant le règlement (CE) nº 1931/96 dérogeant au et modifiant le règlement (CEE) nº 2456/93 portant modalités d'application du règlement (CEE) nº 805/68 du Conseil en ce qui concerne l'intervention publique …",
+    "has_verb": false,
     "readable": true
    },
    {
     "key": "2015/96",
-    "sentence": "RÈGLEMENT (CE) N° 2341/96 DE LA COMMISSION du 6 décembre 1996 rectifiant la version en langue allemande du règlement (CE) n° 2015/96 modifiant le règlement (CE) n° 1931/96 dérogeant au et modifiant le règlement (CEE) n° 2456/93 portant modalités d'application du règlement (CEE) n° 805/68 du Conseil en ce qui concerne l'intervention publique",
-    "has_verb": true,
+    "sentence": "Règlement (CE) nº 2341/96 de la Commission du 6 décembre 1996 rectifiant la version en langue allemande du règlement (CE) nº 2015/96 modifiant le règlement (CE) nº 1931/96 dérogeant au et modifiant le règlement (CEE) nº 2456/93 portant modalités d'application du règlement (CEE) nº 805/68 du Conseil en ce qui concerne l'intervention publique",
+    "has_verb": false,
     "readable": true
    }
   ]
@@ -2960,13 +2980,13 @@
   "hits": [
    {
     "key": "1013/2006",
-    "sentence": "modifiant le règlement (CE) n o 1013/2006 du Parlement européen et du Conseil concernant les transferts de déchets afin d’ajouter certains mélanges de déchets à l’annexe III A",
+    "sentence": "Règlement (UE) n ° 664/2011 de la Commission du 11 juillet 2011 modifiant le règlement (CE) n ° 1013/2006 du Parlement européen et du Conseil concernant les transferts de déchets afin d’ajouter certains mélanges de déchets à l’annexe III A  Texte présentant de l'intérêt pour l'EEE.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "1013/2006",
-    "sentence": "Il convient dès lors de modifier le règlement (CE) n o 1013/2006 en conséquence.",
+    "sentence": "modifiant le règlement (CE) n o 1013/2006 du Parlement européen et du Conseil concernant les transferts de déchets afin d’ajouter certains mélanges de déchets à l’annexe III A",
     "has_verb": true,
     "readable": true
    }
@@ -3014,13 +3034,13 @@
   "hits": [
    {
     "key": "1107/2009",
-    "sentence": "portant approbation de la substance active «penflufène», conformément au règlement (CE) n o 1107/2009 du Parlement européen et du Conseil concernant la mise sur le marché des produits phytopharmaceutiques, et modifiant l’annexe du règlement d’exécution (UE) n o 540/2011 de la Commission",
+    "sentence": "Règlement d’exécution (UE) n ° 1031/2013 de la Commission du 24 octobre 2013 portant approbation de la substance active «penflufène» , conformément au règlement (CE) n ° 1107/2009 du Parlement européen et du Conseil concernant la mise sur le marché des produits phytopharmaceutiques, et modifiant l’annexe du règlement d’exécution (UE) n ° 540/2011 de la Commission Texte présentant de l'i …",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "1107/2009",
-    "sentence": "vu le règlement (CE) n o 1107/2009 du Parlement européen et du Conseil du 21 octobre 2009 concernant la mise sur le marché des produits phytopharmaceutiques et abrogeant les directives 79/117/CEE et 91/414/CEE du Conseil ( 1 ) , et notamment so …",
+    "sentence": "portant approbation de la substance active «penflufène», conformément au règlement (CE) n o 1107/2009 du Parlement européen et du Conseil concernant la mise sur le marché des produits phytopharmaceutiques, et modifiant l’annexe du règlement d’exécution (UE) n o 540/2011 de la Commission",
     "has_verb": true,
     "readable": true
    }
@@ -3069,13 +3089,13 @@
   ],
   "hits": [
    {
-    "key": "2003/70/",
+    "key": "2003/70",
     "sentence": "La décision 2003/70/CE est abrogée.",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "2003/70/",
+    "key": "2003/70",
     "sentence": "modifiant la décision 2003/71/CE pour prolonger sa période d'application et abrogeant la décision 2003/70/CE",
     "has_verb": true,
     "readable": true
@@ -3098,14 +3118,14 @@
   ],
   "hits": [
    {
-    "key": "2002/309/",
+    "key": "2002/309",
     "sentence": "vu la décision du Conseil et de la Commission concernant l'Accord de coopération scientifique et technologique du 4 avril 2002 relative à la conclusion de sept accords avec la Confédération suisse (2002/309/CE, Euratom), et notamment son article 3,",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "2002/309/",
-    "sentence": "La décision (2002/309/CE, Euratom) du Conseil et de la Commission concernant l'Accord de coopération scientifique et technologique du 4 avril 2002 relative à la conclusion de sept accords avec la Confédération suisse prévoit, dans s …",
+    "key": "2002/309",
+    "sentence": "La décision (2002/309/CE, Euratom) du Conseil et de la Commission concernant l'Accord de coopération scientifique et technologique du 4 avril 2002 relative à la conclusion de sept accords avec la Confédération suisse prévoit, dans  …",
     "has_verb": false,
     "readable": true
    }
@@ -3128,7 +3148,7 @@
     "key": "3153/85",
     "sentence": "n° 3153/85(3).",
     "has_verb": false,
-    "readable": true
+    "readable": false
    },
    {
     "key": "3153/85",
@@ -3154,14 +3174,14 @@
   ],
   "hits": [
    {
-    "key": "73/95/",
-    "sentence": "Directive 73/325/CEE de la Commission, du 5 octobre 1973, modifiant l'article 7 de la directive 73/95/CEE de la Commission, du 26 mars 1973, relative à l'application des articles 13 et 14 de la directive du Conseil, du 4 mars 1969, concernant l'harmonisation des dispositions législatives, réglementaires et admi …",
+    "key": "73/95",
+    "sentence": "Directive 73/325/CEE de la Commission, du 5 octobre 1973, modifiant l'article 7 de la directive 73/95/CEE de la Commission, du 26 mars 1973, relative à l'application des articles 13 et 14 de la directive du Conseil, du 4 mars 1969, concernant l'harmonisation des dispositions législatives, réglementaires et adm …",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "73/95/",
-    "sentence": "MODIFIANT L'ARTICLE 7 DE LA DIRECTIVE 73/95/CEE DE LA COMMISSION , DU 26 MARS 1973 , RELATIVE A L'APPLICATION DES ARTICLES 13 ET 14 DE LA DIRECTIVE DU CONSEIL , DU 4 MARS 1969 , CONCERNANT L'HARMONISATION DES DISPOSITIONS LEGISLATIVES , REGLEMENTAIRES ET …",
+    "key": "73/95",
+    "sentence": "Directive 73/325/CEE de la Commission, du 5 octobre 1973, modifiant l'article 7 de la directive 73/95/CEE de la Commission, du 26 mars 1973, relative à l'application des articles 13 et 14 de la directive du Conseil, du 4 mars 1969, concernant l'harmonisation des dispositions législatives, réglementaires et adm …",
     "has_verb": true,
     "readable": true
    }
@@ -3183,14 +3203,14 @@
   ],
   "hits": [
    {
-    "key": "94/621/",
-    "sentence": "Décision de la Commission du 17 mars 1995 modifiant la décision 94/621/CE relative à des mesures de protection à l'égard de certains animaux vivants et produits animaux originaires ou en provenance d'Albanie (Texte présentant de l'intérêt pour l'EEE)",
+    "key": "94/621",
+    "sentence": "Décision de la Commission du 17 mars 1995 modifiant la décision 94/621/CE relative à des mesures de protection à l'égard de certains animaux vivants et produits animaux originaires ou en provenance d'Albanie (Texte présentant de l'intérêt pour l'EEE).",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "94/621/",
-    "sentence": "DÉCISION DE LA COMMISSION du 17 mars 1995 modifiant la décision 94/621/CE relative à des mesures de protection à l'égard de certains animaux vivants et produits animaux originaires ou en provenance d'Albanie (Texte présentant de l'intérêt pour l'EEE) (95/89/CE)",
+    "key": "94/621",
+    "sentence": "Décision de la Commission du 17 mars 1995 modifiant la décision 94/621/CE relative à des mesures de protection à l'égard de certains animaux vivants et produits animaux originaires ou en provenance d'Albanie (Texte présentant de l'intérêt pour l'EEE)",
     "has_verb": true,
     "readable": true
    }
@@ -3270,14 +3290,14 @@
   ],
   "hits": [
    {
-    "key": "78/200/",
-    "sentence": "CONSIDERANT QUE , PAR SA DECISION 78/200/CEE DU 20 JANVIER 1978 ( 3 ), MODIFIEE PAR LA DECISION 78/328/CEE ( 4 ), LA COMMISSION A AUTORISE LES ETATS MEMBRES A ADMETTRE TEMPORAIREMENT LA COMMERCIALISATION DE MATERIELS FORESTIERS DE REPRODUCTION SOUMIS  …",
+    "key": "78/200",
+    "sentence": "CONSIDERANT QUE , PAR SA DECISION 78/200/CEE DU 20 JANVIER 1978 ( 3 ), MODIFIEE PAR LA DECISION 78/328/CEE ( 4 ), LA COMMISSION A AUTORISE LES ETATS MEMBRES A ADMETTRE TEMPORAIREMENT LA COMMERCIALISATION DE MATERIELS FORESTIERS DE REPRODUCTION SOUMIS …",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "78/200/",
-    "sentence": "Décision de la Commission, du 23 juin 1978, complétant la décision 78/200/CEE de la Commission, du 20 janvier 1978, autorisant les États membres à admettre temporairement la commercialisation de matériels forestiers de reproduction ne répondant pas aux exigences de la directive 66/40 …",
+    "key": "78/200",
+    "sentence": "Décision de la Commission, du 23 juin 1978, complétant la décision 78/200/CEE de la Commission, du 20 janvier 1978, autorisant les États membres à admettre temporairement la commercialisation de matériels forestiers de reproduction ne répondant pas aux exigences de la directive 66/4 …",
     "has_verb": false,
     "readable": true
    }
@@ -3355,13 +3375,13 @@
   ],
   "hits": [
    {
-    "key": "2003/122/",
+    "key": "2003/122",
     "sentence": "… 1488/2001 ( 6 ) , (CE) n o 76/2002 ( 7 ) , (CE) n o 349/2003 ( 8 ) et (CE) n o 358/2003 ( 9 ) , ainsi que les décisions de la Commission 2000/657/CE ( 10 ) , 2002/602/CECA ( 11 ) , n o 1469/2002/CECA ( 12 ) et 2003/122/CE ( 13 ) doivent donc être modifiés en conséquence.",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "2003/122/",
+    "key": "2003/122",
     "sentence": "… CE) n o 1474/2000, (CE) n o 1477/2000, (CE) n o 1520/2000, (CE) n o 1488/2001, (CE) n o 76/2002, (CE) n o 349/2003 et (CE) n o 358/2003 ainsi que les décisions 2000/657/CE, 2000/602/CECA, n o 1469/2002/CECA et 2003/122/CE sont modifiés conformément à l'annexe.",
     "has_verb": true,
     "readable": true
@@ -3451,13 +3471,13 @@
   "hits": [
    {
     "key": "1608/93",
-    "sentence": "… ement (CEE) n° 3028/93 du Conseil du 28 octobre 1993 abrogeant la suspension de l'embargo sur certains échanges commerciaux entre la Communauté économique européenne et Haïti et modifiant le règlement (CEE) n° 1608/93 instituant cet embargo",
+    "sentence": "… ement (CEE) n° 3028/93 du Conseil du 28 octobre 1993 abrogeant la suspension de l'embargo sur certains échanges commerciaux entre la Communauté économique européenne et Haïti et modifiant le règlement (CEE) n° 1608/93 instituant cet embargo.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "1608/93",
-    "sentence": "… EMENT (CEE) No 3028/93 DU CONSEIL du 28 octobre 1993 abrogeant la suspension de l'embargo sur certains échanges commerciaux entre la Communauté économique européenne et Haïti et modifiant le règlement (CEE) no 1608/93 instituant cet embargo",
+    "sentence": "… ement (CEE) n° 3028/93 du Conseil du 28 octobre 1993 abrogeant la suspension de l'embargo sur certains échanges commerciaux entre la Communauté économique européenne et Haïti et modifiant le règlement (CEE) n° 1608/93 instituant cet embargo",
     "has_verb": true,
     "readable": true
    }
@@ -3479,14 +3499,14 @@
   ],
   "hits": [
    {
-    "key": "98/8/",
-    "sentence": "modifiant la directive 98/8/CE du Parlement européen et du Conseil aux fins de l'inscription de la warfarine sodique en tant que substance active à l'annexe I de ladite directive",
+    "key": "98/8",
+    "sentence": "Directive 2010/8/UE de la Commission du 9 février 2010 modifiant la directive 98/8/CE du Parlement européen et du Conseil aux fins de l'inscription de la warfarine sodique en tant que substance active à l'annexe I de ladite directive (Texte présentant de l'intérêt pour l'EEE).",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "98/8/",
-    "sentence": "… de produits biocides utilisés comme rodenticides et contenant de la warfarine sodique puissent être accordées, modifiées ou annulées conformément aux dispositions de l'article 16, paragraphe 3, de la directive 98/8/CE.",
+    "key": "98/8",
+    "sentence": "modifiant la directive 98/8/CE du Parlement européen et du Conseil aux fins de l'inscription de la warfarine sodique en tant que substance active à l'annexe I de ladite directive",
     "has_verb": true,
     "readable": true
    }
@@ -3507,14 +3527,14 @@
   "hits": [
    {
     "key": "1107/68",
-    "sentence": "modifiant le règlement (CEE) n0 1107/68 en ce qui concerne l'aide au stockage privé",
+    "sentence": "Règlement (CEE) n° 871/72 de la Commission, du 27 avril 1972, modifiant le règlement (CEE) n° 1107/68 en ce qui concerne l' aide au stockage privé de fromage Grana Padano et Parmigiano-Reggiano.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "1107/68",
-    "sentence": "considérant que le règlement (CEE) n\" 1107/68 de",
-    "has_verb": false,
+    "sentence": "modifiant le règlement (CEE) n0 1107/68 en ce qui concerne l'aide au stockage privé",
+    "has_verb": true,
     "readable": true
    }
   ]
@@ -3535,13 +3555,13 @@
   ],
   "hits": [
    {
-    "key": "97/36/",
+    "key": "97/36",
     "sentence": "Afin d’éviter les achats spéculatifs de droits visant à contourner les mesures nationales, il convient d’appliquer les dispositions en question aux contrats conclus après la publication de la directive 97/36/CE du Parlement européen et du Conseil ( 21 ) et pour les événements qui ont lieu après la date de mise en œuvre de ladite directive.",
     "has_verb": false,
     "readable": true
    },
    {
-    "key": "97/36/",
+    "key": "97/36",
     "sentence": "( 11 ) Résolution du Parlement européen sur l’application des articles 4 et 5 de la directive 89/552/CEE «Télévision sans frontières», telle que modifiée par la directive 97/36/CE, pour la période 2001-2002 ( JO C 193 E du 17.8.2006, p.",
     "has_verb": false,
     "readable": true
@@ -3618,14 +3638,14 @@
   ],
   "hits": [
    {
-    "key": "98/589/",
+    "key": "98/589",
     "sentence": "La décision 98/589/CE est abrogée.",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "98/589/",
-    "sentence": "Étant donné que les mesures prévues à la présente décision sont applicables à tous les États membres, il convient d’abroger la décision 98/589/CE de la Commission du 12 octobre 1998 concernant une prolongation du délai maximal prévu pour l'apposition de marques auriculaires sur certains bovins faisant partie du cheptel espagnol ( 2 ) , qui établit des …",
+    "key": "98/589",
+    "sentence": "Étant donné que les mesures prévues à la présente décision sont applicables à tous les États membres, il convient d’abroger la décision 98/589/CE de la Commission du 12 octobre 1998 concernant une prolongation du délai maximal prévu pour l'apposition de marques auriculaires sur certains bovins faisant partie du cheptel espagnol ( 2 ) , qui établit de …",
     "has_verb": true,
     "readable": true
    }
@@ -3646,13 +3666,13 @@
   "hits": [
    {
     "key": "1544/69",
-    "sentence": "Règlement (CEE) n° 3061/78 du Conseil, du 19 décembre 1978, modifiant le règlement (CEE) n° 1544/69 relatif au traitement tarifaire applicable aux marchandises contenues dans les bagages personnels des voyageurs",
+    "sentence": "Règlement (CEE) n° 3061/78 du Conseil, du 19 décembre 1978, modifiant le règlement (CEE) n° 1544/69 relatif au traitement tarifaire applicable aux marchandises contenues dans les bagages personnels des voyageurs.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "1544/69",
-    "sentence": "MODIFIANT LE REGLEMENT ( CEE ) NO 1544/69 RELATIF AU TRAITEMENT TARIFAIRE APPLICABLE AUX MARCHANDISES CONTENUES DANS LES BAGAGES PERSONNELS DES VOYAGEURS",
+    "sentence": "Règlement (CEE) n° 3061/78 du Conseil, du 19 décembre 1978, modifiant le règlement (CEE) n° 1544/69 relatif au traitement tarifaire applicable aux marchandises contenues dans les bagages personnels des voyageurs",
     "has_verb": true,
     "readable": true
    }
@@ -3673,14 +3693,14 @@
   "hits": [
    {
     "key": "482/79",
-    "sentence": "modifiant le règlement (CEE) n0 482/79 relatif à la livraison de divers lots de",
+    "sentence": "Règlement (CEE) n° 534/79 de la Commission, du 20 mars 1979, modifiant le règlement (CEE) n° 482/79 relatif à la livraison de divers lots de \"butter oil\" au titre de l' aide alimentaire.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "482/79",
-    "sentence": "considérant que le règlement (CEE) n0 482/79(3) de",
-    "has_verb": false,
+    "sentence": "modifiant le règlement (CEE) n0 482/79 relatif à la livraison de divers lots de",
+    "has_verb": true,
     "readable": true
    }
   ]
@@ -3701,14 +3721,14 @@
   ],
   "hits": [
    {
-    "key": "2005/28/",
+    "key": "2005/28",
     "sentence": "La directive 2005/28/CE est abrogée à partir de la date visée à l'article 17, second alinéa.",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "2005/28/",
-    "sentence": "Il est nécessaire d'abroger la directive 2005/28/CE de la Commission ( 3 ) afin de garantir qu'une seule série de règles s'applique aux inspections des bonnes pratiques cliniques relatives aux essais cliniques, y compris aux essais cliniques régis par la dire …",
+    "key": "2005/28",
+    "sentence": "Il est nécessaire d'abroger la directive 2005/28/CE de la Commission ( 3 ) afin de garantir qu'une seule série de règles s'applique aux inspections des bonnes pratiques cliniques relatives aux essais cliniques, y compris aux essais cliniques régis par la dir …",
     "has_verb": true,
     "readable": true
    }
@@ -3727,6 +3747,12 @@
    "04/139"
   ],
   "hits": [
+   {
+    "key": "139/2004",
+    "sentence": "Décision de la Commission du 03/03/2016 déclarant la compatibilité avec le marché commun d'une concentration (Affaire N COMP/M.7573 - DMK / DOC KAAS) sur base du Règlement (CE) N 139/2004 du Conseil.",
+    "has_verb": false,
+    "readable": true
+   },
    {
     "key": "139/2004",
     "sentence": "In the published version of this decision, some information has been omitted pursuant to Article 17(2) of Council Regulation (EC) No 139/2004 concerning non-disclosure of business secrets and other confidential information.",
@@ -3805,13 +3831,13 @@
   ],
   "hits": [
    {
-    "key": "94/80/",
-    "sentence": "La directive 94/80/CE, telle que modifiée par les actes visés à l’annexe II, partie A, est abrogée avec effet au 26 juin 2028, sans préjudice des obligations des États membres en ce qui concerne les délais de transposition en dro …",
+    "key": "94/80",
+    "sentence": "La directive 94/80/CE, telle que modifiée par les actes visés à l’annexe II, partie A, est abrogée avec effet au 26 juin 2028, sans préjudice des obligations des États membres en ce qui concerne les délais de transposition en dr …",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "94/80/",
+    "key": "94/80",
     "sentence": "La directive 94/80/CE du Conseil ( 2 ) doit faire l’objet de plusieurs modifications.",
     "has_verb": false,
     "readable": true
@@ -3834,14 +3860,14 @@
   ],
   "hits": [
    {
-    "key": "91/648/",
-    "sentence": "Décision de la Commission du 8 novembre 1993 modifiant la décision 91/648/CEE concernant l'établissement d'un avenant au cadre communautaire d'appui pour les interventions structurelles communautaires au Royaume-Uni (Irlande du Nord) en matière d'amélioration des conditions de transf …",
+    "key": "91/648",
+    "sentence": "Décision de la Commission du 8 novembre 1993 modifiant la décision 91/648/CEE concernant l'établissement d'un avenant au cadre communautaire d'appui pour les interventions structurelles communautaires au Royaume-Uni (Irlande du Nord) en matière d'amélioration des conditions de trans …",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "91/648/",
-    "sentence": "DÉCISION DE LA COMMISSION du 8 novembre 1993 modifiant la décision 91/648/CEE concernant l'établissement d'un avenant au cadre communautaire d'appui pour les interventions structurelles communautaires au Royaume-Uni (Irlande du Nord) en matière d'amélioration des conditions de transf …",
+    "key": "91/648",
+    "sentence": "Décision de la Commission du 8 novembre 1993 modifiant la décision 91/648/CEE concernant l'établissement d'un avenant au cadre communautaire d'appui pour les interventions structurelles communautaires au Royaume-Uni (Irlande du Nord) en matière d'amélioration des conditions de trans …",
     "has_verb": true,
     "readable": true
    }
@@ -3863,13 +3889,13 @@
   ],
   "hits": [
    {
-    "key": "97/516/",
+    "key": "97/516",
     "sentence": "La décision 97/516/CE est abrogée.",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "97/516/",
+    "key": "97/516",
     "sentence": "considérant qu'il convient d'abroger la décision 97/516/CE de la Commission, du 1 er août 1997, relative à certaines mesures de protection à l'égard de certains produits de la pêche originaires de Madagascar ( 5 ) ;",
     "has_verb": true,
     "readable": true
@@ -3973,13 +3999,13 @@
   ],
   "hits": [
    {
-    "key": "84/408/",
+    "key": "84/408",
     "sentence": "Cet engagement a ensuite été modifié et accepté par la décision 84/408/CEE (5).",
-    "has_verb": true,
+    "has_verb": false,
     "readable": true
    },
    {
-    "key": "84/408/",
+    "key": "84/408",
     "sentence": "L'acceptation des engagements souscrits par Chemapol Foreign Trade Company Ltd, Prague et Chemolimpex, Budapest, visés respectivement dans les décisions 84/408/CEE et 85/104/CEE, est retirée.",
     "has_verb": false,
     "readable": true
@@ -3990,7 +4016,7 @@
   "a": "32026D0401",
   "b": "32025D0240",
   "source": "error",
-  "note": "very long PDF (975 pages)",
+  "note": "PDF très long, 975 pages",
   "chars": 0,
   "keys": [
    "240/2025",
@@ -4000,7 +4026,14 @@
    "2025/240/",
    "25/240/"
   ],
-  "hits": []
+  "hits": [
+   {
+    "key": "2025/240",
+    "sentence": "… ités d’application de la directive 92/43/CEE du Conseil en ce qui concerne la liste des sites d’importance communautaire et abrogeant les décisions d’exécution (UE) 2024/428, (UE) 2025/238, (UE) 2025/239, (UE) 2025/240, (UE) 2025/242, (UE) 2025/244, (UE) 2025/251, (UE) 2025/256 et (UE) 2025/257 [notifiée sous le numéro C(2026) 992].",
+    "has_verb": true,
+    "readable": true
+   }
+  ]
  },
  "f-485554": {
   "a": "32018R0604",
@@ -4045,14 +4078,14 @@
   ],
   "hits": [
    {
-    "key": "91/357/",
+    "key": "91/357",
     "sentence": "La directive 91/357/CEE de la Commission est abrogée à compter du 6 novembre 2003.",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "91/357/",
-    "sentence": "…  des aliments composés destinés aux animaux de rente, il ne sera plus possible de déclarer des catégories de matières premières plutôt que les matières premières elles-mêmes, il convient d'abroger la directive 91/357/CEE de la Commission du 13 juin 1991 fixant les catégories de matières premières pour aliments des animaux pouvant être utilisées pour le marquage des aliments composés destinés à des animaux autres que des ani …",
+    "key": "91/357",
+    "sentence": "…  des aliments composés destinés aux animaux de rente, il ne sera plus possible de déclarer des catégories de matières premières plutôt que les matières premières elles-mêmes, il convient d'abroger la directive 91/357/CEE de la Commission du 13 juin 1991 fixant les catégories de matières premières pour aliments des animaux pouvant être utilisées pour le marquage des aliments composés destinés à des animaux autres que des an …",
     "has_verb": true,
     "readable": true
    }
@@ -4100,14 +4133,14 @@
   "hits": [
    {
     "key": "205/73",
-    "sentence": "qu'il y a lieu de modifier en conséquence le règlement (CEE) nº 205/73 de la Commission, du 25 janvier 1973, relatif aux communications entre les États membres et la Commission dans le secteur des matières grasses (4), modifié en dernier lieu par le règlement (CEE) nº 2413/77(5);",
+    "sentence": "Le texte de l'article 6 bis du règlement (CEE) nº 205/73 est remplacé par le texte suivant:",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "205/73",
-    "sentence": "Le texte de l'article 6 bis du règlement (CEE) nº 205/73 est remplacé par le texte suivant:",
-    "has_verb": true,
+    "sentence": "qu'il y a lieu de modifier en conséquence le règlement (CEE) nº 205/73 de la Commission, du 25 janvier 1973, relatif aux communications entre les États membres et la Commission dans le secteur des matières grasses (4), modifié en dernier lieu par le règlement (CEE) nº 2413/77(5);",
+    "has_verb": false,
     "readable": true
    }
   ]
@@ -4127,13 +4160,13 @@
   "hits": [
    {
     "key": "2373/83",
-    "sentence": "Règlement (CEE) no 3501/83 de la Commission du 12 décembre 1983 modifiant le règlement (CEE) no 2373/83 établissant les modalités d' application de la distillation prévue à l' article 11 du règlement (CEE) no 337/79 pour la campagne viticole 1983/1984",
+    "sentence": "Règlement (CEE) no 3501/83 de la Commission du 12 décembre 1983 modifiant le règlement (CEE) no 2373/83 établissant les modalités d' application de la distillation prévue à l' article 11 du règlement (CEE) no 337/79 pour la campagne viticole 1983/1984.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "2373/83",
-    "sentence": "modifiant le règlement (CEE) no 2373/83 établissant les modalités d'application de la distillation prévue à l'article 11 du règlement (CEE) no 337/79 pour la campagne viticole 1983/1984",
+    "sentence": "Règlement (CEE) no 3501/83 de la Commission du 12 décembre 1983 modifiant le règlement (CEE) no 2373/83 établissant les modalités d' application de la distillation prévue à l' article 11 du règlement (CEE) no 337/79 pour la campagne viticole 1983/1984",
     "has_verb": true,
     "readable": true
    }
@@ -4155,14 +4188,14 @@
   ],
   "hits": [
    {
-    "key": "2002/72/",
-    "sentence": "Directive 2004/1/CE de la Commission du 6 janvier 2004 portant modification de la directive 2002/72/CE en ce qui concerne la suspension de l'usage de l'azodicarbonamide comme agent gonflant (Texte présentant de l'intérêt pour l'EEE)",
+    "key": "2002/72",
+    "sentence": "Directive 2004/1/CE de la Commission du 6 janvier 2004 portant modification de la directive 2002/72/CE en ce qui concerne la suspension de l'usage de l'azodicarbonamide comme agent gonflant (Texte présentant de l'intérêt pour l'EEE).",
     "has_verb": true,
     "readable": true
    },
    {
-    "key": "2002/72/",
-    "sentence": "portant modification de la directive 2002/72/CE en ce qui concerne la suspension de l'usage de l'azodicarbonamide comme agent gonflant",
+    "key": "2002/72",
+    "sentence": "Directive 2004/1/CE de la Commission du 6 janvier 2004 portant modification de la directive 2002/72/CE en ce qui concerne la suspension de l'usage de l'azodicarbonamide comme agent gonflant (Texte présentant de l'intérêt pour l'EEE)",
     "has_verb": true,
     "readable": true
    }
@@ -4214,13 +4247,13 @@
   "hits": [
    {
     "key": "1318/93",
-    "sentence": "Règlement (CE) nº 623/97 de la Commission du 9 avril 1997 modifiant le règlement (CEE) nº 1318/93 portant modalités d'application du règlement (CEE) nº 2067/92 du Conseil relatif à des actions de promotion et de commercialisation en faveur de la viande bovine de qualité",
+    "sentence": "Règlement (CE) nº 623/97 de la Commission du 9 avril 1997 modifiant le règlement (CEE) nº 1318/93 portant modalités d'application du règlement (CEE) nº 2067/92 du Conseil relatif à des actions de promotion et de commercialisation en faveur de la viande bovine de qualité.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "1318/93",
-    "sentence": "RÈGLEMENT (CE) N° 623/97 DE LA COMMISSION du 9 avril 1997 modifiant le règlement (CEE) n° 1318/93 portant modalités d'application du règlement (CEE) n° 2067/92 du Conseil relatif à des actions de promotion et de commercialisation en faveur de la viande bovine de qualité",
+    "sentence": "Règlement (CE) nº 623/97 de la Commission du 9 avril 1997 modifiant le règlement (CEE) nº 1318/93 portant modalités d'application du règlement (CEE) nº 2067/92 du Conseil relatif à des actions de promotion et de commercialisation en faveur de la viande bovine de qualité",
     "has_verb": true,
     "readable": true
    }
@@ -4285,13 +4318,13 @@
   "hits": [
    {
     "key": "1484/95",
-    "sentence": "fixant les prix représentatifs dans les secteurs de la viande de volaille et des œufs ainsi que pour l'ovalbumine et modifiant le règlement (CE) n o 1484/95",
+    "sentence": "Règlement (CE) n° 900/2005 de la Commission du 15 juin 2005 fixant les prix représentatifs dans les secteurs de la viande de volaille et des œufs ainsi que pour l'ovalbumine et modifiant le règlement (CE) n° 1484/95.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "1484/95",
-    "sentence": "L'annexe I du règlement (CE) n o 1484/95 est remplacée par l'annexe du présent règlement.",
+    "sentence": "fixant les prix représentatifs dans les secteurs de la viande de volaille et des œufs ainsi que pour l'ovalbumine et modifiant le règlement (CE) n o 1484/95",
     "has_verb": true,
     "readable": true
    }
@@ -4313,7 +4346,7 @@
   ],
   "hits": [
    {
-    "key": "2003/14/",
+    "key": "2003/14",
     "sentence": "Directive 2003/14/CE de la Commission ( JO L 41 du 14.2.2003, p.",
     "has_verb": false,
     "readable": true
@@ -4359,7 +4392,20 @@
    "176/00",
    "00/176"
   ],
-  "hits": []
+  "hits": [
+   {
+    "key": "2000/176",
+    "sentence": "La position commune 2000/176/PESC est abrogée.",
+    "has_verb": true,
+    "readable": true
+   },
+   {
+    "key": "2000/176",
+    "sentence": "commune 1999/318/PESC et d'abroger la position commune 2000/176/PESC.",
+    "has_verb": true,
+    "readable": true
+   }
+  ]
  },
  "f-488015": {
   "a": "22000D0316(01)",
@@ -4385,13 +4431,13 @@
   "hits": [
    {
     "key": "2015/1108",
-    "sentence": "modifiant les règlements d'exécution (UE) 2015/1108 et (UE) n o 540/2011 en ce qui concerne les conditions d'utilisation du vinaigre en tant que substance de base",
+    "sentence": "Règlement d'exécution (UE) 2019/149 de la Commission du 30 janvier 2019 modifiant les règlements d'exécution (UE) 2015/1108 et (UE) n° 540/2011 en ce qui concerne les conditions d'utilisation du vinaigre en tant que substance de base (Texte présentant de l'intérêt pour l'EEE.).",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "2015/1108",
-    "sentence": "Il convient donc de modifier les règlements d'exécution (UE) 2015/1108 et (UE) n o 540/2011 en conséquence.",
+    "sentence": "modifiant les règlements d'exécution (UE) 2015/1108 et (UE) n o 540/2011 en ce qui concerne les conditions d'utilisation du vinaigre en tant que substance de base",
     "has_verb": true,
     "readable": true
    }
@@ -4447,13 +4493,13 @@
   "hits": [
    {
     "key": "3172/80",
-    "sentence": "Règlement (CEE) n° 3249/82 de la Commission, du 2 décembre 1982, portant quatrième modification du règlement (CEE) n° 3172/80 portant modalités d' application du régime d' aide à la consommation pour l' huile d' olive",
+    "sentence": "Règlement (CEE) n° 3249/82 de la Commission, du 2 décembre 1982, portant quatrième modification du règlement (CEE) n° 3172/80 portant modalités d' application du régime d' aide à la consommation pour l' huile d' olive.",
     "has_verb": true,
     "readable": true
    },
    {
     "key": "3172/80",
-    "sentence": "portant quatrième modification du règlement (CEE) no 3172/80 portant modalités d'application du régime d'aide à la consommation pour l'huile d'olive",
+    "sentence": "Règlement (CEE) n° 3249/82 de la Commission, du 2 décembre 1982, portant quatrième modification du règlement (CEE) n° 3172/80 portant modalités d' application du régime d' aide à la consommation pour l' huile d' olive",
     "has_verb": true,
     "readable": true
    }
