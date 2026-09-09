@@ -36,7 +36,7 @@ def short(uri):
 _ESC = re.compile(r'\\(u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8}|[tnr"\\])')
 
 def unescape(lit):
-    """N-Triples string escapes: \uXXXX, \UXXXXXXXX, \t \n \r \" \\."""
+    """N-Triples string escapes: backslash-u XXXX, backslash-U XXXXXXXX, tab, newline, return, quote, backslash."""
     def one(m):
         e = m.group(1)
         if e[0] in "uU": return chr(int(e[1:], 16))
