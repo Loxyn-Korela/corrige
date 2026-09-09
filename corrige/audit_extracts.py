@@ -47,6 +47,8 @@ def keys_for(celex):
     yy = year[2:]
     if sector == "1":                                   # treaty article: 11957E198 -> article 198
         return [f"article {num}", f"art. {num}", f"articles {num}"]
+    if sector == "2":                                   # international agreement / annex / protocol: search its nature
+        return ["accord", "annexe", "protocole", "convention"]
     if sector == "5":                                   # preparatory act: 52009DC0557 -> COM(2009) 557
         return [f"COM({year}) {num}", f"COM ({year}) {num}", f"({year}) {num}", f"{num}/{year}", f"{year}/{num}"]
     keys = [f"{num}/{year}", f"{year}/{num}", f"{num}/{yy}", f"{yy}/{num}"]

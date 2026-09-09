@@ -5,12 +5,21 @@
   "source": "html",
   "chars": 18020,
   "keys": [
-   "103/1994",
-   "1994/103",
-   "103/94",
-   "94/103"
+   "accord",
+   "annexe",
+   "protocole",
+   "convention"
   ],
-  "hits": []
+  "hits": [
+   {
+    "key": "accord",
+    "sentence": "modifiant l’annexe I (Questions vétérinaires et phytosanitaires) de l’accord EEE [2024/1535]"
+   },
+   {
+    "key": "accord",
+    "sentence": "vu l’accord sur l’Espace économique européen (ci-après l’«accord EEE»), et notamment son article 98,"
+   }
+  ]
  },
  "f-074727": {
   "a": "51989AC0677",
@@ -98,12 +107,21 @@
   "source": "html",
   "chars": 6517,
   "keys": [
-   "103/1994",
-   "1994/103",
-   "103/94",
-   "94/103"
+   "accord",
+   "annexe",
+   "protocole",
+   "convention"
   ],
-  "hits": []
+  "hits": [
+   {
+    "key": "accord",
+    "sentence": "modifiant l'annexe XXI (Statistiques) de l'accord EEE"
+   },
+   {
+    "key": "accord",
+    "sentence": "vu l'accord sur l'Espace économique européen, modifié par le protocole portant adaptation de cet accord, ci-après dénommé «l'accord», et notamment son article 98,"
+   }
+  ]
  },
  "f-299327": {
   "a": "52011IP0145",
@@ -231,12 +249,21 @@
   "source": "pdf",
   "chars": 1692,
   "keys": [
-   "1219/1972",
-   "1972/1219",
-   "1219/72",
-   "72/1219"
+   "accord",
+   "annexe",
+   "protocole",
+   "convention"
   ],
-  "hits": []
+  "hits": [
+   {
+    "key": "protocole",
+    "sentence": "modifiantunenouvellefoislesarticles6et17 duprotocolerelatifàladéfinition"
+   },
+   {
+    "key": "protocole",
+    "sentence": "Le protocole est modifié comme suit:"
+   }
+  ]
  },
  "f-288232": {
   "a": "31993R1343",
@@ -361,12 +388,21 @@
   "source": "pdf",
   "chars": 9366,
   "keys": [
-   "722/1972",
-   "1972/722",
-   "722/72",
-   "72/722"
+   "accord",
+   "annexe",
+   "protocole",
+   "convention"
   ],
-  "hits": []
+  "hits": [
+   {
+    "key": "protocole",
+    "sentence": "complétantetmodifiantles listesAetB annexéesauprotocolen°3 relatifàladéfinition"
+   },
+   {
+    "key": "accord",
+    "sentence": "vu l'accord entre la Communauté économique éuror"
+   }
+  ]
  },
  "f-481324": {
   "a": "31995R0798",
@@ -510,12 +546,21 @@
   "source": "html",
   "chars": 7530,
   "keys": [
-   "103/1994",
-   "1994/103",
-   "103/94",
-   "94/103"
+   "accord",
+   "annexe",
+   "protocole",
+   "convention"
   ],
-  "hits": []
+  "hits": [
+   {
+    "key": "accord",
+    "sentence": "modifiant l'annexe II (Réglementations techniques, normes, essais et certification) de l'accord EEE [2019/193]"
+   },
+   {
+    "key": "accord",
+    "sentence": "vu l'accord sur l'Espace économique européen (ci-après l'«accord EEE»), et notamment son article 98,"
+   }
+  ]
  },
  "f-019135": {
   "a": "31991R2060",
@@ -577,12 +622,21 @@
   "source": "html",
   "chars": 5215,
   "keys": [
-   "103/1994",
-   "1994/103",
-   "103/94",
-   "94/103"
+   "accord",
+   "annexe",
+   "protocole",
+   "convention"
   ],
-  "hits": []
+  "hits": [
+   {
+    "key": "accord",
+    "sentence": "modifiant l'annexe XIII (Transports) de l'accord EEE [2017/29]"
+   },
+   {
+    "key": "accord",
+    "sentence": "vu l'accord sur l'Espace économique européen (ci-après l'«accord EEE»), et notamment son article 98,"
+   }
+  ]
  },
  "f-033493": {
   "a": "22002D0036",
@@ -590,14 +644,21 @@
   "source": "html",
   "chars": 6829,
   "keys": [
-   "507/1998",
-   "1998/507",
-   "507/98",
-   "98/507",
-   "1998/507/",
-   "98/507/"
+   "accord",
+   "annexe",
+   "protocole",
+   "convention"
   ],
-  "hits": []
+  "hits": [
+   {
+    "key": "accord",
+    "sentence": "Décision du Comité mixte de l'EEE n° 36/2002 du 19 avril 2002 modifiant l'annexe VI (Sécurité sociale) de l'accord EEE"
+   },
+   {
+    "key": "accord",
+    "sentence": "modifiant l'annexe VI (Sécurité sociale) de l'accord EEE"
+   }
+  ]
  },
  "f-126301": {
   "a": "32014D0481",
@@ -985,12 +1046,21 @@
   "source": "pdf",
   "chars": 4514,
   "keys": [
-   "718/1975",
-   "1975/718",
-   "718/75",
-   "75/718"
+   "accord",
+   "annexe",
+   "protocole",
+   "convention"
   ],
-  "hits": []
+  "hits": [
+   {
+    "key": "accord",
+    "sentence": "économique européenne, sont convenus, conformément aux dispositions de l'accord entre la"
+   },
+   {
+    "key": "accord",
+    "sentence": "paragraphe4 del'accordsont, auxfinsdel'interventionprévue à l'article6 de celui-ci:"
+   }
+  ]
  },
  "f-086681": {
   "a": "32006R0505",
@@ -1236,12 +1306,21 @@
   "source": "html",
   "chars": 67498,
   "keys": [
-   "103/1994",
-   "1994/103",
-   "103/94",
-   "94/103"
+   "accord",
+   "annexe",
+   "protocole",
+   "convention"
   ],
-  "hits": []
+  "hits": [
+   {
+    "key": "accord",
+    "sentence": "modifiant certaines annexes et certains protocoles de l'accord EEE"
+   },
+   {
+    "key": "accord",
+    "sentence": "vu l'accord sur l'Espace économique européen, modifié par le protocole portant adaptation de cet accord, ci-après dénommé «l'accord», et notamment son article 98,"
+   }
+  ]
  },
  "f-406944": {
   "a": "52014BP0905(17)",
@@ -3563,12 +3642,21 @@
   "source": "html",
   "chars": 65263,
   "keys": [
-   "127/2010",
-   "2010/127",
-   "127/10",
-   "10/127"
+   "accord",
+   "annexe",
+   "protocole",
+   "convention"
   ],
-  "hits": []
+  "hits": [
+   {
+    "key": "convention",
+    "sentence": "vu la déclaration universelle des droits de l'homme, la convention européenne des droits de l'homme et la charte des droits fondamentaux de l'Union européenne,"
+   },
+   {
+    "key": "convention",
+    "sentence": "vu la convention des Nations unies relative aux droits des personnes handicapées et son entrée en vigueur le 21 janvier 2011, conformément à la décision 2010/48/CE du Conseil du 26 novembre 2009 concernant la conclusion, par la Communauté européenne, de la convention des Nations unies relative aux droits des personnes handicapées ( 1 ) , et plus particulièrement son article 6 relatif aux filles et aux femmes handicap"
+   }
+  ]
  },
  "f-197175": {
   "a": "32017D2115",
@@ -3576,12 +3664,21 @@
   "source": "html",
   "chars": 123771,
   "keys": [
-   "103/1994",
-   "1994/103",
-   "103/94",
-   "94/103"
+   "accord",
+   "annexe",
+   "protocole",
+   "convention"
   ],
-  "hits": []
+  "hits": [
+   {
+    "key": "accord",
+    "sentence": "vu l'accord sur l'Espace économique européen, et notamment son article 62, paragraphe 1, point a)"
+   },
+   {
+    "key": "accord",
+    "sentence": "Par lettre du 21 janvier 2016, la Commission a réitéré sa position, selon laquelle l'exonération d'impôt des sociétés accordée aux ports constituait un régime d'aides d'État incompatible avec le traité et proposé aux autorités belges, au titre de mesures utiles, conformément à l'article 108, paragraphe 1, du TFUE et à l'article 22 du règlement de procédure, de supprimer l'exonération de l'impôt des sociétés prévue po"
+   }
+  ]
  },
  "f-161639": {
   "a": "31970R0436",
@@ -3641,17 +3738,19 @@
   "source": "html",
   "chars": 2458584,
   "keys": [
-   "824/2003",
-   "2003/824",
-   "824/03",
-   "03/824",
-   "2003/824/",
-   "03/824/"
+   "accord",
+   "annexe",
+   "protocole",
+   "convention"
   ],
   "hits": [
    {
-    "key": "2003/824/",
-    "sentence": "DÉCISION N o 4/2002 DU CONSEIL CONJOINT CE-MEXIQUE du 6 novembre 2003 arrêtant le règlement intérieur des comités spéciaux CE-Mexique (2003/824/CE)"
+    "key": "accord",
+    "sentence": "Accord intérimaire sur le commerce entre l’Union européenne et les États-Unis mexicains"
+   },
+   {
+    "key": "accord",
+    "sentence": "CONSCIENTS de la contribution significative au renforcement de ces liens apportée par l'accord de partenariat économique, de coordination politique et de coopération entre la Communauté européenne et ses États membres, d'une part, et les États-Unis mexicains, d'autre part, signé à Bruxelles le 8 décembre 1997,"
    }
   ]
  },
@@ -3751,14 +3850,21 @@
   "source": "html",
   "chars": 13191,
   "keys": [
-   "819/1993",
-   "1993/819",
-   "819/93",
-   "93/819",
-   "1993/819/",
-   "93/819/"
+   "accord",
+   "annexe",
+   "protocole",
+   "convention"
   ],
-  "hits": []
+  "hits": [
+   {
+    "key": "annexe",
+    "sentence": "Décision nº 1/2000 du Comité de coopération CE-Saint-Marin, du 7 mars 2000, modifiant la décision nº 1/93 arrêtant les modalités de la mise à la disposition du Trésor de Saint-Marin des droits à l'importation perçus par la Communauté pour le compte de la République de Saint-Marin, ainsi que l'annexe de la décision nº 2/96 portant application de l'article 1er , points a) et b), de la décision nº 1/93"
+   },
+   {
+    "key": "annexe",
+    "sentence": "modifiant la décision n° 1/93 arrêtant les modalités de la mise à la disposition du Trésor de Saint-Marin des droits à l'importation perçus par la Communauté pour le compte de la République de Saint-Marin, ainsi que l'annexe de la décision n° 2/96 portant application de l'article 1er, points a) et b), de la décision n° 1/93"
+   }
+  ]
  },
  "f-051223": {
   "a": "32019R0149",
@@ -3841,12 +3947,21 @@
   "source": "html",
   "chars": 84671,
   "keys": [
-   "430/2002",
-   "2002/430",
-   "430/02",
-   "02/430"
+   "accord",
+   "annexe",
+   "protocole",
+   "convention"
   ],
-  "hits": []
+  "hits": [
+   {
+    "key": "accord",
+    "sentence": "DÉCISION N O 2/2019 DU COMITÉ MIXTE DES TRANSPORTS AÉRIENS UNION EUROPÉENNE/SUISSE INSTITUÉ EN VERTU DE L’ACCORD ENTRE LA COMMUNAUTÉ EUROPÉENNE ET LA CONFÉDÉRATION SUISSE SUR LE TRANSPORT AÉRIEN"
+   },
+   {
+    "key": "accord",
+    "sentence": "remplaçant l’annexe de l’accord entre la Communauté européenne et la Confédération suisse sur le transport aérien [2020/6]"
+   }
+  ]
  },
  "f-072538": {
   "a": "52021M10326",

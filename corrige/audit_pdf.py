@@ -68,7 +68,7 @@ def header(c, auditor, n, n_common, truth):
     return y - 6
 
 
-def act_links(c, act, y, avail, pdfs):
+def act_links(c, act, y, avail, pdfs, is_a=True):
     x = link(c, "ouvrir le texte (FR)", M + 14, y, eurlex(act["celex"], "FR"))
     c.setFont(FONT, 9.5); c.drawString(x + 4, y, "·"); x = link(c, "EN", x + 12, y, eurlex(act["celex"], "EN"))
     pdf = pdfs.get(act["celex"], {})
@@ -76,7 +76,7 @@ def act_links(c, act, y, avail, pdfs):
     for lang in ("FR", "EN"):
         if pdf.get(lang):
             c.setFont(FONT, 9.5); c.drawString(x + 4, y, "·"); x = link(c, f"PDF {lang}", x + 12, y, eurlex_pdf(act["celex"], lang)); shown.append(lang)
-    if avail.get(act["celex"]) == "title+pdf":
+    if avail.get(act["celex"]) == "title+pdf" and is_a:
         c.setFont(BOLD, 8.6); c.setFillColor(HexColor("#b45309"))
         if shown:
             c.drawString(x + 10, y, f"← pas de texte en page web : ouvrez le PDF {shown[0]} (scan du JO, avec texte)")
@@ -96,7 +96,8 @@ def extract_block(c, f, ext, y):
         c.setFillColor(HexColor("#1d4ed8"))
         y = wrap(c, f"Extrait trouvé par recherche automatique du numéro « {h['key']} » dans le texte de A ({src}) — à vérifier dans le texte :", M, y, W - 2 * M, size=9, leading=11.4)
         c.setFillColor(HexColor("#1e3a8a"))
-        y = wrap(c, "« " + h["sentence"][:380].replace("\n", " ") + " »", M + 10, y, W - 2 * M - 10, size=9.2, leading=11.6)
+        sent = h["sentence"].replace("\n", " ")
+        y = wrap(c, "« " + (sent[:420] + " …" if len(sent) > 420 else sent) + " »", M + 10, y, W - 2 * M - 10, size=9.2, leading=11.6)
     else:
         c.setFillColor(HexColor("#7c2d12"))
         keys = ", ".join(f"« {k} »" for k in e.get("keys", [])[:3])
@@ -122,7 +123,7 @@ def fact_block(c, f, a, b, titles, common, y, avail, ext=None, pdfs=None):
     y = wrap(c, f"A : {ta} — CELEX {a['celex']} · {a.get('date_document') or ''}", M, y, W - 2 * M)
     y = act_links(c, a, y, avail, pdfs)
     y = wrap(c, f"B : {tb} — CELEX {b['celex']} · {b.get('date_document') or ''}", M, y, W - 2 * M)
-    y = act_links(c, b, y, avail, pdfs) - 1
+    y = act_links(c, b, y, avail, pdfs, is_a=False) - 1
     y = wrap(c, q, M, y, W - 2 * M, font=BOLD)
     c.setFillColor(HexColor("#b45309"))          # the advice, in colour so that it is seen
     y = wrap(c, "Conseil : " + hint, M, y, W - 2 * M, size=9.2, leading=11.6)
