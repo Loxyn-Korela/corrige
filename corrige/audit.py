@@ -64,9 +64,9 @@ def page(auditor, facts, common_ids, titles, nodes, truth):
         rows.append(f"""<section class="fact">
 <h2>{html.escape(f['id'])} · <em>{rel}</em>{tag}</h2>
 <p><b>A</b> : {html.escape(titles.get(a['id']) or '(titre non disponible)')} — CELEX {html.escape(a['celex'])} · {html.escape(a.get('date_document') or '')}
- → <a href="{eurlex(a['celex'],'FR')}">texte FR</a> · <a href="{eurlex(a['celex'],'EN')}">texte EN</a></p>
+ → <a href="{eurlex(a['celex'],'FR')}">ouvrir le texte (FR)</a> · <a href="{eurlex(a['celex'],'EN')}">EN</a></p>
 <p><b>B</b> : {html.escape(titles.get(b['id']) or '(titre non disponible)')} — CELEX {html.escape(b['celex'])} · {html.escape(b.get('date_document') or '')}
- → <a href="{eurlex(b['celex'],'FR')}">texte FR</a> · <a href="{eurlex(b['celex'],'EN')}">texte EN</a></p>
+ → <a href="{eurlex(b['celex'],'FR')}">ouvrir le texte (FR)</a> · <a href="{eurlex(b['celex'],'EN')}">EN</a></p>
 <p class="q">{q} <span class="hint">{hint}</span></p>
 <p class="boxes">☐ OUI, à l'article n° ______ &nbsp;&nbsp; ☐ NON, je ne le trouve pas &nbsp;&nbsp; ☐ ILLISIBLE (texte absent, scanné, ou trop long)</p>
 </section>""")
@@ -83,7 +83,7 @@ a{{color:#0645ad}} .answer{{page-break-before:always}} table{{border-collapse:co
 <p>{len(facts)} faits à vérifier, dont {len([f for f in facts if f['id'] in common_ids])} communs aux trois auditeurs. Vérité : <code>{html.escape(truth['id'])}</code>, empreinte <code>{truth['sha256'][:16]}…</code>, gelée le {html.escape(truth['frozen'])}. Échantillon tiré au sort (graine publiée), 70 abroge · 70 modifie · 60 se fonde sur.</p>
 <div class="warn">NE PAS UTILISER DE LLM. NI CHATGPT, NI CLAUDE, NI GEMINI, NI AUCUN ASSISTANT.<br>C'est un humain qui lit, c'est ce qui fait la valeur de l'audit.</div>
 <div class="rules"><b>Les règles</b><ul>
-<li><b>Lisez le texte de l'acte A</b> (lien « texte FR » ou « texte EN »). Ne regardez <b>jamais</b> le cadre « Relations entre documents » ou « Informations sur le document » d'EUR-Lex : ce cadre, c'est la base qu'on contrôle. S'y fier, c'est faire noter l'élève par lui-même.</li>
+<li><b>Lisez le texte de l'acte A</b> (lien « ouvrir le texte (FR) » ; l'anglais est là si la version française manque). Ne regardez <b>jamais</b> le cadre « Relations entre documents » ou « Informations sur le document » d'EUR-Lex : ce cadre, c'est la base qu'on contrôle. S'y fier, c'est faire noter l'élève par lui-même.</li>
 <li><b>OUI</b> seulement si vous avez lu la phrase dans le texte de A. Notez le numéro de l'article (ou « titre », ou « visas »).</li>
 <li><b>NON</b> si vous avez cherché aux endroits indiqués et ne l'avez pas trouvé. Un NON honnête vaut plus qu'un OUI deviné.</li>
 <li><b>ILLISIBLE</b> si le texte n'est pas disponible, est un scan sans texte, ou dépasse ce que vous pouvez lire en 5 minutes. C'est une réponse valable.</li>
@@ -112,6 +112,9 @@ def main():
     nodes = {x["id"]: x for x in truth["nodes"]}
     ids = {f["s"] for f in sample} | {f["o"] for f in sample}
     titles = titles_for(coll, ids)
+    fr = pathlib.Path(out / "titres-fr.json")
+    if fr.exists():                       # French titles fetched live from Cellar, English as fallback
+        titles = {**titles, **{k: v for k, v in json.load(open(fr, encoding="utf-8")).items() if v}}
     rec = {"sample_name": f"audit-{n}", "truth": truth["id"], "truth_sha256": truth["sha256"], "seed": seed, "shared": shared,
            "auditors": auditors, "facts": [f["id"] for f in sample], "common": [f["id"] for f in common],
            "per_auditor": {a: [f["id"] for f in fs] for a, fs in per.items()},
