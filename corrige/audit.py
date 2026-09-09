@@ -13,7 +13,7 @@ from . import canon, truth_eurlex as T
 
 Q = {
     "repeals": ("abroge", "Le texte de A dit-il que B est abrogé ?",
-                "Cherchez dans les derniers articles de A une phrase du type « Le règlement … est abrogé » / « … is repealed »."),
+                "Cherchez dans les derniers articles de A une phrase du type « Le règlement … est abrogé », ou une annexe « Liste des actes abrogés » vers laquelle un article renvoie."),
     "amends": ("modifie", "Le texte de A dit-il qu'il modifie B ?",
                "Souvent dans le titre de A (« modifiant le règlement … ») ou à l'article 1 (« Le règlement … est modifié comme suit »)."),
     "based_on": ("se fonde sur", "Le texte de A cite-t-il B comme base ?",
@@ -37,7 +37,11 @@ def titles_for(coll, ids):
     return want
 
 
-def draw(truth, n=200, shared=30, seed=11, auditors=("A", "B", "C")):
+def draw(truth, n=200, shared=30, seed=11, auditors=("A", "B", "C"), exclude_celex=()):
+    """Deterministic sample: at least the quotas per relation, 30 shared facts, the rest split.
+    exclude_celex: acts A whose text EUR-Lex serves nowhere (neither page nor PDF), found by
+    probing after the first draw; those facts are replaced one by one by the next unused fact
+    of the same relation, so that the rest of the sample does not move."""
     rng = random.Random(seed)
     fault = {k["fact"] for k in truth["known_registry_faults"] if "fact" in k}
     nodes = {x["id"]: x for x in truth["nodes"]}
@@ -48,6 +52,16 @@ def draw(truth, n=200, shared=30, seed=11, auditors=("A", "B", "C")):
     for p, k in quota.items():
         sample += rng.sample(pool[p], k)
     rng.shuffle(sample)
+    ex = set(exclude_celex)
+    if ex:
+        chosen = {f["id"] for f in sample}
+        spare = {p: [f for f in pool[p] if f["id"] not in chosen] for p in Q}
+        for p in Q: rng.shuffle(spare[p])
+        replaced = []
+        for i, f in enumerate(sample):
+            if nodes[f["s"]]["celex"] in ex:
+                while spare[f["p"]] and nodes[spare[f["p"]][-1]["s"]]["celex"] in ex: spare[f["p"]].pop()
+                new = spare[f["p"]].pop(); replaced.append((f["id"], new["id"])); sample[i] = new
     common, rest = sample[:shared], sample[shared:]
     per = {a: list(common) for a in auditors}
     for i, f in enumerate(rest):
@@ -108,7 +122,9 @@ def main():
     opt = lambda k, d: argv[argv.index(k) + 1] if k in argv else d
     auditors = [a.strip() for a in opt("--auditors", "A,B,C").split(",")]
     n, shared, seed = int(opt("--n", 200)), int(opt("--shared", 30)), int(opt("--seed", 11))
-    sample, common, per = draw(truth, n, shared, seed, auditors)
+    ex_file = out / "unreadable-A.json"
+    exclude = json.load(open(ex_file, encoding="utf-8")) if ex_file.exists() else []
+    sample, common, per = draw(truth, n, shared, seed, auditors, exclude)
     nodes = {x["id"]: x for x in truth["nodes"]}
     ids = {f["s"] for f in sample} | {f["o"] for f in sample}
     titles = titles_for(coll, ids)
@@ -118,6 +134,7 @@ def main():
     rec = {"sample_name": f"audit-{n}", "truth": truth["id"], "truth_sha256": truth["sha256"], "seed": seed, "shared": shared,
            "auditors": auditors, "facts": [f["id"] for f in sample], "common": [f["id"] for f in common],
            "per_auditor": {a: [f["id"] for f in fs] for a, fs in per.items()},
+           "excluded_unreadable_A": sorted(exclude),
            "question": {p: Q[p][1] for p in Q}, "rule": "read the text of act A; never the EUR-Lex relationships box; no LLM"}
     rec["sha256"] = canon.sha256({k: v for k, v in rec.items() if k != "sha256"})
     canon.write(out / f"audit-{n}.json", rec)

@@ -1,0 +1,310 @@
+{
+ "11951K": {
+  "FR": true,
+  "EN": true
+ },
+ "11951K/PRO/CJ/01": {
+  "FR": false,
+  "EN": false
+ },
+ "11951K078": {
+  "FR": false,
+  "EN": false
+ },
+ "11957E042": {
+  "FR": false,
+  "EN": false
+ },
+ "11957E043": {
+  "FR": false,
+  "EN": false
+ },
+ "11957E100A": {
+  "FR": false,
+  "EN": false
+ },
+ "11957E125": {
+  "FR": false,
+  "EN": false
+ },
+ "11957E198": {
+  "FR": false,
+  "EN": false
+ },
+ "11965F/PRO/PRI/13": {
+  "FR": false,
+  "EN": false
+ },
+ "11985I155": {
+  "FR": false,
+  "EN": false
+ },
+ "11997E055": {
+  "FR": false,
+  "EN": false
+ },
+ "12001C008": {
+  "FR": false,
+  "EN": false
+ },
+ "12010A137": {
+  "FR": false,
+  "EN": false
+ },
+ "12016E194": {
+  "FR": false,
+  "EN": false
+ },
+ "12016E282": {
+  "FR": false,
+  "EN": false
+ },
+ "12016E292": {
+  "FR": false,
+  "EN": false
+ },
+ "12016E307": {
+  "FR": false,
+  "EN": false
+ },
+ "12016E349": {
+  "FR": false,
+  "EN": false
+ },
+ "12016M050": {
+  "FR": false,
+  "EN": false
+ },
+ "21974D1228(06)": {
+  "FR": true,
+  "EN": true
+ },
+ "21986A1231(09)": {
+  "FR": true,
+  "EN": true
+ },
+ "21990D1107(02)": {
+  "FR": true,
+  "EN": true
+ },
+ "31954D0401P0311": {
+  "FR": true,
+  "EN": false
+ },
+ "31954D0601P0427": {
+  "FR": true,
+  "EN": true
+ },
+ "31954S0025": {
+  "FR": true,
+  "EN": false
+ },
+ "31955S0014": {
+  "FR": true,
+  "EN": false
+ },
+ "31957S0002": {
+  "FR": true,
+  "EN": false
+ },
+ "31961D0710P1616": {
+  "FR": true,
+  "EN": false
+ },
+ "31962D0407P1000": {
+  "FR": true,
+  "EN": false
+ },
+ "31963D0009": {
+  "FR": true,
+  "EN": true
+ },
+ "31965D0452": {
+  "FR": true,
+  "EN": false
+ },
+ "31965D0480": {
+  "FR": true,
+  "EN": false
+ },
+ "31965R0010(01)": {
+  "FR": true,
+  "EN": true
+ },
+ "31968R0968": {
+  "FR": true,
+  "EN": true
+ },
+ "31970R0436": {
+  "FR": true,
+  "EN": true
+ },
+ "31970R1399": {
+  "FR": true,
+  "EN": true
+ },
+ "31972R0871": {
+  "FR": true,
+  "EN": true
+ },
+ "31972R1109": {
+  "FR": true,
+  "EN": false
+ },
+ "31972R1654": {
+  "FR": true,
+  "EN": true
+ },
+ "31974R2911": {
+  "FR": true,
+  "EN": true
+ },
+ "31975L0036": {
+  "FR": true,
+  "EN": true
+ },
+ "31976D0351": {
+  "FR": true,
+  "EN": true
+ },
+ "31977R1831": {
+  "FR": true,
+  "EN": true
+ },
+ "31979R0482": {
+  "FR": true,
+  "EN": true
+ },
+ "31979R0534": {
+  "FR": true,
+  "EN": true
+ },
+ "31981B0816": {
+  "FR": true,
+  "EN": true
+ },
+ "31985R2505": {
+  "FR": true,
+  "EN": true
+ },
+ "31985R3193": {
+  "FR": true,
+  "EN": true
+ },
+ "31986R0590": {
+  "FR": true,
+  "EN": true
+ },
+ "31990R3112": {
+  "FR": true,
+  "EN": true
+ },
+ "31991R2060": {
+  "FR": true,
+  "EN": true
+ },
+ "31995R0972": {
+  "FR": true,
+  "EN": true
+ },
+ "31995R1447": {
+  "FR": true,
+  "EN": true
+ },
+ "31995R2327": {
+  "FR": true,
+  "EN": true
+ },
+ "31999R0043": {
+  "FR": true,
+  "EN": true
+ },
+ "31999R0127": {
+  "FR": true,
+  "EN": true
+ },
+ "31999R2489": {
+  "FR": true,
+  "EN": true
+ },
+ "32000E0454": {
+  "FR": true,
+  "EN": true
+ },
+ "32022B0182": {
+  "FR": true,
+  "EN": true
+ },
+ "32026D0401": {
+  "FR": true,
+  "EN": true
+ },
+ "41960A1220(01)": {
+  "FR": true,
+  "EN": false
+ },
+ "51978PC0309": {
+  "FR": true,
+  "EN": true
+ },
+ "51978PC0739": {
+  "FR": true,
+  "EN": true
+ },
+ "51983PC0189": {
+  "FR": true,
+  "EN": true
+ },
+ "51984PC0020(09)": {
+  "FR": true,
+  "EN": true
+ },
+ "51984PC0020(30)": {
+  "FR": true,
+  "EN": true
+ },
+ "51984PC0190(41)": {
+  "FR": false,
+  "EN": false
+ },
+ "51986DC0289": {
+  "FR": false,
+  "EN": false
+ },
+ "51989AC0677": {
+  "FR": true,
+  "EN": true
+ },
+ "51995AB0010": {
+  "FR": false,
+  "EN": true
+ },
+ "51995PC0608(02)": {
+  "FR": false,
+  "EN": false
+ },
+ "51995PC0628(03)": {
+  "FR": true,
+  "EN": true
+ },
+ "52001AP0366": {
+  "FR": true,
+  "EN": false
+ },
+ "52001PC0191": {
+  "FR": false,
+  "EN": false
+ },
+ "52013DP0561": {
+  "FR": true,
+  "EN": true
+ },
+ "52016AB0050": {
+  "FR": false,
+  "EN": true
+ },
+ "E2018C0503(02)": {
+  "FR": true,
+  "EN": true
+ }
+}
