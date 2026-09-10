@@ -147,9 +147,13 @@ def judge(truth, cand, journal=None, stated=None):
         inj = journal["injected"]
         cnodes_all = {n["id"]: n for n in cand.get("nodes", [])}
         sub = collections.defaultdict(collections.Counter)
-        BUCKET = {"SPURIOUS_EDGE": None,            # visible or invisible, from the journal
-                  "MISSING": "beyond_reach", "ANACHRONISM": "beyond_reach", "WRONG_VALUE": "beyond_reach",
-                  "MERGE": "beyond_reach", "SPLIT": "beyond_reach", "WRONG_LABEL": "visible_by_label_law"}
+        # One bucket per damage, never pooled: a pooled "beyond reach" hides which damage a
+        # repairer could have reached. Changed 2026-09-10 so the Fault Atlas can read a measured
+        # answer per damage class instead of the lookup table it carries.
+        BUCKET = {"SPURIOUS_EDGE": None,        # visible or invisible, from the journal
+                  "MISSING": "beyond_reach/missing", "ANACHRONISM": "beyond_reach/anachronism",
+                  "WRONG_VALUE": "beyond_reach/wrong_value", "MERGE": "beyond_reach/merge",
+                  "SPLIT": "beyond_reach/split", "WRONG_LABEL": "visible_by_label_law"}
         for e in inj:
             d = e["damage"]
             if d == "DUPLICATE":
