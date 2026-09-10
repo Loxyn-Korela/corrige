@@ -72,13 +72,18 @@ def report(truth, rec, per_auditor, notes=None):
     nons = [(fid, facts[fid]["p"], [x for x in votes[fid]]) for fid in rec["facts"] if verdict.get(fid) == "non"]
     cats = notes.get("categories", {})
     by_cat = collections.Counter(cats.get(fid, {}).get("category", "not categorised") for fid, _, _ in nons)
-    judged = sum(r["oui"] + r["non"] for r in rates.values())
-    def rate(k): return {"num": by_cat.get(k, 0), "den": judged, "value": f"{by_cat.get(k,0)/judged:.4f}" if judged else "undefined"}
+    # R6: never a pooled rate. The sample is stratified (70/70/60) while the truth is not
+    # (14,411 / 64,290 / 410,522): a pooled figure would be an artefact of the stratification.
+    per_rel = {}
+    for p, r in rates.items():
+        den = r["oui"] + r["non"]
+        cats_p = collections.Counter(cats.get(fid, {}).get("category", "not categorised") for fid, pp, _ in nons if pp == p)
+        per_rel[p] = {"read": den,
+                      **{k: {"num": cats_p.get(k, 0), "den": den, "value": f"{cats_p.get(k,0)/den:.4f}" if den else "undefined"}
+                         for k in ("registry_wrong", "not_in_text", "requalified")}}
     return {"verdict": verdict, "rates": rates, "agreement_on_shared": dict(agree), "non_facts": nons,
-            "by_category": dict(by_cat), "judged": judged,
-            "truth_error_rate": rate("registry_wrong"),
-            "not_in_text_rate": rate("not_in_text"),
-            "requalified_rate": rate("requalified"),
+            "by_category": dict(by_cat), "judged": sum(r["oui"] + r["non"] for r in rates.values()),
+            "per_relation": per_rel,
             "corrections": notes.get("corrections", []),
             "answered": sum(1 for v in verdict.values() if v != "unanswered"), "total": len(rec["facts"])}
 
@@ -104,8 +109,8 @@ def main():
         print(f"  {p}: oui {r['oui']} · non {r['non']} · illisible {r['illisible']} · disagreement {r['disagreement']} · error rate {r['error_rate']['value']} ({r['error_rate']['num']}/{r['error_rate']['den']})")
     print("  agreement on shared facts:", rep["agreement_on_shared"])
     print("  by category:", rep["by_category"])
-    for k in ("truth_error_rate", "not_in_text_rate", "requalified_rate"):
-        r = rep[k]; print(f"  {k}: {r['value']} ({r['num']}/{r['den']})")
+    for p, r in rep["per_relation"].items():
+        print(f"  {p} ({r['read']} read): " + " · ".join(f"{k} {r[k]['num']}" for k in ("registry_wrong", "not_in_text", "requalified")))
     for fid, p, v in rep["non_facts"]:
         print(f"  NON {fid} ({p}): " + " | ".join(f"{a}: {ans} {art}" for a, ans, art in v))
     if "--write" in argv:
@@ -114,10 +119,12 @@ def main():
                           "date": datetime.date.today().isoformat(), "auditors": [a for a in rec["auditors"] if per.get(a)],
                           "answered": rep["answered"], "judged": rep["judged"], "rates": rep["rates"],
                           "agreement_on_shared": rep["agreement_on_shared"], "by_category": rep["by_category"],
-                          "truth_error_rate": rep["truth_error_rate"], "not_in_text_rate": rep["not_in_text_rate"], "requalified_rate": rep["requalified_rate"],
+                          "per_relation": rep["per_relation"],
+                          "no_pooled_rate": "the sample is stratified (70 repeals / 70 amends / 60 based_on) while the truth is not (14,411 / 64,290 / 410,522): a rate over all relations would be an artefact of the stratification, and rule R6 forbids it. Read per relation, with the count of facts read.",
                           "category_meaning": notes.get("category_meaning", {}), "corrections": rep["corrections"],
                           "categories": notes.get("categories", {}), "verdicts": rep["verdict"],
-                          "reserves": ["one auditor: no agreement between readers measured yet; the 30 shared facts are still open",
+                          "reserves": ["one auditor, who also built the truth: no agreement between readers measured yet; the 30 shared facts are still open, and both revisions made after review went from NO to YES, the direction that raises the figure",
+                                       "27 to 33 facts per relation: a wide interval, a first reading rather than a rate",
                                        "two facts (f-483026, f-477942) rest on the auditor's reading of the titles: the texts of a 1954 ECSC decision and a 1970 Euratom regulation are served neither by EUR-Lex nor by Cellar",
                                        "the sample excludes the faults the register already declares (sentinel dates, empty targets): the rate is that of ordinary facts"]}
         truth["status"] = "audited" if rep["answered"] == rep["total"] else "partially_audited"

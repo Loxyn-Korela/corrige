@@ -85,29 +85,30 @@ failures of the engine; with it, they are a property of the register, stated as 
 
 ## The truth, audited by hand (2026-09-10)
 
-87 of the 200 facts of the sealed sample were read against the acts' own texts by one human, no
-model, one fact at a time (`audit/`, booklets and answers). What comes out is not one number but
-three, and the difference is the point:
+87 facts of the sealed sample were read against the acts' own texts by one human, no model, one
+fact at a time (`audit/`). The sample is stratified — 70 repeals, 70 amends, 60 based_on — while
+the truth is not (14,411 / 64,290 / 410,522). **A rate over all relations would be an artefact of
+the stratification**, and rule R6 forbids it, so everything is per relation:
 
-| | | |
-|---|---|---|
-| the register is **wrong** | 2 of 87 | 2.3 % — a wrong target (an act about staff in Belgium linked to one about Italy) and a granularity error (one article repealed, the act recorded as repealed) |
-| true in law, **not stated in the text** | 5 of 87 | 5.7 % — implicit by expiry, by competence, by cascade, by accomplishment; the act never names the other one |
-| the text states **another relation** | 2 of 87 | 2.3 % — a derogation, a succession; an extractor reading the text produces a different edge, correct in itself |
-| the register is right and the text says so | 78 of 87 | 89.7 % |
+| of the facts read | repeals (27) | amends (33) | based_on (27) |
+|---|---|---|---|
+| the register is **wrong** | 2 | 0 | 0 |
+| true in law, **not stated in the text** | 3 | 1 | 1 |
+| the text states **another relation** | 1 | 1 | 0 |
+| the register is right and the text says so | 21 | 31 | 26 |
 
-So the register is right on 97.7 % of ordinary facts, and only 89.7 % of what it asserts can be
-found by reading the documents. A graph built from the texts is capped near 90 % recall on this
-truth, whatever its engine — not because it failed, but because the register infers. That ceiling
-is a property of the truth, and no benchmark that lacks it can tell a bad extractor from an
-honest one.
+Both registry errors fall on repeals: a wrong target (an act about staff in Belgium linked to one
+about Italy) and a granularity error (one article repealed, the act recorded as repealed).
+
+Reserves, in the truth's `audit` block: **one auditor, who also built the truth**; no agreement
+between readers measured yet; both revisions made after review went from NO to YES, the direction
+that raises the figure; 27 to 33 facts per relation is a wide interval — a first reading, not a
+rate; two facts rest on titles alone, their texts served neither by EUR-Lex nor by Cellar.
 
 Two answers were revised after review, both because the source hid the sentence: an adaptation
 inside a table the page renders badly, and a 1990 amendment compared with the 1972 original text
 (the amounts had changed in between). The booklet keeps what was ticked; `answers-notes.json`
-records what was revised and why. Reserves are in the truth's `audit` block: one auditor so far,
-no inter-reader agreement measured; two facts whose texts are served by neither EUR-Lex nor
-Cellar, judged on their titles.
+records what was revised and why.
 
 ## First measure (2026-09-09, full truth, two witnesses, no candidate yet)
 
