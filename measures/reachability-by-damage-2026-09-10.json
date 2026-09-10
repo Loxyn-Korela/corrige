@@ -1,0 +1,75 @@
+{
+ "id": "reachability-by-damage-2026-09-10",
+ "about": "What a deletion-only repair actually reaches, measured per damage class. This replaces the Fault Atlas field repair.reachable_by_deletion, which the migration of 2026-09-09 wrote from the damage class by a lookup table and never measured.",
+ "truth": "truth-eurlex-relations-2026-09-09",
+ "journal_sha256": "df640987dd86897738886e9fa99d93b91ec8d98571113429f77a3134da66a7f9",
+ "repairer": "pgrepair, SciPyWeightedILP, workloads eurlex-labels.toml then eurlex-laws.toml, --mark --disable-cache",
+ "runs": 3,
+ "identical_on_all_three": true,
+ "measured": {
+  "SPURIOUS_EDGE visible to a law": {
+   "injected": 360,
+   "reached": 360,
+   "verdict": "yes"
+  },
+  "SPURIOUS_EDGE invisible to every law": {
+   "injected": 361,
+   "reached": 6,
+   "verdict": "no"
+  },
+  "WRONG_LABEL": {
+   "injected": 3932,
+   "reached": 3932,
+   "verdict": "yes, and it costs 12,591 true facts: the repair deletes the nodes, not their labels"
+  },
+  "ANACHRONISM": {
+   "injected": 5276,
+   "reached": 0,
+   "verdict": "no"
+  },
+  "WRONG_VALUE": {
+   "injected": 2613,
+   "reached": 0,
+   "verdict": "no"
+  },
+  "MERGE": {
+   "injected": 2532,
+   "reached": 0,
+   "verdict": "no"
+  },
+  "SPLIT": {
+   "injected": 1355,
+   "reached": 0,
+   "verdict": "no; 24 twins of 1,355 were deleted and 1,674 true facts they took were not restored"
+  },
+  "MISSING": {
+   "injected": 423,
+   "reached": 0,
+   "verdict": "no"
+  }
+ },
+ "contradicts_the_atlas": [
+  {
+   "damage": "ANACHRONISM",
+   "atlas_says": "partial",
+   "measured": "no",
+   "forms_affected": 8,
+   "note": "0 of 5,276 reached on three identical runs"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "atlas_says": "yes",
+   "measured": "yes only when a law can see it",
+   "forms_affected": 20,
+   "note": "360 of 360 visible, 6 of 361 invisible. A flat yes erases the distinction the bench exists to make"
+  }
+ ],
+ "confirms_the_atlas": [
+  "MERGE",
+  "MISSING",
+  "SPLIT",
+  "WRONG_VALUE"
+ ],
+ "reserve": "The measurement is per damage class, not per form: two forms of the same damage and the same visibility get the same answer, and the atlas says so rather than claiming 162 measured forms.",
+ "date": "2026-09-10"
+}

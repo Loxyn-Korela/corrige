@@ -167,7 +167,7 @@ def judge(truth, cand, journal=None, stated=None):
                     sub[arm]["true edge kept" if tw == "found" else "true edge broken"] += 1
                     sub[arm]["false edge deleted" if caught else "false edge kept"] += 1
             elif d == "MISSING":
-                bucket, caught = "beyond_reach", bool(seen.get((e["s"], e["p"], e["o"])))
+                bucket, caught = BUCKET[d], bool(seen.get((e["s"], e["p"], e["o"])))
             elif d in ("ANACHRONISM", "WRONG_VALUE"):
                 bucket = BUCKET[d]
                 prop = "date_document" if d == "ANACHRONISM" else e.get("property", "celex")
