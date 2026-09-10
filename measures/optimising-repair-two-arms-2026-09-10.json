@@ -1,0 +1,55 @@
+{
+ "about": "Does an optimising repairer buy anything, and where does it stop? Two arms in one graph, the same seeded journal, three candidates.",
+ "date": "2026-09-10",
+ "truth": "truth-eurlex-relations-2026-09-09",
+ "journal_sha256": "37e9cfeae5a4e3f42896694aa162e44a77287204baf59bc7ce8bfd4468517f13",
+ "design": {
+  "informed arm": "150 cycles whose false edge also violates a one-edge law (date order): the choice is available without the two-edge law",
+  "blind arm": "130 cycles whose false edge violates nothing but the two-edge law: the two edges are indistinguishable, and no information exists to choose between them",
+  "why": "the first arm was the only one measured before, and it is the arm a plain rule can win; the second is the one that can fail"
+ },
+ "results": {
+  "rule-without-model": {
+   "informed": {
+    "true edge kept": 0,
+    "of": 150
+   },
+   "blind": {
+    "true edge kept": 0,
+    "of": 130
+   },
+   "true facts wrongly broken": 280
+  },
+  "pgrepair-SciPyWeightedILP": {
+   "informed": {
+    "true edge kept": 150,
+    "of": 150
+   },
+   "blind": {
+    "true edge kept": 58,
+    "of": 130
+   },
+   "true facts wrongly broken": 72
+  },
+  "pgrepair-Greedy": {
+   "informed": {
+    "true edge kept": 150,
+    "of": 150
+   },
+   "blind": {
+    "true edge kept": 66,
+    "of": 130
+   },
+   "true facts wrongly broken": 64
+  }
+ },
+ "reading": [
+  "Against a plain rule the gain is real and large: the rule deletes every edge of every violation, so it destroys 150 of 150 true edges on the informed arm; both pgrepair algorithms keep all 150.",
+  "Between the ILP and the greedy there is no measurable difference on this workload: 150/150 both on the informed arm, 58/130 and 66/130 on the blind one.",
+  "On the blind arm both are at chance, as they must be: 44.6 % and 50.8 %, with a 95 % interval of ±8.6 points on 130 cycles. When two edges carry the same violation and nothing else distinguishes them, no repairer can do better, and the bench says so instead of hiding it."
+ ],
+ "reserves": [
+  "130 blind cycles: the interval is wide, and the design forbids more (only 159 pairs of the whole truth give a blind mirror)",
+  "one workload, one truth: this says nothing about constraint sets where violations overlap in richer ways"
+ ]
+}

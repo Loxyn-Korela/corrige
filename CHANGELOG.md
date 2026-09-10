@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.0 — 2026-09-10
+- **The straw witness is gone.** The first cycle experiment let the right edge be chosen without any solver (283 of 288 injected edges also violated the date law). The new design has two arms in one graph: informed (150 cycles the date law can settle) and blind (130 cycles nothing but the two-edge law can see). pgrepair's own Greedy is now a witness beside its ILP.
+- Result, and it corrects us twice: against a plain rule the gain is large (150 true edges kept against 0); between the ILP and the greedy there is **no measurable difference** on this workload; and on the blind arm both sit at chance (44.6 % and 50.8 %, ±8.6 points), which is the ceiling and is now stated as such.
+- All seven damages injectable; label law L6 from the CELEX letter; pgrepair repairs 3,932 of 3,932 wrong labels, a half of the tool no measurement had touched.
+
 ## 1.0.0 — 2026-09-10
 First version anyone can run end to end without us.
 

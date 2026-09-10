@@ -159,7 +159,9 @@ def judge(truth, cand, journal=None, stated=None):
                 caught = not seen.get((e["s"], e["p"], e["o"]))
                 if e.get("cycle_with"):
                     tw = per_fact.get(e["cycle_with"], {}).get("status")
-                    sub["cycles"]["true edge kept" if tw == "found" else "true edge broken"] += 1
+                    arm = "cycles/" + e.get("arm", "informed")
+                    sub[arm]["true edge kept" if tw == "found" else "true edge broken"] += 1
+                    sub[arm]["false edge deleted" if caught else "false edge kept"] += 1
             elif d == "MISSING":
                 bucket, caught = "beyond_reach", bool(seen.get((e["s"], e["p"], e["o"])))
             elif d in ("ANACHRONISM", "WRONG_VALUE"):

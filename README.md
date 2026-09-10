@@ -142,6 +142,39 @@ and 11,888 phantom lost facts in our first attempt.
 Neither witness can touch the label damage — a rule that deletes edges has nothing to say about a
 label — so on this damage pgrepair stands alone, exactly and completely.
 
+## Does an optimising repairer buy anything? Two arms, one of which can fail (2026-09-10)
+
+The first cycle experiment was a straw man: 283 of its 288 injected edges also violated the
+one-edge date law, so the right edge could be chosen without any solver. This one has two arms in
+the same graph, the same sealed journal (`measures/optimising-repair-two-arms-2026-09-10.json`):
+
+- **informed** — 150 cycles whose false edge *also* violates the date law; the choice exists
+  without the two-edge law;
+- **blind** — 130 cycles whose false edge violates *nothing but* the two-edge law; the two edges
+  are indistinguishable, and there is no information to choose between them. Only 159 pairs in the
+  whole truth allow this, which is why the arm is small.
+
+| true edges kept | informed (150) | blind (130) | true facts wrongly broken |
+|---|---|---|---|
+| rule without model | **0** | 0 | 280 |
+| pgrepair, SciPyWeightedILP | **150** | 58 (44.6 %) | 72 |
+| pgrepair, Greedy | **150** | 66 (50.8 %) | 64 |
+
+Three readings, and the second and third are not what we claimed before.
+
+**Against a plain rule the gain is real and large.** A rule that deletes every edge of every
+violation destroys all 150 true edges; both pgrepair algorithms keep all 150. That is what
+choosing buys over deleting, and it is worth stating on its own.
+
+**Between the ILP and the greedy there is no measurable difference on this workload.** Identical on
+the informed arm, and within noise on the blind one. The ILP earns its keep on constraint sets
+where violations overlap more richly than ours do — which our bench cannot yet produce.
+
+**On the blind arm both are at chance, as they must be**: 44.6 % and 50.8 %, with a 95 % interval
+of ±8.6 points on 130 cycles. When two edges carry the same violation and nothing else separates
+them, no repairer can do better than a coin. The instrument's job is to say so rather than to hide
+it behind an average.
+
 ## First measure (2026-09-09, full truth, two witnesses, no candidate yet)
 
 Injected with a sealed seed: 10 % spurious `repeals` and `amends` edges, half of them visible by

@@ -67,31 +67,28 @@ def inject(truth, damages, visible=None, seed=b"", duplicate=False):
                 injected.append({"damage": "SPURIOUS_EDGE", "s": s, "p": den, "o": o, "visible_by_law": v})
             if n_vis is not None and made["vis"] != n_vis:
                 raise RuntimeError(f"visible share not met: {made['vis']} of {n_vis}")
-        elif kind == "CYCLE":
-            # a spurious repeals edge b->a mirroring a true repeals a->b: both edges violate L4, one is false
-            if den != "repeals": raise ValueError("CYCLE is dosed on repeals")
-            pool = sorted(k for k, f in facts.items() if f["p"] == "repeals" and not f.get("injected") and f.get("id") not in fault_facts and k[0] != k[2] and (k[2], "repeals", k[0]) not in facts)
-            n = round(rate * len(pool))
-            for (a, _, b) in rng.sample(pool, n):
+        elif kind in ("CYCLE", "CYCLE_BLIND"):
+            # a spurious repeals b->a mirroring a true a->b: both edges violate L4 (two acts do not
+            # repeal each other) and one of them is false. CYCLE: the mirror also violates a one-edge
+            # law, so the choice is INFORMED. CYCLE_BLIND: the mirror violates nothing else, so the
+            # two edges are indistinguishable and the choice is BLIND — the experiment that can fail.
+            if den != "repeals": raise ValueError("a cycle is dosed on repeals")
+            blind = kind == "CYCLE_BLIND"
+            pool = []
+            for k, f in facts.items():
+                if f["p"] != "repeals" or f.get("injected") or f.get("id") in fault_facts: continue
+                if (k[2], "repeals", k[0]) in facts: continue
+                v = laws.violations({"s": k[2], "p": "repeals", "o": k[0]}, nodes)
+                if bool(v) != blind: pool.append(k)
+            pool.sort()
+            n = round(rate * len(pool)) if rate <= 1 else min(int(rate), len(pool))
+            for (a, _, b) in rng.sample(pool, min(n, len(pool))):
                 key = (b, "repeals", a)
                 facts[key] = {"s": b, "p": "repeals", "o": a, "injected": True}
-                injected.append({"damage": "SPURIOUS_EDGE", "s": b, "p": "repeals", "o": a, "visible_by_law": ["L4"], "cycle_with": facts[(a, "repeals", b)]["id"]})
-        elif kind == "MISSING":
-            if den not in RELS: raise ValueError("MISSING needs a relation denominator")
-            pool = sorted(k for k, f in facts.items() if f["p"] == den and not f.get("injected") and f.get("id") not in fault_facts)
-            n = round(rate * len(pool))
-            for key in rng.sample(pool, n):
-                f = facts.pop(key)
-                injected.append({"damage": "MISSING", "s": key[0], "p": key[1], "o": key[2], "truth_fact": f["id"]})
-        elif kind == "ANACHRONISM":
-            if den != "nodes": raise ValueError("ANACHRONISM is dosed on nodes")
-            pool = sorted(nid for nid, nd in nodes.items() if nd.get("date_document_status") == "ok")
-            n = round(rate * len(pool))
-            for nid in rng.sample(pool, n):
-                d = datetime.date.fromisoformat(nodes[nid]["date_document"])
-                new = (d.replace(year=d.year + 1) if not (d.month == 2 and d.day == 29) else d.replace(year=d.year + 1, day=28)).isoformat()
-                injected.append({"damage": "ANACHRONISM", "node": nid, "truth_date": nodes[nid]["date_document"], "injected_date": new})
-                nodes[nid]["date_document"] = new
+                injected.append({"damage": "SPURIOUS_EDGE", "s": b, "p": "repeals", "o": a,
+                                 "visible_by_law": ["L4"] if blind else laws.violations({"s": b, "p": "repeals", "o": a}, nodes) + ["L4"],
+                                 "arm": "blind" if blind else "informed",
+                                 "cycle_with": facts[(a, "repeals", b)]["id"]})
         elif kind == "WRONG_LABEL":
             # the act's type label contradicts its CELEX: 32019R1020 labelled Directive.
             # This is the damage a label repair can undo, and the only one that exercises it.
@@ -177,6 +174,7 @@ def inject(truth, damages, visible=None, seed=b"", duplicate=False):
 
 def _exact_rate(rate):
     if isinstance(rate, (int, float)): return float(rate)
+    if rate.isdigit(): return int(rate)          # a plain count, for a small population
     if "/" in rate:
         a, b = rate.split("/"); return int(a) / int(b)
     return float(rate)
