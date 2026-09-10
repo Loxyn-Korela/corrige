@@ -10,6 +10,7 @@ The design, its nine judge rules and its eleven planted-fault tests are in the c
 (`COUCHE 1 — socle de vérité et juge`, version 4, validated 2026-09-09).
 
 ```
+./demo.sh                                          # the whole instrument in one second, no database, no network
 python3 -m corrige.truth_eurlex <collection dir> truths/truth-eurlex-relations-2026-09-09.json --toy 200 --seed 7
 python3 tests/test_layer1.py                       # 24 assertions: T0-T12 + calibration, on toy-200
 python3 -m corrige.inject <truth> <out-dir> --damage repeals:SPURIOUS_EDGE=0.10 --visible 1/2 --seed-file seed.txt
