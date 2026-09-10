@@ -166,11 +166,21 @@ the same graph, the same sealed journal (`measures/optimising-repair-two-arms-20
   are indistinguishable, and there is no information to choose between them. Only 159 pairs in the
   whole truth allow this, which is why the arm is small.
 
-| true edges kept | informed (150) | blind (130) | true facts wrongly broken |
-|---|---|---|---|
-| rule without model | **0** | 0 | 280 |
-| pgrepair, SciPyWeightedILP | **150** | 58 (44.6 %) | 72 |
-| pgrepair, Greedy | **150** | 66 (50.8 %) | 64 |
+Each arm was run four times per algorithm, because a single run turned out to establish nothing
+(see R10 below and `measures/eurlex-arms-spread-2026-09-10.json`):
+
+| true edges kept | informed (150) | blind (130) |
+|---|---|---|
+| rule without model | **0** | 0 |
+| pgrepair, SciPyWeightedILP, 4 runs | **150, 150, 150, 150** | 58, 59, 65, 69 |
+| pgrepair, Greedy, 4 runs | **150, 150, 150, 150** | 64, 66, 66, 70 |
+
+Read the two columns against each other, because that contrast is the whole result. **The informed
+arm is identical on all eight runs.** Where the date law separates the two edges, both algorithms
+find the same answer every time, and it is the right one. **The blind arm never repeats.** The same
+ILP gives 59 on one run and 69 on the next; a fair coin on 130 pairs gives 65 with a 95 % band of 54
+to 76, and all eight figures sit inside it. The spread *within* one algorithm is wider than any gap
+*between* the two.
 
 Three readings, and the second and third are not what we claimed before.
 
@@ -178,22 +188,30 @@ Three readings, and the second and third are not what we claimed before.
 violation destroys all 150 true edges; both pgrepair algorithms keep all 150. That is what
 choosing buys over deleting, and it is worth stating on its own.
 
-**Between the ILP and the greedy there is no measurable difference on this workload.** Identical on
-the informed arm, and within noise on the blind one. The ILP earns its keep on constraint sets
-where violations overlap more richly than ours do — which our bench cannot yet produce.
+**Between the ILP and the greedy nothing can be measured from single runs, and we withdraw our
+earlier "no difference".** They are identical on the informed arm, eight runs out of eight. On the
+blind arm neither is measured at all: repeating the arm moves the figure by more than the choice of
+algorithm does. The ILP may still earn its keep on constraint sets where violations overlap more
+richly than ours do, and our bench cannot yet produce those.
 
 **On the blind arm both are at chance, as they must be**: 44.6 % and 50.8 %, with a 95 % interval
 of ±8.6 points on 130 cycles. When two edges carry the same violation and nothing else separates
 them, no repairer can do better than a coin. The instrument's job is to say so rather than to hide
 it behind an average.
 
-**Correction, 2026-09-10, from the ICIJ run.** Each of those two blind figures is **one draw**, and
-we now know the draw is not repeatable: the tie between two edges of equal weight is broken by the
-iteration order of a Python `set` of string-keyed pairs, which changes from one process to the next
-(`runs/icij/tie_break.py`). Two identical ICIJ arms of the greedy returned 25 and 30 of 60. So the
-±8.6 points above is the *sampling* interval over 130 cycles and nothing more; it does not cover
-run-to-run variation, and this arm was never repeated. Read 44.6 % and 50.8 % as two coin flips of
-an unknown coin, not as two measurements of two algorithms.
+**Why the draw is not repeatable.** The tie between two edges of equal weight is broken by the
+iteration order of a Python `set` of `(element_id, EntityType)` pairs, and `element_id` is a string,
+so the order changes from one process to the next. `runs/icij/tie_break.py` reproduces it in four
+lines: twenty processes, two different answers. A second key in `min()` that does not depend on the
+process — `(weights[v], v[0], v[1].value)`, since `EntityType` is a plain `Enum` and is not orderable
+on its own — makes the greedy reproducible without changing what it computes.
+
+**R10, a tenth judge rule, comes out of this.** One run of a repairer establishes nothing.
+`python3 -m corrige.spread <truth> <journal> <candidates…>` judges several runs of one design and
+prints each arm's figure beside the coin's, labelled *stable*, *MOVES*, or *NOT REPEATED*. An arm
+that is stable is one where information existed and the repairer used it. An arm that moves is a
+tie-break, and a single run published as a score reads as skill. The rule costs one flag and it is
+what turned our own "no difference" from a claim into a question.
 
 ## A second graph, not legislative, with constraints we did not write (2026-09-10)
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.0 — 2026-09-10
+- **R10, a tenth judge rule: one run of a repairer establishes nothing.** `corrige.spread` judges several runs of one design and prints each arm's figure beside what a coin gives, labelled stable, MOVES or NOT REPEATED. T13 covers the three readings, including that one run licenses neither of the other two.
+- **Both experiments repeated, and the contrast is the result.** EUR-Lex, four runs per algorithm: the informed arm returns 150 of 150 on all eight, the blind arm returns 58, 59, 65, 69 (ILP) and 64, 66, 66, 70 (Greedy) where a coin gives 65 in a band of 54 to 76. ICIJ, six runs: 24 to 31 of 60 where a coin gives 30. Where information exists both algorithms use it, every time; where it does not, repeating the arm moves the figure by more than the choice of algorithm does.
+- **Withdrawn**: the 1.1.0 reading "between the ILP and the greedy there is no measurable difference on this workload". Single runs measure neither.
+- The mechanism is named and reproducible in four lines (`runs/icij/tie_break.py`), and so is the one-key fix.
+- `corrige.neo4j_graph` empties the database in bounded transactions; one `DETACH DELETE` over the ICIJ graph exceeds the transaction memory limit.
+
 ## 1.2.1 — 2026-09-10
 - **The greedy's choice is not stable.** Two identical runs of `-a Greedy` on the same graph with the same sealed journal kept 25 and 30 of the 60 blind rival edges. The 1.2.0 note quoted the first run alone; both are now published, and further repeats are running. It sharpens rather than changes the reading: on a blind two-edge violation the choice carries no information.
 

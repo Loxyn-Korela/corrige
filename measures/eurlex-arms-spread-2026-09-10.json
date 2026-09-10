@@ -1,0 +1,120 @@
+{
+ "truth": "truth-eurlex-relations-2026-09-09",
+ "journal_sha256": "37e9cfeae5a4e3f42896694aa162e44a77287204baf59bc7ce8bfd4468517f13",
+ "spread": {
+  "pgrepair-Greedy": {
+   "runs": 3,
+   "arms": {
+    "cycles/blind": {
+     "of": 130,
+     "true_edges_kept_per_run": [
+      64,
+      66,
+      70
+     ],
+     "min": 64,
+     "max": 70,
+     "median": 66,
+     "stable": false,
+     "coin": {
+      "expected": 65.0,
+      "sd": 5.7,
+      "band_95": [
+       54,
+       76
+      ]
+     },
+     "reading": "moves between identical runs: the choice was a tie-break, and no single run is a score"
+    },
+    "cycles/informed": {
+     "of": 150,
+     "true_edges_kept_per_run": [
+      150,
+      150,
+      150
+     ],
+     "min": 150,
+     "max": 150,
+     "median": 150,
+     "stable": true,
+     "coin": {
+      "expected": 75.0,
+      "sd": 6.12,
+      "band_95": [
+       63,
+       87
+      ]
+     },
+     "reading": "identical on every run: the choice used information"
+    }
+   },
+   "wrongly_broken_per_run": [
+    66,
+    64,
+    60
+   ],
+   "visible_caught_per_run": [
+    214,
+    216,
+    220
+   ]
+  },
+  "pgrepair-SciPyWeightedILP": {
+   "runs": 3,
+   "arms": {
+    "cycles/blind": {
+     "of": 130,
+     "true_edges_kept_per_run": [
+      69,
+      59,
+      65
+     ],
+     "min": 59,
+     "max": 69,
+     "median": 65,
+     "stable": false,
+     "coin": {
+      "expected": 65.0,
+      "sd": 5.7,
+      "band_95": [
+       54,
+       76
+      ]
+     },
+     "reading": "moves between identical runs: the choice was a tie-break, and no single run is a score"
+    },
+    "cycles/informed": {
+     "of": 150,
+     "true_edges_kept_per_run": [
+      150,
+      150,
+      150
+     ],
+     "min": 150,
+     "max": 150,
+     "median": 150,
+     "stable": true,
+     "coin": {
+      "expected": 75.0,
+      "sd": 6.12,
+      "band_95": [
+       63,
+       87
+      ]
+     },
+     "reading": "identical on every run: the choice used information"
+    }
+   },
+   "wrongly_broken_per_run": [
+    61,
+    71,
+    65
+   ],
+   "visible_caught_per_run": [
+    219,
+    209,
+    215
+   ]
+  }
+ }
+}

@@ -51,5 +51,60 @@
  "reserves": [
   "130 blind cycles: the interval is wide, and the design forbids more (only 159 pairs of the whole truth give a blind mirror)",
   "one workload, one truth: this says nothing about constraint sets where violations overlap in richer ways"
- ]
+ ],
+ "repeated": {
+  "why": "a single run of a repairer establishes nothing when the choice is a tie-break (R10); every arm was run four times per algorithm",
+  "true_edges_kept_per_run": {
+   "SciPyWeightedILP": {
+    "informed": [
+     150,
+     150,
+     150,
+     150
+    ],
+    "blind": [
+     58,
+     59,
+     65,
+     69
+    ]
+   },
+   "Greedy": {
+    "informed": [
+     150,
+     150,
+     150,
+     150
+    ],
+    "blind": [
+     64,
+     66,
+     66,
+     70
+    ]
+   }
+  },
+  "coin": {
+   "informed": {
+    "of": 150,
+    "expected": 75,
+    "band_95": [
+     63,
+     87
+    ]
+   },
+   "blind": {
+    "of": 130,
+    "expected": 65,
+    "band_95": [
+     54,
+     76
+    ]
+   }
+  },
+  "reading": "The informed arm is identical on all eight runs: where the date law separates the two edges, both algorithms find the right one every time. The blind arm never repeats, and every figure falls inside the coin band. The spread within one algorithm is wider than any gap between the two, so no comparison can be read from single runs.",
+  "mechanism": "runs/icij/tie_break.py — min() over a Python set of (element_id, EntityType) pairs, and Python randomises hash(str) per process",
+  "tool": "python3 -m corrige.spread, measures/eurlex-arms-spread-2026-09-10.json",
+  "withdrawn": "the 1.1.0 reading \"between the ILP and the greedy there is no measurable difference on this workload\": single runs measure neither"
+ }
 }
