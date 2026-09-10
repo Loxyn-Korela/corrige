@@ -1,7 +1,17 @@
 """World laws, written before any injection and without looking at any journal.
 Each law has a plain sentence, a Cypher form for pgrepair, and a Python form
 the judge and the census apply to a truth or a candidate in memory."""
-import datetime
+import datetime, re
+
+# a CELEX carries the act's type in its letter: 32019R1020 -> R -> Regulation.
+# The node's label must say the same thing: a law of the domain that a label repair can enforce.
+CELEX_TYPE = {"R": "Regulation", "L": "Directive", "D": "Decision", "H": "Recommendation",
+              "A": "Agreement", "Q": "RulesOfProcedure", "X": "OtherAct", "C": "Communication"}
+
+
+def type_label(celex):
+    m = re.match(r"^\d\d{4}([A-Z])", celex or "")
+    return CELEX_TYPE.get(m.group(1)) if m else None
 
 def _d(s):
     try:
@@ -21,6 +31,9 @@ LAWS = [
      "cypher": "MATCH p=(a:Act)-[r:BASED_ON]->(b) WHERE (b.celex IS NULL OR b.celex = '') AND coalesce(b.gap, false) = false RETURN p"},
     # the one strict two-edge law the census allows on this truth (1 real violation in 489,223 facts):
     # a violation involves two edges and deleting either one repairs it — a repairer has to choose
+    {"id": "L6", "kind": "label",
+     "text": "an act's type label says what its CELEX says: 32019R1020 is a Regulation, 32019L1020 a Directive",
+     "cypher": "MATCH (a:Act) WHERE a.celex IS NOT NULL AND a.type_label IS NOT NULL AND NOT a:$label RETURN a"},
     {"id": "L4", "kind": "two_edges",
      "text": "two acts do not repeal each other: if A repeals B, B does not repeal A",
      "cypher": "MATCH p1=(a:Act)-[r1:REPEALS]->(b:Act), p2=(b)-[r2:REPEALS]->(a) RETURN p1, p2"},
@@ -36,6 +49,15 @@ class Index:
 
     def targets(self, o, p):
         return [f for f in self.into.get(o, []) if f["p"] == p]
+
+
+def label_violations(node):
+    """The node carries a type label that contradicts its CELEX. Returns the labels that must go."""
+    want = type_label(node.get("celex"))
+    if not want:
+        return []
+    have = [l for l in node.get("labels", []) if l in CELEX_TYPE.values()]
+    return [l for l in have if l != want]
 
 
 def violations(fact, nodes, index=None):

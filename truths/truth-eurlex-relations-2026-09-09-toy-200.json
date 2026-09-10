@@ -60,6 +60,12 @@
    "cypher": "MATCH p=(a:Act)-[r:BASED_ON]->(b) WHERE (b.celex IS NULL OR b.celex = '') AND coalesce(b.gap, false) = false RETURN p"
   },
   {
+   "id": "L6",
+   "kind": "label",
+   "text": "an act's type label says what its CELEX says: 32019R1020 is a Regulation, 32019L1020 a Directive",
+   "cypher": "MATCH (a:Act) WHERE a.celex IS NOT NULL AND a.type_label IS NOT NULL AND NOT a:$label RETURN a"
+  },
+  {
    "id": "L4",
    "kind": "two_edges",
    "text": "two acts do not repeal each other: if A repeals B, B does not repeal A",

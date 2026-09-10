@@ -110,6 +110,38 @@ inside a table the page renders badly, and a 1990 amendment compared with the 19
 (the amounts had changed in between). The booklet keeps what was ticked; `answers-notes.json`
 records what was revised and why.
 
+## The seven damages, and the half of pgrepair nobody had exercised (2026-09-10)
+
+The injector produced only four of the seven damages the Fault Atlas classifies. It now produces
+all seven, on the same frozen truth: spurious edge, missing, anachronism, **wrong value** (the
+CELEX itself), **wrong label**, **merge** (two acts become one node) and **split** (one act becomes
+two). The wrong label rests on a real law of the domain, L6: *an act's type label says what its
+CELEX says* — `32019R1020` is a Regulation, `32019L1020` a Directive — and it is the only damage a
+**label repair** can undo, which is the half of pgrepair no measurement had touched.
+
+One run, 5 % spurious repeals (half visible to a law), 3 % repeals removed, 2 % wrong labels, 1 %
+wrong CELEX values, 506 merges, 271 splits (`runs/seven/`):
+
+| damage | dumb baseline | rule without model | pgrepair |
+|---|---|---|---|
+| spurious edge, visible to an edge law | 0 / 360 | 360 / 360 | 360 / 360 |
+| spurious edge, invisible to every law | 0 / 361 | 0 / 361 | 0 / 361 |
+| **wrong label, visible to the label law** | 5 / 3,932 | 5 / 3,932 | **3,932 / 3,932** |
+| split: reachable by deleting the twin | 0 / 271 | 0 / 271 | 0 / 271 |
+| missing, anachronism, wrong value, merge | 0 / 3,549 | 0 / 3,549 | 0 / 3,549 |
+| true facts wrongly broken | 0 | 0 | 0 |
+
+Two findings worth stating. **A label repair satisfies every constraint of its workload by deleting
+labels** — run with our edge laws in the same file, it removed the `:Act` label of an endpoint to
+make a date violation disappear, 521 times. The two kinds of law must be run as two workloads, and
+they now are (`eurlex-laws.toml`, `eurlex-labels.toml`). **A marked node is not a deleted node**:
+`--mark` writes `_PGREPAIR_DELETED__<Label>` for a label and the bare `_PGREPAIR_DELETED` for a
+node; reading the first as the second turned 3,930 label repairs into 3,930 phantom node deletions
+and 11,888 phantom lost facts in our first attempt.
+
+Neither witness can touch the label damage — a rule that deletes edges has nothing to say about a
+label — so on this damage pgrepair stands alone, exactly and completely.
+
 ## First measure (2026-09-09, full truth, two witnesses, no candidate yet)
 
 Injected with a sealed seed: 10 % spurious `repeals` and `amends` edges, half of them visible by

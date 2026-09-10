@@ -141,36 +141,52 @@ def judge(truth, cand, journal=None, stated=None):
     dims["nodes"] = {"anachronism": _ratio(len(anach), dated) if cnodes else "undefined (candidate has no nodes)"}
     dims["collateral"] = len(collateral)
 
-    # ── repair sub-counts when a journal is given
+    # ── repair sub-counts when a journal is given: one bucket per damage, caught or missed
     repair = None
     if journal is not None:
         inj = journal["injected"]
-        sub = {"visible": collections.Counter(), "invisible": collections.Counter(), "beyond_reach": collections.Counter()}
-        anach_inj = collections.Counter()
+        cnodes_all = {n["id"]: n for n in cand.get("nodes", [])}
+        sub = collections.defaultdict(collections.Counter)
+        BUCKET = {"SPURIOUS_EDGE": None,            # visible or invisible, from the journal
+                  "MISSING": "beyond_reach", "ANACHRONISM": "beyond_reach", "WRONG_VALUE": "beyond_reach",
+                  "MERGE": "beyond_reach", "SPLIT": "reachable_by_deleting_the_twin", "WRONG_LABEL": "visible_by_label_law"}
         for e in inj:
-            if e["damage"] == "ANACHRONISM":
-                cn = cnodes.get(e["node"])
-                fixed = cn is not None and cn.get("date_document") == e["truth_date"]
-                anach_inj["caught" if fixed else "missed"] += 1      # beyond the reach of a deletion-only repairer
+            d = e["damage"]
+            if d == "DUPLICATE":
                 continue
-            if e["damage"] == "DUPLICATE":
-                continue
-            key = (e["s"], e["p"], e["o"])
-            if e["damage"] == "MISSING":
-                bucket = "beyond_reach"
-                caught = bool(seen.get(key))       # a repairer cannot re-add; an extractor could
-            else:
+            if d == "SPURIOUS_EDGE":
                 bucket = "visible" if e.get("visible_by_law") else "invisible"
-                caught = not seen.get(key)         # the spurious edge is gone
+                caught = not seen.get((e["s"], e["p"], e["o"]))
+                if e.get("cycle_with"):
+                    tw = per_fact.get(e["cycle_with"], {}).get("status")
+                    sub["cycles"]["true edge kept" if tw == "found" else "true edge broken"] += 1
+            elif d == "MISSING":
+                bucket, caught = "beyond_reach", bool(seen.get((e["s"], e["p"], e["o"])))
+            elif d in ("ANACHRONISM", "WRONG_VALUE"):
+                bucket = BUCKET[d]
+                prop = "date_document" if d == "ANACHRONISM" else e.get("property", "celex")
+                cn = cnodes_all.get(e["node"])
+                caught = cn is not None and cn.get(prop) == e.get("truth_date", e.get("truth_value"))
+            elif d == "WRONG_LABEL":
+                cn = cnodes_all.get(e["node"])
+                bucket, caught = BUCKET[d], (cn is None or cn.get("type_label") != e["injected_label"])
+            elif d == "MERGE":
+                bucket, caught = BUCKET[d], e["absorbed"] in cnodes_all
+            elif d == "SPLIT":
+                bucket, caught = BUCKET[d], e["twin"] not in cnodes_all
+            else:
+                bucket, caught = "other", False
             sub[bucket]["caught" if caught else "missed"] += 1
-            if e.get("cycle_with"):                # two-edge law: did the repairer keep the true edge of the pair?
-                tw = per_fact.get(e["cycle_with"], {}).get("status")
-                sub.setdefault("cycles", collections.Counter())["true edge kept" if tw == "found" else "true edge broken"] += 1
-        injected_missing = {(e["s"], e["p"], e["o"]) for e in inj if e["damage"] == "MISSING"}
-        wrongly_broken = sum(1 for key, tf in tfacts.items() if per_fact[tf["id"]]["status"] == "missed" and tf["id"] not in fault_facts and key not in injected_missing)
+        # a fact the injection itself moved or removed is not "wrongly broken" by the candidate:
+        # MISSING removes it, MERGE and SPLIT move it onto another node
+        by_injection = {(e["s"], e["p"], e["o"]) for e in inj if e["damage"] == "MISSING"}
+        moved = {i for e in inj for i in e.get("moved_facts", []) if i}
+        wrongly_broken = sum(1 for key, tf in tfacts.items()
+                             if per_fact[tf["id"]]["status"] == "missed" and tf["id"] not in fault_facts
+                             and key not in by_injection and tf["id"] not in moved)
         known_removed = sum(1 for tf in truth["facts"] if fault_facts.get(tf["id"]) == "law_violation" and per_fact[tf["id"]]["known_fault"] == "removed")
-        repair = {"visible": dict(sub["visible"]), "invisible": dict(sub["invisible"]), "beyond_reach": dict(sub["beyond_reach"]), "anachronism_injected": dict(anach_inj), "cycles": dict(sub.get("cycles", {})),
-                  "wrongly_broken": wrongly_broken, "collateral": len(collateral), "known_violations_removed": known_removed}
+        repair = {k: dict(v) for k, v in sorted(sub.items())}
+        repair.update({"wrongly_broken": wrongly_broken, "collateral": len(collateral), "known_violations_removed": known_removed})
 
     verdict = {
         "truth": truth["id"], "truth_sha256": truth["sha256"],

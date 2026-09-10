@@ -127,7 +127,7 @@ def build(coll, frozen="2026-09-09"):
         if nid in gaps:
             node["gap"] = True
         node["date_document_status"] = date_status(node)
-        nodes.append(node)
+        nodes.append(node)   # the type label is NOT stored: it is computed from the CELEX (laws.type_label)
     ntab = {n["id"]: n for n in nodes}
     known_faults = []
     for n in nodes:

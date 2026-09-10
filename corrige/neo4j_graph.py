@@ -13,7 +13,7 @@ marked deleted is deleted and every edge incident to it counts deleted (collater
 (3) candidate = graph minus (1) and (2).
 """
 import sys, json, os, base64, urllib.request, pathlib, collections
-from . import canon
+from . import canon, laws
 
 REL = {"repeals": "REPEALS", "amends": "AMENDS", "based_on": "BASED_ON"}
 REL_INV = {v: k for k, v in REL.items()}
@@ -49,9 +49,14 @@ def load(db, graph, batch=5000):
         rows = []
         for n in nodes[i:i + batch]:
             rows.append({"id": n["id"], "cid": "n:" + n["id"], "celex": n.get("celex"), "date_document": n.get("date_document"),
+                         "type_label": n.get("type_label"), "celex_type": laws.type_label(n.get("celex")),
                          "date_document_status": n.get("date_document_status", "missing"), "date_entry_into_force": n.get("date_entry_into_force"),
                          "date_end_of_validity": n.get("date_end_of_validity"), "in_force": n.get("in_force"), "gap": bool(n.get("gap", False))})
-        db.run([("UNWIND $rows AS r CREATE (n:Act {id: r.id, _corrige_id: r.cid, celex: r.celex, date_document: r.date_document, date_document_status: r.date_document_status, date_entry_into_force: r.date_entry_into_force, date_end_of_validity: r.date_end_of_validity, in_force: r.in_force, gap: r.gap})", {"rows": rows})])
+        db.run([("UNWIND $rows AS r CREATE (n:Act {id: r.id, _corrige_id: r.cid, celex: r.celex, celex_type: r.celex_type, date_document: r.date_document, date_document_status: r.date_document_status, date_entry_into_force: r.date_entry_into_force, date_end_of_validity: r.date_end_of_validity, in_force: r.in_force, gap: r.gap})", {"rows": rows})])
+        # the type label the graph claims: a real Neo4j label, so that a label repair can act on it
+        for lab in sorted({r["type_label"] for r in rows if r["type_label"]}):
+            ids = [r["id"] for r in rows if r["type_label"] == lab]
+            db.run([(f"UNWIND $ids AS i MATCH (n:Act {{id: i}}) SET n:{lab}", {"ids": ids})])
     facts = graph["facts"]
     by_rel = collections.defaultdict(list)
     for k, f in enumerate(facts):
@@ -67,7 +72,15 @@ def load(db, graph, batch=5000):
 def read_candidate(db, graph, name, version="", params=None):
     """Rebuild the candidate file from the marked database."""
     deleted_edges = {r["cid"] for r in db.rows("MATCH ()-[r:_PGREPAIR_DELETED]->() RETURN r._corrige_id AS cid")}
-    marked_nodes = {r["id"] for r in db.rows("MATCH (n) WHERE n:_PGREPAIR_DELETED OR any(l IN labels(n) WHERE l STARTS WITH '_PGREPAIR_DELETED') RETURN n.id AS id")}
+    # a label repair MARKS: it adds _PGREPAIR_DELETED__<Label> and leaves the original in place.
+    # The candidate is the graph minus the marked labels.
+    labels = {}
+    for r in db.rows("MATCH (n) WHERE n.id IS NOT NULL RETURN n.id AS id, labels(n) AS labs"):
+        gone = {l[len("_PGREPAIR_DELETED__"):] for l in r["labs"] if l.startswith("_PGREPAIR_DELETED__")}
+        labels[r["id"]] = [l for l in r["labs"] if l != "Act" and not l.startswith("_PGREPAIR") and l not in gone]
+    # a NODE deleted carries the exact label _PGREPAIR_DELETED; _PGREPAIR_DELETED__<Label> means
+    # that one label was deleted, and the node itself stays.
+    marked_nodes = {r["id"] for r in db.rows("MATCH (n:_PGREPAIR_DELETED) RETURN n.id AS id")}
     facts, removed = [], 0
     for k, f in enumerate(graph["facts"]):
         cid = f"e:{k}:{f['s']}|{f['p']}|{f['o']}"
@@ -77,7 +90,9 @@ def read_candidate(db, graph, name, version="", params=None):
         facts.append({"s": f["s"], "p": f["p"], "o": f["o"]})
     cand = {"candidate": {"name": name, "version": version, "code_sha256": None, "params": params or {}, "seed": None},
             "truth_sha256": graph["truth_sha256"], "journal_sha256": graph.get("journal_sha256"),
-            "nodes": [n for n in graph["nodes"] if n["id"] not in marked_nodes],
+            "nodes": [dict(n, labels=[l for l in labels.get(n["id"], []) if not l.startswith("_PGREPAIR")],
+                           type_label=next((l for l in labels.get(n["id"], []) if l in laws.CELEX_TYPE.values()), None))
+                      for n in graph["nodes"] if n["id"] not in marked_nodes],
             "facts": facts, "abstained": [], "deleted_nodes": sorted(marked_nodes),
             "reconstruction": {"edges_marked_deleted": len(deleted_edges), "nodes_marked_deleted": len(marked_nodes), "facts_removed": removed}}
     return cand

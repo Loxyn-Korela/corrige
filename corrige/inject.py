@@ -39,7 +39,8 @@ def inject(truth, damages, visible=None, seed=b"", duplicate=False):
     fault_facts = {k["fact"] for k in truth.get("known_registry_faults", []) if "fact" in k}
     injected = []
     # node damages first, so that the visibility of a spurious edge is judged on the final nodes
-    damages = sorted(damages, key=lambda d: 0 if d[1] == "ANACHRONISM" else 1)
+    ORDER = {"ANACHRONISM": 0, "WRONG_VALUE": 0, "WRONG_LABEL": 0, "MERGE": 1, "SPLIT": 1}
+    damages = sorted(damages, key=lambda d: ORDER.get(d[1], 2))
     idx = laws.Index(list(facts.values()))
     for den, kind, rate in damages:
         rate = _exact_rate(rate)
@@ -91,11 +92,73 @@ def inject(truth, damages, visible=None, seed=b"", duplicate=False):
                 new = (d.replace(year=d.year + 1) if not (d.month == 2 and d.day == 29) else d.replace(year=d.year + 1, day=28)).isoformat()
                 injected.append({"damage": "ANACHRONISM", "node": nid, "truth_date": nodes[nid]["date_document"], "injected_date": new})
                 nodes[nid]["date_document"] = new
+        elif kind == "WRONG_LABEL":
+            # the act's type label contradicts its CELEX: 32019R1020 labelled Directive.
+            # This is the damage a label repair can undo, and the only one that exercises it.
+            if den != "nodes": raise ValueError("WRONG_LABEL is dosed on nodes")
+            pool = sorted(nid for nid, nd in nodes.items() if laws.type_label(nd.get("celex")))
+            n = round(rate * len(pool))
+            others = sorted(set(laws.CELEX_TYPE.values()))
+            for nid in rng.sample(pool, n):
+                true_label = laws.type_label(nodes[nid]["celex"])
+                wrong = rng.choice([x for x in others if x != true_label])
+                injected.append({"damage": "WRONG_LABEL", "node": nid, "truth_label": true_label, "injected_label": wrong, "visible_by_law": ["L6"]})
+                nodes[nid]["type_label_injected"] = wrong
+        elif kind == "WRONG_VALUE":
+            # a property is altered: the CELEX itself, which every identity rests on
+            if den != "nodes": raise ValueError("WRONG_VALUE is dosed on nodes")
+            pool = sorted(nid for nid, nd in nodes.items() if nd.get("celex"))
+            n = round(rate * len(pool))
+            for nid in rng.sample(pool, n):
+                old = nodes[nid]["celex"]
+                new = old[:-1] + str((int(old[-1]) + 1) % 10) if old[-1].isdigit() else old + "X"
+                injected.append({"damage": "WRONG_VALUE", "node": nid, "property": "celex", "truth_value": old, "injected_value": new})
+                nodes[nid]["celex"] = new
+        elif kind == "MERGE":
+            # two acts become one node: B's edges are moved onto A, B disappears
+            if den != "nodes": raise ValueError("MERGE is dosed on nodes")
+            deg = collections.Counter()
+            for f in facts.values(): deg[f["s"]] += 1; deg[f["o"]] += 1
+            pool = sorted(nid for nid in nodes if 1 <= deg[nid] <= 6)
+            n = round(rate * len(pool)) // 2
+            taken = set()
+            for _ in range(n):
+                cand = [x for x in rng.sample(pool, min(40, len(pool))) if x not in taken]
+                if len(cand) < 2: break
+                a_, b_ = cand[0], cand[1]; taken |= {a_, b_}
+                moved = []
+                for key in [k for k in list(facts) if b_ in (k[0], k[2])]:
+                    f = facts.pop(key)
+                    nk = (a_ if f["s"] == b_ else f["s"], f["p"], a_ if f["o"] == b_ else f["o"])
+                    if nk[0] != nk[2]: facts[nk] = {"s": nk[0], "p": nk[1], "o": nk[2], "injected": True}
+                    moved.append(f.get("id"))
+                nodes.pop(b_, None)
+                injected.append({"damage": "MERGE", "kept": a_, "absorbed": b_, "moved_facts": moved})
+        elif kind == "SPLIT":
+            # one act becomes two nodes: half its edges move to a twin
+            if den != "nodes": raise ValueError("SPLIT is dosed on nodes")
+            deg = collections.Counter()
+            for f in facts.values(): deg[f["s"]] += 1; deg[f["o"]] += 1
+            pool = sorted(nid for nid in nodes if 2 <= deg[nid] <= 8)
+            n = round(rate * len(pool))
+            for nid in rng.sample(pool, min(n, len(pool))):
+                twin = nid + "#split"
+                nodes[twin] = dict(nodes[nid], id=twin)
+                keys = [k for k in list(facts) if nid in (k[0], k[2])]
+                moved = []
+                for key in keys[1::2]:
+                    f = facts.pop(key)
+                    nk = (twin if f["s"] == nid else f["s"], f["p"], twin if f["o"] == nid else f["o"])
+                    facts[nk] = {"s": nk[0], "p": nk[1], "o": nk[2], "injected": True}
+                    moved.append(f.get("id"))
+                injected.append({"damage": "SPLIT", "node": nid, "twin": twin, "moved_facts": moved})
         else:
             raise ValueError(f"unknown damage {kind}")
     if duplicate:
         key = sorted(k for k, f in facts.items() if not f.get("injected"))[0]
         injected.append({"damage": "DUPLICATE", "s": key[0], "p": key[1], "o": key[2]})
+    for nd in nodes.values():                       # the type label: from the CELEX, unless injected
+        nd["type_label"] = nd.pop("type_label_injected", None) or laws.type_label(nd.get("celex"))
     graph = {"truth_sha256": truth["sha256"],
              "nodes": [nodes[k] for k in sorted(nodes)],
              "facts": [{"s": f["s"], "p": f["p"], "o": f["o"]} for k, f in sorted(facts.items())]}

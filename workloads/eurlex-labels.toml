@@ -1,0 +1,72 @@
+# Le Corrigé — pgrepair workload for the EUR-Lex truth: the three world laws as constraints.
+# Written before any injection, without looking at any journal (design §2).
+# A constraint is a violation pattern: paths that match are repaired by deletion.
+name = "EUR-Lex law L6: the type label matches the CELEX"
+schema = "generic"
+
+[database]
+protocol = "neo4j"
+host = "localhost"
+port = 7687
+name = "neo4j"
+
+[setup]
+random_seed = "2026090900000001"
+
+[setup.database]
+cypher_queries = [
+  """
+  MATCH (n)
+  WITH COLLECT(n) AS node_list
+  WITH node_list, range(0, size(node_list) - 1) AS indices
+  UNWIND indices AS idx
+  WITH idx, node_list[idx] AS n
+  SET n._pgrepair_id = idx
+  """,
+  """
+  MATCH (n)
+  WITH COUNT(n) AS node_count
+  MATCH ()-[e]->()
+  WITH node_count, COLLECT(e) AS edge_list
+  WITH node_count, edge_list, range(0, size(edge_list) - 1) AS indices
+  UNWIND indices AS idx
+  WITH node_count, idx, edge_list[idx] AS e
+  SET e._pgrepair_id = node_count + idx
+  """,
+]
+
+# L6 only. A label repair satisfies EVERY constraint of its workload by deleting labels, so an
+# edge constraint left here would be "repaired" by removing an endpoint's :Act label. The two
+# kinds of law are therefore run separately: this file for labels, eurlex-laws.toml for edges.
+[[constraints]]
+patterns = ["(a:Agreement)"]
+filters = ["a.celex_type IS NOT NULL", "a.celex_type <> 'Agreement'"]
+
+[[constraints]]
+patterns = ["(a:Communication)"]
+filters = ["a.celex_type IS NOT NULL", "a.celex_type <> 'Communication'"]
+
+[[constraints]]
+patterns = ["(a:Decision)"]
+filters = ["a.celex_type IS NOT NULL", "a.celex_type <> 'Decision'"]
+
+[[constraints]]
+patterns = ["(a:Directive)"]
+filters = ["a.celex_type IS NOT NULL", "a.celex_type <> 'Directive'"]
+
+[[constraints]]
+patterns = ["(a:OtherAct)"]
+filters = ["a.celex_type IS NOT NULL", "a.celex_type <> 'OtherAct'"]
+
+[[constraints]]
+patterns = ["(a:Recommendation)"]
+filters = ["a.celex_type IS NOT NULL", "a.celex_type <> 'Recommendation'"]
+
+[[constraints]]
+patterns = ["(a:Regulation)"]
+filters = ["a.celex_type IS NOT NULL", "a.celex_type <> 'Regulation'"]
+
+[[constraints]]
+patterns = ["(a:RulesOfProcedure)"]
+filters = ["a.celex_type IS NOT NULL", "a.celex_type <> 'RulesOfProcedure'"]
+
