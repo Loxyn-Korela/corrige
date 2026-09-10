@@ -25,6 +25,23 @@ and its sha256 is published here: `4796f91da81289a0…`. The toy truth (200 fact
 
 Licence: Apache 2.0 for the tools, CC BY-SA 4.0 for the truth records. Loxyn SAS, Lyon.
 
+## What each truth declares
+
+A truth is not "the truth": it is a frozen, named body of facts, with two numbers it must state
+about itself. Both are measured by human reading, never assumed.
+
+| truth | facts | audited | the register is wrong | **reachable from the documents** | why the rest is not |
+|---|---|---|---|---|---|
+| EUR-Lex relations, frozen 2026-09-09 | 489,223 | 87 facts, one auditor, 2026-09-10 | 2.3 % | **89.7 %** (±6 pts) | 5.7 % true in law and never stated in the text (expiry, competence, cascade, accomplishment); 2.3 % stated as another relation (derogation, succession) |
+| PubMed / Europe PMC | — | — | — | — | no truth built yet: the Atlas observed forms of fault on these corpora, no body of facts was frozen, so there is no figure to give |
+
+**Reachable from the documents** is the ceiling of any extractor that reads the sources: it cannot
+find what the sources do not say. A benchmark that ignores this ceiling scores an honest engine as
+a failing one. A repairer working on the graph is not concerned by it: it sees the edges.
+
+Every truth built from now on carries the same two numbers in its `audit` block, or says it has
+none. A truth with no audit stays `unaudited` and no measurement is published against it.
+
 ## The truth, audited by hand (2026-09-10)
 
 87 of the 200 facts of the sealed sample were read against the acts' own texts by one human, no
