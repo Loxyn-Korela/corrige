@@ -223,13 +223,20 @@ a second sole director for an entity that has one. The rival arm is *blind* by c
 false edge violates nothing but the two-edge law, so the two edges are indistinguishable and there
 is no information with which to choose.
 
-| | spurious visible by I1 (521) | spurious invisible (521) | rival pairs: true edge kept (60) | removed edges (731) | true facts wrongly broken |
-|---|---|---|---|---|---|
-| dumb baseline | 0 | 0 | 60 (deletes nothing) | beyond reach | 0 |
-| rule without model | **521** | 0 | **0** | beyond reach | 60 |
-| pgrepair, SciPyWeightedILP | **521** | 0 | 24 (40 %) | beyond reach | 36 |
-| pgrepair, Greedy, run 1 | **521** | 0 | 25 (41.7 %) | beyond reach | 35 |
-| pgrepair, Greedy, run 2 | **521** | 0 | 30 (50 %) | beyond reach | 30 |
+| | spurious visible by I1 (521) | spurious invisible (521) | rival pairs: true edge kept (60) | removed edges (731) |
+|---|---|---|---|---|
+| dumb baseline | 0 | 0 | 60 (deletes nothing) | beyond reach |
+| rule without model | **521** | 0 | **0** | beyond reach |
+| pgrepair, SciPyWeightedILP | **521** | 0 | 24, then 29 | beyond reach |
+| pgrepair, Greedy | **521** | 0 | 25, 30, 31, 29 | beyond reach |
+
+Every run of both algorithms catches all 521 one-edge violations and none of the 521 invisible ones.
+Every run returns the same cost: solver weight 37,206, 18,603 deletions. The only thing that moves
+between runs is which edge of a tied pair is dropped, and the six figures above sit inside the band
+a coin would produce: 30 expected, 22 to 38 at 95 % on 60 pairs. *(Reserve: the arm script
+overwrites its own candidate file, and runs 1 of each algorithm were judged before we knew that, so
+25 and 24 are reported from the verdicts computed at the time and cannot be re-judged from disk.
+Runs 2 to 4 can.)*
 
 The three readings of EUR-Lex come back unchanged on a graph that shares nothing with it:
 
@@ -252,10 +259,15 @@ one — the set's iteration order decides, and Python randomises `hash(str)` per
 `runs/icij/tie_break.py` reproduces it in four lines, outside pgrepair and outside Neo4j: twenty
 processes, two different answers. We do not claim this is the only source of the variation between
 two arms; a fresh dump load can also hand back different element ids. We claim the tie is broken by
-something that carries no information about which edge is true. Further repeats are running.
+something that carries no information about which edge is true. A second key in `min()` that does
+not depend on the process — `(weights[v], v[0], v[1].value)`, since `EntityType` is a plain `Enum`
+and is not orderable on its own — would make the greedy reproducible without changing what it
+computes.
 
-**The ILP and the greedy are again indistinguishable.** Both return a solution of *identical* cost
-(weight 37,206, 18,603 deletions); they differ on which edge of one single pair they drop.
+**The ILP and the greedy are again indistinguishable, and now we can say what that means.** Six
+runs, four of the greedy and two of the ILP, span 24 to 31 true edges kept of 60. A coin gives 30.
+Repeating the arm moves the figure by as much as the choice of algorithm does, so no comparison
+between the two can be read off a single run.
 
 The deletions reconcile exactly: 18,603 = 18,000 known I1 violations the source itself carries
 + 22 (one edge of each of the 22 known I3 pairs) + 521 injected visible edges + 60 rival edges.
