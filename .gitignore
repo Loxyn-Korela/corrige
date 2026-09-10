@@ -6,3 +6,4 @@ runs/*/candidate-*.json
 runs/*/verdict-*.json
 .venv-pdf/
 audit/test/
+audit/audit-*-rempli.pdf

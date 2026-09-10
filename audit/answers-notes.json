@@ -1,0 +1,74 @@
+{
+ "about": "Human corrections and categories for the answers ticked in audit-Sébastien.pdf. The PDF is left untouched: it keeps what the auditor ticked; this file says what was revised and why, and what each NON means. Written 2026-09-10 with the auditor.",
+ "auditor": "Sébastien Gracia",
+ "corrections": [
+  {
+   "fact": "f-008872",
+   "from": "non",
+   "to": "oui",
+   "article": "annexe II, point 68",
+   "why": "the adaptation follows the citation in a table the page renders badly: « 68. 31998 D 0536: Décision 98/536/CE … À l'annexe, les entrées ci-après sont insérées entre les mentions relatives à la Belgique et au Danemark » followed by the laboratories of the ten new Member States. Found on the full text through the Cellar API, not visible on the EUR-Lex page.",
+   "lesson": "a table can hide the relation sentence"
+  },
+  {
+   "fact": "f-063007",
+   "from": "non",
+   "to": "oui",
+   "article": "article 6, deuxième alinéa (protocole)",
+   "why": "the auditor compared a 1990 amendment with the 1972 original: the amounts differ (1 000 units of account in 1972, 2 590 ECU in 1990) because they were revised in between. The provision is the same: the value threshold for postal consignments in article 6, second subparagraph of the protocol, which the record of B contains.",
+   "lesson": "comparing an amendment with the original text proves nothing; only the subject of the provision does"
+  }
+ ],
+ "categories": {
+  "f-483026": {
+   "category": "registry_wrong",
+   "reason": "wrong target: A amends the conditions of the staff assigned in Belgium, B amended those of the staff assigned in Italy (two sites of the Joint Nuclear Research Centre)",
+   "verified": "titles only — the text of a 1970 Euratom regulation is not served by EUR-Lex or Cellar"
+  },
+  "f-488015": {
+   "category": "registry_wrong",
+   "reason": "granularity: the text repeals one article of B (« l'article 1er bis est abrogé »), B stays in force; the register records a repeal of the act",
+   "verified": "read by the auditor; B named in A, no repeal of the act"
+  },
+  "f-477411": {
+   "category": "not_in_text",
+   "reason": "implicit by expiry and replacement: the scheme of 1101/89 « prend fin le 28 avril 1999 », A replaces it, B (2819/95, an amendment of 1101/89) is never named",
+   "verified": "number of B absent from the full text of A"
+  },
+  "f-185941": {
+   "category": "not_in_text",
+   "reason": "implicit by competence: an own-initiative opinion under Article 307 TFEU, the article never cited",
+   "verified": "« article 307 » absent from the full text of A"
+  },
+  "f-477942": {
+   "category": "not_in_text",
+   "reason": "implicit by accomplishment: B set the date of the opening of the common market for special steels, A records the opening; B is never named",
+   "verified": "read by the auditor — the text of a 1954 ECSC decision is not served by machine"
+  },
+  "f-488471": {
+   "category": "not_in_text",
+   "reason": "implicit by cascade: A repeals 86/139 in so many words; B (86/150) amended 86/139 and appears only in a recital listing restrictions",
+   "verified": "« considérant que la décision 86/139/CEE peut être abrogée » found; no repeal of B"
+  },
+  "f-482247": {
+   "category": "not_in_text",
+   "reason": "implicit by cascade: A is a recast repealing 800/1999; B set derogations to 800/1999 and is never named",
+   "verified": "number of B absent from the 221,567 characters of A"
+  },
+  "f-019135": {
+   "category": "requalified",
+   "reason": "derogation, not amendment: « dérogeant au règlement (CEE) no 3007/84 »; no article of B is rewritten",
+   "verified": "found in the title of A"
+  },
+  "f-063404": {
+   "category": "requalified",
+   "reason": "succession, not amendment: « les personnes … ont été nommées … par la décision d'exécution (UE) 2019/2168 » and the new ones succeed them; no article of B is rewritten",
+   "verified": "found in the text of A"
+  }
+ },
+ "category_meaning": {
+  "registry_wrong": "the register asserts something the act does not do: the truth is false on this fact",
+  "not_in_text": "the relation is true in law but the act's text never states it: a graph built from the documents cannot find it, and must not be penalised for it",
+  "requalified": "the text states a different relation (derogation, succession): an extractor reading the text produces another edge, correct in itself"
+ }
+}

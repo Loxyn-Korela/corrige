@@ -32,7 +32,8 @@ def read_booklet(path):
     return answers
 
 
-def report(truth, rec, per_auditor):
+def report(truth, rec, per_auditor, notes=None):
+    notes = notes or {}
     facts = {f["id"]: f for f in truth["facts"]}
     common = set(rec["common"])
     # one verdict per fact: majority on shared facts, the single auditor elsewhere
@@ -41,6 +42,9 @@ def report(truth, rec, per_auditor):
         for fid, a in ans.items():
             if "answer" in a:
                 votes[fid].append((aud, a["answer"], a.get("article", "")))
+    for c in notes.get("corrections", []):          # a revision after review, with its reason; the PDF is left untouched
+        if c["fact"] in votes:
+            votes[c["fact"]] = [(a, c["to"], c.get("article", "")) for a, _, _ in votes[c["fact"]]]
     verdict = {}
     for fid in rec["facts"]:
         v = votes.get(fid, [])
@@ -66,7 +70,16 @@ def report(truth, rec, per_auditor):
         else:
             agree["not enough answers"] += 1
     nons = [(fid, facts[fid]["p"], [x for x in votes[fid]]) for fid in rec["facts"] if verdict.get(fid) == "non"]
+    cats = notes.get("categories", {})
+    by_cat = collections.Counter(cats.get(fid, {}).get("category", "not categorised") for fid, _, _ in nons)
+    judged = sum(r["oui"] + r["non"] for r in rates.values())
+    def rate(k): return {"num": by_cat.get(k, 0), "den": judged, "value": f"{by_cat.get(k,0)/judged:.4f}" if judged else "undefined"}
     return {"verdict": verdict, "rates": rates, "agreement_on_shared": dict(agree), "non_facts": nons,
+            "by_category": dict(by_cat), "judged": judged,
+            "truth_error_rate": rate("registry_wrong"),
+            "not_in_text_rate": rate("not_in_text"),
+            "requalified_rate": rate("requalified"),
+            "corrections": notes.get("corrections", []),
             "answered": sum(1 for v in verdict.values() if v != "unanswered"), "total": len(rec["facts"])}
 
 
@@ -83,20 +96,30 @@ def main():
         p = out / f"audit-{aud}.pdf"
         per[aud] = read_booklet(p) if p.exists() else {}
         print(f"{aud}: {sum(1 for a in per[aud].values() if 'answer' in a)} answers of {len(rec['per_auditor'][aud])}")
-    rep = report(truth, rec, per)
+    notes_path = out / "answers-notes.json"
+    notes = json.load(open(notes_path, encoding="utf-8")) if notes_path.exists() else {}
+    rep = report(truth, rec, per, notes)
     print(f"answered {rep['answered']}/{rep['total']}")
     for p, r in rep["rates"].items():
         print(f"  {p}: oui {r['oui']} · non {r['non']} · illisible {r['illisible']} · disagreement {r['disagreement']} · error rate {r['error_rate']['value']} ({r['error_rate']['num']}/{r['error_rate']['den']})")
     print("  agreement on shared facts:", rep["agreement_on_shared"])
+    print("  by category:", rep["by_category"])
+    for k in ("truth_error_rate", "not_in_text_rate", "requalified_rate"):
+        r = rep[k]; print(f"  {k}: {r['value']} ({r['num']}/{r['den']})")
     for fid, p, v in rep["non_facts"]:
         print(f"  NON {fid} ({p}): " + " | ".join(f"{a}: {ans} {art}" for a, ans, art in v))
     if "--write" in argv:
         truth["audit"] = {"sample_name": rec["sample_name"], "sample": len(rec["facts"]), "sample_sha256": rec["sha256"],
-                          "method": "facts read against the act's text by three humans, no model; majority on the shared facts",
-                          "date": datetime.date.today().isoformat(), "auditors": rec["auditors"],
-                          "answered": rep["answered"], "rates": rep["rates"], "agreement_on_shared": rep["agreement_on_shared"],
-                          "verdicts": rep["verdict"],
-                          "truth_error_rate": {p: r["error_rate"] for p, r in rep["rates"].items()}}
+                          "method": "each fact read against the act's own text by a human, no model; a NO is not a registry error until it is categorised (see category_meaning); revisions after review are recorded in answers-notes.json with their reason, the booklet itself is left as it was ticked",
+                          "date": datetime.date.today().isoformat(), "auditors": [a for a in rec["auditors"] if per.get(a)],
+                          "answered": rep["answered"], "judged": rep["judged"], "rates": rep["rates"],
+                          "agreement_on_shared": rep["agreement_on_shared"], "by_category": rep["by_category"],
+                          "truth_error_rate": rep["truth_error_rate"], "not_in_text_rate": rep["not_in_text_rate"], "requalified_rate": rep["requalified_rate"],
+                          "category_meaning": notes.get("category_meaning", {}), "corrections": rep["corrections"],
+                          "categories": notes.get("categories", {}), "verdicts": rep["verdict"],
+                          "reserves": ["one auditor: no agreement between readers measured yet; the 30 shared facts are still open",
+                                       "two facts (f-483026, f-477942) rest on the auditor's reading of the titles: the texts of a 1954 ECSC decision and a 1970 Euratom regulation are served neither by EUR-Lex nor by Cellar",
+                                       "the sample excludes the faults the register already declares (sentinel dates, empty targets): the rate is that of ordinary facts"]}
         truth["status"] = "audited" if rep["answered"] == rep["total"] else "partially_audited"
         canon.write(truth_path, truth)
         print("written:", truth["status"])
