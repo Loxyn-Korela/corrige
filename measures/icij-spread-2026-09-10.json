@@ -1,0 +1,72 @@
+{
+ "truth": "truth-icij-offshoreleaks-2026-09-10",
+ "journal_sha256": "c499d56d7e25941bee9b1e044947a58d92865a219c35c5189b9a2cc1b3eba3a0",
+ "spread": {
+  "pgrepair-Greedy": {
+   "runs": 3,
+   "arms": {
+    "cycles/blind": {
+     "of": 60,
+     "true_edges_kept_per_run": [
+      30,
+      31,
+      29
+     ],
+     "min": 29,
+     "max": 31,
+     "median": 30,
+     "stable": false,
+     "coin": {
+      "expected": 30.0,
+      "sd": 3.87,
+      "band_95": [
+       22,
+       38
+      ]
+     },
+     "reading": "moves between identical runs: the choice was a tie-break, and no single run is a score"
+    }
+   },
+   "wrongly_broken_per_run": [
+    30,
+    29,
+    31
+   ],
+   "visible_caught_per_run": [
+    551,
+    552,
+    550
+   ]
+  },
+  "pgrepair-SciPyWeightedILP": {
+   "runs": 1,
+   "arms": {
+    "cycles/blind": {
+     "of": 60,
+     "true_edges_kept_per_run": [
+      29
+     ],
+     "min": 29,
+     "max": 29,
+     "median": 29,
+     "stable": null,
+     "coin": {
+      "expected": 30.0,
+      "sd": 3.87,
+      "band_95": [
+       22,
+       38
+      ]
+     },
+     "reading": "not repeated: one run establishes nothing about whether the choice was made or drawn"
+    }
+   },
+   "wrongly_broken_per_run": [
+    31
+   ],
+   "visible_caught_per_run": [
+    550
+   ]
+  }
+ }
+}

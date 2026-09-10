@@ -144,6 +144,14 @@ check("T12 laws_module carried: the ICIJ rule witness sees the ICIJ law", len(_w
 _g2 = dict(_g, laws_module=None)
 check("T12 default is EUR-Lex: the same edge is invisible to the EUR-Lex laws", len(_w.rule_without_model(_g2)["facts"]) == 1)
 
+# T13: R10 — one run establishes nothing; a figure that moves between identical runs is a tie-break
+from corrige import spread as _sp
+check("T13 one run licenses nothing", _sp.reading([58])[0] is None)
+check("T13 identical runs: the choice used information", _sp.reading([150, 150, 150])[0] is True)
+check("T13 a moving figure is a tie-break", _sp.reading([58, 69, 59])[0] is False)
+_c = _sp._coin(130)
+check("T13 the coin band is stated, not assumed", _c["expected"] == 65 and _c["band_95"] == [54, 76])
+
 # permanent calibration: a candidate naming another truth is refused
 c = perfect(); c["truth_sha256"] = "0" * 64
 try:
