@@ -1,0 +1,17 @@
+[2026-09-10 14:20:25] [37m[1mINFO    [0m[1m[pgrepair.workload][0m [35mLoading workload from file /Users/sebastiengracia/dev/corrige/workloads/icij-g1-g3.toml[0m
+[2026-09-10 14:20:25] [37m[1mINFO    [0m[1m[pgrepair.cli   ][0m [35mDisabling disk-cache as requested[0m
+[2026-09-10 14:20:25] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mConnecting to database neo4j at neo4j://localhost:7687[0m
+[2026-09-10 14:20:25] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mAuthenticating as user neo4j[0m
+[2026-09-10 14:20:25] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mDatabase connection established and verified.[0m
+[2026-09-10 14:20:25] [33m[1mWARNING [0m[1m[pgrepair.neo4j_utilities][0m [35mGDS is not available.[0m
+[2026-09-10 14:20:25] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mUsing workload ICIJ — gamma_1 and gamma_3 of the published workload (one-edge and two-edge)[0m
+[2026-09-10 14:20:25] [37m[1mINFO    [0m[1m[pgrepair.workload][0m [35mReseting random seed for ICIJ — gamma_1 and gamma_3 of the published workload (one-edge and two-edge)[0m
+[2026-09-10 14:20:25] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mQuerying for conflicts and constructing hypergraph.[0m
+[2026-09-10 14:20:25] [37m[1mINFO    [0m[1m[pgrepair.cleaning.conflict_collectors][0m [35mCollecting conflicts (constraint 1/2)[0m
+[2026-09-10 14:20:25] [37m[1mINFO    [0m[1m[pgrepair.cleaning.conflict_collectors][0m [35mCollecting conflicts (constraint 2/2)[0m
+[2026-09-10 14:20:46] [37m[1mINFO    [0m[1m[pgrepair.cleaning.solution][0m [35mGreedy cleaner found a solution with weight 37206[0m
+[2026-09-10 14:20:46] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mRepairing by deleting 18603 edge(s), 0 node(s), 0 labels[0m
+[2026-09-10 14:20:46] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mRecord 0 returned for pre repair query MATCH p = (x:Officer)-[:president_of]->(y:Entity)((:Entity|Officer)-[:officer_of|same_name_as]->())+(z:Entity) RETURN COUNT(*) AS count: <Record count=330>[0m
+[2026-09-10 14:20:46] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mValidating repair[0m
+[2026-09-10 14:20:46] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mRecord 0 returned for post repair query MATCH p = (x:Officer)-[:president_of]->(y:Entity)((:Entity|Officer)-[:officer_of|same_name_as]->())+(z:Entity) RETURN COUNT(*) AS count: <Record count=200>[0m
+[2026-09-10 14:20:47] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mDropping database connection.[0m
