@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.1 — 2026-09-10
+- **The greedy's choice is not stable.** Two identical runs of `-a Greedy` on the same graph with the same sealed journal kept 25 and 30 of the 60 blind rival edges. The 1.2.0 note quoted the first run alone; both are now published, and further repeats are running. It sharpens rather than changes the reading: on a blind two-edge violation the choice carries no information.
+
 ## 1.2.0 — 2026-09-10
 - **A second graph, so that this is a bench and not a case study.** ICIJ Offshore Leaks, loaded from the dump ICIJ publishes, with three laws taken verbatim from pgrepair's own `icij-qualitative-study.toml` (gamma_1, gamma_2, gamma_3) and the typed relations its setup queries create. Truth by construction, `truths/truth-icij-offshoreleaks-2026-09-10.json`, sha256 `b14fa984ba4286ee…`.
 - **A cross-check nobody arranged**: our census of gamma_1 on the untouched dump finds 18,000 violations; pgrepair, on the same dump with her own constraint, collects 18,000. Two implementations of one sentence, agreeing to the edge.

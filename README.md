@@ -220,7 +220,8 @@ is no information with which to choose.
 | dumb baseline | 0 | 0 | 60 (deletes nothing) | beyond reach | 0 |
 | rule without model | **521** | 0 | **0** | beyond reach | 60 |
 | pgrepair, SciPyWeightedILP | **521** | 0 | 24 (40 %) | beyond reach | 36 |
-| pgrepair, Greedy | **521** | 0 | 25 (41.7 %) | beyond reach | 35 |
+| pgrepair, Greedy, run 1 | **521** | 0 | 25 (41.7 %) | beyond reach | 35 |
+| pgrepair, Greedy, run 2 | **521** | 0 | 30 (50 %) | beyond reach | 30 |
 
 The three readings of EUR-Lex come back unchanged on a graph that shares nothing with it:
 
@@ -232,6 +233,12 @@ every violation and so destroys all 60 true edges; pgrepair deletes one edge per
 keeps 24. But *which* one it keeps is a coin: 40 % and 41.7 %, a 95 % interval of about
 ±12.5 points on 60 pairs. It is right that it cannot do better — nothing separates the two edges —
 and the instrument's job is to say so instead of reporting the 24 as a success.
+
+**The greedy's choice is not stable across identical runs.** The same algorithm, on the same
+graph, with the same sealed journal, kept 25 true edges on one run and 30 on the next. Nothing in
+the input changed. This is not noise in our measurement: it is the repairer choosing differently
+between two edges of equal cost, and it is the strongest evidence we have that the choice carries
+no information. Further repeats are running, and this section will carry all of them.
 
 **The ILP and the greedy are again indistinguishable.** Both return a solution of *identical* cost
 (weight 37,206, 18,603 deletions); they differ on which edge of one single pair they drop.
