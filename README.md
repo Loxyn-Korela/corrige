@@ -318,6 +318,17 @@ the rule without model, edge for edge: on these constraints the ILP has nothing 
 every violation is a single edge and deleting it is the only minimal repair. Its value would show
 on constraints where violations overlap; the instrument is what makes that statement checkable.
 
+**R10 applied to this measurement, 2026-09-10: it repeats exactly.** Three runs of the ILP on the
+same graph produced a candidate graph identical to the byte — same 491,916 facts, same sha256
+`6d93013739bbf435…`, no node deleted on any run. This is the one place where we can say pgrepair is
+reproducible, and it is worth saying: every conflict here has a forced minimum, so there is no tie
+to break and nothing for the process hash seed to decide. It also refutes a guess we made before
+measuring. We had reasoned that a one-edge law leaves nothing to arbitrate, and that was the wrong
+reason to be confident: the conflict collector puts the edge *and both its endpoint nodes* in the
+same hyperedge, and a node of degree 1 weighs the same as an edge, so a tie is available even here.
+It simply did not occur on this graph. R10 exists because that difference — between a proof and a
+guess that happened to hold — is not visible without repeating.
+
 This is the ceiling of a deletion-only, constraint-based repair on this truth, before pgrepair
 runs: it sees exactly what the laws see and nothing else, and dated noise turns it against the
 truth. The census control (`known_violations_removed` = census) holds exactly only when no
