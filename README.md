@@ -234,11 +234,17 @@ keeps 24. But *which* one it keeps is a coin: 40 % and 41.7 %, a 95 % interval o
 ±12.5 points on 60 pairs. It is right that it cannot do better — nothing separates the two edges —
 and the instrument's job is to say so instead of reporting the 24 as a success.
 
-**The greedy's choice is not stable across identical runs.** The same algorithm, on the same
-graph, with the same sealed journal, kept 25 true edges on one run and 30 on the next. Nothing in
-the input changed. This is not noise in our measurement: it is the repairer choosing differently
-between two edges of equal cost, and it is the strongest evidence we have that the choice carries
-no information. Further repeats are running, and this section will carry all of them.
+**The greedy's choice is not stable across identical runs, and we can say why.** The same
+algorithm, on the same graph, with the same sealed journal, kept 25 true edges on one run and 30 on
+the next. Nothing in the input changed. The mechanism is one line: the greedy picks the vertex to
+delete with `min(hyperedge, key=…weights…)` over a Python `set` whose members are
+`(element_id, EntityType)` pairs, and Neo4j's `element_id` is a string. When two vertices carry the
+same weight — exactly the blind rival case, where nothing separates the true edge from the false
+one — the set's iteration order decides, and Python randomises `hash(str)` per process.
+`runs/icij/tie_break.py` reproduces it in four lines, outside pgrepair and outside Neo4j: twenty
+processes, two different answers. We do not claim this is the only source of the variation between
+two arms; a fresh dump load can also hand back different element ids. We claim the tie is broken by
+something that carries no information about which edge is true. Further repeats are running.
 
 **The ILP and the greedy are again indistinguishable.** Both return a solution of *identical* cost
 (weight 37,206, 18,603 deletions); they differ on which edge of one single pair they drop.
