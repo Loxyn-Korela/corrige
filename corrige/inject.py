@@ -23,6 +23,13 @@ def _laws(truth_or_graph):
 RELS = ("repeals", "amends", "based_on")          # EUR-Lex; any truth's own relations are accepted
 
 
+# Every damage the injector implements. A name that is not here is refused at parse time, so a
+# damage can never be announced in a docstring, a README or a memo while no branch produces it.
+# Added 2026-09-10 after ANACHRONISM was lost in an edit and kept being advertised for a day.
+DAMAGES = ("SPURIOUS_EDGE", "MISSING", "ANACHRONISM", "WRONG_VALUE", "WRONG_LABEL",
+           "MERGE", "SPLIT", "CYCLE", "CYCLE_BLIND", "RIVAL", "DUPLICATE")
+
+
 def parse_damage(args):
     out = []
     for i, a in enumerate(args):
@@ -30,6 +37,8 @@ def parse_damage(args):
             spec = args[i + 1]
             den, rest = spec.split(":")
             kind, rate = rest.split("=")
+            if kind not in DAMAGES:
+                raise ValueError(f"unknown damage {kind}; the injector implements {', '.join(DAMAGES)}")
             out.append((den, kind, rate))
     return out
 
@@ -121,6 +130,19 @@ def inject(truth, damages, visible=None, seed=b"", duplicate=False):
                 injected.append({"damage": "SPURIOUS_EDGE", "s": s_, "p": den, "o": t,
                                  "visible_by_law": ["two-edge law"], "arm": "blind",
                                  "cycle_with": true_edge["id"]})
+        elif kind == "ANACHRONISM":
+            # a fact placed outside its validity interval: the act's own date moved by one year.
+            # Restored 2026-09-10: this branch existed, was measured in runs/first and runs/cycles
+            # (5,276 shifted dates each), and was lost in the edit of 1.1.0 while the README kept
+            # announcing seven damages. Recovered verbatim from d21f25e~1.
+            if den != "nodes": raise ValueError("ANACHRONISM is dosed on nodes")
+            pool = sorted(nid for nid, nd in nodes.items() if nd.get("date_document_status") == "ok")
+            n = round(rate * len(pool))
+            for nid in rng.sample(pool, n):
+                d = datetime.date.fromisoformat(nodes[nid]["date_document"])
+                new = (d.replace(year=d.year + 1) if not (d.month == 2 and d.day == 29) else d.replace(year=d.year + 1, day=28)).isoformat()
+                injected.append({"damage": "ANACHRONISM", "node": nid, "truth_date": nodes[nid]["date_document"], "injected_date": new})
+                nodes[nid]["date_document"] = new
         elif kind == "WRONG_LABEL":
             # the act's type label contradicts its CELEX: 32019R1020 labelled Directive.
             # This is the damage a label repair can undo, and the only one that exercises it.

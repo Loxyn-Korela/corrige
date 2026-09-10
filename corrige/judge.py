@@ -149,7 +149,7 @@ def judge(truth, cand, journal=None, stated=None):
         sub = collections.defaultdict(collections.Counter)
         BUCKET = {"SPURIOUS_EDGE": None,            # visible or invisible, from the journal
                   "MISSING": "beyond_reach", "ANACHRONISM": "beyond_reach", "WRONG_VALUE": "beyond_reach",
-                  "MERGE": "beyond_reach", "SPLIT": "reachable_by_deleting_the_twin", "WRONG_LABEL": "visible_by_label_law"}
+                  "MERGE": "beyond_reach", "SPLIT": "beyond_reach", "WRONG_LABEL": "visible_by_label_law"}
         for e in inj:
             d = e["damage"]
             if d == "DUPLICATE":
@@ -175,7 +175,15 @@ def judge(truth, cand, journal=None, stated=None):
             elif d == "MERGE":
                 bucket, caught = BUCKET[d], e["absorbed"] in cnodes_all
             elif d == "SPLIT":
-                bucket, caught = BUCKET[d], e["twin"] not in cnodes_all
+                # Deleting the twin removes the false node. It does NOT bring back the facts the
+                # split moved onto it: measured 2026-09-10 on the toy truth, a candidate that
+                # deletes every twin scores "caught" here and still loses every moved fact
+                # (recall 156/158). So a split is beyond the reach of deletion, which is what the
+                # Fault Atlas said and what this bucket used to deny. The twin deletion is still
+                # counted, apart, because it is a real thing a repairer can do.
+                bucket, caught = BUCKET[d], False
+                sub["split/twin"]["deleted" if e["twin"] not in cnodes_all else "kept"] += 1
+                sub["split/twin"]["true facts it took, not restored"] += len([i for i in e.get("moved_facts", []) if i])
             else:
                 bucket, caught = "other", False
             sub[bucket]["caught" if caught else "missed"] += 1

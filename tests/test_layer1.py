@@ -152,6 +152,17 @@ check("T13 a moving figure is a tie-break", _sp.reading([58, 69, 59])[0] is Fals
 _c = _sp._coin(130)
 check("T13 the coin band is stated, not assumed", _c["expected"] == 65 and _c["band_95"] == [54, 76])
 
+# T14: every damage the injector advertises has a branch that produces it
+from corrige import inject as _inj
+import inspect as _insp
+_src = _insp.getsource(_inj.inject)
+_missing = [d for d in _inj.DAMAGES if f'"{d}"' not in _src]
+check("T14 every advertised damage has a branch: " + (", ".join(_missing) or "none missing"), not _missing)
+try:
+    _inj.parse_damage(["--damage", "nodes:NOT_A_DAMAGE=0.1"]); check("T14 an unknown damage is refused", False)
+except ValueError:
+    check("T14 an unknown damage is refused", True)
+
 # permanent calibration: a candidate naming another truth is refused
 c = perfect(); c["truth_sha256"] = "0" * 64
 try:
