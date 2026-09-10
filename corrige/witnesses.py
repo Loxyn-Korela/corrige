@@ -21,5 +21,6 @@ def dumb_baseline(graph):
 
 def rule_without_model(graph):
     nodes = {n["id"]: n for n in graph["nodes"]}
-    kept = [f for f in graph["facts"] if not laws.violations(f, nodes)]
+    idx = laws.Index(graph["facts"])
+    kept = [f for f in graph["facts"] if not laws.violations(f, nodes, idx)]   # every edge of every violation goes: no arbitration
     return _cand("rule-without-model", graph, kept)

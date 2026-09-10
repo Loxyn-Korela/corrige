@@ -149,10 +149,13 @@ def judge(truth, cand, journal=None):
                 bucket = "visible" if e.get("visible_by_law") else "invisible"
                 caught = not seen.get(key)         # the spurious edge is gone
             sub[bucket]["caught" if caught else "missed"] += 1
+            if e.get("cycle_with"):                # two-edge law: did the repairer keep the true edge of the pair?
+                tw = per_fact.get(e["cycle_with"], {}).get("status")
+                sub.setdefault("cycles", collections.Counter())["true edge kept" if tw == "found" else "true edge broken"] += 1
         injected_missing = {(e["s"], e["p"], e["o"]) for e in inj if e["damage"] == "MISSING"}
         wrongly_broken = sum(1 for key, tf in tfacts.items() if per_fact[tf["id"]]["status"] == "missed" and tf["id"] not in fault_facts and key not in injected_missing)
         known_removed = sum(1 for tf in truth["facts"] if fault_facts.get(tf["id"]) == "law_violation" and per_fact[tf["id"]]["known_fault"] == "removed")
-        repair = {"visible": dict(sub["visible"]), "invisible": dict(sub["invisible"]), "beyond_reach": dict(sub["beyond_reach"]), "anachronism_injected": dict(anach_inj),
+        repair = {"visible": dict(sub["visible"]), "invisible": dict(sub["invisible"]), "beyond_reach": dict(sub["beyond_reach"]), "anachronism_injected": dict(anach_inj), "cycles": dict(sub.get("cycles", {})),
                   "wrongly_broken": wrongly_broken, "collateral": len(collateral), "known_violations_removed": known_removed}
 
     verdict = {

@@ -58,6 +58,12 @@
    "kind": "identifier",
    "text": "a legal basis is an act with a CELEX, never an empty identifier",
    "cypher": "MATCH p=(a:Act)-[r:BASED_ON]->(b) WHERE (b.celex IS NULL OR b.celex = '') AND coalesce(b.gap, false) = false RETURN p"
+  },
+  {
+   "id": "L4",
+   "kind": "two_edges",
+   "text": "two acts do not repeal each other: if A repeals B, B does not repeal A",
+   "cypher": "MATCH p1=(a:Act)-[r1:REPEALS]->(b:Act), p2=(b)-[r2:REPEALS]->(a) RETURN p1, p2"
   }
  ],
  "nodes": [

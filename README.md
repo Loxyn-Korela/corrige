@@ -51,3 +51,26 @@ This is the ceiling of a deletion-only, constraint-based repair on this truth, b
 runs: it sees exactly what the laws see and nothing else, and dated noise turns it against the
 truth. The census control (`known_violations_removed` = census) holds exactly only when no
 ANACHRONISM is injected (T10); with dated noise the small difference is explained, not hidden.
+
+## Second measure (2026-09-10): a two-edge law, where a repairer has to choose
+
+The census of candidate laws on the truth itself rejected every "natural" two-edge law (an act
+amended after its repeal: 2,315 real cases; based on an act already repealed: 19,982; both with
+end-of-validity dates: 1,443 and 13,720; repeals and amends the same act: 183 — legal practice,
+not faults). One strict two-edge law survives: **L4, two acts do not repeal each other** (1 real
+cycle in 489,223 facts). The injector can now fabricate cycles: a spurious `repeals` b→a mirroring
+a true a→b; both edges violate L4, one is false, and a deletion-only repairer must choose.
+
+Same damages as the first measure plus 2 % cycles (288), laws L1-L4 (`runs/cycles/`):
+
+| | rule without model | **pgrepair** |
+|---|---|---|
+| cycles: true edge kept / broken (288) | 0 / 288 | **274** / 14 (12 of them removed by the MISSING injection, not by pgrepair) |
+| spurious visible edges caught (4,222) | 4,222 | 4,220 |
+| true facts wrongly broken, all causes | 602 | 328 |
+
+Here pgrepair separates from the rule, and the reason is stated: 283 of the 288 cycle edges also
+violate L1 (the mirrored edge has the wrong date order), so deleting the false edge resolves two
+violations and the true edge only one; the minimum-deletion solver picks the false one. The rule
+deletes both. This is what an optimising repairer buys when violations overlap, and the instrument
+now says whether it chooses well.

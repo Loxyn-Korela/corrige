@@ -40,6 +40,7 @@ def inject(truth, damages, visible=None, seed=b"", duplicate=False):
     injected = []
     # node damages first, so that the visibility of a spurious edge is judged on the final nodes
     damages = sorted(damages, key=lambda d: 0 if d[1] == "ANACHRONISM" else 1)
+    idx = laws.Index(list(facts.values()))
     for den, kind, rate in damages:
         rate = _exact_rate(rate)
         if kind == "SPURIOUS_EDGE":
@@ -55,7 +56,7 @@ def inject(truth, damages, visible=None, seed=b"", duplicate=False):
                 if tries > 200000: raise RuntimeError("cannot reach the requested visible share")
                 s, o = rng.choice(ok_nodes), rng.choice(ok_nodes)
                 if s == o or (s, den, o) in existing: continue
-                v = laws.violations({"s": s, "p": den, "o": o}, nodes)
+                v = laws.violations({"s": s, "p": den, "o": o}, nodes, idx)
                 bucket = "vis" if v else "inv"
                 if n_vis is not None and ((bucket == "vis" and made["vis"] >= n_vis) or (bucket == "inv" and made["inv"] >= n - n_vis)):
                     continue
@@ -65,6 +66,15 @@ def inject(truth, damages, visible=None, seed=b"", duplicate=False):
                 injected.append({"damage": "SPURIOUS_EDGE", "s": s, "p": den, "o": o, "visible_by_law": v})
             if n_vis is not None and made["vis"] != n_vis:
                 raise RuntimeError(f"visible share not met: {made['vis']} of {n_vis}")
+        elif kind == "CYCLE":
+            # a spurious repeals edge b->a mirroring a true repeals a->b: both edges violate L4, one is false
+            if den != "repeals": raise ValueError("CYCLE is dosed on repeals")
+            pool = sorted(k for k, f in facts.items() if f["p"] == "repeals" and not f.get("injected") and f.get("id") not in fault_facts and k[0] != k[2] and (k[2], "repeals", k[0]) not in facts)
+            n = round(rate * len(pool))
+            for (a, _, b) in rng.sample(pool, n):
+                key = (b, "repeals", a)
+                facts[key] = {"s": b, "p": "repeals", "o": a, "injected": True}
+                injected.append({"damage": "SPURIOUS_EDGE", "s": b, "p": "repeals", "o": a, "visible_by_law": ["L4"], "cycle_with": facts[(a, "repeals", b)]["id"]})
         elif kind == "MISSING":
             if den not in RELS: raise ValueError("MISSING needs a relation denominator")
             pool = sorted(k for k, f in facts.items() if f["p"] == den and not f.get("injected") and f.get("id") not in fault_facts)

@@ -140,8 +140,9 @@ def build(coll, frozen="2026-09-09"):
             known_faults.append({"fact": f["id"], "kind": "empty_target", "atlas": "form-182"})
     # census of real law violations (step 2b), before any injection
     viol = 0
+    idx = laws.Index(facts)
     for f in facts:
-        v = laws.violations(f, ntab)
+        v = laws.violations(f, ntab, idx)
         v = [x for x in v if not (x == "L3" and any(k.get("fact") == f["id"] and k["kind"] == "empty_target" for k in known_faults))]
         if v:
             known_faults.append({"fact": f["id"], "kind": "law_violation", "laws": v})

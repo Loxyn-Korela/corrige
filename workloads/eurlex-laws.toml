@@ -69,3 +69,8 @@ filters = [
   "(b.celex IS NULL OR b.celex = '')",
   "coalesce(b.gap, false) = false",
 ]
+
+# L4 — two acts do not repeal each other (two edges: the repairer must choose which one to delete)
+[[constraints]]
+patterns = ["(a:Act)-[r1:REPEALS]->(b:Act)", "(b:Act)-[r2:REPEALS]->(a:Act)"]
+filters = []
