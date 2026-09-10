@@ -93,8 +93,8 @@ the stratification**, and rule R6 forbids it, so everything is per relation:
 | of the facts read | repeals (27) | amends (33) | based_on (27) |
 |---|---|---|---|
 | the register is **wrong** | 2 | 0 | 0 |
-| true in law, **not stated in the text** | 3 | 1 | 1 |
-| the text states **another relation** | 1 | 1 | 0 |
+| true in law, **not stated in the text** | 4 | 0 | 1 |
+| the text states **another relation** | 0 | 2 | 0 |
 | the register is right and the text says so | 21 | 31 | 26 |
 
 Both registry errors fall on repeals: a wrong target (an act about staff in Belgium linked to one
