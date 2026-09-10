@@ -1,9 +1,9 @@
-"""Campaign: for every repeal of the truth whose repealing act's text we hold locally,
-ask the text — by plain string search, no model — whether it states the repeal of the
-target, and classify the answer. The point is not to replace the register but to measure
-how much of it is stated in its own documents.
+"""Campaign: for every fact of a relation whose subject act's text we hold locally, ask the
+text — by plain string search, no model — whether it states that relation about the target,
+and classify the answer. The point is not to replace the register but to measure how much of
+it is stated in its own documents.
 
-    .venv-pdf/bin/python -m corrige.campaign_repeals <truth.json> <collection dir> <out.json> [--limit N]
+    .venv-pdf/bin/python -m corrige.campaign_stated <truth.json> <collection dir> <out.json> --relation repeals|amends [--limit N]
 
 Sources of text, in order: lot B files (textes/{fr,en}/<CELEX>.html|xml), then the official
 Formex dump (LEG_{FR,EN}_FMX zip, entries <uuid>/fmx4/*.xml).
@@ -19,9 +19,19 @@ Classes, per fact:
 """
 import sys, os, re, json, zipfile, html, collections, pathlib
 
-REPEAL = re.compile(r"abrog|repeal|cesse(?:nt)? de produire effet|ceases? to (?:have|produce) effect|n'est plus applicable|no longer appl", re.I)
-# the target is named but the sentence says something else about it
-OTHER = re.compile(r"dérog|derogat|modifié(?:e|s|es)? (?:\w+ )?par|amended by|visé|referred to in", re.I)
+VERB = {
+    "repeals": re.compile(r"abrog|repeal|cesse(?:nt)? de produire effet|ceases? to (?:have|produce) effect|n'est plus applicable|no longer appl", re.I),
+    "amends": re.compile(r"modifi|amend|est remplacé|sont remplacés|is replaced|are replaced|est inséré|sont insérés|is inserted|are inserted|est supprimé|sont supprimés|is deleted|are deleted|entrées ci-après sont insérées", re.I),
+}
+# the target is named but the sentence says something else about it: B acts on A, or a mere reference
+OTHER = {
+    "repeals": re.compile(r"dérog|derogat|modifié(?:e|s|es)? (?:\w+ )?par|amended by|visé|referred to in", re.I),
+    "amends": re.compile(r"abrog|repeal|dérog|derogat|modifié(?:e|s|es)? (?:\w+ )?(?:en dernier lieu )?par|amended (?:last )?by|a été modifi|has been amended|visé|referred to in", re.I),
+}
+# a relation stated after the target, the pattern of an act of accession or an amending annex:
+# "31998 D 0536: Décision … À l'annexe, les entrées ci-après sont insérées"
+FORWARD = 400
+ACTNUM = re.compile(r"\b\d{1,4}/\d{2,4}\b")
 
 
 def keys_for(celex):
@@ -105,41 +115,52 @@ def sentences(t):
 LEAD = 1500          # a repeal list: "the following are repealed:" then the numbers, further down
 # a recast names its repealed acts in an annex: "ANNEXE VII PARTIE A Directive abrogée avec liste
 # de ses modifications successives", tens of thousands of characters after the repealing article
-ANNEX = re.compile(r"(?i)(?:ANNEXE|ANNEX)\s+[IVXLC0-9]{1,6}\b[^.]{0,160}?(?:abrog|repeal)")
+ANNEX = {"repeals": re.compile(r"(?i)(?:ANNEXE|ANNEX)\s+[IVXLC0-9]{1,6}\b[^.]{0,160}?(?:abrog|repeal)"),
+         "amends": re.compile(r"(?i)(?:ANNEXE|ANNEX)\s+[IVXLC0-9]{1,6}\b[^.]{0,160}?(?:modifi|amend|adapt)")}
 ANNEX_END = re.compile(r"(?i)TABLEAU DE CORRESPONDANCE|CORRELATION TABLE|TABLE DE CORRESPONDANCE")
 
 
-def repeal_annexes(text):
-    """Spans of the annexes that list the repealed acts."""
+def repeal_annexes(text, rel):
+    """Spans of the annexes that list the acts the relation applies to."""
     spans = []
-    for m in ANNEX.finditer(text):
+    for m in ANNEX[rel].finditer(text):
         start = m.start()
         e = ANNEX_END.search(text, m.end())
         spans.append((start, e.start() if e else min(len(text), m.end() + 8000)))
     return spans
 
 
-def classify(text, keys):
-    """Three passes: the number in a sentence carrying the verb; the number under a repeal
-    list whose lead-in carries the verb; the number alone."""
+def classify(text, keys, rel):
+    """Four passes: the number in a sentence carrying the verb; the verb just after the number
+    (act of accession); the number under a list whose lead-in carries the verb; the number in the
+    annex the relating article points to. Otherwise the number alone, or nothing."""
+    verb, other = VERB[rel], OTHER[rel]
     hits, listed, annexed = [], [], []
-    spans = repeal_annexes(text)
+    spans = repeal_annexes(text, rel)
     for k in keys:
         for m in re.finditer(r"(?<!\d)" + re.escape(k) + r"(?!\d)", text):
             i = m.start()
             s = text[max(0, i - 300):i + 300].strip()
             sent = next((x for x in sentences(text[max(0, i - 500):i + 500]) if k in x), s)
-            if REPEAL.search(sent) and not OTHER.search(sent):
+            fwd = text[i + len(k):i + FORWARD]
+            fm = verb.search(fwd)
+            # a verb just after the number counts only if no other act number stands between them:
+            # otherwise the verb belongs to that other act (the cascade trap)
+            fwd_ok = bool(fm) and not other.search(fwd[:fm.start()] if fm else "") \
+                and not [x for x in ACTNUM.findall(fwd[:fm.start()]) if x != k] if fm else False
+            if verb.search(sent) and not other.search(sent):
                 hits.append((k, sent, True, False))
+            elif fwd_ok:
+                hits.append((k, re.sub(r"\s+", " ", text[i:i + 300]).strip(), True, False))
             else:
                 lead = text[max(0, i - LEAD):i]
-                if REPEAL.search(lead) and not re.search(r"(?i)\bArticle\s+\d+", lead[lead.rfind(next(iter(REPEAL.findall(lead) or [""]), "")):] or ""):
-                    lm = list(REPEAL.finditer(lead))[-1]
+                if verb.search(lead) and not re.search(r"(?i)\bArticle\s+\d+", lead[lead.rfind(next(iter(verb.findall(lead) or [""]), "")):] or ""):
+                    lm = list(verb.finditer(lead))[-1]
                     listed.append((k, (lead[max(0, lm.start() - 80):] + " ⟶ " + text[i:i + 160]).strip(), True, False))
                 elif any(a <= i < b for a, b in spans):
                     annexed.append((k, "annexe des actes abrogés ⟶ " + re.sub(r"\s+", " ", text[max(0, i - 120):i + 140]).strip(), True, False))
                 else:
-                    hits.append((k, sent, False, bool(OTHER.search(sent))))
+                    hits.append((k, sent, False, bool(other.search(sent))))
     verbed = [h for h in hits if h[2]]
     if verbed:
         return "stated", verbed[-1]
@@ -160,7 +181,8 @@ def main():
     out = pathlib.Path(pos[2])
     limit = int(argv[argv.index("--limit") + 1]) if "--limit" in argv else None
     nodes = {n["id"]: n for n in truth["nodes"]}
-    facts = [f for f in truth["facts"] if f["p"] == "repeals"]
+    rel = argv[argv.index("--relation") + 1] if "--relation" in argv else "repeals"
+    facts = [f for f in truth["facts"] if f["p"] == rel]
     fault = {k["fact"] for k in truth.get("known_registry_faults", []) if "fact" in k}
     res, cnt, cache = {}, collections.Counter(), {}
     done = 0
@@ -179,7 +201,7 @@ def main():
             if not keys:
                 cls, hit = "no_key", None
             else:
-                cls, hit = classify(text, keys)
+                cls, hit = classify(text, keys, rel)
         cnt[cls] += 1
         res[f["id"]] = {"a": ca, "b": cb, "class": cls, "source": src,
                         "known_fault": f["id"] in fault,
@@ -189,7 +211,7 @@ def main():
             print(f"  {done}/{len(facts)} {dict(cnt)}", flush=True)
         if limit and done >= limit:
             break
-    json.dump({"truth": truth["id"], "truth_sha256": truth["sha256"], "relation": "repeals",
+    json.dump({"truth": truth["id"], "truth_sha256": truth["sha256"], "relation": rel,
                "method": "plain string search on the locally held text of the repealing act, no model; a repeal verb list including equivalent wordings",
                "counts": dict(cnt), "facts": res}, open(out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(dict(cnt))

@@ -42,31 +42,45 @@ a failing one. A repairer working on the graph is not concerned by it: it sees t
 Every truth built from now on carries the same two numbers in its `audit` block, or says it has
 none. A truth with no audit stays `unaudited` and no measurement is published against it.
 
-## Campaign: how much of the register is stated in its own documents (repeals, 2026-09-10)
+## Campaign: how much of the register is stated in its own documents (2026-09-10)
 
-The human audit gave a figure on 87 facts. The same question, asked of every repeal whose act we
-hold locally, by plain string search and no model, gives it on 13,614
-(`measures/repeals-stated-in-text-2026-09-10.json`). The machine only ever answers with a quoted
-span: the target's number inside a sentence carrying a repeal verb, or under a repeal list, or in
-the annex of repealed acts that a recast's repealing article points to.
+The human audit gave a figure on 87 facts. The same question, asked of every fact whose subject
+act we hold locally, by plain string search and no model, gives it on 33,612
+(`measures/stated-in-text-2026-09-10.json`). The machine only ever answers with a quoted span:
+the target's number inside a sentence carrying the relation's verb, or just after it with no other
+act number in between, or under a list whose lead-in carries the verb, or in the annex of acts the
+relating article points to.
 
-| | |
-|---|---|
-| repeals in the truth | 14,411 |
-| text of the repealing act held locally | 13,614 (94.5 %) |
-| **the text states the repeal** | **10,124 — 74.4 % of those with text** |
-| the target is named, no repeal sentence | 1,173 |
-| the target is never named: the repeal is implicit | 1,555 (11.4 %) |
-| the target has no printed number (agreement, protocol): left open | 762 |
+| | repeals | amends |
+|---|---|---|
+| facts in the truth | 14,411 | 64,290 |
+| text of the subject act held locally | 13,614 (94 %) | 19,998 (31 %) |
+| **the text states the relation** | **10,305 — 75.7 %** | **18,018 — 90.1 %** |
+| the target is never named: the relation is implicit | 1,555 | 667 |
+| named, but no sentence states the relation | 992 | 667 |
+| no printed number to search (agreement, protocol) | 762 | 646 |
 
-Calibrated against the 27 repeals read by hand: the machine **never claimed a repeal the human had
-refused** (19 of 19), and **found 19 of the 21 the human found**. The two it misses are the two
-kinds it cannot reach: one where the number never appears at all, one where the target is an
-international agreement named in an annex by its title. So 74.4 % is a floor, the true share is
-near 80 %, and the human's own sample gave 78 %.
+Calibrated against the facts read by hand, excluding those with no local text: on repeals it finds
+19 of the 21 the human found and **never claimed one he had refused** (0 of 5); on amends, 13 of
+14, with no precision measurement (his only two refusals on amends fall on acts we do not hold).
 
-This is the number that has no equivalent elsewhere: **about one repeal in five that an official
-register asserts cannot be found by reading the act that supposedly performs it.**
+**One repeal in four that the register asserts is not stated in the act that performs it.** On
+amendments the register is far closer to its documents, because an amending act says so in its
+own title. `based_on` is not measured: we hold the text of 15 % of its subject acts.
+
+### What the measure changes in the instrument
+
+It is an overlay, never a modification: the truth stays frozen, its hash unchanged. Passed to the
+judge with `--stated`, it adds, per relation, the recall computed on the facts the documents
+actually state, and counts apart the ones a reader could not have found:
+
+```
+python3 -m corrige.judge <truth> <candidate> <verdict> --journal <journal> --stated measures/stated-in-text-2026-09-10.json
+```
+
+On the first run (pgrepair, repeals): recall 94.73 % over all facts, 94.57 % over the stated ones,
+and 67 of its misses are facts no reader could have found. Without the overlay those 67 look like
+failures of the engine; with it, they are a property of the register, stated as such.
 
 ## The truth, audited by hand (2026-09-10)
 

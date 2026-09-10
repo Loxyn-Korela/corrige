@@ -1,7 +1,7 @@
 """The judge: compares a candidate graph to a truth and writes a verdict.
 Rules R1-R9 of the layer-1 design are implemented here and nowhere else.
 
-    python3 -m corrige.judge <truth.json> <candidate.json> <verdict.json> [--journal journal.json]
+    python3 -m corrige.judge <truth.json> <candidate.json> <verdict.json> [--journal journal.json] [--stated measures/stated-in-text-*.json]
 
 The verdict is keyed on truth fact ids and, for candidate facts outside the
 truth, on the (s, p, o) triple; it carries no candidate-internal id and no
@@ -24,7 +24,12 @@ def _ratio(num, den):
     return {"num": num, "den": den, "value": (f"{num / den:.4f}") if den else "undefined"}
 
 
-def judge(truth, cand, journal=None):
+def judge(truth, cand, journal=None, stated=None):
+    """stated: the overlay measuring, per fact, whether the subject act's text states the relation
+    (measures/stated-in-text-*.json). When given, recall is also reported on the stated subset:
+    an extractor that reads the documents cannot find what the documents do not say, and the
+    judge says so instead of counting it as a failure."""
+    stated = (stated or {}).get("stated_in_text", {})
     # ── refuse what is not bound to this truth (and journal)
     if cand.get("truth_sha256") != truth["sha256"]:
         raise ValueError("candidate does not name this truth (truth_sha256 mismatch)")
@@ -124,6 +129,15 @@ def judge(truth, cand, journal=None):
             "false": c["false"],
             "known_fault": {k[12:]: v for k, v in c.items() if k.startswith("known_fault_")},
         }
+    if stated:
+        for p in world:
+            ids = [f["id"] for f in truth["facts"] if f["p"] == p and f["id"] not in fault_facts]
+            yes = [i for i in ids if stated.get(i) == "yes"]
+            found_yes = sum(1 for i in yes if per_fact[i]["status"] == "found")
+            missed_no = sum(1 for i in ids if stated.get(i) == "no" and per_fact[i]["status"] == "missed")
+            dims[p]["recall_on_stated"] = _ratio(found_yes, len(yes))
+            dims[p]["stated_in_text"] = {k: sum(1 for i in ids if stated.get(i, "unknown") == k) for k in ("yes", "no", "unclear", "unknown")}
+            dims[p]["missed_and_not_stated"] = missed_no
     dims["nodes"] = {"anachronism": _ratio(len(anach), dated) if cnodes else "undefined (candidate has no nodes)"}
     dims["collateral"] = len(collateral)
 
@@ -161,7 +175,7 @@ def judge(truth, cand, journal=None):
     verdict = {
         "truth": truth["id"], "truth_sha256": truth["sha256"],
         "candidate": cand["candidate"], "journal_sha256": journal["sha256"] if journal else None,
-        "dimensions": dims, "repair": repair,
+        "dimensions": dims, "repair": repair, "stated_overlay": (stated and True) or False,
         "facts": dict(sorted(per_fact.items())),
         "extra": sorted(extra, key=lambda e: (e["p"], e["s"], e["o"])),
         "anachronism": sorted(anach, key=lambda a: a["node"]),
@@ -173,13 +187,14 @@ def judge(truth, cand, journal=None):
 
 def main():
     argv = sys.argv[1:]
-    args = [a for i, a in enumerate(argv) if not a.startswith("--") and (i == 0 or argv[i - 1] != "--journal")]
+    args = [a for i, a in enumerate(argv) if not a.startswith("--") and (i == 0 or argv[i - 1] not in ("--journal", "--stated"))]
     if len(args) != 3:
         sys.exit(__doc__)
     truth = json.load(open(args[0], encoding="utf-8"))
     cand = json.load(open(args[1], encoding="utf-8"))
     journal = json.load(open(sys.argv[sys.argv.index("--journal") + 1], encoding="utf-8")) if "--journal" in sys.argv else None
-    v = judge(truth, cand, journal)
+    stated = json.load(open(sys.argv[sys.argv.index("--stated") + 1], encoding="utf-8")) if "--stated" in sys.argv else None
+    v = judge(truth, cand, journal, stated)
     canon.write(args[2], v)
     for p, d in v["dimensions"].items():
         print(p, json.dumps(d, ensure_ascii=False)[:200])
