@@ -1,23 +1,23 @@
-[2026-09-10 14:56:14] [37m[1mINFO    [0m[1m[pgrepair.workload][0m [35mLoading workload from file /Users/sebastiengracia/dev/corrige/workloads/icij-g1-g3.toml[0m
-[2026-09-10 14:56:14] [37m[1mINFO    [0m[1m[pgrepair.cli   ][0m [35mDisabling disk-cache as requested[0m
-[2026-09-10 14:56:14] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mConnecting to database neo4j at neo4j://localhost:7687[0m
-[2026-09-10 14:56:14] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mAuthenticating as user neo4j[0m
-[2026-09-10 14:56:14] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mDatabase connection established and verified.[0m
-[2026-09-10 14:56:14] [33m[1mWARNING [0m[1m[pgrepair.neo4j_utilities][0m [35mGDS is not available.[0m
-[2026-09-10 14:56:14] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mUsing workload ICIJ — gamma_1 and gamma_3 of the published workload (one-edge and two-edge)[0m
-[2026-09-10 14:56:14] [37m[1mINFO    [0m[1m[pgrepair.workload][0m [35mReseting random seed for ICIJ — gamma_1 and gamma_3 of the published workload (one-edge and two-edge)[0m
-[2026-09-10 14:56:14] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mQuerying for conflicts and constructing hypergraph.[0m
-[2026-09-10 14:56:14] [37m[1mINFO    [0m[1m[pgrepair.cleaning.conflict_collectors][0m [35mCollecting conflicts (constraint 1/2)[0m
-[2026-09-10 14:56:15] [37m[1mINFO    [0m[1m[pgrepair.cleaning.conflict_collectors][0m [35mCollecting conflicts (constraint 2/2)[0m
-[2026-09-10 14:56:15] [37m[1mINFO    [0m[1m[pgrepair.cleaning.scipy_ilp_cleaner][0m [35mInitializing ILP solver.[0m
-[2026-09-10 14:56:15] [37m[1mINFO    [0m[1m[pgrepair.cleaning.scipy_ilp_cleaner][0m [35mRunning solver.[0m
+[2026-09-10 16:17:29] [37m[1mINFO    [0m[1m[pgrepair.workload][0m [35mLoading workload from file /Users/sebastiengracia/dev/corrige/workloads/icij-g1-g3.toml[0m
+[2026-09-10 16:17:29] [37m[1mINFO    [0m[1m[pgrepair.cli   ][0m [35mDisabling disk-cache as requested[0m
+[2026-09-10 16:17:29] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mConnecting to database neo4j at neo4j://localhost:7687[0m
+[2026-09-10 16:17:29] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mAuthenticating as user neo4j[0m
+[2026-09-10 16:17:29] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mDatabase connection established and verified.[0m
+[2026-09-10 16:17:29] [33m[1mWARNING [0m[1m[pgrepair.neo4j_utilities][0m [35mGDS is not available.[0m
+[2026-09-10 16:17:29] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mUsing workload ICIJ — gamma_1 and gamma_3 of the published workload (one-edge and two-edge)[0m
+[2026-09-10 16:17:29] [37m[1mINFO    [0m[1m[pgrepair.workload][0m [35mReseting random seed for ICIJ — gamma_1 and gamma_3 of the published workload (one-edge and two-edge)[0m
+[2026-09-10 16:17:29] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mQuerying for conflicts and constructing hypergraph.[0m
+[2026-09-10 16:17:29] [37m[1mINFO    [0m[1m[pgrepair.cleaning.conflict_collectors][0m [35mCollecting conflicts (constraint 1/2)[0m
+[2026-09-10 16:17:29] [37m[1mINFO    [0m[1m[pgrepair.cleaning.conflict_collectors][0m [35mCollecting conflicts (constraint 2/2)[0m
+[2026-09-10 16:17:30] [37m[1mINFO    [0m[1m[pgrepair.cleaning.scipy_ilp_cleaner][0m [35mInitializing ILP solver.[0m
+[2026-09-10 16:17:30] [37m[1mINFO    [0m[1m[pgrepair.cleaning.scipy_ilp_cleaner][0m [35mRunning solver.[0m
 /Users/sebastiengracia/Mes claudes/Banc à vérité connue/pgrepair-bonifati/pgrepair/src/pgrepair/cleaning/scipy_ilp_cleaner.py:63: OptimizeWarning: Unrecognized options detected: {'tol': 1e-10}. These will be passed to HiGHS verbatim.
   res = scipy.optimize.linprog(
 /Users/sebastiengracia/Mes claudes/Banc à vérité connue/pgrepair-bonifati/pgrepair/.venv/lib/python3.12/site-packages/scipy/optimize/_linprog_highs.py:355: OptimizeWarning: Unrecognized options detected: {'tol': 1e-10}
   res = _highs_wrapper(c, A.indptr, A.indices, A.data, lhs, rhs,
-[2026-09-10 14:56:18] [37m[1mINFO    [0m[1m[pgrepair.cleaning.solution][0m [35mSciPyWeightedILP cleaner found a solution with weight 37206[0m
-[2026-09-10 14:56:18] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mRepairing by deleting 18603 edge(s), 0 node(s), 0 labels[0m
-[2026-09-10 14:56:18] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mRecord 0 returned for pre repair query MATCH p = (x:Officer)-[:president_of]->(y:Entity)((:Entity|Officer)-[:officer_of|same_name_as]->())+(z:Entity) RETURN COUNT(*) AS count: <Record count=330>[0m
-[2026-09-10 14:56:19] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mValidating repair[0m
-[2026-09-10 14:56:19] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mRecord 0 returned for post repair query MATCH p = (x:Officer)-[:president_of]->(y:Entity)((:Entity|Officer)-[:officer_of|same_name_as]->())+(z:Entity) RETURN COUNT(*) AS count: <Record count=200>[0m
-[2026-09-10 14:56:19] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mDropping database connection.[0m
+[2026-09-10 16:17:32] [37m[1mINFO    [0m[1m[pgrepair.cleaning.solution][0m [35mSciPyWeightedILP cleaner found a solution with weight 37206[0m
+[2026-09-10 16:17:32] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mRepairing by deleting 18603 edge(s), 0 node(s), 0 labels[0m
+[2026-09-10 16:17:32] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mRecord 0 returned for pre repair query MATCH p = (x:Officer)-[:president_of]->(y:Entity)((:Entity|Officer)-[:officer_of|same_name_as]->())+(z:Entity) RETURN COUNT(*) AS count: <Record count=330>[0m
+[2026-09-10 16:17:33] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mValidating repair[0m
+[2026-09-10 16:17:33] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mRecord 0 returned for post repair query MATCH p = (x:Officer)-[:president_of]->(y:Entity)((:Entity|Officer)-[:officer_of|same_name_as]->())+(z:Entity) RETURN COUNT(*) AS count: <Record count=200>[0m
+[2026-09-10 16:17:33] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mDropping database connection.[0m
