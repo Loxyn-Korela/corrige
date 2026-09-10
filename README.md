@@ -351,6 +351,11 @@ Same damages as the first measure plus 2 % cycles (288), laws L1-L4 (`runs/cycle
 | spurious visible edges caught (4,222) | 4,222 | 4,220 |
 | true facts wrongly broken, all causes | 602 | 328 |
 
+**Not repeated, and superseded.** This measurement is one run, made before R10 existed, and it is
+kept only because it is where we found the straw man. The two-arm design above replaces it and is
+run four times per algorithm. Read 274 of 288 as a single draw of a process we now know does not
+repeat.
+
 Here pgrepair separates from the rule, and the reason is stated: 283 of the 288 cycle edges also
 violate L1 (the mirrored edge has the wrong date order), so deleting the false edge resolves two
 violations and the true edge only one; the minimum-deletion solver picks the false one. The rule
