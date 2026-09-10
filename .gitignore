@@ -5,3 +5,4 @@ runs/*/graph.json
 runs/*/candidate-*.json
 runs/*/verdict-*.json
 .venv-pdf/
+audit/test/
