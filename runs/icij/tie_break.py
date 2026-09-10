@@ -42,3 +42,6 @@ if __name__ == "__main__":
     c = collections.Counter(run() for _ in range(20))
     print(f"\n  hash seed left random (the default), 20 processes -> {dict(c)}")
     print("\n  A repairer whose choice depends on the process it runs in is not choosing.")
+    print("  A fix that changes nothing it computes: give min() a second key that does not depend")
+    print("  on the process, e.g. key=lambda v: (weights[v], v[0], v[1].value) — EntityType is a")
+    print("  plain Enum and is not orderable on its own.")
