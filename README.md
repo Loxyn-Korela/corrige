@@ -126,22 +126,30 @@ records what was revised and why.
 ## The seven damages, and the half of pgrepair nobody had exercised (2026-09-10)
 
 The injector produced only four of the seven damages the Fault Atlas classifies. It now produces
-all seven, on the same frozen truth: spurious edge, missing, anachronism, **wrong value** (the
+all seven, and on 2026-09-10 it does again after the regression described below: spurious edge,
+missing, anachronism, **wrong value** (the
 CELEX itself), **wrong label**, **merge** (two acts become one node) and **split** (one act becomes
 two). The wrong label rests on a real law of the domain, L6: *an act's type label says what its
 CELEX says* — `32019R1020` is a Regulation, `32019L1020` a Directive — and it is the only damage a
 **label repair** can undo, which is the half of pgrepair no measurement had touched.
 
 One run, 5 % spurious repeals (half visible to a law), 3 % repeals removed, 2 % wrong labels, 1 %
-wrong CELEX values, 506 merges, 271 splits (`runs/seven/`):
+wrong CELEX values, 506 merges, 271 splits (`runs/seven/`).
+
+**This run carries six of the seven damages, not seven, and this page said otherwise for a day.**
+`ANACHRONISM` had a branch, was injected in the first two published runs (5,276 shifted dates each)
+and was lost in an edit at 1.1.0, while this section went on announcing seven. Restored on
+2026-09-10 from `d21f25e~1`; `parse_damage` now refuses any damage name that has no branch, and
+T14 asserts that every damage the injector advertises is implemented. The table is what the run
+actually contains.
 
 | damage | dumb baseline | rule without model | pgrepair |
 |---|---|---|---|
 | spurious edge, visible to an edge law | 0 / 360 | 360 / 360 | 360 / 360 |
 | spurious edge, invisible to every law | 0 / 361 | 0 / 361 | 0 / 361 |
 | **wrong label, visible to the label law** | 5 / 3,932 | 5 / 3,932 | **3,932 / 3,932** |
-| split: reachable by deleting the twin | 0 / 271 | 0 / 271 | 0 / 271 |
-| missing, anachronism, wrong value, merge | 0 / 3,549 | 0 / 3,549 | 0 / 3,549 |
+| split: the twin deleted (271 splits, which took 326 true facts) | 0 | 0 | 0 |
+| missing, wrong value, merge, split | 0 / 3,820 | 0 / 3,820 | 0 / 3,820 |
 | true facts wrongly broken | 0 | 0 | 0 on the published run, **11,163 on all four repeats** |
 
 **Correction, 2026-09-10, and it is the worst one on this page.** R10 sent us back to repeat this
@@ -163,6 +171,14 @@ labelset. Every node in our graph carries `:Act` plus its type label, so a label
 something we can produce. We do not know how that run saw one, and we stop there. The code is
 theirs, and one look will settle in a minute what we would spend a week guessing at. **Read the line above as: the label repair removes every
 wrong label, and as we can reproduce it today that costs 11,200 true facts.**
+
+**A third finding, and it comes from the Fault Atlas contradicting this page.** The atlas classes
+every split as *not* reachable by deletion; this judge used to bucket it as *reachable by deleting
+the twin*. The atlas was right, and we measured it rather than argued: a candidate that deletes
+every twin scores "caught" under the old label and still loses every fact the split had moved,
+recall 156 of 158 on the toy truth. Deleting the twin removes the false node; it does not bring
+back what that node took. Split now sits in **beyond reach**, and twin deletions are counted apart,
+with the true facts they took and did not give back.
 
 Two findings worth stating. **A label repair satisfies every constraint of its workload by deleting
 labels** — run with our edge laws in the same file, it removed the `:Act` label of an endpoint to

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.2 — 2026-09-10
+- **A damage was advertised and absent.** `ANACHRONISM` had a branch, was injected in the first two published runs (5,276 shifted dates each), and was lost in the edit of 1.1.0 while the README kept announcing seven damages. Restored verbatim from `d21f25e~1`. `parse_damage` now refuses any name with no branch, and **T14** asserts that every damage the injector advertises is implemented. The seven-damages run carried six, and the README says so.
+- **The atlas and the judge contradicted each other on split, and the atlas was right.** The judge bucketed a split as reachable by deleting the twin. Measured: a candidate that deletes every twin scores "caught" and still loses every moved fact, recall 156 of 158 on the toy truth. Split moves to beyond reach; twin deletions are counted apart, with the true facts they took and did not give back.
+- The seven-damages verdict is re-judged: beyond reach 3,820, split twins kept 271, 326 true facts moved and not restored.
+
 ## 1.3.1 — 2026-09-10
 - **R10 applied to our own numbers, and it cost us one.** The first measurement repeats to the byte across three runs: same candidate graph, sha256 `6d93013739bbf435…`. The label measurement does not repeat at all. Four repeats, in both workload orders, agree with each other and disagree with what we published: the label law ends satisfied on every run, but pgrepair reaches that by deleting the 3,930 nodes rather than their labels, and 11,200 true facts go with them. The published run's state cannot be reconstructed and we do not guess at the cause. `measures/label-repair-not-reproducible-2026-09-10.json`.
 - The claim "3,932 of 3,932 wrong labels repaired" stays true and was incomplete. It now carries what the repair costs.
