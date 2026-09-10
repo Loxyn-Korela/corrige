@@ -141,7 +141,7 @@
  },
  "readings": [
   "On the one-edge law the two pgrepair algorithms and a rule without a model are identical: 521 of 521 injected visible edges caught, 0 of 521 invisible ones, on both.",
-  "On the two-edge law with nothing to separate the two edges, the rule destroys all 60 true edges; pgrepair keeps 24 (ILP) or 25 (Greedy) — 40 % and 41.7 %, a 95 % interval of about +/- 12.5 points on 60 pairs, indistinguishable from a coin. The gain over the rule is minimality, not discrimination.",
+  "On the two-edge law with nothing to separate the two edges, the rule destroys all 60 true edges. pgrepair keeps 25, 30, 31 and 29 (Greedy) and 24 and 29 (ILP) across repeated identical runs. Pure chance is 30 with a 95 % band of 22 to 38: every run of both algorithms sits inside it. The gain over the rule is minimality, not discrimination, and the choice itself is not even repeatable.",
   "The two algorithms return solutions of identical cost (weight 37,206, 18,603 deletions) and differ on which edge of one single pair they drop.",
   "The 731 removed president_of edges are beyond the reach of any deletion-only repairer, and the judge says so rather than counting them as failures."
  ],
@@ -150,5 +150,26 @@
   "gamma_4 of her workload (a quantified path over 1.7 million officer_of edges) is out of coverage: our law module cannot yet express a variable-length pattern.",
   "This truth is by construction: it is the data ICIJ published, frozen, not a claim about the world. Nothing here is audited against a document."
  ],
- "date": "2026-09-10"
+ "date": "2026-09-10",
+ "arms_repeated": {
+  "why": "the greedy answered differently on two identical runs, so every arm was repeated; runs/icij/tie_break.py shows the mechanism",
+  "blind_rival_pairs": 60,
+  "true_edges_kept_per_run": {
+   "Greedy": 30,
+   "Greedy-run3": 31,
+   "Greedy-run4": 29,
+   "SciPyWeightedILP": 24,
+   "SciPyWeightedILP-run2": 29
+  },
+  "chance": {
+   "expected": 30,
+   "sd": 3.87,
+   "band_95": "22 to 38",
+   "verdict": "every run of both algorithms falls inside the band; neither shows any information about which edge is true"
+  },
+  "cost_identical_every_run": {
+   "solver_weight": 37206,
+   "edges_deleted": 18603
+  }
+ }
 }

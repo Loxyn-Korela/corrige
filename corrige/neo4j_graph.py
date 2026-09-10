@@ -39,8 +39,19 @@ class Db:
         return [dict(zip(res["columns"], d["row"])) for d in res["data"]]
 
 
+def wipe(db, batch=20000):
+    """Empty the database in bounded transactions. A single DETACH DELETE over a large graph
+    (the ICIJ dump leaves 2M nodes behind) exceeds dbms.memory.transaction.total.max and fails."""
+    total = 0
+    while True:
+        n = db.rows(f"MATCH (n) WITH n LIMIT {batch} DETACH DELETE n RETURN count(*) AS n")[0]["n"]
+        total += n
+        if n == 0:
+            return total
+
+
 def load(db, graph, batch=5000):
-    db.run([("MATCH (n) DETACH DELETE n", None)])
+    wipe(db)
     for stmt in ("CREATE INDEX act_id IF NOT EXISTS FOR (n:Act) ON (n.id)",
                  "CREATE INDEX act_cid IF NOT EXISTS FOR (n:Act) ON (n._corrige_id)"):
         db.run([(stmt, None)])
