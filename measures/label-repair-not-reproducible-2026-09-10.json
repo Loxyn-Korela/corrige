@@ -38,5 +38,16 @@
  "reading": "The label law is satisfied on every run: all 3,932 injected wrong labels are gone. But in four runs out of five the repair achieves that by deleting the 3,930 nodes rather than their labels, which destroys 11,200 true facts. The cheap solution costs 3,930 and exists; the four reproducible runs return 34,392, so the solver is not choosing badly among equal options, it is not being offered the cheap one. This is not the tie-break of runs/icij/tie_break.py: all four runs agree with each other, in both workload orders. We could not isolate the cause and we are not guessing.",
  "consequence": "Our published sentence, 'pgrepair repairs 3,932 of 3,932 wrong labels where neither witness can act', is true and incomplete. As we can reproduce it today the same repair deletes 3,930 nodes and 11,200 true facts with them. The README and both memos now say so.",
  "how_to_replay": "NEO4J_LOCAL_PASSWORD=… bash runs/seven/repeat.sh 2 \"workloads/eurlex-labels.toml workloads/eurlex-laws.toml\" orig",
- "date": "2026-09-10"
+ "date": "2026-09-10",
+ "hypothesis_tested_and_refuted": {
+  "hypothesis": "the published run (weight 3930) was made on a database already marked by an earlier label repair, not on a fresh load",
+  "test": "load once, run the same label workload twice in a row (runs/seven/twice.sh)",
+  "result": {
+   "pass_1_weight": 34392,
+   "pass_2_weight": 38322,
+   "both": "0 edges, 3930 nodes, 0 labels"
+  },
+  "why_it_is_refuted": "marking a label ADDS _PGREPAIR_DELETED__<Label> to the node, so its labelset grows and its weight rises: 34,392 then 38,322. A previously marked database makes the label option MORE expensive, never cheaper. The published solution is cheaper than any state we can produce, so a dirty database cannot explain it.",
+  "what_remains_open": "the published run deleted 3,930 labels for a total weight of 3,930, i.e. weight 1 per label. Label weight is the size of the labelset, and every node in our graph carries at least :Act plus its type label, so we cannot produce a labelset of size 1. We do not know how that run saw one, and we stop guessing here: the code is theirs and one look will settle it."
+ }
 }

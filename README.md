@@ -153,8 +153,14 @@ gone; but pgrepair reaches that by **deleting the 3,930 nodes rather than their 
 against `0 edge(s), 0 node(s), 3930 labels` on the run we published. This is not the tie-break of
 `runs/icij/tie_break.py`: the four repeats are identical, in both orders, and the solution they
 return costs 34,392 where the published one cost 3,930. The cheap repair exists and is not being
-offered to the solver. We could not isolate why, the database state of the published run cannot be
-reconstructed, and we are not guessing. **Read the line above as: the label repair removes every
+offered to the solver. One hypothesis was tested and refuted: that the published run
+had been made on a database already marked by an earlier label repair. Marking *adds* a label, so
+the labelset grows and its weight rises, 34,392 then 38,322 on two passes; a dirty database makes
+the cheap option dearer, never cheaper. What stays open is arithmetic: the published run deleted
+3,930 labels for a total weight of 3,930, one per label, and label weight is the size of the
+labelset. Every node in our graph carries `:Act` plus its type label, so a labelset of size 1 is not
+something we can produce. We do not know how that run saw one, and we stop there. The code is
+theirs, and one look will settle in a minute what we would spend a week guessing at. **Read the line above as: the label repair removes every
 wrong label, and as we can reproduce it today that costs 11,200 true facts.**
 
 Two findings worth stating. **A label repair satisfies every constraint of its workload by deleting
