@@ -1,0 +1,42 @@
+{
+ "id": "label-repair-not-reproducible-2026-09-10",
+ "about": "R10 applied to our own published claim that pgrepair repairs 3,932 of 3,932 wrong labels. It does. What we failed to publish is what it costs, and we can no longer reproduce the run in which it cost nothing.",
+ "truth": "truth-eurlex-relations-2026-09-09",
+ "run_dir": "runs/seven",
+ "runs": [
+  {
+   "when": "2026-09-10 13:16",
+   "order": "labels then edges",
+   "solver_weight": 3930,
+   "pgrepair_deleted": "0 edges, 0 nodes, 3930 labels",
+   "labels_repaired": 3932,
+   "true_facts_lost_as_collateral": 0,
+   "true_facts_wrongly_broken": 0,
+   "note": "the run we published; its database state cannot be reconstructed"
+  },
+  {
+   "when": "2026-09-10 18:0x",
+   "order": "labels then edges",
+   "solver_weight": 34392,
+   "pgrepair_deleted": "0 edges, 3930 nodes, 0 labels",
+   "labels_repaired": 3932,
+   "true_facts_lost_as_collateral": 11200,
+   "true_facts_wrongly_broken": 11163,
+   "runs": 2
+  },
+  {
+   "when": "2026-09-10 17:4x",
+   "order": "edges then labels",
+   "solver_weight": 34392,
+   "pgrepair_deleted": "0 edges, 3930 nodes, 0 labels",
+   "labels_repaired": 3932,
+   "true_facts_lost_as_collateral": 11200,
+   "true_facts_wrongly_broken": 11163,
+   "runs": 2
+  }
+ ],
+ "reading": "The label law is satisfied on every run: all 3,932 injected wrong labels are gone. But in four runs out of five the repair achieves that by deleting the 3,930 nodes rather than their labels, which destroys 11,200 true facts. The cheap solution costs 3,930 and exists; the four reproducible runs return 34,392, so the solver is not choosing badly among equal options, it is not being offered the cheap one. This is not the tie-break of runs/icij/tie_break.py: all four runs agree with each other, in both workload orders. We could not isolate the cause and we are not guessing.",
+ "consequence": "Our published sentence, 'pgrepair repairs 3,932 of 3,932 wrong labels where neither witness can act', is true and incomplete. As we can reproduce it today the same repair deletes 3,930 nodes and 11,200 true facts with them. The README and both memos now say so.",
+ "how_to_replay": "NEO4J_LOCAL_PASSWORD=… bash runs/seven/repeat.sh 2 \"workloads/eurlex-labels.toml workloads/eurlex-laws.toml\" orig",
+ "date": "2026-09-10"
+}

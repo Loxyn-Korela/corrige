@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.1 — 2026-09-10
+- **R10 applied to our own numbers, and it cost us one.** The first measurement repeats to the byte across three runs: same candidate graph, sha256 `6d93013739bbf435…`. The label measurement does not repeat at all. Four repeats, in both workload orders, agree with each other and disagree with what we published: the label law ends satisfied on every run, but pgrepair reaches that by deleting the 3,930 nodes rather than their labels, and 11,200 true facts go with them. The published run's state cannot be reconstructed and we do not guess at the cause. `measures/label-repair-not-reproducible-2026-09-10.json`.
+- The claim "3,932 of 3,932 wrong labels repaired" stays true and was incomplete. It now carries what the repair costs.
+- The second measure (`runs/cycles`) is marked as one run and superseded by the two-arm design.
+- We had reasoned that a one-edge law leaves nothing to arbitrate. That was the wrong reason to be confident: the conflict collector puts an edge and both its endpoint nodes in one hyperedge, so a tie is available there too. It simply did not occur.
+
 ## 1.3.0 — 2026-09-10
 - **R10, a tenth judge rule: one run of a repairer establishes nothing.** `corrige.spread` judges several runs of one design and prints each arm's figure beside what a coin gives, labelled stable, MOVES or NOT REPEATED. T13 covers the three readings, including that one run licenses neither of the other two.
 - **Both experiments repeated, and the contrast is the result.** EUR-Lex, four runs per algorithm: the informed arm returns 150 of 150 on all eight, the blind arm returns 58, 59, 65, 69 (ILP) and 64, 66, 66, 70 (Greedy) where a coin gives 65 in a band of 54 to 76. ICIJ, six runs: 24 to 31 of 60 where a coin gives 30. Where information exists both algorithms use it, every time; where it does not, repeating the arm moves the figure by more than the choice of algorithm does.

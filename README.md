@@ -141,7 +141,21 @@ wrong CELEX values, 506 merges, 271 splits (`runs/seven/`):
 | **wrong label, visible to the label law** | 5 / 3,932 | 5 / 3,932 | **3,932 / 3,932** |
 | split: reachable by deleting the twin | 0 / 271 | 0 / 271 | 0 / 271 |
 | missing, anachronism, wrong value, merge | 0 / 3,549 | 0 / 3,549 | 0 / 3,549 |
-| true facts wrongly broken | 0 | 0 | 0 |
+| true facts wrongly broken | 0 | 0 | 0 on the published run, **11,163 on all four repeats** |
+
+**Correction, 2026-09-10, and it is the worst one on this page.** R10 sent us back to repeat this
+measurement, and the published run does not come back
+(`measures/label-repair-not-reproducible-2026-09-10.json`). Four repeats — twice with the labels
+workload first as published, twice with the edges first — all agree with each other and disagree
+with what we printed. In every one of them the label law ends satisfied, all 3,932 wrong labels
+gone; but pgrepair reaches that by **deleting the 3,930 nodes rather than their labels**, and
+11,200 true facts go with them. Its own log says so: `deleting 0 edge(s), 3930 node(s), 0 labels`,
+against `0 edge(s), 0 node(s), 3930 labels` on the run we published. This is not the tie-break of
+`runs/icij/tie_break.py`: the four repeats are identical, in both orders, and the solution they
+return costs 34,392 where the published one cost 3,930. The cheap repair exists and is not being
+offered to the solver. We could not isolate why, the database state of the published run cannot be
+reconstructed, and we are not guessing. **Read the line above as: the label repair removes every
+wrong label, and as we can reproduce it today that costs 11,200 true facts.**
 
 Two findings worth stating. **A label repair satisfies every constraint of its workload by deleting
 labels** — run with our edge laws in the same file, it removed the `:Act` label of an endpoint to
@@ -152,7 +166,9 @@ node; reading the first as the second turned 3,930 label repairs into 3,930 phan
 and 11,888 phantom lost facts in our first attempt.
 
 Neither witness can touch the label damage — a rule that deletes edges has nothing to say about a
-label — so on this damage pgrepair stands alone, exactly and completely.
+label — so on this damage pgrepair stands alone. Whether it stands alone *well* is what the
+correction above puts back in question, and it is the single clearest argument for R10: the claim
+survived four review passes and a publication, and died the first time anyone ran it twice.
 
 ## Does an optimising repairer buy anything? Two arms, one of which can fail (2026-09-10)
 
