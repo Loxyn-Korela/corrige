@@ -20,8 +20,9 @@ Rules that do not bend: the file is the truth, a database is a view; no floats i
 is `undefined`; known registry faults leave the denominators; a candidate must name the truth
 and the journal it ran on; constraints come from the world laws, never from the injection journal.
 
-The full truth (489,223 facts, 202 MB) is not committed: it is rebuilt from the frozen collection
-and its sha256 is published here: `4796f91da81289a0…`. The toy truth (200 facts) is committed.
+The full truth (489,223 facts, 202 MB) is not committed to git: it is **published on Zenodo**,
+`doi:10.5281/zenodo.22688808`, with the overlay and the checksums. Download it into `truths/` and
+every command below runs on the real thing; its canonical sha256 is `4796f91da81289a0…`. The toy truth (200 facts) is committed.
 
 Licence: Apache 2.0 for the tools, CC BY-SA 4.0 for the truth records. Loxyn SAS, Lyon.
 

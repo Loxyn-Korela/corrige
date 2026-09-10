@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this instrument or its truth, cite them."
+title: "Le Corrigé — truth and judge for graphs built from documents"
+authors:
+  - family-names: Gracia
+    given-names: Sébastien
+    affiliation: "Loxyn SAS, Lyon"
+  - family-names: Bagnol-Lebon
+    given-names: Coralie
+    affiliation: "Loxyn SAS, Lyon"
+  - family-names: Comtet
+    given-names: Yoline
+    affiliation: "Loxyn SAS, Lyon"
+version: 1.0.0
+date-released: 2026-09-10
+license: Apache-2.0
+repository-code: "https://github.com/Loxyn-Korela/corrige"
+references:
+  - type: data
+    title: "Le Corrigé — EUR-Lex relations, a frozen truth for graph repair"
+    doi: 10.5281/zenodo.22688808
