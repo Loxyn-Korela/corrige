@@ -187,6 +187,14 @@ of ±8.6 points on 130 cycles. When two edges carry the same violation and nothi
 them, no repairer can do better than a coin. The instrument's job is to say so rather than to hide
 it behind an average.
 
+**Correction, 2026-09-10, from the ICIJ run.** Each of those two blind figures is **one draw**, and
+we now know the draw is not repeatable: the tie between two edges of equal weight is broken by the
+iteration order of a Python `set` of string-keyed pairs, which changes from one process to the next
+(`runs/icij/tie_break.py`). Two identical ICIJ arms of the greedy returned 25 and 30 of 60. So the
+±8.6 points above is the *sampling* interval over 130 cycles and nothing more; it does not cover
+run-to-run variation, and this arm was never repeated. Read 44.6 % and 50.8 % as two coin flips of
+an unknown coin, not as two measurements of two algorithms.
+
 ## A second graph, not legislative, with constraints we did not write (2026-09-10)
 
 Everything above is EUR-Lex. One corpus is a case study, not a bench. So the same instrument was
