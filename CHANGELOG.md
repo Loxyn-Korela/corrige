@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.0 — 2026-09-10
+- **A second graph, so that this is a bench and not a case study.** ICIJ Offshore Leaks, loaded from the dump ICIJ publishes, with three laws taken verbatim from pgrepair's own `icij-qualitative-study.toml` (gamma_1, gamma_2, gamma_3) and the typed relations its setup queries create. Truth by construction, `truths/truth-icij-offshoreleaks-2026-09-10.json`, sha256 `b14fa984ba4286ee…`.
+- **A cross-check nobody arranged**: our census of gamma_1 on the untouched dump finds 18,000 violations; pgrepair, on the same dump with her own constraint, collects 18,000. Two implementations of one sentence, agreeing to the edge.
+- Result, and it is the EUR-Lex result again on a graph that shares nothing with it: identical to a rule without a model on one-edge laws (521 of 521 visible, 0 of 521 invisible); ILP and Greedy return solutions of identical cost (weight 37,206, 18,603 deletions) differing on one pair; on the blind two-edge arm both are at chance (40 % and 41.7 %, ±12.5 points on 60 pairs). The gain over a plain rule is minimality, not discrimination.
+- **Bug fixed, and it had silenced a witness**: an injected graph did not carry its truth's law module, so the rule-without-model witness applied the EUR-Lex laws to the ICIJ graph and caught nothing. T12 now holds the module to its graph.
+- `measures/icij-second-graph-2026-09-10.json`, `runs/icij/arm.sh` (one clean arm: reload the dump, her setup, our journal, repair, read back).
+
 ## 1.1.0 — 2026-09-10
 - **The straw witness is gone.** The first cycle experiment let the right edge be chosen without any solver (283 of 288 injected edges also violated the date law). The new design has two arms in one graph: informed (150 cycles the date law can settle) and blind (130 cycles nothing but the two-edge law can see). pgrepair's own Greedy is now a witness beside its ILP.
 - Result, and it corrects us twice: against a plain rule the gain is large (150 true edges kept against 0); between the ILP and the greedy there is **no measurable difference** on this workload; and on the blind arm both sit at chance (44.6 % and 50.8 %, ±8.6 points), which is the ceiling and is now stated as such.

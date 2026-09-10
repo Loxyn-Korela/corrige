@@ -7,6 +7,12 @@
   (known_violations_removed), which the judge counts apart (R9).
 """
 from . import laws
+from . import laws_icij
+
+
+def _laws(truth_or_graph):
+    """The law module a truth declares; EUR-Lex by default."""
+    return laws_icij if (truth_or_graph or {}).get("laws_module") == "icij" else laws
 
 
 def _cand(name, graph, facts, deleted_nodes=()):
@@ -20,7 +26,8 @@ def dumb_baseline(graph):
 
 
 def rule_without_model(graph):
+    L = _laws(graph)
     nodes = {n["id"]: n for n in graph["nodes"]}
-    idx = laws.Index(graph["facts"])
-    kept = [f for f in graph["facts"] if not laws.violations(f, nodes, idx)]   # every edge of every violation goes: no arbitration
+    idx = L.Index(graph["facts"])
+    kept = [f for f in graph["facts"] if not L.violations(f, nodes, idx)]   # every edge of every violation goes: no arbitration
     return _cand("rule-without-model", graph, kept)

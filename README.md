@@ -1,7 +1,8 @@
 # Le Corrigé — truth and judge for graphs built from documents (layer 1)
 
 An open measuring instrument. A **truth** is a frozen, self-contained JSON file of facts from a
-declared angle (here: the official EUR-Lex/Cellar register, three relations, frozen 2026-09-09),
+declared angle (here: the official EUR-Lex/Cellar register, three relations, frozen 2026-09-09; and the
+published ICIJ Offshore Leaks dump, three relations, frozen 2026-09-10),
 with its coverage, its known faults, its reserves and its audit. A **candidate** is any program
 that produces or repairs a graph; it is judged against the truth, per relation, per dimension,
 and its verdict is published beside two **witnesses** (a dumb baseline, a rule without model).
@@ -10,7 +11,7 @@ The design, its nine judge rules and its eleven planted-fault tests are in the c
 
 ```
 python3 -m corrige.truth_eurlex <collection dir> truths/truth-eurlex-relations-2026-09-09.json --toy 200 --seed 7
-python3 tests/test_layer1.py                       # 22 assertions: T0-T11 + calibration, on toy-200
+python3 tests/test_layer1.py                       # 24 assertions: T0-T12 + calibration, on toy-200
 python3 -m corrige.inject <truth> <out-dir> --damage repeals:SPURIOUS_EDGE=0.10 --visible 1/2 --seed-file seed.txt
 python3 -m corrige.judge <truth> <candidate> <verdict> [--journal <journal>]
 ```
@@ -23,6 +24,17 @@ and the journal it ran on; constraints come from the world laws, never from the 
 The full truth (489,223 facts, 202 MB) is not committed to git: it is **published on Zenodo**,
 `doi:10.5281/zenodo.22688808`, with the overlay and the checksums. Download it into `truths/` and
 every command below runs on the real thing; its canonical sha256 is `4796f91da81289a0…`. The toy truth (200 facts) is committed.
+
+The ICIJ truth is not committed either (42 MB) and needs no publishing: it is truth *by
+construction* and rebuilds exactly from the public dump in one command, after loading it and
+running the setup queries of pgrepair's own `icij-qualitative-study.toml`:
+
+```
+python3 -m corrige.truth_icij truths/truth-icij-offshoreleaks-2026-09-10.json
+```
+
+A rebuild that does not print sha256 `b14fa984ba4286ee…` is not the same graph, and the judge will
+refuse any candidate that names a different one.
 
 Licence: Apache 2.0 for the tools, CC BY-SA 4.0 for the truth records. Loxyn SAS, Lyon.
 
@@ -174,6 +186,64 @@ where violations overlap more richly than ours do — which our bench cannot yet
 of ±8.6 points on 130 cycles. When two edges carry the same violation and nothing else separates
 them, no repairer can do better than a coin. The instrument's job is to say so rather than to hide
 it behind an average.
+
+## A second graph, not legislative, with constraints we did not write (2026-09-10)
+
+Everything above is EUR-Lex. One corpus is a case study, not a bench. So the same instrument was
+pointed at the **ICIJ Offshore Leaks** graph, loaded from the dump ICIJ publishes
+(2,016,523 nodes, 3,339,267 edges), with the typed relations created by the setup queries of
+pgrepair's *own* workload, and with three of its laws taken verbatim from
+`workloads/icij-qualitative-study.toml` — gamma_1, gamma_2, gamma_3 — not written by us:
+
+| | |
+|---|---|
+| I1, one edge | two nodes linked by `same_name_as` carry the same name |
+| I2, one node | an entity whose inactivation date has passed is not `Active` |
+| I3, two edges | an entity has at most one sole director |
+
+The truth is by construction (`truths/truth-icij-offshoreleaks-2026-09-10.json`, sha256
+`b14fa984ba4286ee…`): `same_name_as` 104,162 · `sole_director_of` 116 · `president_of` 36,537 over
+161,119 nodes. It is not a claim about the world; it is what ICIJ published, frozen, and it says so.
+
+**A cross-check we did not arrange.** Our census of I1 on the untouched dump finds **18,000**
+violations. pgrepair, run on the same untouched dump with her own gamma_1, collects the same
+18,000. Two independent implementations of one sentence, agreeing to the edge.
+
+Injection (`runs/icij/journal.json`, sealed seed): 1,042 spurious `same_name_as` edges, half of
+them visible by I1; 731 `president_of` edges removed; and 60 **rival** `sole_director_of` edges —
+a second sole director for an entity that has one. The rival arm is *blind* by construction: the
+false edge violates nothing but the two-edge law, so the two edges are indistinguishable and there
+is no information with which to choose.
+
+| | spurious visible by I1 (521) | spurious invisible (521) | rival pairs: true edge kept (60) | removed edges (731) | true facts wrongly broken |
+|---|---|---|---|---|---|
+| dumb baseline | 0 | 0 | 60 (deletes nothing) | beyond reach | 0 |
+| rule without model | **521** | 0 | **0** | beyond reach | 60 |
+| pgrepair, SciPyWeightedILP | **521** | 0 | 24 (40 %) | beyond reach | 36 |
+| pgrepair, Greedy | **521** | 0 | 25 (41.7 %) | beyond reach | 35 |
+
+The three readings of EUR-Lex come back unchanged on a graph that shares nothing with it:
+
+**On one-edge laws pgrepair and a rule without a model are the same object.** 521 of 521 caught,
+0 of 521 invisible ones, on both, on either algorithm.
+
+**The gain on the two-edge law is minimality, not discrimination.** The rule deletes every edge of
+every violation and so destroys all 60 true edges; pgrepair deletes one edge per violation and
+keeps 24. But *which* one it keeps is a coin: 40 % and 41.7 %, a 95 % interval of about
+±12.5 points on 60 pairs. It is right that it cannot do better — nothing separates the two edges —
+and the instrument's job is to say so instead of reporting the 24 as a success.
+
+**The ILP and the greedy are again indistinguishable.** Both return a solution of *identical* cost
+(weight 37,206, 18,603 deletions); they differ on which edge of one single pair they drop.
+
+The deletions reconcile exactly: 18,603 = 18,000 known I1 violations the source itself carries
++ 22 (one edge of each of the 22 known I3 pairs) + 521 injected visible edges + 60 rival edges.
+The known faults of the source are counted apart (R9) and never scored as repairs.
+
+Reserves: gamma_4 (a quantified path over 1.7 million `officer_of` edges) is out of coverage — our
+law module cannot yet express a variable-length pattern. The blind arm injects rivals onto 60 of
+the 72 `sole_director_of` edges the truth holds outside its known faults: the rate is high because
+the relation is small, and what is measured is the arbitration, not the rate.
 
 ## First measure (2026-09-09, full truth, two witnesses, no candidate yet)
 

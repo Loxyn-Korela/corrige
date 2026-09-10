@@ -13,8 +13,14 @@ verifies the visible share with the laws and refuses to write otherwise.
 """
 import sys, json, random, hashlib, pathlib, collections, datetime
 from . import canon, laws
+from . import laws_icij
 
-RELS = ("repeals", "amends", "based_on")
+
+def _laws(truth_or_graph):
+    """The law module a truth declares; EUR-Lex by default."""
+    return laws_icij if (truth_or_graph or {}).get("laws_module") == "icij" else laws
+
+RELS = ("repeals", "amends", "based_on")          # EUR-Lex; any truth's own relations are accepted
 
 
 def parse_damage(args):
@@ -41,14 +47,16 @@ def inject(truth, damages, visible=None, seed=b"", duplicate=False):
     # node damages first, so that the visibility of a spurious edge is judged on the final nodes
     ORDER = {"ANACHRONISM": 0, "WRONG_VALUE": 0, "WRONG_LABEL": 0, "MERGE": 1, "SPLIT": 1}
     damages = sorted(damages, key=lambda d: ORDER.get(d[1], 2))
-    idx = laws.Index(list(facts.values()))
+    L = _laws(truth)
+    RELS_T = tuple(truth.get("world", {})) or RELS      # the relations this truth declares
+    idx = L.Index(list(facts.values()))
     for den, kind, rate in damages:
         rate = _exact_rate(rate)
         if kind == "SPURIOUS_EDGE":
-            if den not in RELS: raise ValueError("SPURIOUS_EDGE needs a relation denominator")
+            if den not in RELS_T: raise ValueError(f"SPURIOUS_EDGE needs one of {RELS_T} as denominator")
             n = round(rate * sum(1 for f in facts.values() if f["p"] == den))
             n_vis = round(visible * n) if visible is not None else None
-            ok_nodes = [nid for nid, nd in nodes.items() if nd.get("date_document_status") == "ok" and not nd.get("gap")]
+            ok_nodes = [nid for nid, nd in nodes.items() if nd.get("date_document_status", "ok") == "ok" and not nd.get("gap")]
             existing = set(facts)
             made = {"vis": 0, "inv": 0}
             tries = 0
@@ -57,7 +65,7 @@ def inject(truth, damages, visible=None, seed=b"", duplicate=False):
                 if tries > 200000: raise RuntimeError("cannot reach the requested visible share")
                 s, o = rng.choice(ok_nodes), rng.choice(ok_nodes)
                 if s == o or (s, den, o) in existing: continue
-                v = laws.violations({"s": s, "p": den, "o": o}, nodes, idx)
+                v = L.violations({"s": s, "p": den, "o": o}, nodes, idx)
                 bucket = "vis" if v else "inv"
                 if n_vis is not None and ((bucket == "vis" and made["vis"] >= n_vis) or (bucket == "inv" and made["inv"] >= n - n_vis)):
                     continue
@@ -78,7 +86,7 @@ def inject(truth, damages, visible=None, seed=b"", duplicate=False):
             for k, f in facts.items():
                 if f["p"] != "repeals" or f.get("injected") or f.get("id") in fault_facts: continue
                 if (k[2], "repeals", k[0]) in facts: continue
-                v = laws.violations({"s": k[2], "p": "repeals", "o": k[0]}, nodes)
+                v = L.violations({"s": k[2], "p": "repeals", "o": k[0]}, nodes)
                 if bool(v) != blind: pool.append(k)
             pool.sort()
             n = round(rate * len(pool)) if rate <= 1 else min(int(rate), len(pool))
@@ -86,9 +94,33 @@ def inject(truth, damages, visible=None, seed=b"", duplicate=False):
                 key = (b, "repeals", a)
                 facts[key] = {"s": b, "p": "repeals", "o": a, "injected": True}
                 injected.append({"damage": "SPURIOUS_EDGE", "s": b, "p": "repeals", "o": a,
-                                 "visible_by_law": ["L4"] if blind else laws.violations({"s": b, "p": "repeals", "o": a}, nodes) + ["L4"],
+                                 "visible_by_law": ["L4"] if blind else L.violations({"s": b, "p": "repeals", "o": a}, nodes) + ["L4"],
                                  "arm": "blind" if blind else "informed",
                                  "cycle_with": facts[(a, "repeals", b)]["id"]})
+        elif kind == "MISSING":
+            if den not in RELS_T: raise ValueError(f"MISSING needs one of {RELS_T} as denominator")
+            pool = sorted(k for k, f in facts.items() if f["p"] == den and not f.get("injected") and f.get("id") not in fault_facts)
+            n = round(rate * len(pool))
+            for key in rng.sample(pool, n):
+                f = facts.pop(key)
+                injected.append({"damage": "MISSING", "s": key[0], "p": key[1], "o": key[2], "truth_fact": f["id"]})
+        elif kind == "RIVAL":
+            # a second edge of a relation that must be unique on its target: both edges then violate
+            # the two-edge law, one of them is false, and nothing else separates them. On ICIJ this is
+            # gamma_3 — an entity has at most one sole director — and it exists in the data already.
+            targets = collections.Counter(f["o"] for f in facts.values() if f["p"] == den and not f.get("injected"))
+            pool = sorted(t for t, c in targets.items() if c == 1)
+            sources = sorted({f["s"] for f in facts.values() if f["p"] == den})
+            n = round(rate * len(pool)) if rate <= 1 else min(int(rate), len(pool))
+            for t in rng.sample(pool, min(n, len(pool))):
+                true_edge = next(f for f in facts.values() if f["p"] == den and f["o"] == t and not f.get("injected"))
+                cand = [x for x in rng.sample(sources, min(30, len(sources))) if x != true_edge["s"] and x != t and (x, den, t) not in facts]
+                if not cand: continue
+                s_ = cand[0]; key = (s_, den, t)
+                facts[key] = {"s": s_, "p": den, "o": t, "injected": True}
+                injected.append({"damage": "SPURIOUS_EDGE", "s": s_, "p": den, "o": t,
+                                 "visible_by_law": ["two-edge law"], "arm": "blind",
+                                 "cycle_with": true_edge["id"]})
         elif kind == "WRONG_LABEL":
             # the act's type label contradicts its CELEX: 32019R1020 labelled Directive.
             # This is the damage a label repair can undo, and the only one that exercises it.
@@ -156,7 +188,7 @@ def inject(truth, damages, visible=None, seed=b"", duplicate=False):
         injected.append({"damage": "DUPLICATE", "s": key[0], "p": key[1], "o": key[2]})
     for nd in nodes.values():                       # the type label: from the CELEX, unless injected
         nd["type_label"] = nd.pop("type_label_injected", None) or laws.type_label(nd.get("celex"))
-    graph = {"truth_sha256": truth["sha256"],
+    graph = {"truth_sha256": truth["sha256"], "laws_module": truth.get("laws_module"),
              "nodes": [nodes[k] for k in sorted(nodes)],
              "facts": [{"s": f["s"], "p": f["p"], "o": f["o"]} for k, f in sorted(facts.items())]}
     if duplicate:

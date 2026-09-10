@@ -7,3 +7,4 @@ runs/*/verdict-*.json
 .venv-pdf/
 audit/test/
 audit/audit-*-rempli.pdf
+truths/truth-icij-offshoreleaks-2026-09-10.json

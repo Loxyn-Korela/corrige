@@ -135,6 +135,15 @@ v0, v = run(perfect()), run(c)
 check("T11 known fault removed: known_fault = corrected, denominators unchanged",
       v["facts"][kfact]["known_fault"] == "corrected" and all(v["dimensions"][p]["recall"]["den"] == v0["dimensions"][p]["recall"]["den"] for p in N) and v["dimensions"]["based_on"]["false"] == 0)
 
+# T12: the law module travels with the graph — a witness run on an ICIJ graph must not apply EUR-Lex laws
+from corrige import witnesses as _w
+_g = {"truth_sha256": "0"*64, "laws_module": "icij",
+      "nodes": [{"id": "a", "labels": ["Officer"], "name": "X"}, {"id": "b", "labels": ["Entity"], "name": "Y"}],
+      "facts": [{"s": "a", "p": "same_name_as", "o": "b"}]}
+check("T12 laws_module carried: the ICIJ rule witness sees the ICIJ law", len(_w.rule_without_model(_g)["facts"]) == 0)
+_g2 = dict(_g, laws_module=None)
+check("T12 default is EUR-Lex: the same edge is invisible to the EUR-Lex laws", len(_w.rule_without_model(_g2)["facts"]) == 1)
+
 # permanent calibration: a candidate naming another truth is refused
 c = perfect(); c["truth_sha256"] = "0" * 64
 try:

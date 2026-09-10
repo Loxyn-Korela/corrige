@@ -1,0 +1,51 @@
+# SPDX-FileCopyrightText: 2026 Christopher Spinrath <christopher.spinrath@liris.cnrs.fr>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later OR CC-BY-SA-4.0
+
+name = "ICIJ — gamma_1 and gamma_3 of the published workload (one-edge and two-edge)"
+schema = "icij"
+
+[pre-repair-queries]
+gamma_4_main_path_pattern = "MATCH p = (x:Officer)-[:president_of]->(y:Entity)((:Entity|Officer)-[:officer_of|same_name_as]->())+(z:Entity) RETURN COUNT(*) AS count"
+
+[post-repair-queries]
+gamma_4_main_path_pattern = "MATCH p = (x:Officer)-[:president_of]->(y:Entity)((:Entity|Officer)-[:officer_of|same_name_as]->())+(z:Entity) RETURN COUNT(*) AS count"
+
+[database]
+protocol = "neo4j"
+host = "localhost"
+port = 7687
+# user =
+# password =
+name = "neo4j"
+
+[setup]
+random_seed = "7923417800256893882"
+
+# gamma_1: one edge per violation. gamma_3: two edges per violation, and nothing separates them.
+[[constraints]]
+patterns = [
+    "(o:Officer|Entity)-[:same_name_as]->(e:Officer|Entity)",
+]
+filters = [
+    "o.name IS NOT NULL",
+    "e.name IS NOT NULL",
+]
+conditions = [
+    "o.name = e.name",
+]
+
+# gamma_3
+[[constraints]]
+patterns = [
+    "(x:Officer)-[:sole_director_of]->(y:Entity)",
+    "(z:Officer)-[:sole_director_of]->(y)",
+]
+filters = [
+]
+conditions = [
+    "x = z",
+]
+
+# gamma_4 is out of coverage for our law module (a quantified path over 1.7M officer_of edges);
+# it stays here only as the pre/post-repair count queries above.

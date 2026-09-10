@@ -1,0 +1,154 @@
+{
+ "id": "icij-second-graph-2026-09-10",
+ "question": "Does the instrument hold on a graph that is not legislative, with constraints we did not write?",
+ "graph": {
+  "source": "ICIJ Offshore Leaks, Neo4j dump icij-offshoreleaks-5.13.0.dump as published by ICIJ, loaded on 2026-09-10; the typed relations come from the setup queries of pgrepair's own icij-qualitative-study workload",
+  "dump": {
+   "file": "icij-offshoreleaks-5.13.0.dump",
+   "from": "https://offshoreleaks-data.icij.org/offshoreleaks/neo4j/icij-offshoreleaks-5.13.0.dump",
+   "bytes": 364517980
+  },
+  "truth": "truth-icij-offshoreleaks-2026-09-10",
+  "truth_sha256": "b14fa984ba4286eebabbc642788d586161c88fc2a9a79d564b7933cf98f8c0d0",
+  "counts": {
+   "same_name_as": 104162,
+   "sole_director_of": 116,
+   "president_of": 36537,
+   "resources": 161119
+  },
+  "laws": [
+   {
+    "id": "I1",
+    "kind": "one_edge",
+    "source": "gamma_1 of icij-qualitative-study.toml",
+    "text": "two nodes linked by same_name_as carry the same name"
+   },
+   {
+    "id": "I2",
+    "kind": "node",
+    "source": "gamma_2",
+    "text": "an entity with an inactivation date in the past is not Active"
+   },
+   {
+    "id": "I3",
+    "kind": "two_edges",
+    "source": "gamma_3",
+    "text": "an entity has at most one sole director"
+   }
+  ]
+ },
+ "known_faults_of_the_source": {
+  "I1": 18000,
+  "I3": 44,
+  "cross_check": "our census of I1 on the published dump gives 18,000; pgrepair, run on the untouched dump with her own gamma_1, collects the same number"
+ },
+ "injection": {
+  "journal_sha256": "c499d56d7e25941bee9b1e044947a58d92865a219c35c5189b9a2cc1b3eba3a0",
+  "seed_file": "runs/icij/seed.txt",
+  "damages": {
+   "same_name_as SPURIOUS_EDGE 0.01 (half visible by I1)": 1042,
+   "sole_director_of RIVAL 60 (blind arm: the false edge violates nothing but the two-edge law I3)": 60,
+   "president_of MISSING 0.02": 731
+  }
+ },
+ "arms": {
+  "dumb-baseline": {
+   "beyond_reach": {
+    "missed": 731
+   },
+   "cycles/blind": {
+    "true edge kept": 60,
+    "false edge kept": 60
+   },
+   "invisible": {
+    "missed": 521
+   },
+   "visible": {
+    "missed": 581
+   },
+   "wrongly_broken": 0,
+   "collateral": 0,
+   "known_violations_removed": 0
+  },
+  "rule-without-model": {
+   "beyond_reach": {
+    "missed": 731
+   },
+   "cycles/blind": {
+    "true edge broken": 60,
+    "false edge deleted": 60
+   },
+   "invisible": {
+    "missed": 521
+   },
+   "visible": {
+    "caught": 581
+   },
+   "wrongly_broken": 60,
+   "collateral": 0,
+   "known_violations_removed": 18044
+  },
+  "SciPyWeightedILP": {
+   "beyond_reach": {
+    "missed": 731
+   },
+   "cycles/blind": {
+    "true edge broken": 36,
+    "false edge kept": 36,
+    "true edge kept": 24,
+    "false edge deleted": 24
+   },
+   "invisible": {
+    "missed": 521
+   },
+   "visible": {
+    "missed": 36,
+    "caught": 545
+   },
+   "wrongly_broken": 36,
+   "collateral": 0,
+   "known_violations_removed": 18022
+  },
+  "Greedy": {
+   "beyond_reach": {
+    "missed": 731
+   },
+   "cycles/blind": {
+    "true edge broken": 35,
+    "false edge kept": 35,
+    "true edge kept": 25,
+    "false edge deleted": 25
+   },
+   "invisible": {
+    "missed": 521
+   },
+   "visible": {
+    "missed": 35,
+    "caught": 546
+   },
+   "wrongly_broken": 35,
+   "collateral": 0,
+   "known_violations_removed": 18022
+  }
+ },
+ "reconciliation": {
+  "edges_deleted_by_pgrepair": 18603,
+  "equals": "18,000 known I1 violations of the source + 22 (one edge of each known I3 pair) + 521 injected visible spurious edges + 60 rival edges",
+  "solver_weight": {
+   "SciPyWeightedILP": 37206,
+   "Greedy": 37206
+  }
+ },
+ "readings": [
+  "On the one-edge law the two pgrepair algorithms and a rule without a model are identical: 521 of 521 injected visible edges caught, 0 of 521 invisible ones, on both.",
+  "On the two-edge law with nothing to separate the two edges, the rule destroys all 60 true edges; pgrepair keeps 24 (ILP) or 25 (Greedy) — 40 % and 41.7 %, a 95 % interval of about +/- 12.5 points on 60 pairs, indistinguishable from a coin. The gain over the rule is minimality, not discrimination.",
+  "The two algorithms return solutions of identical cost (weight 37,206, 18,603 deletions) and differ on which edge of one single pair they drop.",
+  "The 731 removed president_of edges are beyond the reach of any deletion-only repairer, and the judge says so rather than counting them as failures."
+ ],
+ "reserves": [
+  "The blind arm injects rivals onto 60 of the 72 sole_director_of edges the truth holds outside its known faults: the rate is high because the relation is small, and the arbitration, not the rate, is what is measured.",
+  "gamma_4 of her workload (a quantified path over 1.7 million officer_of edges) is out of coverage: our law module cannot yet express a variable-length pattern.",
+  "This truth is by construction: it is the data ICIJ published, frozen, not a claim about the world. Nothing here is audited against a document."
+ ],
+ "date": "2026-09-10"
+}
