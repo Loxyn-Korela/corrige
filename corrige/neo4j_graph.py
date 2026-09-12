@@ -71,10 +71,14 @@ def load(db, graph, batch=5000):
     facts = graph["facts"]
     by_rel = collections.defaultdict(list)
     for k, f in enumerate(facts):
-        by_rel[REL[f["p"]]].append({"s": f["s"], "o": f["o"], "cid": f"e:{k}:{f['s']}|{f['p']}|{f['o']}"})
+        # `conf` is where an upstream filter's opinion lands: one number per fact, carried onto the
+        # edge, read back by pgrepair with --custom-weight. A fact without one gets EDGE_WEIGHT, the
+        # weight pgrepair would have computed itself, so an unmarked graph behaves exactly as before.
+        by_rel[REL[f["p"]]].append({"s": f["s"], "o": f["o"], "conf": f.get("conf", 2),
+                                    "cid": f"e:{k}:{f['s']}|{f['p']}|{f['o']}"})
     for rel, rows_all in by_rel.items():
         for i in range(0, len(rows_all), batch):
-            db.run([(f"UNWIND $rows AS r MATCH (a:Act {{id: r.s}}), (b:Act {{id: r.o}}) CREATE (a)-[:{rel} {{_corrige_id: r.cid}}]->(b)", {"rows": rows_all[i:i + batch]})])
+            db.run([(f"UNWIND $rows AS r MATCH (a:Act {{id: r.s}}), (b:Act {{id: r.o}}) CREATE (a)-[:{rel} {{_corrige_id: r.cid, conf: r.conf}}]->(b)", {"rows": rows_all[i:i + batch]})])
     n = db.rows("MATCH (n:Act) RETURN count(n) AS n")[0]["n"]
     e = db.rows("MATCH ()-[r]->() RETURN count(r) AS e")[0]["e"]
     return n, e

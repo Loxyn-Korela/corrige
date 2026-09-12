@@ -1,0 +1,91 @@
+{
+ "id": "rival-weights-pgrepair-2026-09-12",
+ "question": "on the real repairer, does a weight from upstream do what a law does, on rivals the graph cannot separate",
+ "truth": "truth-eurlex-relations-2026-09-09",
+ "journal_sha256": "37e9cfeae5a4e3f42896694aa162e44a77287204baf59bc7ce8bfd4468517f13",
+ "repairer": "pgrepair, SciPyWeightedILP and Greedy, workloads/eurlex-laws.toml, --mark --disable-cache --custom-weight conf",
+ "arm": "cycles/blind — 130 rivals, no law separates the true edge from the false one",
+ "how_the_weight_was_written": "runs/weights/mark.py. Every node gets the weight pgrepair computes itself (2*degree + labels + 1); every edge gets EDGE_WEIGHT = 2; the edge the upstream signal points at in each rival pair gets 3. A property that is absent reads as 0 in pgrepair — the cheapest thing in the graph — so the whole graph is written, not only the rivals. The signal is therefore the only difference from a default run.",
+ "runs_per_arm": 3,
+ "measured": {
+  "no weight": {
+   "Greedy": [
+    64,
+    66,
+    70
+   ],
+   "SciPyWeightedILP": [
+    69,
+    59,
+    65
+   ],
+   "of": 130,
+   "stable": false,
+   "source": "measures/eurlex-arms-spread-2026-09-10.json"
+  },
+  "weight, signal accuracy 0.5": {
+   "Greedy": [
+    69,
+    69,
+    69
+   ],
+   "SciPyWeightedILP": [
+    69,
+    69,
+    69
+   ],
+   "of": 130,
+   "stable": true,
+   "signal_points_at_the_truth": 69
+  },
+  "weight, signal accuracy 0.7": {
+   "Greedy": [
+    97,
+    97,
+    97
+   ],
+   "SciPyWeightedILP": [
+    97,
+    97,
+    97
+   ],
+   "of": 130,
+   "stable": true,
+   "signal_points_at_the_truth": 97
+  },
+  "weight, signal accuracy 1.0": {
+   "Greedy": [
+    130,
+    130,
+    130
+   ],
+   "SciPyWeightedILP": [
+    130,
+    130,
+    130
+   ],
+   "of": 130,
+   "stable": true,
+   "signal_points_at_the_truth": 130
+  }
+ },
+ "coin": {
+  "expected": 65.0,
+  "sd": 5.7,
+  "band_95": [
+   54,
+   76
+  ]
+ },
+ "reading": [
+  "The repairer keeps exactly the edges the signal points at, and no others: 69, 97 and 130 kept against 69, 97 and 130 pointed at. Not approximately — exactly, in both engines, on every run.",
+  "Repeatability is bought by the two weights differing, not by the weight being right. At accuracy 0.5 the signal carries no information and lands inside the coin's band, and the answer is still identical on all three runs in both engines. Without a weight, no two runs agree and no figure is a score.",
+  "Accuracy is a second and separate question, and it tracks the signal's own accuracy and nothing else."
+ ],
+ "what_this_does_not_say": [
+  "Nothing here measures the accuracy a real filter reaches on a real document. The accuracy was set by hand at 0.5, 0.7 and 1.0. That number is the one that decides whether any of this is worth building, and measuring it needs a damage generator for documents, which does not exist.",
+  "The blind arm's own non-repeatability has a second and cheaper cure: a deterministic tie-break, two lines, described in runs/icij/tie_break.py. It would make the answer repeatable and still arbitrary. The weight is what makes it informed; the repeatability alone is not the contribution."
+ ],
+ "replay": "NEO4J_LOCAL_PASSWORD=… bash runs/weights/arm.sh 3 0.7 ; python3 -m corrige.spread truths/truth-eurlex-relations-2026-09-09.json runs/arms/journal.json runs/weights/out/candidate-*-p0.7-*.json",
+ "date": "2026-09-12"
+}

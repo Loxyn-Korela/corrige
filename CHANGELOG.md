@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.5.0 — 2026-09-12
+- **The same measurement, now on the real repairer, and it says what the reproduction said.** 130 rivals of the blind arm, same graph, same workload, three runs per engine, the only change a `conf` property read with pgrepair's own `--custom-weight`:
+
+  | | Greedy | SciPyWeightedILP | |
+  |---|---|---|---|
+  | no weight | 64·66·70 | 69·59·65 | moves; a coin gives 65 |
+  | weight, signal accuracy 0.5 | 69·69·69 | 69·69·69 | **stable** |
+  | weight, signal accuracy 0.7 | 97·97·97 | 97·97·97 | **stable** |
+  | weight, signal accuracy 1.0 | 130·130·130 | 130·130·130 | **stable** |
+
+- **The repairer keeps exactly the edges the signal points at, and no others** — 69, 97 and 130 kept against 69, 97 and 130 pointed at. Not approximately: exactly, in both engines, on every run. Whatever else is true of this repairer, it spends an upstream weight the way the weight is meant.
+- **Repeatability is bought by the two weights differing, not by the weight being right.** At accuracy 0.5 the signal carries no information at all and lands inside the coin's band, and the answer is still identical on all three runs of both engines. Accuracy is a second, separate question and tracks the signal's own.
+- **And the reserve, said in the record itself.** Nothing here measures the accuracy a real filter reaches on a real document: 0.5, 0.7 and 1.0 were set by hand. That number decides whether any of this is worth building, and measuring it needs a damage generator for documents, which does not exist. Also: the blind arm's non-repeatability has a cheaper cure — the two-line deterministic tie-break of `runs/icij/tie_break.py` — which would make the answer repeatable and still arbitrary. The weight is what makes it informed. Repeatability alone is not the contribution.
+- `runs/weights/mark.py` and `runs/weights/arm.sh` were written yesterday and unrun for want of a password; they ran, and the replay command is in the record.
+- A fact may now carry its own `conf` into Neo4j: the loader writes it onto the edge, and a fact without one gets EDGE_WEIGHT, so an unmarked graph behaves exactly as before.
+
 ## 1.4.0 — 2026-09-12
 - **What an upstream weight buys, measured, and it is two different things.** Our two arms had the ends of the question: 130 rivals nothing separates give 64·66·70 and 69·59·65 where a coin gives 65; 150 rivals a law separates give 150·150·150 twice over. A filter upstream of the graph has no law — it has read the document and holds an opinion, which is a weight. `runs/weights/rival_weights.py` runs the rival choice as pgrepair writes it, in eight fresh processes per arm, with no database and no network:
 
