@@ -258,7 +258,7 @@ Everything above is EUR-Lex. One corpus is a case study, not a bench. So the sam
 pointed at the **ICIJ Offshore Leaks** graph, loaded from the dump ICIJ publishes
 (2,016,523 nodes, 3,339,267 edges), with the typed relations created by the setup queries of
 pgrepair's *own* workload, and with three of its laws taken verbatim from
-`workloads/icij-qualitative-study.toml` — gamma_1, gamma_2, gamma_3 — not written by us:
+pgrepair's `workloads/icij-qualitative-study.toml`, in its own tree and not in ours — gamma_1, gamma_2, gamma_3 — not written by us:
 
 | | |
 |---|---|
@@ -338,8 +338,9 @@ the relation is small, and what is measured is the arbitration, not the rate.
 ## First measure (2026-09-09, full truth, two witnesses, no candidate yet)
 
 Injected with a sealed seed: 10 % spurious `repeals` and `amends` edges, half of them visible by
-a law; 5 % `repeals` removed; 2 % of dated nodes shifted by a year. Then the two witnesses judged
-(`runs/first/verdict-*.json`):
+a law; 5 % `repeals` removed; 2 % of dated nodes shifted by a year. Then the two witnesses judged. The verdicts are 20 MB each and are not committed; the sealed
+journal they were computed from is (`runs/first/journal.json`), and `runs/repeat_run.sh` rebuilds
+them:
 
 | | dumb baseline | rule without model | **pgrepair** (SciPyWeightedILP, laws L1-L3 as constraints, `--mark`) |
 |---|---|---|---|

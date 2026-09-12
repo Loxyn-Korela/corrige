@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.4.0 — 2026-09-12
+- **What an upstream weight buys, measured, and it is two different things.** Our two arms had the ends of the question: 130 rivals nothing separates give 64·66·70 and 69·59·65 where a coin gives 65; 150 rivals a law separates give 150·150·150 twice over. A filter upstream of the graph has no law — it has read the document and holds an opinion, which is a weight. `runs/weights/rival_weights.py` runs the rival choice as pgrepair writes it, in eight fresh processes per arm, with no database and no network:
+
+  | arm | greedy, one figure per process | ILP | repeatable | optimum |
+  |---|---|---|---|---|
+  | blind | 69·79·71·59·71·68·67·57 | 0-130 all optimal | **no** | degenerate |
+  | weight p=.5 | 69 eight times | 69 | yes | unique |
+  | weight p=.7 | 97 eight times | 97 | yes | unique |
+  | weight p=.9 | 118 eight times | 118 | yes | unique |
+  | law | 130 eight times | 130 | yes | unique |
+
+- **Repeatability is bought by the weight being distinct, not by it being right.** `p=.5` is a filter whose opinion carries no information: it lands where a coin lands. And every process returns the same figure. Accuracy is a second, separate question and tracks the signal's own accuracy at 130 × p.
+- **And the blind arm is not a solver defect.** On disjoint rival pairs the problem separates and the minimum is unique exactly when no pair carries two equal weights. In the blind arm every selection costs the same, so the whole range is optimal and no figure the solver returns is a score. Something carrying no information then picks one — in the greedy, the iteration order of a Python set.
+- **pgrepair already has the interface.** `--custom-weight <property>` reads a weight from a property on each node and each edge (`conflict_collectors.fetch_custom_weights`). Nothing needs to change in it for an upstream filter to be heard; what has never been supplied is the property. `runs/weights/mark.py` writes it, and writes the defaults everywhere else so that the only difference from an ordinary run is the signal — a missing property reads as 0, the cheapest thing in the graph, which would otherwise wreck the comparison. `runs/weights/arm.sh` runs the arm on the real repairer; it is written and not yet run, for want of the database password, and this entry claims nothing about pgrepair itself.
+- CITATION.cff said 1.1.0 while the changelog was at 1.3.2 — three releases of drift, the same fault the Fault Atlas carried in its footer.
+
 ## 1.3.2 — 2026-09-10
 - **A damage was advertised and absent.** `ANACHRONISM` had a branch, was injected in the first two published runs (5,276 shifted dates each), and was lost in the edit of 1.1.0 while the README kept announcing seven damages. Restored verbatim from `d21f25e~1`. `parse_damage` now refuses any name with no branch, and **T14** asserts that every damage the injector advertises is implemented. The seven-damages run carried six, and the README says so.
 - **The atlas and the judge contradicted each other on split, and the atlas was right.** The judge bucketed a split as reachable by deleting the twin. Measured: a candidate that deletes every twin scores "caught" and still loses every moved fact, recall 156 of 158 on the toy truth. Split moves to beyond reach; twin deletions are counted apart, with the true facts they took and did not give back.

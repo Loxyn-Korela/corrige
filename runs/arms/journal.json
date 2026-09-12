@@ -1,0 +1,3253 @@
+{
+ "truth_sha256": "4796f91da81289a00af82601e51befa2b15612769a6f92c14ab6f2bcb3326778",
+ "seed_sha256": "384e107a95cc8a2dddc80830acaf200b2f049a916ddd0214aa8f0333b7bff444",
+ "damages": [
+  {
+   "denominator": "repeals",
+   "kind": "CYCLE_BLIND",
+   "rate": "150"
+  },
+  {
+   "denominator": "repeals",
+   "kind": "CYCLE",
+   "rate": "150"
+  }
+ ],
+ "visible": null,
+ "injected": [
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:406e95aa-bae0-4610-b159-84bced251a9a",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480075"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:dd7710f7-f034-46f5-b304-7f6b5c5149b5",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477169"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:933731c3-88d2-4835-9007-fc5dc5540c3a",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477117"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:eb4119a2-bee4-4dbf-b48c-d806b4c4c5dc",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477177"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:3bcf3e18-dece-4060-96db-78dd2c5f550b",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477086"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:8ae98df7-75cf-40c3-97b1-c0be73eefd1e",
+   "p": "repeals",
+   "o": "cellar:4f5ad544-314a-4168-a4c3-b2c15cb8eadc",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-479796"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:8d4df2ed-2b3e-45a6-9eef-593ee5732675",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477113"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:65d5aa49-a43d-465f-9860-f689c4f6a840",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480086"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:a7bb6371-b323-4b8a-a87e-9109c565cbc7",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477134"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:b9692c3d-46b1-4ce2-b509-fd8b98d5a77a",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477147"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:6af69c55-b4ff-4001-ad04-9c40c2efffc1",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477099"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:10ebb70c-e182-4ffa-9c3a-3002463d90b7",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477053"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:02100e89-7b3b-4c5b-8b2b-370f003d68db",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477044"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:2fd54e58-75fd-442c-bdad-db3f086d3a3b",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477077"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:9d6c5649-b7b4-415e-870b-abbce9169a66",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477123"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:6dc9bea3-4b6a-496a-ab41-79a0b35b1057",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477101"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:ae9da67c-7029-40f0-83aa-0699025b2a1f",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477139"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:4d96a1c1-2fc9-475b-96f5-79b4b767119a",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477090"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "http://publications.europa.eu/resource/celex/31998R3611",
+   "p": "repeals",
+   "o": "cellar:0132b896-1745-4c6c-ac89-aac6f9b92ffd",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-474936"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:8953919e-d006-42a4-ac99-c30d3d1590c0",
+   "p": "repeals",
+   "o": "cellar:769da96d-d1fe-4615-9f79-4d5098a6ce50",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-481977"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:b4d69509-3387-46dd-91fa-0da10cfbff74",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477142"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:1e1918d6-0548-44fa-aa39-29bf84ad14e8",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480056"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:1e70f879-c307-4c33-bcd9-47995e19660c",
+   "p": "repeals",
+   "o": "cellar:3a664f70-4459-48ea-a332-6daeb15477e8",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-478730"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:a657fca7-aec6-4776-9fee-f5a6e721f934",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477133"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:6cfab3b5-8aa9-48dc-8657-2789bca20208",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477100"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:0d28d2df-6da5-4eb3-b4cb-952064a635be",
+   "p": "repeals",
+   "o": "cellar:4f5ad544-314a-4168-a4c3-b2c15cb8eadc",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-479778"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:1b124f76-916c-4c54-9a5b-68d985c840be",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477064"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:944476a4-628d-4450-b3bc-ea0dcdb21ba2",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477118"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:7395a647-a4af-4895-a0bd-233b80025d0b",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477105"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:82cbfaba-42a4-4e7f-ad7c-9a2d0d4f87e5",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477108"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:43d05dfd-4951-4cbe-bf84-47938d107304",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477088"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:0c3ab2c3-24ec-44ba-89de-728ceced5c0b",
+   "p": "repeals",
+   "o": "cellar:cbaf233a-5eb5-4789-8a3a-6a5ac6c40d53",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-486311"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:86690020-59ab-4acf-9943-14ccdc01b9d6",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477110"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:5e432c2f-01db-455b-92fe-4547ce9df2de",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477095"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:ca68f449-2800-46c6-b09f-39ddc19f1c1c",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477157"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:f7389c28-33af-4f70-ad69-87bc9baf0ff6",
+   "p": "repeals",
+   "o": "cellar:88e0ab18-e54e-4d92-bbd7-ba03487eb72e",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-482909"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:732f6e9c-1f3c-41e1-8d57-d10e5806791b",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477104"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:5de46815-7531-4c69-aeab-e5475b909fb2",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477093"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:87f20163-b5a5-46ce-9ffe-82d89d6a7e5e",
+   "p": "repeals",
+   "o": "cellar:4f5ad544-314a-4168-a4c3-b2c15cb8eadc",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-479795"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "http://publications.europa.eu/resource/celex/31996F0194",
+   "p": "repeals",
+   "o": "cellar:f4803ee2-054c-42c3-9576-04ca95ffc5de",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-488486"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:2c64a24d-4d67-4a1c-ac98-abbbacecfebe",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477072"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:dcd792ed-017d-46c1-996b-55232521fc48",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477168"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:369ee5f9-1e48-4545-b903-24cbb19af234",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477083"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:39107ea2-1236-414b-8bd9-7d27440ff3c2",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480069"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:ae1cf686-c9cf-4f51-a31d-85a9644b3675",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477137"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:cca3138b-ca47-48ea-b637-a13840be7489",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480133"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:a61c9249-075e-4c9e-bb7f-d83e67866ccf",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477132"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:2f61f347-2d1f-4cc3-b76d-06ff83a971db",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480066"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:feeddcf2-d1bd-423d-adab-664c3f3eee04",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477190"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:a457e52d-d0dc-4e49-a19c-8e4419337244",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477131"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:f23a9fc3-0b91-43fa-a888-97b426959302",
+   "p": "repeals",
+   "o": "cellar:343598ee-b4ee-4b00-b893-084da4a79b45",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-478412"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:57bd3d79-d395-4511-bbc7-47013908c039",
+   "p": "repeals",
+   "o": "cellar:4f5ad544-314a-4168-a4c3-b2c15cb8eadc",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-479785"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:b77cabfe-c91f-426b-91c3-ac9284d5d328",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477144"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:11ae0adf-7262-43f9-892a-8396555c96de",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477054"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:2cd5a7f3-ebac-4663-8939-6b71547eb70e",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480060"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:3e58756a-bf26-422c-afbb-c62986664a1c",
+   "p": "repeals",
+   "o": "cellar:5e7585bb-8142-489b-b1b4-68e9f91e22c7",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480759"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:ccf56322-b305-4e6a-9b53-ef756fa19fc8",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477159"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:6eddd42c-e892-4667-9769-66bf3a11e131",
+   "p": "repeals",
+   "o": "cellar:4f5ad544-314a-4168-a4c3-b2c15cb8eadc",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-479790"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:02c21e57-ece6-4a2e-8bf2-411aea10c56d",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477045"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:0c63722b-ff7e-4b54-8bcd-180eaa116938",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477049"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:8ff24692-d465-44fd-8771-12312473c663",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477115"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:018b181e-1234-43f8-a24e-637beb89096d",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477043"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:ff33bde9-3ffb-44d8-9d4c-2683d4b27be8",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477191"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:e926f5f7-4d66-484a-8130-a8b1efa544f9",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477176"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:99af53e3-7533-4942-81b2-7b3d88967c7d",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477121"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:333eed9a-40ad-4b7e-a43b-a1869342335e",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477080"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:f2bf1438-791d-49d2-a397-4c42dd7cfe62",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477181"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:9f845e50-001e-49a0-a31f-d2dbcd4104ba",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477127"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:03e79cc2-f1ab-434b-b0f5-dc09af7c778a",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477047"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:8342f76e-5d4a-49f0-be67-168e8428558b",
+   "p": "repeals",
+   "o": "cellar:4f5ad544-314a-4168-a4c3-b2c15cb8eadc",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-479793"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:cdba32d5-ae4b-4516-a2c1-609ea58f03e9",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477161"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:bdfc24d4-880d-416c-b3f8-2b6766fbbae0",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477148"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:9fa02611-9bfc-4838-91cb-539d28ce82cd",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477128"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:91eedb4e-d5bd-4375-b3fb-09bc1f0f8013",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477116"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:a2971fab-471e-4f69-8dfe-3989d016ef71",
+   "p": "repeals",
+   "o": "cellar:6aca73ef-1e50-4f0c-824a-a1bc8cd74e96",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-481431"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:ec97f6b7-992a-4d5f-83e2-7b6d4b1b2e1a",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477178"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:8c9a0b30-202d-4601-a48b-9db55ec4f921",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480100"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:c17f61d1-5715-4cd9-84c3-9e76822073fb",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480128"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:030299c7-0320-4f5a-97f4-feb9171f45c2",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477046"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:69fe0941-2b9a-40c4-94d6-ebf44f416e74",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477098"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:2bd49fbf-b2d7-4486-b014-10254a35bcde",
+   "p": "repeals",
+   "o": "cellar:4f5ad544-314a-4168-a4c3-b2c15cb8eadc",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-479782"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:a229e18c-6e04-4351-b257-0522877fc2f8",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477129"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:a6cd0b74-b77b-44db-854b-4015cb33f917",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480112"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:92d33de0-c272-41ed-88ff-37dbeee4cc0e",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480105"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:faf80eda-bbe2-4702-bf47-4c3b0a96c067",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477187"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:78634485-110e-41ab-8628-e3d3c1781d39",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480090"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:cd28724f-5580-4f2c-9e51-478e5757e31a",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477160"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:30bb0059-6112-454e-84d2-cd20ec8643ea",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477078"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "http://publications.europa.eu/resource/celex/21998A0427%2801%29",
+   "p": "repeals",
+   "o": "cellar:a6e8bf12-fa6d-4bc0-beb2-59b11f4bb935",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-484371"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:0bac3dad-0b96-45b5-9dc0-31c8c611ad98",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480044"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:978f53a0-9802-40d4-a77f-c1d3e6c8452a",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477119"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:7036eb1a-311d-4ae0-b37a-860d2092dd04",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477102"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:204b29b0-8cb2-4744-87a6-7da1a65092ed",
+   "p": "repeals",
+   "o": "cellar:4f5ad544-314a-4168-a4c3-b2c15cb8eadc",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-479781"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:0653e6e8-d317-4a24-b5ce-820591268bc9",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480040"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:b8843cbf-110f-45a7-8302-6b45b0464693",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477146"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:d64b0fa6-a581-43d7-98a6-14c817bb5ba6",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477164"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:c9d4a679-891e-43ec-bba6-5b772f0e33ab",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477155"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:c9fecb86-2bd6-4ec3-81e7-f7f8fed5dc7d",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477156"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:236790ce-59fb-4eda-bb19-9353ec1603e0",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477070"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:1f5587d4-d812-498e-be82-74b4cacd483a",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480057"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:5a6c33ba-f1c2-4024-b21e-4e2cae9cabed",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480080"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:1223fe0b-5ede-40ca-8bb0-393b7201f158",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477055"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:5df4e485-6b04-4605-8108-d0000343bfd1",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477094"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:a9a1dce1-3f0f-4121-bf10-9e443e7fb8fb",
+   "p": "repeals",
+   "o": "cellar:88e0ab18-e54e-4d92-bbd7-ba03487eb72e",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-482908"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:99126e20-b5e6-42ea-b3d5-474b8075dbb1",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477120"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:a22c81d8-0a85-4355-9fb8-68f5df47c5d2",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477130"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:e75bdd35-34d6-4d9c-bf1c-76660b2a04d3",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477173"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:bd864239-e222-4b47-8940-2a2c615a050f",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480125"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:e7658e53-ef38-420d-b34d-1544e455c912",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477174"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:333c9ede-4d27-4402-96d0-f742c56ce10e",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477079"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:2d2cb0f4-9afb-4276-b350-0f8a28cbe971",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477075"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:0ac22a75-75cd-4f54-81ca-543fd4c0b691",
+   "p": "repeals",
+   "o": "cellar:d03f87dc-fa2d-43d9-b7d5-5698785c609f",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-486703"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:5efe9ede-9086-4e47-ace2-f148a0248e9a",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480083"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:1c0bc24c-b2e6-4960-a648-781b3c516548",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480054"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:4e0f84c1-5041-4a4a-85e4-6bfa99cbdfca",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477091"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:ffa6c642-ccd5-4cc6-9e04-d91305035455",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477192"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:437228f8-dedd-4342-a7ee-21546c38d2b1",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480076"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:4b6c75fa-5dd0-41f0-9cbb-5b4080387270",
+   "p": "repeals",
+   "o": "cellar:c69c3f4d-de6b-4d74-93ff-1e32166d6509",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-486047"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:0828df02-d134-4fc9-b3c2-ae7624748b5b",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477048"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:c4ab362d-1a1d-4bc7-8b8d-f12245ac57bf",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477153"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:7def18be-aab8-44e9-86a0-4cbaa7cdde72",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480092"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:e1efbb76-ad16-4223-9f26-d8eb39c7da66",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477170"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:3753498b-af31-46a6-9a14-8a641b8f9f2b",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-480067"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:355ff5fe-a41f-458d-be66-25fdb68e99c0",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477082"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:c7d31668-35bc-4a73-8162-b6d499c44e75",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477154"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:ac57b4a0-be73-11ef-91ed-01aa75ed71a1",
+   "p": "repeals",
+   "o": "cellar:f884bd29-4e0b-11ef-acbc-01aa75ed71a1",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-488764"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "http://publications.europa.eu/resource/celex/12002D%2FPRO%2F11",
+   "p": "repeals",
+   "o": "cellar:920b591c-106e-4527-8714-ec24ee11759e",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-483369"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:c2e3ce93-91c0-4b7b-be9c-e0bcb5e88ebb",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477152"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:574ff6eb-6c16-494e-8a9c-9cdaa3d6b6fd",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-477092"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:64f0187d-8946-49ad-ade5-800330bb0a34",
+   "p": "repeals",
+   "o": "cellar:4f5ad544-314a-4168-a4c3-b2c15cb8eadc",
+   "visible_by_law": [
+    "L4"
+   ],
+   "arm": "blind",
+   "cycle_with": "f-479789"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:eaf2c845-94bf-11e2-ab01-01aa75ed71a1",
+   "p": "repeals",
+   "o": "cellar:fda6f7ea-dff0-11e3-8cd4-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-489085"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:2c3cb3ee-6fa5-43f3-a65c-034422c01ab2",
+   "p": "repeals",
+   "o": "cellar:f816f13c-9bf0-4649-96bc-b3177b88f2f1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-488732"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:5f575816-87a4-4d0e-8c99-73e4c678c772",
+   "p": "repeals",
+   "o": "cellar:8177d2e6-51c5-4f2e-bd61-804eef58bca1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-482475"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:59b71c08-ecd1-408e-8db7-e34617b55292",
+   "p": "repeals",
+   "o": "cellar:8ddd0cc8-3a47-4aa8-b9da-4d8924069e18",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-483108"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:b4d2515f-58e3-11e4-a0cb-01aa75ed71a1",
+   "p": "repeals",
+   "o": "cellar:b3c4c18f-092c-11ec-b5d3-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-485005"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:7d703990-e4cd-40d4-ba07-0e2fad9173da",
+   "p": "repeals",
+   "o": "cellar:ed686f0c-6efc-49e8-8a81-14a96aa655d2",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-488155"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:3b3f6ed5-9f3d-476a-92e5-df097cf1e5a3",
+   "p": "repeals",
+   "o": "cellar:0fc8a0d2-b6fd-4419-aaf1-ae982d1c8966",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-476004"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:7f6ad453-4465-4554-bae5-f652054e7f26",
+   "p": "repeals",
+   "o": "cellar:76f866ac-ee1d-4981-83b2-8ee76a85710f",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-481992"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:d3dbccb8-3799-4ce1-80db-63b108487ad5",
+   "p": "repeals",
+   "o": "cellar:fa07f386-c733-11e1-b84a-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-488892"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:70c797b1-bb0b-4204-8d1f-bff2c2902b4a",
+   "p": "repeals",
+   "o": "cellar:2eedf9b2-f3ac-459b-a25b-2b3e8ffd7d4b",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-478047"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:aa78a184-8a90-4ebc-ac51-3c3d23c52109",
+   "p": "repeals",
+   "o": "cellar:c3b105f4-25ba-11e3-8d1c-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-485930"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:86437b54-3c9c-41c8-9494-5cec2db91d28",
+   "p": "repeals",
+   "o": "cellar:396fb46a-456a-11e5-9f5a-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-478695"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:df706e79-e4b3-4a03-9050-060c4e5109fa",
+   "p": "repeals",
+   "o": "cellar:11b307c7-dcc9-4353-85c5-066e5e450b59",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-476116"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:2462c999-4646-4cb2-9457-1496fd4d0acf",
+   "p": "repeals",
+   "o": "cellar:e52372ab-db34-49c6-92a8-3373839ce1f6",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-487802"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:640d51be-41a6-445d-b64b-355f3013cb91",
+   "p": "repeals",
+   "o": "cellar:4ea496a8-157e-11e5-8817-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-479756"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:fd4b5591-7e0d-4dd5-8b12-60f0f4d17308",
+   "p": "repeals",
+   "o": "cellar:6839d4da-9128-48fc-942a-955fcb25042c",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-481275"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:c890bc30-44f1-419a-a7c2-f8eeb9385fb1",
+   "p": "repeals",
+   "o": "cellar:743ec719-9aa2-11e7-b92d-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-481880"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:e5f7f0a3-c1fb-4c4f-a723-69a3a66e9348",
+   "p": "repeals",
+   "o": "cellar:7fd30fe5-70ef-453c-a5bd-f0c85e4d19ef",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-482385"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:a52201a8-82cc-4b29-8605-2e80f721c6f0",
+   "p": "repeals",
+   "o": "cellar:51fca0ff-379d-4b03-8d2d-452bc5eaccec",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-479984"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:4472e457-cf8e-4ed5-a0e6-6ab1f20c5614",
+   "p": "repeals",
+   "o": "cellar:ea269681-3127-4329-96f0-4b9051bbc622",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-487997"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:864e3d13-a0be-49c2-8c67-d4034d70f5ec",
+   "p": "repeals",
+   "o": "cellar:dd85ac83-32b6-45e6-98e7-cc55e8b7c593",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-487323"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:83d917c1-0627-46f6-b934-8a29ffd41eb6",
+   "p": "repeals",
+   "o": "cellar:0835ebf8-68ff-407a-a1ae-36a3733cedf6",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-475443"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:a2ccbcb7-3f52-4aec-acdd-26aa11249845",
+   "p": "repeals",
+   "o": "cellar:bc8e0464-e683-42da-bae8-ca0f3c301dac",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-485494"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:08c520a8-c0cd-4121-ab45-c417f48e6393",
+   "p": "repeals",
+   "o": "cellar:3054c552-fe6f-4910-8cc7-50e5d3b841b2",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-478124"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:37340cf1-82b2-45b9-aebd-c6ad49e97e63",
+   "p": "repeals",
+   "o": "cellar:26514d8d-c5a0-4d46-ba24-b19819f47f10",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-477523"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:33dd0c76-fa0d-4baa-b201-f2d430187bfa",
+   "p": "repeals",
+   "o": "cellar:23c42004-1743-48e8-812b-99bfbec1b817",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-477406"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:b3626c4c-bcaf-43a4-b45e-c81f320ce87f",
+   "p": "repeals",
+   "o": "cellar:59554be7-7ad9-4c21-b026-dca69e6815a4",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-480526"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:adf71e82-6a1f-11e2-9294-01aa75ed71a1",
+   "p": "repeals",
+   "o": "cellar:0588dd92-edd7-11ec-a534-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-475270"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:992bdff7-4bc5-4eb2-b06d-c1e2c638b839",
+   "p": "repeals",
+   "o": "cellar:35111934-b0e2-4bd3-9592-863afef4902d",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-478468"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:24cf8f3a-758d-4f2d-b810-74522746543e",
+   "p": "repeals",
+   "o": "cellar:4ed052a7-bebe-4b43-b369-445b832e2264",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-479762"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:3a50bfd1-d72d-4225-af7d-4796d2822f9a",
+   "p": "repeals",
+   "o": "cellar:5314f9a4-1247-4a84-aed2-687498744197",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-480070"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:4351f6b1-7db8-4caa-9742-5438ee8f2e4f",
+   "p": "repeals",
+   "o": "cellar:68218285-e374-11eb-895a-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-481268"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:65d7b8c4-d4a4-4a0f-b3a0-6b497923b781",
+   "p": "repeals",
+   "o": "cellar:1cef95a8-b19a-11e3-86f9-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-476693"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:c73a307f-32b1-4676-a95c-f55148c1f8a7",
+   "p": "repeals",
+   "o": "cellar:b9ef3fb2-71ac-4e05-a55e-6f77ae509069",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-485328"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:aeb9ba46-9d93-4031-ab76-e3fccf494392",
+   "p": "repeals",
+   "o": "cellar:d068335c-7480-4563-997a-e97c0f43eee8",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-486720"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:8d2cdc50-c792-4914-8365-fbae4936052d",
+   "p": "repeals",
+   "o": "cellar:499a08d3-050a-4dfb-8a74-c6bf4fbe0121",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-479494"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:321d426a-b797-4eec-ad9f-b0c6dbe2acfe",
+   "p": "repeals",
+   "o": "cellar:a0de3cc8-1696-4fd7-9545-b1d411dcb741",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-484101"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:244027bf-cddb-4a81-901b-4bdbac6dab80",
+   "p": "repeals",
+   "o": "cellar:e1c13bfb-9f89-11e3-8b87-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-487630"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:eba4eaa6-db90-4d7a-9e4a-02a079a0a018",
+   "p": "repeals",
+   "o": "cellar:7ab8f10f-cff1-47df-b89e-011e1b401726",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-482174"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:6655aeab-cc06-434c-a367-2f575df88f79",
+   "p": "repeals",
+   "o": "cellar:394edc16-a61d-11e5-b528-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-478691"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:23da8466-3378-4a20-a09d-a96febd993e9",
+   "p": "repeals",
+   "o": "cellar:bfd5eba8-2058-11ea-95ab-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-485732"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:9d9113ad-0f14-4022-8f45-90a5b7255fe6",
+   "p": "repeals",
+   "o": "cellar:43e84ab8-6c05-11e3-9afb-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-479190"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:bfa5ec4b-97b0-456b-8d65-3ddcf0dcab4c",
+   "p": "repeals",
+   "o": "cellar:0168f96c-a568-11ea-bb7a-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-475027"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:05c4f835-4cb4-4061-9586-01bfa4fccfc2",
+   "p": "repeals",
+   "o": "cellar:e60823ea-7bf1-4174-a96e-0f9400fb3363",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-487827"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:35abace9-a4ee-4440-9000-ca81258d6a36",
+   "p": "repeals",
+   "o": "cellar:d8e79ebf-ca4e-11eb-84ce-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-487097"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:521012f9-3bca-4edd-bf86-75153a559767",
+   "p": "repeals",
+   "o": "cellar:d57a04ea-1101-46f2-9ddf-8fd26d39eb09",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-486956"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:daa78b0d-5990-4d10-9fc7-be7e161f4e6e",
+   "p": "repeals",
+   "o": "cellar:50b008f5-a37d-11e3-9f91-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-479879"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:d3e3cb58-3d57-4c8c-ba0c-35ea4b0411e9",
+   "p": "repeals",
+   "o": "cellar:3e2ea6b3-3d5f-4b70-9f5c-73048f7c9a0b",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-478935"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:d967ff32-2c67-4a0f-b442-2b067599d251",
+   "p": "repeals",
+   "o": "cellar:84d29827-0009-4323-bc70-69e076a38ffe",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-482672"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:90580fc5-21d9-4352-8521-fddce1629375",
+   "p": "repeals",
+   "o": "cellar:210b3642-76e8-11e3-b889-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-477216"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:84addfb3-f7b0-4189-8ca9-b9991828b245",
+   "p": "repeals",
+   "o": "cellar:403e7e74-bee9-4a82-8b6b-24c14f5327c8",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-479014"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:08caf1cc-2e27-4a02-88ac-99b8dbe5306d",
+   "p": "repeals",
+   "o": "cellar:c4e81d1a-00af-48fb-812e-68e9d66a5393",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-485971"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:5e50dc8c-9077-43da-9338-ca9354378733",
+   "p": "repeals",
+   "o": "cellar:be6f8698-9fe8-423e-8678-b347f1611d6a",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-485614"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:941c24cb-239c-4c47-b63d-434aaf3760a2",
+   "p": "repeals",
+   "o": "cellar:8be14cd5-b4a8-459f-9fe1-1ff510cea301",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-483027"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:a23e56cf-916f-4975-b5ce-5bdf75b92792",
+   "p": "repeals",
+   "o": "cellar:d9099c76-448f-4138-abf6-3ae55efe1e7c",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-487124"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:bdf4df65-419d-44a5-9098-320bbd0ea7ab",
+   "p": "repeals",
+   "o": "cellar:0f21481f-6f0e-44eb-8199-d35603524662",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-475961"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:43bf08c5-2491-41d0-bb5f-313de4deac27",
+   "p": "repeals",
+   "o": "cellar:a67c1830-35e8-4f86-8e14-08956fbd2c6c",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-484356"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:41421b17-fb4a-4c8b-8eaa-eb255d70ca1e",
+   "p": "repeals",
+   "o": "cellar:3266c87a-8f3c-4b18-b4c1-1e60f485b158",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-478294"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:10811ef7-6f8f-11e2-9294-01aa75ed71a1",
+   "p": "repeals",
+   "o": "cellar:1fd8bdf7-9ddc-11e2-ab01-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-476986"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:f984830a-082e-4431-a1cb-a6694c198242",
+   "p": "repeals",
+   "o": "cellar:ed2b711d-fc76-4e50-b3b5-ca17620742d4",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-488145"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:583e0e03-fd79-4671-9a3c-c42b8047f180",
+   "p": "repeals",
+   "o": "cellar:33cb8aa4-0087-4508-9bd4-81a49d563720",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-478385"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:ed686f0c-6efc-49e8-8a81-14a96aa655d2",
+   "p": "repeals",
+   "o": "cellar:589ebfde-4861-4bad-8c3b-032b104a8200",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-480492"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:1c5ffe85-468f-11e7-aea8-01aa75ed71a1",
+   "p": "repeals",
+   "o": "cellar:0ceb771b-fef2-11ea-b44f-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-475821"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:10e4ea72-d4cf-468b-a3e6-4b158febf33c",
+   "p": "repeals",
+   "o": "cellar:00f161e3-24bb-45d9-b21b-6f758601b944",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-474849"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:cdddb15b-d6c8-4da6-9486-4e342785b16b",
+   "p": "repeals",
+   "o": "cellar:cc536c68-496b-4ec6-bb91-719c2a0bcd67",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-486432"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:69abe162-799f-425d-94ea-2805ebcbccc0",
+   "p": "repeals",
+   "o": "cellar:1d4be10f-9d0c-44a9-b5e0-1e2e692ca8d3",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-476835"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:306682fc-c7f5-44f6-9649-87fea3adb4ec",
+   "p": "repeals",
+   "o": "cellar:6fefebf7-8f53-11e5-983e-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-481647"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:9c9c4d48-07ed-4e42-8120-ad0b7ab3ce4b",
+   "p": "repeals",
+   "o": "cellar:861ae0a9-3fdf-44b5-b3bb-57eee3e3aa56",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-482746"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:3bdc0ceb-1505-4050-b6ec-50dc5c979e38",
+   "p": "repeals",
+   "o": "cellar:23da9542-5b31-4f1e-87e6-1f89d76da720",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-477411"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:f8749e0d-60a7-4bdb-a635-c7938577e15b",
+   "p": "repeals",
+   "o": "cellar:790639b2-db21-4f0f-a96f-761a9b7a18df",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-482062"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:8073e3e6-a9c7-4119-9aae-bccd3d81862a",
+   "p": "repeals",
+   "o": "cellar:6dffc033-53f7-4fc9-9436-8461a27f383d",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-481576"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:58fe2a5c-2e1d-4f4e-9005-b2d60723eb93",
+   "p": "repeals",
+   "o": "cellar:a8e22903-6e39-4403-947b-00c0fa78ecd3",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-484482"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:bb99f782-1875-4c4a-81bb-c8abd4bb8503",
+   "p": "repeals",
+   "o": "cellar:dd6e9157-2adb-4d79-af4c-edccf56addc1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-487319"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:1663a312-5e70-46b3-8d3a-6e51d2c7f79f",
+   "p": "repeals",
+   "o": "cellar:ad9469f6-b94b-4a6f-8c66-fe21081e2b4d",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-484688"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:d3722b3a-d823-451f-8cd0-3bef3af53ede",
+   "p": "repeals",
+   "o": "cellar:1d34c357-7565-4418-8516-4a8d1581e6da",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-476833"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:1085e254-d135-4c8f-bb2a-1bfe7070f218",
+   "p": "repeals",
+   "o": "cellar:7081781c-34d0-432e-b2c7-0dc16d392f9b",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-481670"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:e94d4af2-732b-440e-be55-9e01c67e98d7",
+   "p": "repeals",
+   "o": "cellar:d2b47ea9-09c5-415e-90ac-f158b72e4b29",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-486822"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:cea2418b-b94a-41d3-b671-8f3b26d16375",
+   "p": "repeals",
+   "o": "cellar:aeff8fad-6dec-4846-b6cf-8e7cc4a2123f",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-484769"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:f5e22802-d983-43a5-8885-781385854cdd",
+   "p": "repeals",
+   "o": "cellar:eba5bed3-5d59-11e7-954d-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-488073"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:789d0dd1-2ffe-4510-90a3-190a94c99484",
+   "p": "repeals",
+   "o": "cellar:e8e22684-fc38-11e3-831f-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-487954"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:bcb85df9-c223-49e6-820d-15fb69df02a9",
+   "p": "repeals",
+   "o": "cellar:ec4bd328-f48b-416a-95fc-52b78c34275b",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-488108"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:0eaff014-6960-44b3-be52-e04e9946273b",
+   "p": "repeals",
+   "o": "cellar:e4849619-08a4-4513-a285-1d8d9eb38b22",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-487778"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:d80ff336-c7ae-4441-87e4-e6c388968727",
+   "p": "repeals",
+   "o": "cellar:3c100e84-b654-11e3-86f9-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-478825"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:58cd4002-c751-11e1-b84a-01aa75ed71a1",
+   "p": "repeals",
+   "o": "cellar:c324613d-03f8-11e2-8e28-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-485898"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:8c152bf7-8c94-4f3a-90c2-a825edacb3e8",
+   "p": "repeals",
+   "o": "cellar:20fed71b-1a98-4155-80c6-c0b084244dd0",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-477209"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:ff9a88c4-b9fb-11ec-b6f4-01aa75ed71a1",
+   "p": "repeals",
+   "o": "cellar:cf2b0dc9-7c4b-11ed-9887-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-486666"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:3a48a00a-1762-48e4-a9a1-759b0540418c",
+   "p": "repeals",
+   "o": "cellar:a2fa39b9-ab15-45c6-ba81-b39317e694f9",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-484178"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:05b0231c-443d-46e2-8a9f-bcc659c62796",
+   "p": "repeals",
+   "o": "cellar:1471e193-85c3-4c5b-a6cb-dbd089439137",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-476264"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:6e5b52de-414f-49ab-b901-69f38249e94e",
+   "p": "repeals",
+   "o": "cellar:20e185b2-67d0-4868-b548-23422bf7ed8e",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-477041"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:6dd4a186-2f98-4d50-8817-dbef4046e51c",
+   "p": "repeals",
+   "o": "cellar:97e4677e-dff0-11e3-8cd4-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-483614"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:254ed0bd-ad3b-11eb-9767-01aa75ed71a1",
+   "p": "repeals",
+   "o": "cellar:98dd4210-6051-11f0-a9d0-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-483644"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:697dfdb9-2ef9-4daf-8ef2-6d78b36eb01c",
+   "p": "repeals",
+   "o": "cellar:8297cb9a-2fff-4b48-90d1-ecf390a2b594",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-482528"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:88004a97-405d-11ed-92ed-01aa75ed71a1",
+   "p": "repeals",
+   "o": "cellar:4f3515a8-5e69-11ee-9220-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-479768"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:df5efd9a-6b11-46f5-acbc-2454a7209dae",
+   "p": "repeals",
+   "o": "cellar:92d74790-ede2-4e6d-8283-3487a3a0523d",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-483403"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:639d2f6a-0432-4e4a-8bec-1ac8ee84f371",
+   "p": "repeals",
+   "o": "cellar:bed4fa3f-d7f2-480b-b244-75d98e4efe14",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-485673"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:a2072563-5327-4448-b944-dc9b9167e81b",
+   "p": "repeals",
+   "o": "cellar:6b832ab6-3f56-4828-ad1f-9acd41306e7e",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-481467"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:140d3b9c-f346-4c9d-96ec-f4f8f904ec2b",
+   "p": "repeals",
+   "o": "cellar:14587d2b-cd61-11ef-be2a-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-476259"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:af962bc8-7689-4323-8df1-f5148918b21c",
+   "p": "repeals",
+   "o": "cellar:df1967fe-1d2f-11e4-8c3c-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-487462"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:4b07ae77-aa28-4826-aaa8-433a42491c11",
+   "p": "repeals",
+   "o": "cellar:281cdbc1-5f36-11e4-9cbe-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-477628"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:159b8f04-7a79-46ef-a67c-573bf7554852",
+   "p": "repeals",
+   "o": "cellar:aef88894-e08d-11e2-9165-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-484751"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:40b3d33d-1208-4abb-9fb0-71107922f3d0",
+   "p": "repeals",
+   "o": "cellar:cc536c68-496b-4ec6-bb91-719c2a0bcd67",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-486366"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:8ac4b57e-ceaa-4c57-b1cb-57c193eb0e2f",
+   "p": "repeals",
+   "o": "cellar:03dc84d3-ff7a-49e0-ac95-cffb823d489f",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-475183"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:58d3297f-0e3e-4124-80ba-d2735960c617",
+   "p": "repeals",
+   "o": "cellar:33dbd0d1-9c63-48ea-9361-5a0db188b5a7",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-478391"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:7d1a239c-58b1-4504-bf3c-bb552eb0c52a",
+   "p": "repeals",
+   "o": "cellar:bafbbc19-66d5-4c7b-93b1-c04a7741afb7",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-485424"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:6800df1d-082e-43ae-b606-c914c38b9de5",
+   "p": "repeals",
+   "o": "cellar:78a94f7f-66b8-11ec-9136-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-482047"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:858ed8eb-8994-43c8-b9e0-12041f66732d",
+   "p": "repeals",
+   "o": "cellar:461e7026-4e32-448f-b51b-ce9d0c773c54",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-479285"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:10d2867e-d063-4307-8188-d020b03bae5a",
+   "p": "repeals",
+   "o": "cellar:6bc4ac56-89ff-4461-8c01-68069ce763fa",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-481475"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:f9056444-ead8-4ad1-ac42-032eddeec0c1",
+   "p": "repeals",
+   "o": "cellar:7c74b283-39a6-4846-9bc0-0ffd550b4237",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-482226"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:d33a9d6c-b362-459d-8f93-a779813934d2",
+   "p": "repeals",
+   "o": "cellar:34cb99d0-4de2-11ee-9220-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-478449"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:c1571b84-6185-11ee-9220-01aa75ed71a1",
+   "p": "repeals",
+   "o": "cellar:88aff1c0-6d4f-11ee-9220-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-482892"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:dd37d84c-eb9a-478c-810f-b6c83ca0f4c6",
+   "p": "repeals",
+   "o": "cellar:c6ae5754-6fec-4356-9e39-2c9f7ef5b423",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-486069"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:5eed9197-71d6-4a5c-8fdd-aba854be67ee",
+   "p": "repeals",
+   "o": "cellar:9541094c-451a-4209-9091-96abdf379b34",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-483502"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:de7b1793-9775-400f-b133-0add94057b6b",
+   "p": "repeals",
+   "o": "cellar:55aca301-d8a9-43b9-8483-bbd3374381fa",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-480320"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:28dd3372-b9c1-4c1a-b13c-411021e0caf3",
+   "p": "repeals",
+   "o": "cellar:2ee10cd0-c0f6-49b8-89a9-f78e3f1f9523",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-478036"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:69ef5ac5-2f4b-11ed-975d-01aa75ed71a1",
+   "p": "repeals",
+   "o": "cellar:8047a0ac-1c60-11ee-806b-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-482412"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:a8cab460-09e8-4c3b-9b0c-36e9dab9d86e",
+   "p": "repeals",
+   "o": "cellar:96f9beab-4c59-4be6-a5ce-a403ba458af4",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-483579"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:75013c17-ee35-11e4-a3bf-01aa75ed71a1",
+   "p": "repeals",
+   "o": "cellar:778420c3-4a76-11f1-8095-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-482016"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:4bd5a24d-59dd-4a9e-8e64-7cd897356415",
+   "p": "repeals",
+   "o": "cellar:0691fae2-4c24-4046-a825-cc7755625937",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-475328"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:ffaae5c6-de99-11e4-b266-01aa75ed71a1",
+   "p": "repeals",
+   "o": "cellar:1bc85cf1-ca8c-11eb-84ce-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-476575"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:bcec65e1-9f2f-4d36-a2cc-c67ef3cf320e",
+   "p": "repeals",
+   "o": "cellar:f8fff4c0-9712-11e9-9369-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-488783"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:735bb421-9715-4416-88a4-bff5a9bd45e1",
+   "p": "repeals",
+   "o": "cellar:0c8e6dfe-86c2-49eb-ad21-1a762940433f",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-475794"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:77d349bf-3b81-4d44-aad6-129cb83f338e",
+   "p": "repeals",
+   "o": "cellar:f71bf004-2920-47fc-bd9a-35e63b480baf",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-488644"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:21e969dd-15b9-4f7e-83f0-b6a5a6687c20",
+   "p": "repeals",
+   "o": "cellar:fdc13112-ec9c-11e8-b690-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-489092"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:fc9aa795-f906-4dad-aad1-1984522bc665",
+   "p": "repeals",
+   "o": "cellar:2b1a3908-f4c7-45bd-91ef-9bf22e4665b5",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-477826"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:938f14c5-1df3-4890-9140-a3084031cedf",
+   "p": "repeals",
+   "o": "cellar:cdc39167-df71-40ca-a817-12537381ae5e",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-486593"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:1c32aafb-4668-4cf8-9b1b-d5700444dd94",
+   "p": "repeals",
+   "o": "cellar:a22acde8-9f50-4b02-b3f0-686c7c8b1bc0",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-484146"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:544f56eb-974e-4f41-a63f-4d7b2edf1209",
+   "p": "repeals",
+   "o": "cellar:c1a8a650-0d55-4d60-b54c-80cee325dfb0",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-485822"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:a07beff9-fada-4bde-b945-494e6f0c3e72",
+   "p": "repeals",
+   "o": "cellar:c4224dcf-e5d9-4d0d-a67d-d28c30fec933",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-485952"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:45264928-ae9e-4e2b-9552-f1e17f90a3e2",
+   "p": "repeals",
+   "o": "cellar:ee7e94db-2761-11e2-9209-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-488223"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:f8f7fbe8-2842-47f1-adc5-b12c648231a9",
+   "p": "repeals",
+   "o": "cellar:1cef95a8-b19a-11e3-86f9-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-476821"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:714c68ff-8afb-4aa8-829c-77e155f19170",
+   "p": "repeals",
+   "o": "cellar:defe06fe-0c7b-4b7f-bcfc-37d226bf2f74",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-487461"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:bab3ed42-ef89-4863-aa55-0f4de77619b8",
+   "p": "repeals",
+   "o": "cellar:5d266a4e-3d85-4bf6-bc4f-190358ac50e3",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-480715"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:71422f62-5777-4e1e-a158-4cc799c09870",
+   "p": "repeals",
+   "o": "cellar:0d4cb359-dfef-462c-bfd0-8c18f2db87ae",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-475854"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:b49b78bd-772a-46a9-af89-b4b12063ea6b",
+   "p": "repeals",
+   "o": "cellar:a0b7b2d7-63cf-4be6-b80f-8fdd90be396c",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-484097"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:62b6410e-b815-440a-b671-398c6313a3bb",
+   "p": "repeals",
+   "o": "cellar:a1435737-300a-4760-8462-03db75b27caa",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-484116"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:dd21fabf-af3a-4b42-8967-472ad2dff7ac",
+   "p": "repeals",
+   "o": "cellar:068c2d29-c59e-11e1-b84a-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-475326"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:5bc11471-6d2a-478a-b68f-9b1540380e2d",
+   "p": "repeals",
+   "o": "cellar:053d1921-0523-4999-a89a-737be9df3efd",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-475255"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:51db4458-f961-4114-8eb7-6aa1b267df82",
+   "p": "repeals",
+   "o": "cellar:11d954b5-8256-11e2-89d6-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-476130"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:f5a7d7f6-008f-468b-b284-cd907593235b",
+   "p": "repeals",
+   "o": "cellar:90c4035e-5856-433e-adb6-8ae2062d14fc",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-483327"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:5e1afab1-1eea-4864-b79d-f3bd54b27f13",
+   "p": "repeals",
+   "o": "cellar:13c7b98f-edac-42db-b481-de388c853f0b",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-476242"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:2d53b7d0-4eb2-4e99-a6cd-276de95cb36c",
+   "p": "repeals",
+   "o": "cellar:f7180cde-929e-4f64-83f8-9f2f437ae77f",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-488628"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:bafdcb51-2a77-4d12-a60c-9a0b16bfb696",
+   "p": "repeals",
+   "o": "cellar:c81c8de9-03ec-4db6-bf30-7cd8758c85cd",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-486152"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:143ddf7e-13ff-4566-841e-3312eba8eec1",
+   "p": "repeals",
+   "o": "cellar:20e4aa9f-652c-40c9-9555-4ec0ea61bc03",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-477058"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:1fbe2eff-8b1d-43f0-93c4-98f06eeabb49",
+   "p": "repeals",
+   "o": "cellar:c17c664a-8c36-49b5-a9a6-f0826f20b872",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-485812"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:46f742a0-7064-11e8-9483-01aa75ed71a1",
+   "p": "repeals",
+   "o": "cellar:19f48596-4db8-11ed-92ed-01aa75ed71a1",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-476498"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:ae4649da-a230-4e56-8708-62d6ad796674",
+   "p": "repeals",
+   "o": "cellar:d0eaeaec-2e8a-494d-acff-1c0da4192f5b",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-486757"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:c0e2881d-2e6e-4698-9dd4-77c0c3e9866f",
+   "p": "repeals",
+   "o": "cellar:ee20fb19-6b69-4602-9019-aaf65f0098e8",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-488191"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:d94ec33d-2a42-4d74-a3cc-fcd318615ba6",
+   "p": "repeals",
+   "o": "cellar:14bbeb4d-95a1-4341-b89f-2d5f44bc14f2",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-476281"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:fd9f58df-2647-47f5-836a-402c94f71cbe",
+   "p": "repeals",
+   "o": "cellar:e41e6335-d9f9-46ee-a2a7-23f5cbd598ab",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-487755"
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:8980b6ba-aa4d-444f-98fe-d6a2cf542e24",
+   "p": "repeals",
+   "o": "cellar:2ba7010f-a3fb-43ea-b4d4-cb37c6129d77",
+   "visible_by_law": [
+    "L1",
+    "L4"
+   ],
+   "arm": "informed",
+   "cycle_with": "f-477876"
+  }
+ ],
+ "counts": {
+  "SPURIOUS_EDGE/visible": 280
+ },
+ "sha256": "37e9cfeae5a4e3f42896694aa162e44a77287204baf59bc7ce8bfd4468517f13"
+}

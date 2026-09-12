@@ -1,0 +1,110 @@
+{
+ "question": "does a weight from upstream do what a law does, on a rival the graph cannot separate",
+ "pairs": 130,
+ "processes_per_arm": 8,
+ "weights": {
+  "kept": 8,
+  "deleted": 7
+ },
+ "greedy": "pgrepair greedy_cleaner.py:37, min(hyperedge, key=weights) over a Python set",
+ "ilp": "scipy.optimize.milp, minimum-weight vertex cover over disjoint 2-element conflicts",
+ "measured_on": "a standalone reproduction, no database and no network; the two end points it is calibrated against are measures/eurlex-arms-spread-2026-09-10.json",
+ "date": "2026-09-12",
+ "arms": {
+  "blind": {
+   "note": "nothing separates them: both edges carry the same weight",
+   "accuracy_of_the_signal": null,
+   "greedy_true_edges_kept_per_process": [
+    71,
+    64,
+    66,
+    69,
+    67,
+    71,
+    51,
+    69
+   ],
+   "greedy_repeatable": false,
+   "ilp_true_edges_kept": null,
+   "ilp_note": "the optimum is degenerate: every one of the 2^130 selections costs the same, so any figure from 0 to 130 is optimal and the 130 this solver returned is not a score",
+   "ilp_cost": 910.0,
+   "ilp_optimum_unique": false
+  },
+  "weight p=.5": {
+   "note": "a filter with an opinion that carries no information, but a distinct weight",
+   "accuracy_of_the_signal": 0.5,
+   "greedy_true_edges_kept_per_process": [
+    69,
+    69,
+    69,
+    69,
+    69,
+    69,
+    69,
+    69
+   ],
+   "greedy_repeatable": true,
+   "ilp_true_edges_kept": 69,
+   "ilp_note": null,
+   "ilp_cost": 910.0,
+   "ilp_optimum_unique": true
+  },
+  "weight p=.7": {
+   "note": "a filter right seven times in ten",
+   "accuracy_of_the_signal": 0.7,
+   "greedy_true_edges_kept_per_process": [
+    97,
+    97,
+    97,
+    97,
+    97,
+    97,
+    97,
+    97
+   ],
+   "greedy_repeatable": true,
+   "ilp_true_edges_kept": 97,
+   "ilp_note": null,
+   "ilp_cost": 910.0,
+   "ilp_optimum_unique": true
+  },
+  "weight p=.9": {
+   "note": "a filter right nine times in ten",
+   "accuracy_of_the_signal": 0.9,
+   "greedy_true_edges_kept_per_process": [
+    118,
+    118,
+    118,
+    118,
+    118,
+    118,
+    118,
+    118
+   ],
+   "greedy_repeatable": true,
+   "ilp_true_edges_kept": 118,
+   "ilp_note": null,
+   "ilp_cost": 910.0,
+   "ilp_optimum_unique": true
+  },
+  "law": {
+   "note": "a law that identifies the true edge, the informed arm we measured",
+   "accuracy_of_the_signal": 1.0,
+   "greedy_true_edges_kept_per_process": [
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130
+   ],
+   "greedy_repeatable": true,
+   "ilp_true_edges_kept": 130,
+   "ilp_note": null,
+   "ilp_cost": 910.0,
+   "ilp_optimum_unique": true
+  }
+ }
+}

@@ -1,0 +1,18 @@
+[2026-09-10 16:49:06] [37m[1mINFO    [0m[1m[pgrepair.workload][0m [35mLoading workload from file /Users/sebastiengracia/dev/corrige/workloads/eurlex-laws.toml[0m
+[2026-09-10 16:49:06] [37m[1mINFO    [0m[1m[pgrepair.cli   ][0m [35mDisabling disk-cache as requested[0m
+[2026-09-10 16:49:06] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mConnecting to database neo4j at neo4j://localhost:7687[0m
+[2026-09-10 16:49:06] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mAuthenticating as user neo4j[0m
+[2026-09-10 16:49:07] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mDatabase connection established and verified.[0m
+[2026-09-10 16:49:07] [33m[1mWARNING [0m[1m[pgrepair.neo4j_utilities][0m [35mGDS is not available.[0m
+[2026-09-10 16:49:07] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mUsing workload EUR-Lex world laws L1-L3[0m
+[2026-09-10 16:49:07] [37m[1mINFO    [0m[1m[pgrepair.workload][0m [35mReseting random seed for EUR-Lex world laws L1-L3[0m
+[2026-09-10 16:49:07] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mQuerying for conflicts and constructing hypergraph.[0m
+[2026-09-10 16:49:07] [37m[1mINFO    [0m[1m[pgrepair.cleaning.conflict_collectors][0m [35mCollecting conflicts (constraint 1/5)[0m
+[2026-09-10 16:49:07] [37m[1mINFO    [0m[1m[pgrepair.cleaning.conflict_collectors][0m [35mCollecting conflicts (constraint 2/5)[0m
+[2026-09-10 16:49:07] [37m[1mINFO    [0m[1m[pgrepair.cleaning.conflict_collectors][0m [35mCollecting conflicts (constraint 3/5)[0m
+[2026-09-10 16:49:07] [37m[1mINFO    [0m[1m[pgrepair.cleaning.conflict_collectors][0m [35mCollecting conflicts (constraint 4/5)[0m
+[2026-09-10 16:49:07] [37m[1mINFO    [0m[1m[pgrepair.cleaning.conflict_collectors][0m [35mCollecting conflicts (constraint 5/5)[0m
+[2026-09-10 16:49:07] [37m[1mINFO    [0m[1m[pgrepair.cleaning.solution][0m [35mGreedy cleaner found a solution with weight 1038[0m
+[2026-09-10 16:49:07] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mRepairing by deleting 519 edge(s), 0 node(s), 0 labels[0m
+[2026-09-10 16:49:07] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mValidating repair[0m
+[2026-09-10 16:49:08] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mDropping database connection.[0m

@@ -1,0 +1,24 @@
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.workload][0m [35mLoading workload from file /Users/sebastiengracia/dev/corrige/workloads/eurlex-laws.toml[0m
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.cli   ][0m [35mDisabling disk-cache as requested[0m
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mConnecting to database neo4j at neo4j://localhost:7687[0m
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mAuthenticating as user neo4j[0m
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mDatabase connection established and verified.[0m
+[2026-09-10 20:48:47] [33m[1mWARNING [0m[1m[pgrepair.neo4j_utilities][0m [35mGDS is not available.[0m
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mUsing workload EUR-Lex world laws L1-L3[0m
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.workload][0m [35mReseting random seed for EUR-Lex world laws L1-L3[0m
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mQuerying for conflicts and constructing hypergraph.[0m
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.cleaning.conflict_collectors][0m [35mCollecting conflicts (constraint 1/5)[0m
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.cleaning.conflict_collectors][0m [35mCollecting conflicts (constraint 2/5)[0m
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.cleaning.conflict_collectors][0m [35mCollecting conflicts (constraint 3/5)[0m
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.cleaning.conflict_collectors][0m [35mCollecting conflicts (constraint 4/5)[0m
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.cleaning.conflict_collectors][0m [35mCollecting conflicts (constraint 5/5)[0m
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.cleaning.scipy_ilp_cleaner][0m [35mInitializing ILP solver.[0m
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.cleaning.scipy_ilp_cleaner][0m [35mRunning solver.[0m
+/Users/sebastiengracia/Mes claudes/Banc à vérité connue/pgrepair-bonifati/pgrepair/src/pgrepair/cleaning/scipy_ilp_cleaner.py:63: OptimizeWarning: Unrecognized options detected: {'tol': 1e-10}. These will be passed to HiGHS verbatim.
+  res = scipy.optimize.linprog(
+/Users/sebastiengracia/Mes claudes/Banc à vérité connue/pgrepair-bonifati/pgrepair/.venv/lib/python3.12/site-packages/scipy/optimize/_linprog_highs.py:355: OptimizeWarning: Unrecognized options detected: {'tol': 1e-10}
+  res = _highs_wrapper(c, A.indptr, A.indices, A.data, lhs, rhs,
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.cleaning.solution][0m [35mSciPyWeightedILP cleaner found a solution with weight 2546[0m
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mRepairing by deleting 1273 edge(s), 0 node(s), 0 labels[0m
+[2026-09-10 20:48:47] [37m[1mINFO    [0m[1m[pgrepair.cleaning][0m [35mValidating repair[0m
+[2026-09-10 20:48:48] [37m[1mINFO    [0m[1m[pgrepair.neo4j_utilities][0m [35mDropping database connection.[0m

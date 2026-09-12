@@ -1,0 +1,131 @@
+{
+ "truth_sha256": "39663c682f80c3938ee7a707096d62f8b420a85cd54f2a47abc7a3b9848f41d8",
+ "seed_sha256": "b942e123cdef8690243c14057ac79dc412fbbef4dc75922e780a48f2b58d3f1c",
+ "damages": [
+  {
+   "denominator": "repeals",
+   "kind": "SPURIOUS_EDGE",
+   "rate": "4/10"
+  },
+  {
+   "denominator": "amends",
+   "kind": "SPURIOUS_EDGE",
+   "rate": "8/25"
+  }
+ ],
+ "visible": "1/2",
+ "injected": [
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:7d267e89-5e3f-490b-b270-f697974dfa52",
+   "p": "repeals",
+   "o": "cellar:ce1fdb47-6c04-11e3-9afb-01aa75ed71a1",
+   "visible_by_law": [
+    "L1"
+   ]
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:ea7ce0de-34c5-4aa9-8c6f-9590064097ab",
+   "p": "repeals",
+   "o": "cellar:3c792758-317e-11e3-8d1c-01aa75ed71a1",
+   "visible_by_law": [
+    "L1"
+   ]
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:9293da05-db6f-4fd1-a01f-a4999206f4f8",
+   "p": "repeals",
+   "o": "cellar:23327b1a-0599-4cd8-81de-40e1bd288514",
+   "visible_by_law": []
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:5c70e3a4-4239-474e-b1ee-60ab32759c61",
+   "p": "amends",
+   "o": "cellar:eba01e56-45fa-4b12-9692-5282dcb6f825",
+   "visible_by_law": []
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:4fa00331-659d-4a63-91e8-6255769705c2",
+   "p": "amends",
+   "o": "cellar:5fe6aa6e-9487-4f25-882b-c4ec97985d5f",
+   "visible_by_law": []
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:6efa96e3-ef22-4f93-b251-8c7d3c87c2e2",
+   "p": "amends",
+   "o": "cellar:88528fe8-7351-11ec-9136-01aa75ed71a1",
+   "visible_by_law": [
+    "L1"
+   ]
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:891e09a1-52db-11e4-a0cb-01aa75ed71a1",
+   "p": "amends",
+   "o": "cellar:bbbee7bc-91cd-4a74-9c4e-9e074eb514f2",
+   "visible_by_law": []
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:4c5dbd1a-4330-451c-b88a-34d1c1c20074",
+   "p": "amends",
+   "o": "cellar:ca518bcb-368a-4af2-9d6b-eb880399f020",
+   "visible_by_law": [
+    "L1"
+   ]
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:620928a7-cfc8-4a51-a5a8-9e7fbe2ed0dd",
+   "p": "amends",
+   "o": "cellar:20f0fae2-8d30-451c-9ffc-53038ff11152",
+   "visible_by_law": []
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:903c2ecf-5c9d-4583-be80-657cfe37a911",
+   "p": "amends",
+   "o": "cellar:3ed86f37-3881-4162-8d8d-48e59de7b01e",
+   "visible_by_law": [
+    "L1",
+    "L2"
+   ]
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:eb1f2338-bf51-485c-89e0-f9fd5f82ad45",
+   "p": "amends",
+   "o": "cellar:6fad304c-ce9e-495a-8696-96d8494d043a",
+   "visible_by_law": []
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:406736fc-dbb1-4169-93cf-292c4988fa58",
+   "p": "amends",
+   "o": "cellar:bacc7323-1d21-11ec-b4fe-01aa75ed71a1",
+   "visible_by_law": [
+    "L1"
+   ]
+  },
+  {
+   "damage": "SPURIOUS_EDGE",
+   "s": "cellar:951f704f-372d-4c18-b905-722e5b1f960d",
+   "p": "amends",
+   "o": "cellar:30075b88-b5c5-442e-9210-803551bf034f",
+   "visible_by_law": [
+    "L1",
+    "L2"
+   ]
+  }
+ ],
+ "counts": {
+  "SPURIOUS_EDGE/invisible": 6,
+  "SPURIOUS_EDGE/visible": 7
+ },
+ "sha256": "a75a95f3ccbe733c803b94ef3beb23f0049b83682de4f21051dbf3fcb4da22fc"
+}

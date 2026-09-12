@@ -1,10 +1,16 @@
 truths/truth-eurlex-relations-2026-09-09.json
-runs/
+truths/truth-icij-offshoreleaks-2026-09-10.json
 __pycache__/
-runs/*/graph.json
-runs/*/candidate-*.json
-runs/*/verdict-*.json
 .venv-pdf/
 audit/test/
 audit/audit-*-rempli.pdf
-truths/truth-icij-offshoreleaks-2026-09-10.json
+
+# What a run produces, and what it is evidence of, are not the same thing.
+# Out: the graphs and the candidates, 180 MB each, rebuilt in one command from the truth.
+# In: the sealed journal, the seed and the logs — without them no claim on this bench is checkable,
+# and START-HERE.md and ANOMALY-label-repair.md both send a reader to them.
+runs/*/graph.json
+runs/*/candidate-*.json
+runs/*/verdict-*.json
+runs/*/out/
+runs/campaign-*.json
