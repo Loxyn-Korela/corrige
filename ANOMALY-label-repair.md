@@ -15,7 +15,7 @@ The same command, same workload, same graph, gave two different repairs on diffe
 2026-09-10 13:16   found a solution with weight 3930
                    Repairing by deleting 0 edge(s),    0 node(s), 3930 labels
 
-2026-09-10 18:0x   found a solution with weight 34392
+2026-09-10 17:48   found a solution with weight 34392
                    Repairing by deleting 0 edge(s), 3930 node(s),    0 labels
 ```
 
@@ -26,7 +26,9 @@ with them, and 11,200 true facts go too.
 
 A tie would give two solutions of equal cost. These differ by a factor of nine. We reproduced the
 34,392 solution **five times** since, in both workload orders and on freshly loaded graphs, and
-never got 3,930 again. The five agree with each other exactly. So this is not the `min()` tie-break
+never got 3,930 again. The five agree with each other exactly. All six runs are on one graph and
+one sealed injection journal, sha256 `ced2627844564cfb…`, 3,932 wrong labels; their logs are in
+`runs/seven/` with the timestamps above, and the one that gave 3,930 is `pgrepair-label.log`. So this is not the `min()` tie-break
 we document in `runs/icij/tie_break.py`.
 
 ## The arithmetic we cannot make work
