@@ -1,0 +1,99 @@
+{
+ "id": "paper-two-readers-2026-09-13",
+ "about": "Same corpus, same faults, two assemblies. The claim being tested is that how a graph is assembled mechanically decides how much of a corpus's truth is recovered, and that the difference is measurable rather than arguable.",
+ "corpus": "300 Europe PMC JATS articles held locally",
+ "seed": "2026091300000003",
+ "date": "2026-09-13",
+ "readers": {
+  "plain": "one value per field, the first declaration it meets. What anybody writes first.",
+  "careful": "every declaration, not the first; a value only if the document agrees with itself, and otherwise the disagreement returned in its place. It knows nothing the plain reader does not know and is not cleverer: it looks in more places."
+ },
+ "measured": {
+  "form-198 a year written another way": {
+   "plain": [
+    300,
+    300
+   ],
+   "careful": [
+    300,
+    300
+   ]
+  },
+  "form-192 a DOI containing its separator": {
+   "plain": [
+    298,
+    298
+   ],
+   "careful": [
+    298,
+    298
+   ]
+  },
+  "form-191 a second identifier family": {
+   "plain": [
+    300,
+    300
+   ],
+   "careful": [
+    300,
+    300
+   ]
+  },
+  "form-118 an invisible inside a DOI": {
+   "plain": [
+    298,
+    298
+   ],
+   "careful": [
+    298,
+    298
+   ]
+  },
+  "form-107 a second DOI": {
+   "plain": [
+    0,
+    298
+   ],
+   "careful": [
+    298,
+    298
+   ]
+  },
+  "form-026 a strict homonym": {
+   "plain": [
+    294,
+    294
+   ],
+   "careful": [
+    294,
+    294
+   ]
+  },
+  "form-120 a second spelling in the running head": {
+   "plain": [
+    0,
+    300
+   ],
+   "careful": [
+    300,
+    300
+   ]
+  },
+  "TOTAL": {
+   "plain": [
+    1490,
+    2088
+   ],
+   "careful": [
+    2088,
+    2088
+   ]
+  }
+ },
+ "reading": [
+  "71.4 % against 100 %, on the same documents and the same injections. The gap is entirely made of two forms, and neither reader is cleverer than the other: the careful one reads the second declaration where the plain one stops at the first.",
+  "A fourth verdict was needed to say this honestly. The careful reader does not return the truth on those two — it returns `the document disagrees with itself`, which is neither holding the truth nor inventing a value. It is a refusal to conclude with its reason attached, the `None` of a house filter, and counting it as wrong would punish the only honest answer available."
+ ],
+ "the reserve, and it is the whole weight of the figure": "The careful reader was written AFTER seeing which forms the plain one missed. It is cut for them. So 100 % is not a claim about careful readers; it is a demonstration that the gap is closable by looking elsewhere and that this bench measures it. The non-circular experiment is a third-party extractor nobody here wrote, put through the same bench, and it is doable.",
+ "what it still does not say": "It does not measure p. No house filter runs in this pass."
+}

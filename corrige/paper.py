@@ -72,6 +72,45 @@ def facts(xml):
     return out
 
 
+# ── two readers of the same document, so that "a better assembly recovers more" stops being an
+# opinion. The plain one is what anybody writes first: one value per field, the first declaration
+# it meets. The careful one reads every declaration and keeps the disagreements. Neither is clever;
+# the difference between them is entirely in WHERE THEY LOOK.
+ALL = {
+    "doi":     r'<article-id[^>]*pub-id-type="doi"[^>]*>([^<]+)</article-id>',
+    "pmid":    r'<article-id[^>]*pub-id-type="pmid"[^>]*>([^<]+)</article-id>',
+    "pmc":     r'<article-id[^>]*pub-id-type="pmc(?:id)?"[^>]*>([^<]+)</article-id>',
+    "year":    r'<pub-date[^>]*>(?:(?!</pub-date>).)*?<year>([^<]+)</year>',
+    "title":   r'<title-group>\s*<article-title>(.*?)</article-title>',
+}
+# Where a second spelling of a thing is allowed to live in JATS, and which field it is about.
+ALSO = {"authors": [r'<alt-title[^>]*running-head[^>]*>([^<]*)</alt-title>',
+                    r'<string-name[^>]*>([^<]*)</string-name>']}
+
+
+def facts_careful(xml):
+    """Every declaration, not the first: a value is returned only if the document agrees with
+    itself, and otherwise the disagreement is returned in its place.
+
+    This reader is not smarter than the plain one and knows nothing it does not know. It looks in
+    more places, and that is the whole difference — which is the point being measured."""
+    out = {}
+    for name, pat in ALL.items():
+        vals = [re.sub(r"<[^>]+>", "", v).strip() for v in re.findall(pat, xml, re.S)]
+        vals = [v for v in vals if v]
+        if not vals:
+            continue
+        uniq = list(dict.fromkeys(vals))
+        out[name] = uniq[0] if len(uniq) == 1 else "DISAGREEMENT: " + " ≠ ".join(uniq[:3])
+    a = authors(xml)
+    extra = [re.sub(r"<[^>]+>", "", v).strip()
+             for pat in ALSO["authors"] for v in re.findall(pat, xml, re.S)]
+    extra = [v for v in extra if v]
+    if a:
+        out["authors"] = " | ".join(a) if not extra else "DISAGREEMENT: " + " | ".join(a) + " ≠ " + " ≠ ".join(extra[:2])
+    return out
+
+
 def sha(s):
     return hashlib.sha256(s.encode("utf-8")).hexdigest()
 
@@ -277,7 +316,7 @@ def copies(xml, field, value):
     return len(re.findall(DECLARED[field](value), xml, re.S))
 
 
-def judge(truth_rec, damaged_xml, journal, clean_xml=None):
+def judge(truth_rec, damaged_xml, journal, clean_xml=None, reader=None):
     """What a plain reader gets back from the damaged document, against what the document declared.
 
     Per field: `held` if the reader still gets the true value, `lost` if it gets nothing, `wrong`
@@ -287,23 +326,36 @@ def judge(truth_rec, damaged_xml, journal, clean_xml=None):
     `copies` is the count of that value in the clean document. A field damaged once in a document
     that states it twice is not a failed injection and not a skilful reader: it is a redundant
     document, and it belongs in its own bucket or every rate computed here is wrong."""
-    got = facts(damaged_xml)
+    got = (reader or facts)(damaged_xml)
     aimed = {e["field"] for e in journal["injected"]}
     verdict = {}
     for field, true_value in truth_rec["facts"].items():
         now = got.get(field)
-        state = "held" if now == true_value else ("lost" if now is None else "wrong")
+        # Four states, not three. A reader that returns "the document disagrees with itself"
+        # has neither held the truth nor invented a value: it has refused to conclude and said
+        # why. That is the `None` of a house filter, and counting it as `wrong` would punish the
+        # only honest answer available.
+        if now == true_value:
+            state = "held"
+        elif now is None:
+            state = "lost"
+        elif isinstance(now, str) and now.startswith("DISAGREEMENT:"):
+            state = "flagged"
+        else:
+            state = "wrong"
         verdict[field] = {"state": state, "aimed_at": field in aimed,
                           "copies": copies(clean_xml, field, true_value) if clean_xml else None,
                           "truth": true_value, "read_back": now}
     def bucket(name):
         return sorted(f for f in aimed if verdict.get(f, {}).get("state") == name)
+    _ = bucket
     shielded = sorted(f for f in aimed
                       if verdict.get(f, {}).get("state") == "held"
                       and (verdict[f]["copies"] or 0) > 1)
     return {"document": truth_rec["document"],
             "per_field": verdict,
             "reached the reader as a wrong value": bucket("wrong"),
+            "the reader refused to conclude and said why": bucket("flagged"),
             "reached the reader as nothing at all": bucket("lost"),
             "did not reach the reader, the document states it more than once": shielded,
             "did not reach the reader, and the document states it once": [
