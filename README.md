@@ -157,7 +157,9 @@ this measurement and the published run did not come back. Seven runs since — f
 workload orders on freshly loaded graphs, `twice.sh`, and one on 2026-09-13 without `--mark` — all
 agree with each other and disagree with what we printed. The label law ends satisfied, all 3,932
 wrong labels gone; but pgrepair reaches that by **deleting the 3,930 nodes rather than their
-labels**, and 11,200 true facts go with them. **That much is measured and it stands.**
+labels**, and 11,200 true facts go with them as collateral — 11,163 of them also counted as wrongly
+broken, two buckets of one judge over the same event and not two costs to add. **That much is
+measured and it stands.**
 
 We then wrote the difference up as an anomaly in pgrepair and prepared to put it to its authors.
 **We were wrong to, and we withdraw it** (`measures/label-repair-retracted-2026-09-13.json`). A

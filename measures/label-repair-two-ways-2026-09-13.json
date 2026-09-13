@@ -1,0 +1,32 @@
+{
+ "id": "label-repair-two-ways-2026-09-13",
+ "question": "One law, two ways of satisfying it. What does each cost?",
+ "graph": "the frozen EUR-Lex truth with 3,932 injected wrong type labels, runs/seven/journal.json",
+ "the law": "L6 — an act's type label says what its CELEX says: 32019R1020 is a Regulation",
+ "measured": {
+  "deletion-only repair (pgrepair, SciPyWeightedILP)": {
+   "runs": 7,
+   "does": "deletes 3,930 nodes",
+   "wrong labels left": 0,
+   "nodes destroyed": 3930,
+   "true facts lost as collateral": 11200,
+   "true facts counted wrongly broken": 11163,
+   "note": "two buckets of one judge over the same event, not two costs to add"
+  },
+  "one Cypher statement per type pair": {
+   "does": "sets the label the CELEX dictates and removes the one that contradicts it",
+   "wrong labels left": 0,
+   "nodes destroyed": 0,
+   "edges destroyed": 0,
+   "labels put right": 3930
+  }
+ },
+ "and the honest reading, which is not that one engine is better": [
+  "The Cypher repair uses a piece of DOMAIN KNOWLEDGE — that the CELEX is the authority on the type. pgrepair works from the constraints alone and is a general engine. It is not the same game, and this is not a criticism of it.",
+  "What it shows is WHERE THE TRUTH LIVES. The type was written twice in the document, once as a label and once inside the identifier, and the construction pipeline carried both into the graph. That second witness is the whole reason a repair can put the label right instead of deleting the node. A constraint engine cannot know which of two contradicting values is the authority.",
+  "So the rule generalises: a downstream repair can mend a fault exactly when a SECOND, independent witness of the fact survived into the graph. Where the assembly carried one witness only, nothing downstream can, whatever it is written in."
+ ],
+ "and its limit, measured on the same graph": "68,525 of 264,937 nodes carry no celex_type at all — a quarter of the graph. A wrong label there is beyond the Cypher repair too, and beyond anything else in the graph. The second witness is not a property of the method; it is a property of what was carried.",
+ "a prediction registered before the run, and corrected by it": "Predicted that Cypher would put 3,932 labels right. It puts 3,930: two of the injected labels are invisible to the CELEX check, and they are the same two pgrepair does not reach either.",
+ "date": "2026-09-13"
+}
