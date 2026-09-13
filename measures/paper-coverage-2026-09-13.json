@@ -1,0 +1,66 @@
+{
+ "id": "paper-coverage-2026-09-13",
+ "about": "What a given reader is blind to. Seven forms of the Fault Atlas injected into real JATS articles, one form per pass, and the reader asked again for what the document declares. The same shape as the reachability matrix of a repairer, one layer up: the answer is a property of the READER, not a score of the injection.",
+ "corpus": "300 Europe PMC JATS articles held locally, the first 300 by name",
+ "seed": "2026091300000003",
+ "date": "2026-09-13",
+ "the rule this run was built on": "An injector is derived from the form's own dated observation and never from the code of a filter or a reader. Where the observation gives a literal shape, the injection writes that shape: `.r001` appended to a DOI for form-107, `X. Shao et al.` as a running head for form-120, the surnames Wang, Li and Chen for form-026. Written the other way round, the measurement is a mirror: a first run injected the very character class a house filter removes and scored 298/298, which measured nothing but the loop.",
+ "measured": {
+  "form-198 a year in another shape": {
+   "reaches the reader": 300,
+   "of": 300,
+   "as a wrong value": 13,
+   "as nothing": 287
+  },
+  "form-192 a DOI containing its separator": {
+   "reaches the reader": 298,
+   "of": 298,
+   "as a wrong value": 298,
+   "field absent": 2
+  },
+  "form-191 a second identifier family": {
+   "reaches the reader": 300,
+   "of": 300,
+   "as a wrong value": 300
+  },
+  "form-118 an invisible inside a DOI": {
+   "reaches the reader": 298,
+   "of": 298,
+   "as a wrong value": 298,
+   "field absent": 2
+  },
+  "form-107 a second DOI on the document": {
+   "reaches the reader": 0,
+   "of": 298,
+   "held": 298,
+   "field absent": 2
+  },
+  "form-026 a strict homonym": {
+   "reaches the reader": 294,
+   "of": 294,
+   "as a wrong value": 294,
+   "not posed, already carried": 6
+  },
+  "form-120 a second spelling in the running head": {
+   "reaches the reader": 0,
+   "of": 300,
+   "held": 300
+  }
+ },
+ "side_effects": 0,
+ "reading": [
+  "Two of the seven do not reach this reader at all, and neither is a failed injection. form-107 adds a second DOI and the reader takes the first; form-120 writes a second spelling of an author in the running head and the reader reads contrib, not alt-title. Both are real faults, observed in 9 % and 8.5 % of a 272-article corpus on 2026-08-08.",
+  "Immune and blind are the same sentence read twice. A reader that cannot be fooled by a second spelling also never records that the author has two, and a consumer downstream that needs to know it gets nothing. This is the visible / invisible / beyond-reach split of the graph bench, one layer up and relative to a reader instead of a constraint set.",
+  "So the output of this instrument is a COVERAGE MATRIX PER READER, as the graph bench produces a reachability matrix per repairer."
+ ],
+ "four faults this run found, all four in the instrument": [
+  "The injector aimed at a span the reader did not read, so a damage was recorded as posed while the reader returned the true value.",
+  "form-198 damaged the first declaration where a producer's writing convention damages every one.",
+  "The reader's year pattern was unbounded and read a reception date as a publication date, 118 of 200; the corpus property that made it silent is now form-199 of the atlas. The author pattern was then written unbounded in the same way an hour later, and read a cited author as an author.",
+  "A rename to the surname already borne was counted as a damage posed: six of 300, inflating the denominator. It is declared as not posed now."
+ ],
+ "what this run still does not say": [
+  "It does not measure p. The reader here is a plain one; no house filter runs in this pass. What it gives is the denominator p needs — which faults reach a reader at all — and that is the half that was missing.",
+  "Seven forms of 171. 43 of the atlas sit at the pixel and reading layers, where Genalog, DocCreator and PreP-OCR already work. 127 sit above the pixel and are covered by nothing."
+ ]
+}

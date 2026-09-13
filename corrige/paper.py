@@ -43,6 +43,22 @@ FIELDS = {
 }
 
 
+# Bounded to its own element, and the boundary is not decoration. Unbounded — `.*?` with re.S —
+# a single <contrib> opens a scan that runs to the end of the document and matches a surname in
+# the reference list. The first version of this read one author on an article that has twelve,
+# and the one it read was a cited author. It is the same fault as the unbounded year pattern that
+# read a reception date as a publication date, made twice in one evening by the same hand.
+AUTHOR = re.compile(
+    r'<contrib[^>]*contrib-type="author"[^>]*>(?:(?!</contrib>).)*?<surname[^>]*>([^<]*)</surname>'
+    r'\s*<given-names[^>]*>([^<]*)</given-names>', re.S)
+
+
+def authors(xml):
+    """Every author the document declares, surname then given names, in order of appearance.
+    Structured in JATS, so the truth is exact and the judgement needs no annotation."""
+    return [f"{g.strip()} {sn.strip()}".strip() for sn, g in AUTHOR.findall(xml)]
+
+
 def facts(xml):
     """What a reader should get back. One value per field, the first the document declares."""
     out = {}
@@ -50,6 +66,9 @@ def facts(xml):
         m = re.search(pat, xml, re.S)
         if m:
             out[name] = re.sub(r"<[^>]+>", "", m.group(g)).strip()
+    a = authors(xml)
+    if a:
+        out["authors"] = " | ".join(a)
     return out
 
 
@@ -126,8 +145,77 @@ def form_118_invisible(xml, rng):
     return out, {"form": "form-118", "damage": "WRONG_VALUE", "field": "doi", "was": was}
 
 
+def form_107_second_doi(xml, rng):
+    """form-107 — several DOIs per document, 27 of 272 articles (9 %).
+
+    DERIVED FROM THE OBSERVATION, NOT FROM ANY READER: the form records the real pair
+    `10.1371/journal.pcbi.1014325` and `10.1371/journal.pcbi.1014325.r001`, a review-report DOI
+    built from the article's own by appending `.rNNN`. The injection writes that second
+    declaration and changes nothing else."""
+    pat, g = FIELDS["doi"]
+    m = re.search(pat, xml, re.S)
+    if not m:
+        return None, None
+    second = m.group(0).replace(m.group(g), f"{m.group(g)}.r{rng.randint(1, 3):03d}")
+    return xml[:m.end()] + second + xml[m.end():], {
+        "form": "form-107", "damage": "MERGE", "field": "doi",
+        "derived_from": "form-107 seen 2026-08-08: 10.1371/journal.pcbi.1014325 and …1014325.r001",
+        "was": m.group(0)}
+
+
+def form_026_homonym(xml, rng):
+    """form-026 — strict homonyms, 1,215 surnames of 9,160 (13.3 %) borne by two or more different
+    given names.
+
+    DERIVED FROM THE OBSERVATION: the form names the three commonest carriers in the corpus it was
+    measured on — Wang by 95 given names, Li by 92, Chen by 88. The injection renames one author's
+    surname to one of those three, which is what a corpus does to a resolver keyed on the surname."""
+    ms = list(AUTHOR.finditer(xml))
+    if not ms:
+        return None, None
+    m = ms[rng.randrange(len(ms))]
+    a, b = m.span(1)
+    into = rng.choice(["Wang", "Li", "Chen"])
+    # A rename to the name already borne is a blow into the air. Counted as a damage it inflates
+    # the denominator and lowers every rate computed from it: six of 300 on the first run.
+    if m.group(1).strip() == into:
+        return None, None
+    return xml[:a] + into + xml[b:], {
+        "form": "form-026", "damage": "MERGE", "field": "authors", "into": into,
+        "derived_from": "form-026 seen 2026-08-08: Wang borne by 95 given names, Li by 92, Chen by 88",
+        "was": m.group(1)}
+
+
+def form_120_running_head(xml, rng):
+    """form-120 — a running head carrying a spelling that appears nowhere else, 23 of 272 (8.5 %).
+
+    DERIVED FROM THE OBSERVATION: the form records `<given-names>Xianyun</given-names>
+    <surname>Shao</surname>` on page one against a running head reading `X. Shao et al.`. The
+    injection writes that second spelling of the first author as an alt-title, which is the shape
+    the corpus was seen to carry."""
+    ms = list(AUTHOR.finditer(xml))
+    m2 = re.search(r"</title-group>", xml)
+    if not ms or not m2:
+        return None, None
+    sn, g = ms[0].group(1).strip(), ms[0].group(2).strip()
+    head = f'<alt-title alt-title-type="running-head">{g[:1]}. {sn} et al.</alt-title>'
+    return xml[:m2.start()] + head + xml[m2.start():], {
+        "form": "form-120", "damage": "SPLIT", "field": "authors", "wrote": f"{g[:1]}. {sn} et al.",
+        "derived_from": "form-120 seen 2026-08-08 on PMC13162546: page one gives Xianyun Shao, the running head gives X. Shao et al.",
+        "was": f"{g} {sn}"}
+
+
 DAMAGES = {"form-198": form_198_year_shape, "form-192": form_192_doi_separator,
-           "form-191": form_191_identifier_family, "form-118": form_118_invisible}
+           "form-191": form_191_identifier_family, "form-118": form_118_invisible,
+           "form-107": form_107_second_doi, "form-026": form_026_homonym,
+           "form-120": form_120_running_head}
+
+
+# Injections that legitimately ADD a declaration rather than rewrite one. The markup guard has
+# to know about them, or it refuses a correct injection: form-107 writes a second article-id and
+# form-120 writes an alt-title, and both are what the corpus was observed to carry.
+DECL_ADDS = {"form-107": '<article-id pub-id-type="doi"></article-id>',
+             "form-120": '<alt-title alt-title-type="running-head"></alt-title>'}
 
 
 def inject(path, kinds, seed):
@@ -147,7 +235,9 @@ def inject(path, kinds, seed):
             continue
         out, _ = got, journal.append(entry)
     after_tags = len(re.findall(r"<[a-zA-Z][^>]*>", out))
-    if after_tags != before_tags:
+    added = sum(len(re.findall(r"<[a-zA-Z][^>]*>", DECL_ADDS.get(e["form"], ""))) for e in journal
+                if "skipped" not in e)
+    if after_tags != before_tags + added:
         raise ValueError(f"the injection changed the markup ({before_tags} -> {after_tags} tags): "
                          "a reader would catch the injection and not the fault")
     return out, {"document": Path(path).name, "seed": seed, "truth_sha256": sha(xml),
