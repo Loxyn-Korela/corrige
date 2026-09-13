@@ -1,0 +1,30 @@
+{
+ "id": "end-to-end-2026-09-13",
+ "about": "The chain closed on one corpus instead of projected across two. JATS articles are documents a filter can read and the facts they declare are a graph a repairer acts on, so document, filter and graph can be measured in one place.",
+ "corpus": "6,165 Europe PMC JATS articles held locally, read 2026-09-13. No injection: the fault is measured where it occurs naturally.",
+ "why the truth needs no annotation for this form": "A running head is generated from the author list of page one, so `I. García-Torres` in the running head of an article whose first author is `Itzhel García-Torres` IS that person, by construction. Identity is usually a judgement; here it is a documentary fact, and that is what makes this form the right vehicle for closing the chain.",
+ "measured": {
+  "documents with a running head": 663,
+  "of which abbreviated (form-120 occurring naturally)": 21,
+  "naive assembly": {
+   "author identities": 39564,
+   "splits": 21
+  },
+  "with the filter upstream": {
+   "author identities": 39543,
+   "splits": 0
+  },
+  "identities merged before the graph existed": 21
+ },
+ "what makes the 21 matter": "A deletion-only repair reaches 0 of 1,355 splits — measured 2026-09-10, three identical runs, measures/reachability-by-damage-2026-09-10.json. Every split left standing at assembly time is therefore permanent. The filter removes them before the graph exists, which is the only place they can be removed.",
+ "and what stops it being an argument": [
+  "21 of 39,564 is 0.05 %. On this corpus, for this one form, the effect is tiny: only 663 of 6,165 documents carry a running head at all. The atlas recorded 23 of 272 on the August corpus, ten times the rate. The magnitude is a property of the corpus and this one is unfavourable. What this run establishes is that the chain closes, not that the filter saves a graph.",
+  "These 21 are the splits that can be PROVED, because a running head is generated from page one. The same author spelled differently from one article to the next is surely far commoner in the same graph, and cannot be counted here without human annotation."
+ ],
+ "the three measurements this joins, now on one corpus": [
+  "the textbook JATS reader misses 28.7 % of the faults, and is blind to this one at 0 of 300",
+  "the house filter answers it at p = 0.863 with no wrong answers",
+  "a deletion-only repair reaches 0 of 1,355 splits"
+ ],
+ "date": "2026-09-13"
+}
