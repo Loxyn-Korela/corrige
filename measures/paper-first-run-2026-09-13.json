@@ -1,0 +1,50 @@
+{
+ "id": "paper-first-run-2026-09-13",
+ "about": "First run of a damage generator for documents: freeze a JATS file and what it declares, damage it under a sealed seed, read it again, compare.",
+ "corpus": "200 Europe PMC JATS articles held locally, the first 200 by name of ~/dev/loxyn-scientific/corpus/*/papers/PMC*.xml",
+ "seed": "2026091300000001",
+ "forms": [
+  "form-198 a year written in another shape",
+  "form-192 a DOI containing its own separator",
+  "form-191 a second identifier family in the id field",
+  "form-118 an invisible inside a DOI"
+ ],
+ "measured": {
+  "form-198": {
+   "reached the reader": 200,
+   "of": 200,
+   "as a wrong value": 10,
+   "as nothing at all": 190
+  },
+  "form-192": {
+   "reached the reader": 198,
+   "of": 198,
+   "as a wrong value": 198,
+   "field absent": 2
+  },
+  "form-191": {
+   "reached the reader": 200,
+   "of": 200,
+   "as a wrong value": 200
+  },
+  "form-118": {
+   "reached the reader": 198,
+   "of": 198,
+   "as a wrong value": 198,
+   "field absent": 2
+  }
+ },
+ "side_effects": 0,
+ "three faults this run found, all three in the instrument and not in the corpus": [
+  "The injector aimed at the first <year> of the file while the reader read the <year> inside <pub-date>, and a JATS carries two. The damage was written down as posed and the reader got the true value back: a fault invented and then hidden by the same tool. An injector must use the reader's own locator, and it does now.",
+  "form-198 damaged the first declaration only. It describes a producer's WRITING CONVENTION, which is uniform: it damages every declaration. Before the fix it reached 10 readers of 200 and that figure measured the injector, not the world.",
+  "The reader's year pattern was unbounded and reached past every pub-date into <history><date date-type='received'>, reporting the date a manuscript was received as the date it was published. 118 documents of 200. Bounded, the figure went to 0, and the corpus property that made it silent entered the atlas as form-199."
+ ],
+ "what this run does not say": [
+  "It does not measure p. These four forms are damaged in the document and read back by a plain reader; nothing here runs a FILTER, so nothing here says how often a filter is right. That is the next step and it is the number that decides everything.",
+  "Four forms of 171, and all four at the extraction layer. 43 of the atlas's forms sit at the pixel and reading layers, where Genalog, DocCreator and PreP-OCR already work and this module should call them rather than rebuild them. The 127 above the pixel are the ones covered by nothing.",
+  "Typed, calibrated error injection into a test set is established method: see LED (Layout Error Detection, arXiv 2507.23295), eight error types with distributions estimated from real system outputs. What is not established is the object — facts drawn from a document rather than layout regions — nor a calibration source of 171 dated observations."
+ ],
+ "replay": "python3 -c \"from corrige import paper; t=paper.truth(f); d,j=paper.inject(f,['form-198'],seed='2026091300000001'); print(paper.judge(t,d,j,clean_xml=open(f).read()))\"",
+ "date": "2026-09-13"
+}
