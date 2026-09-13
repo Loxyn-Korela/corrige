@@ -152,25 +152,35 @@ actually contains.
 | missing, wrong value, merge, split | 0 / 3,820 | 0 / 3,820 | 0 / 3,820 |
 | true facts wrongly broken | 0 | 0 | 0 on the published run, **11,163 on all four repeats** |
 
-**Correction, 2026-09-10, and it is the worst one on this page.** R10 sent us back to repeat this
-measurement, and the published run does not come back
-(`measures/label-repair-not-reproducible-2026-09-10.json`). Four repeats — twice with the labels
-workload first as published, twice with the edges first — all agree with each other and disagree
-with what we printed. In every one of them the label law ends satisfied, all 3,932 wrong labels
-gone; but pgrepair reaches that by **deleting the 3,930 nodes rather than their labels**, and
-11,200 true facts go with them. Its own log says so: `deleting 0 edge(s), 3930 node(s), 0 labels`,
-against `0 edge(s), 0 node(s), 3930 labels` on the run we published. This is not the tie-break of
-`runs/icij/tie_break.py`: the four repeats are identical, in both orders, and the solution they
-return costs 34,392 where the published one cost 3,930. The cheap repair exists and is not being
-offered to the solver. One hypothesis was tested and refuted: that the published run
-had been made on a database already marked by an earlier label repair. Marking *adds* a label, so
-the labelset grows and its weight rises, 34,392 then 38,322 on two passes; a dirty database makes
-the cheap option dearer, never cheaper. What stays open is arithmetic: the published run deleted
-3,930 labels for a total weight of 3,930, one per label, and label weight is the size of the
-labelset. Every node in our graph carries `:Act` plus its type label, so a labelset of size 1 is not
-something we can produce. We do not know how that run saw one, and we stop there. The code is
-theirs, and one look will settle in a minute what we would spend a week guessing at. **Read the line above as: the label repair removes every
-wrong label, and as we can reproduce it today that costs 11,200 true facts.**
+**Correction, and the second one retracts the first.** On 2026-09-10, R10 sent us back to repeat
+this measurement and the published run did not come back. Seven runs since — four that day in both
+workload orders on freshly loaded graphs, `twice.sh`, and one on 2026-09-13 without `--mark` — all
+agree with each other and disagree with what we printed. The label law ends satisfied, all 3,932
+wrong labels gone; but pgrepair reaches that by **deleting the 3,930 nodes rather than their
+labels**, and 11,200 true facts go with them. **That much is measured and it stands.**
+
+We then wrote the difference up as an anomaly in pgrepair and prepared to put it to its authors.
+**We were wrong to, and we withdraw it** (`measures/label-repair-retracted-2026-09-13.json`). A
+deterministic program on one input returns one answer, so something differed, and the first place
+to look was our own tree. The loader that makes a type label a real Neo4j label was committed at
+13:19:13; the run in question is timestamped 13:16:52; the workload it read was written at 13:16:32.
+The reader and the judge were rewritten in that same commit, to handle labels at all — we ran a
+label experiment three minutes before the code that can read one. And the artefact settles it: the
+candidate read back 49 seconds later keeps all 264,937 nodes and all 192,482 type labels, where the
+reader of that moment removed 3,930 nodes on every later run. What we judged shows no repair.
+
+Four explanations were tested and refuted before withdrawing, so nobody retests them: a database
+dirtied by an earlier label repair (marking *adds* a label, 34,392 then 38,322); a labelset of size
+two being the obstacle (removing `:Act` to leave one label still deletes nodes, at 30,462); the type
+not being a real label (with `:Act` alone, "No conflicts detected"); and pgrepair having changed
+(every file dated 2026-09-09, before the run).
+
+**One thing did come out of it, checked rather than assumed.** In `--mark` mode every label run logs
+eight `Detected conflict after repair` at pgrepair's own validation step, eight being the number of
+constraints; every edge run in the same mode logs none. Committed for real, the same repair
+validates clean. Marking a label adds `_PGREPAIR_DELETED__<Label>` and leaves the original in place,
+so the constraint still sees it, where marking an edge re-types it. It costs us nothing, we read the
+marked graph ourselves, and it made us doubt a result that was sound.
 
 **A third finding, and it comes from the Fault Atlas contradicting this page.** The atlas classes
 every split as *not* reachable by deletion; this judge used to bucket it as *reachable by deleting

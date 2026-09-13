@@ -1,0 +1,25 @@
+{
+ "id": "label-repair-retracted-2026-09-13",
+ "retracts": "label-repair-not-reproducible-2026-09-10",
+ "what was claimed": "That pgrepair returned two different label repairs on the same graph: one at weight 3,930 deleting 3,930 labels, and six at weight 34,392 deleting 3,930 nodes. It was written up as an anomaly and put to the authors of pgrepair as a question.",
+ "why it is withdrawn": [
+  "A deterministic program on one input returns one answer. So something differed, and the honest place to look first was our own tree — not theirs.",
+  "The loader that makes a type label a real Neo4j label was committed at 13:19:13 on 2026-09-10. The run in question is timestamped 13:16:52. The workload file it read was written at 13:16:32, twenty seconds before. Both were being edited in the minutes around that run, and the state of the working tree at 13:16:52 no longer exists anywhere.",
+  "The reader AND the judge were both rewritten in that same 13:19 commit, to handle labels at all. The label experiment was run three minutes before the code that can read a label repair was written.",
+  "The artefact settles it. The candidate read back 49 seconds after that run, runs/seven/candidate-pgrepair.json, keeps all 264,937 nodes and all 192,482 type labels — the graph untouched. The reader of that moment removed any node carrying a _PGREPAIR_DELETED* label, and on the 17:50 run it removed 3,930 of them. On this one it removed none. Whatever happened in the database, the artefact we judged shows no repair, and the judge scored 3,932 caught on it anyway."
+ ],
+ "so the answer to the obvious question": "It was not a better repair found by accident. There is no evidence of one; there is evidence of a scoring chain that could not yet see labels.",
+ "hypotheses tested and refuted before withdrawing, so that nobody retests them": [
+  "a database already marked by an earlier LABEL repair: marking adds a label, so the labelset grows and the option gets dearer, not cheaper — 34,392 then 38,322 on two passes",
+  "a labelset of size 2 being the obstacle: removing :Act to bring every node to ONE label still gives node deletion, at weight 30,462 (2026-09-13)",
+  "the type not being a real Neo4j label: with :Act alone, pgrepair answers 'No conflicts detected. There's nothing to do.' (2026-09-13)",
+  "pgrepair itself having changed: every file of src/pgrepair/cleaning is dated 2026-09-09 10:19:53, before the run"
+ ],
+ "what survives, and it is measured": {
+  "claim": "A label repair on this graph deletes 3,930 nodes and the 11,200 true facts they carry, rather than 3,930 labels.",
+  "runs": 7,
+  "detail": "four runs of 2026-09-10 in both workload orders on freshly loaded graphs, twice.sh at 34,392 then 38,322, and one on 2026-09-13 without --mark at weight 34,392, three days later on a fresh load",
+  "and a second finding, checked": "In --mark mode every label run logs eight 'Detected conflict after repair' at pgrepair's own validation step, eight being the number of constraints; every edge run in the same mode logs none. Committed for real, without --mark, the same repair validates with zero conflicts. Marking a label adds _PGREPAIR_DELETED__<Label> and leaves the original in place, so the constraint still sees it."
+ },
+ "date": "2026-09-13"
+}

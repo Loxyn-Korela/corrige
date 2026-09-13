@@ -17,8 +17,7 @@ replays identically except one line, and that line is the finding.
 
 1. **`README.md`, the section "A second graph, not legislative, with constraints we did not
    write"** — the shortest complete example of what the instrument does.
-2. **`ANOMALY-label-repair.md`** — one page. If you wrote pgrepair, read this one first instead.
-3. **`README.md` from the top** if you want the four measurements in full.
+2. **`README.md` from the top** if you want the four measurements in full.
 
 ## The three things we measured
 
