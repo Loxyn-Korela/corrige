@@ -51,6 +51,22 @@ our best guess and it is wrong. Marking *adds* `_PGREPAIR_DELETED__<Label>` to t
 labelset grows and its weight rises. Two passes on one fresh load give 34,392 then 38,322
 (`runs/seven/twice.sh`). A dirty database makes the label option dearer, never cheaper.
 
+## A second thing, separate from the first, and it took one command to settle
+
+Every one of these label runs logs, at its own `Validating repair` step, eight `Detected conflict
+after repair` errors — eight being the number of constraints in the workload. Every *edge* run we
+have, in the same `--mark` mode with the same tool, logs none.
+
+It is an artefact of marking labels, and we checked rather than assumed: the same repair committed
+for real, without `--mark`, validates with zero conflicts (2026-09-13, weight 34,392, 3,930 nodes).
+Marking a label *adds* `_PGREPAIR_DELETED__<Label>` and leaves the original in place, so the
+constraint still sees it; marking an edge re-types it, so it does not. You may want `--mark` to say
+so, or to mark labels the other way. It costs us nothing — we read the marked graph ourselves — and
+it made us doubt a result that was sound.
+
+That run is also a sixth reproduction of 34,392, three days later, on a fresh load and without
+`--mark`. The anomaly below is unaffected by any of this.
+
 ## The question
 
 When the solver returns 34,392, is the cheap labelset vertex in the hypergraph at all? If it is,
