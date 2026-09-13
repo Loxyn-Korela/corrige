@@ -1,0 +1,73 @@
+{
+ "id": "paper-textbook-reader-2026-09-13",
+ "about": "The non-circular run. The two readers of paper-two-readers-2026-09-13 were both written here, and the careful one was written after seeing what the plain one missed, so its 100 % measured its author. This puts a reader through the bench that was written from the JATS standard and not from the bench: lxml and the canonical XPaths of article-meta.",
+ "reader": {
+  "built_from": "lxml 6.1.1 and the canonical JATS paths",
+  "paths": [
+   "string(//article-meta/article-id[@pub-id-type=\"doi\"])",
+   "string(//article-meta/article-id[@pub-id-type=\"pmid\"])",
+   "string(//article-meta/pub-date/year)",
+   "string(//article-meta/title-group/article-title)",
+   "//article-meta/contrib-group/contrib[@contrib-type=\"author\"]/name"
+  ],
+  "note": "Not one of these paths was chosen by looking at what the bench injects. They are the paths anyone writes who opens the JATS documentation and follows article-meta."
+ },
+ "pre_registered_before_the_run": {
+  "predicted_total": "about 71.4 %, the same as the plain reader",
+  "predicted_blind_spots": [
+   "form-107, because a node list taken at [0] returns the first DOI",
+   "form-120, because it reads contrib and the second spelling is in alt-title"
+  ],
+  "predicted_caught": [
+   "form-198",
+   "form-192",
+   "form-191",
+   "form-118",
+   "form-026"
+  ]
+ },
+ "measured": {
+  "form-198 a year written another way": [
+   299,
+   300
+  ],
+  "form-192 a DOI containing its separator": [
+   298,
+   298
+  ],
+  "form-191 a second identifier family": [
+   300,
+   300
+  ],
+  "form-118 an invisible inside a DOI": [
+   298,
+   298
+  ],
+  "form-107 a second DOI": [
+   0,
+   298
+  ],
+  "form-026 a strict homonym": [
+   294,
+   294
+  ],
+  "form-120 a second spelling in the running head": [
+   0,
+   300
+  ],
+  "TOTAL": [
+   1489,
+   2088
+  ]
+ },
+ "corpus": "300 Europe PMC JATS articles held locally",
+ "seed": "2026091300000003",
+ "date": "2026-09-13",
+ "reading": [
+  "71.3 % against 71.4 % predicted, and the two blind spots are the two named before the run.",
+  "The standard way of reading JATS is blind to two faults a real corpus carries at 9 % and 8.5 %, measured 2026-08-08 on 272 articles. The blindness is structural and not accidental: a second declaration exists in the document and the path stops at the first, and a second spelling of an author exists in the document and the path does not go there.",
+  "This is not a criticism of lxml nor of anyone. Where a reader looks is a design decision that nobody writes down, and it fixes what the graph downstream can ever contain."
+ ],
+ "the one departure from the prediction": "form-198 came back 299 of 300 and not 300. One document held. Not investigated; it is the same shape as the 13 documents whose epub and ppub years differ, where damaging the declarations of one value leaves the other standing.",
+ "what it still does not say": "It does not measure p. No house filter runs in this pass either."
+}
