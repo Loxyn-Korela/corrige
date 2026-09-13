@@ -1,0 +1,47 @@
+{
+ "id": "filters-p-2026-09-13",
+ "about": "The number the whole chain was missing: how often a filter that has read the document is right. Two filters of the house bench, each against the atlas form it answers, on 300 real JATS articles.",
+ "the rule that keeps it from being a mirror": "The injection is derived from the form's DATED OBSERVATION and never from the filter's code. form-107 writes the shape observed on 2026-08-08, a review-report DOI built by appending .rNNN; form-120 writes the shape observed on PMC13162546, `X. Shao et al.` against `Xianyun Shao` on page one. Both filters were written before this bench existed. An earlier attempt injected the very character class a filter removes and scored 298/298, which measured the loop and nothing else.",
+ "corpus": "300 Europe PMC JATS articles held locally",
+ "seed": "2026091300000003",
+ "date": "2026-09-13",
+ "filter_107": {
+  "against": "form-107, a second DOI on the document",
+  "damaged": {
+   "abstains and says so": 298,
+   "of": 298,
+   "p": 1.0
+  },
+  "the same fault through the textbook reader": "298 of 298 returned a DOI without blinking",
+  "counter_test_on_clean_documents": {
+   "right": 287,
+   "silent when it should not be": 11,
+   "of": 298
+  },
+  "the eleven are a real defect, and it is one line": "They declare the SAME DOI three times. The filter counts DECLARATIONS where it should count DISTINCT VALUES: three identical declarations leave nothing to choose. Measured with the corrected rule on the same 300 documents: 298 right, ZERO wrong silences, and still 298 of 298 abstentions on the damaged ones. The fix costs nothing and is not applied here — the filter belongs to its author."
+ },
+ "filter_120": {
+  "against": "form-120, a second spelling of an author in the running head",
+  "damaged": {
+   "reconstitutes the page-one author": 259,
+   "abstains": 41,
+   "returns a wrong author": 0,
+   "of": 300,
+   "p": 0.863
+  },
+  "the same fault through the textbook reader": "0 of 300 — it reads contrib and never looks at alt-title",
+  "counter_test_on_clean_documents": "0 false positives. Four documents looked like false triggers and are not: they declare their authors on page one ALREADY abbreviated — `C. G. Bonde`, `L. E. Anselmino` — so the filter recognises an abbreviated spelling and reconciles it to the only candidate, itself. The counter-test assumed page one is always complete, and four documents say otherwise."
+ },
+ "reading": [
+  "p = 0.863 for filter 120, and the shape matters as much as the figure: 86.3 % reconstituted, 13.7 % refused, ZERO wrong. A refusal costs a weight; a wrong answer would poison one.",
+  "Both filters answer exactly where the textbook reader is blind — 298 of 298 and 300 of 300. That is the measured version of `a better assembly recovers more`: not more cleverness, a reader that looks where the other does not, plus a filter that refuses where it cannot tell."
+ ],
+ "projection, labelled as such because it joins two measurements on two corpora": {
+  "from": [
+   "measures/rival-weights-pgrepair-2026-09-12.json: with a weight of accuracy p, the repairer keeps 130 x p of 130 rivals; with none it lands on a coin at 65",
+   "this record: p = 0.863 with 13.7 % abstention and no wrong answer"
+  ],
+  "arithmetic": "130 x (0.863 + 0.137 x 0.5) = 121",
+  "says": "a filter measured at 0.863 would take the blind rival arm from 65 of 130 — a coin — to about 121 of 130. It is a projection and not a measurement: the filter was measured on JATS articles and the repairer on an EUR-Lex graph. Running one into the other needs a corpus that is both, and that does not exist yet."
+ }
+}
