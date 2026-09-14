@@ -1,0 +1,57 @@
+{
+ "id": "label-repair-step2-2026-09-14",
+ "question": "What does pgrepair do to 3,932 wrong type labels when its Step 2 (--label-repair) is enabled, as its own documentation prescribes for label errors?",
+ "graph": "runs/seven/graph.json — the frozen EUR-Lex truth with the seven-damages injection, journal runs/seven/journal.json",
+ "the law": "L6 — an act's type label says what its CELEX says (workloads/eurlex-labels.toml), then the edge laws (workloads/eurlex-laws.toml)",
+ "command": "runs/seven/label-repair.sh 3 — pg-repair-run --commit repair --label-repair -a SciPyWeightedILP on the label law (committed for real, no --mark), then --commit repair --mark on the edge laws; read with corrige.neo4j_graph; judged by runs/seven/judge_label_repair.py against the truth and the journal",
+ "runs": 3,
+ "measured": {
+  "label pass, each run": "found a solution with weight 3930 · Repairing by deleting 0 edge(s), 0 node(s), 3930 labels",
+  "edge pass, each run": "Repairing by deleting 687 edge(s), 0 node(s), 0 labels",
+  "judge, identical on the three runs": {
+   "visible_by_label_law": {
+    "caught": 3932
+   },
+   "visible": {
+    "caught": 360
+   },
+   "invisible": {
+    "missed": 361
+   },
+   "collateral": 0,
+   "wrongly_broken": 0,
+   "nodes in candidate": 264937,
+   "beyond_reach": {
+    "merge": 506,
+    "missing": 430,
+    "split": 271,
+    "wrong_value": 2613
+   },
+   "split/twin": {
+    "kept": 271,
+    "true facts it took, not restored": 326
+   }
+  }
+ },
+ "against the earlier figure": {
+  "label-repair-two-ways-2026-09-13 and the seven runs of repeat.sh / twice.sh": "3,930 nodes deleted, 11,200 true facts lost — those runs did not pass --label-repair, so Step 2 was off and pgrepair could only delete nodes (its §4.3: nodes are deleted only for isolated-node errors; Step 2 exists to remove labels instead).",
+  "what it means": "The 11,200 was a configuration of ours, not a behaviour of the tool. With Step 2 on, the collateral is zero."
+ },
+ "reading": [
+  "With Step 2, pgrepair removes every wrong type label and destroys nothing: 0 nodes, 0 true facts, on three identical runs (the label pass deletes 0 edges; the edge pass that follows deletes 687, as before).",
+  "It does not write the right label. Deleting the wrong :Decision leaves the node without a type label; the type survives only in the celex_type property — the second witness. The Cypher repair of label-repair-two-ways writes it back: 3,930 set right. The contrast is delete-the-false versus write-the-true, which is exactly PVLDB 2026 §7 (combine deletion with insertion techniques).",
+  "By pgrepair's own quality measure — the number of deletions — the two repairs count the same, 3,930. Only an external ground truth separates 11,200 true facts lost from zero. That is the whole reason the bench exists.",
+  "This supersedes the cause given in label-repair-retracted-2026-09-13: the 13:16:52 run was not only three minutes ahead of the loader; it was the one run with the flag. The retraction's conclusion stands — nothing better was found by accident — its cause was incomplete."
+ ],
+ "what this does not say": [
+  "Not run on the night injection (seven damages incl. ANACHRONISM; runs/night/journal.json, embedded sha256 df640987dd868977…, on disk and replayable). The 12,591 of reachability-by-damage-2026-09-10 is that injection, Step 2 off; it is retired from the memos in favour of the corrected configuration measured here, not because it cannot be replayed.",
+  "Whether Step 2 leaves the same 3,930 nodes untyped on the night injection is not measured."
+ ],
+ "date": "2026-09-14",
+ "journal_sha256": "ced2627844564cfb… (the journal's own embedded sha256; the raw file hashes to 3c92f666…)",
+ "counted afterwards, not only read from the log": {
+  "nodes without a type label": "68,525 in runs/seven/graph.json, 72,455 in each of the three candidates — 3,930 more, identical on the three runs. Step 2 erased the wrong label and wrote none.",
+  "why 3,930 labels for 3,932 injected": "3,932 WRONG_LABEL events on 3,932 distinct nodes. Five of those nodes were absorbed by a MERGE of the same injection and are no longer in the graph; three split twins (…#split) violate L6 too and are erased as well. 3,932 − 5 + 3 = 3,930. The judge reports all 3,932 violations gone.",
+  "this corrects label-repair-two-ways-2026-09-13": "its sentence 'two of the injected labels are invisible to the CELEX check, and they are the same two pgrepair does not reach either' is withdrawn: no such pair exists on this graph; the gap is the five merged nodes and the three twins."
+ }
+}

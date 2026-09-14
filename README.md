@@ -150,7 +150,7 @@ actually contains.
 | **wrong label, visible to the label law** | 5 / 3,932 | 5 / 3,932 | **3,932 / 3,932** |
 | split: the twin deleted (271 splits, which took 326 true facts) | 0 | 0 | 0 |
 | missing, wrong value, merge, split | 0 / 3,820 | 0 / 3,820 | 0 / 3,820 |
-| true facts wrongly broken | 0 | 0 | 0 on the published run, **11,163 on all four repeats** |
+| true facts wrongly broken | 0 | 0 | 0 on the published run, **11,163 on all four repeats without Step 2 — 0 on three runs with it** (see the correction of 14 September) |
 
 **Correction, and the second one retracts the first.** On 2026-09-10, R10 sent us back to repeat
 this measurement and the published run did not come back. Seven runs since — four that day in both
@@ -159,7 +159,23 @@ agree with each other and disagree with what we printed. The label law ends sati
 wrong labels gone; but pgrepair reaches that by **deleting the 3,930 nodes rather than their
 labels**, and 11,200 true facts go with them as collateral — 11,163 of them also counted as wrongly
 broken, two buckets of one judge over the same event and not two costs to add. **That much is
-measured and it stands.**
+measured and it stands — for the configuration we ran.**
+
+**Corrected on 2026-09-14, and the correction is ours again.** None of those seven runs passed
+`--label-repair`, the flag that enables pgrepair's Step 2 — label deletions — which its own
+documentation describes for exactly this error (`documentation/qualitative.md`: "To enable Step 2
+(label deletions), specify the `--label-repair` flag"). Without it, and with a law that bears on a single node, the only deletion available is the node
+itself (PVLDB 2026, §4.3: nodes are deleted only when the errors contain isolated nodes; otherwise an
+edge is deleted). With it, three identical runs on the same graph: *found a solution with weight
+3930 — deleting 0 edge(s), 0 node(s), 3930 labels*; the judge finds all 3,932 wrong labels gone,
+**0 collateral, 0 wrongly broken, 264,937 nodes kept** (`measures/label-repair-step2-2026-09-14.json`,
+`runs/seven/label-repair.sh`). The 11,200 was a configuration of ours, not a behaviour of the tool.
+What Step 2 does not do is write the right label: the node is left without a type label, and only
+the second witness — the CELEX in the identifier — lets a query write it back. By pgrepair's own
+measure, the number of deletions, the two repairs count the same, 3,930; only an external truth
+separates 11,200 true facts lost from none. It also completes the cause given in the retraction
+below: the 13:16:52 run was not only three minutes ahead of the loader, it was the one run with the
+flag.
 
 We then wrote the difference up as an anomaly in pgrepair and prepared to put it to its authors.
 **We were wrong to, and we withdraw it** (`measures/label-repair-retracted-2026-09-13.json`). A

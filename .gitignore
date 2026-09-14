@@ -14,3 +14,4 @@ runs/*/candidate-*.json
 runs/*/verdict-*.json
 runs/*/out/
 runs/campaign-*.json
+.neo4j-password

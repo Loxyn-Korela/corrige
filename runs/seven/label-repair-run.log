@@ -1,0 +1,26 @@
+loaded 264937 nodes, 489508 edges
+found a solution with weight 3930
+Repairing by deleting 0 edge(s), 0 node(s), 3930 labels
+Repairing by deleting 687 edge(s), 0 node(s), 0 labels
+{"edges_marked_deleted": 687, "nodes_marked_deleted": 0, "facts_removed": 687}
+== label-repair run 1 done
+loaded 264937 nodes, 489508 edges
+found a solution with weight 3930
+Repairing by deleting 0 edge(s), 0 node(s), 3930 labels
+Repairing by deleting 687 edge(s), 0 node(s), 0 labels
+{"edges_marked_deleted": 687, "nodes_marked_deleted": 0, "facts_removed": 687}
+== label-repair run 2 done
+loaded 264937 nodes, 489508 edges
+found a solution with weight 3930
+Repairing by deleting 0 edge(s), 0 node(s), 3930 labels
+Repairing by deleting 687 edge(s), 0 node(s), 0 labels
+{"edges_marked_deleted": 687, "nodes_marked_deleted": 0, "facts_removed": 687}
+== label-repair run 3 done
+== judging
+labelrepair-r1 {"beyond_reach/merge": {"missed": 506}, "beyond_reach/missing": {"missed": 430}, "beyond_reach/split": {"missed": 271}, "beyond_reach/wrong_value": {"missed": 2613}, "collateral": 0, "invisible": {"missed": 361}, "split/twin": {"kept": 271, "true facts it took, not restored": 326}, "visible": {"caught": 360}, "visible_by_label_law": {"caught": 3932}, "wrongly_broken": 0}
+labelrepair-r1 nodes in candidate: 264937
+labelrepair-r2 {"beyond_reach/merge": {"missed": 506}, "beyond_reach/missing": {"missed": 430}, "beyond_reach/split": {"missed": 271}, "beyond_reach/wrong_value": {"missed": 2613}, "collateral": 0, "invisible": {"missed": 361}, "split/twin": {"kept": 271, "true facts it took, not restored": 326}, "visible": {"caught": 360}, "visible_by_label_law": {"caught": 3932}, "wrongly_broken": 0}
+labelrepair-r2 nodes in candidate: 264937
+labelrepair-r3 {"beyond_reach/merge": {"missed": 506}, "beyond_reach/missing": {"missed": 430}, "beyond_reach/split": {"missed": 271}, "beyond_reach/wrong_value": {"missed": 2613}, "collateral": 0, "invisible": {"missed": 361}, "split/twin": {"kept": 271, "true facts it took, not restored": 326}, "visible": {"caught": 360}, "visible_by_label_law": {"caught": 3932}, "wrongly_broken": 0}
+labelrepair-r3 nodes in candidate: 264937
+== done

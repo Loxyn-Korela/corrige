@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.6.1 — 2026-09-14
+- **The label-repair figure was our configuration, not the tool's.** The seven runs behind "3,930 nodes deleted, 11,200 true facts lost" never passed `--label-repair`, the flag that enables pgrepair's Step 2 (label deletions), described by its documentation. Re-run with the flag, three identical runs: 0 nodes and 3,930 labels deleted on the label pass, 687 edges on the edge pass as before; all 3,932 wrong labels gone, **0 collateral, 0 wrongly broken**. `measures/label-repair-step2-2026-09-14.json`, `runs/seven/label-repair.sh`, `runs/seven/judge_label_repair.py`.
+- **What Step 2 does not do:** write the right label. The node is left without a type label; the second-witness query of `label-repair-two-ways` writes it back (3,930). Delete-the-false versus write-the-true — the contrast the memo now states.
+- **The retraction of 1.6.0 stands; its cause was incomplete.** The 13:16:52 run was the one run with the flag, not only the one three minutes ahead of the loader. Recorded in the new measure file.
+- The 12,591 figure (`reachability-by-damage-2026-09-10`, journal `df6409…` = `runs/night/`, on disk) is a different injection — seven damages, Step 2 off. It is retired from the memos in favour of the corrected configuration measured on `runs/seven/` (journal `ced2627…`): 11,200 true facts lost without Step 2, none with it.
+- **3,932 injected, 3,930 erased, and the gap is counted, not guessed:** five of the marked nodes were absorbed by a merge of the same injection, three split twins violate the same law and are erased too. The sentence of `label-repair-two-ways` about "two labels invisible to the CELEX check" is withdrawn. Counted in the graph: 68,525 untyped nodes before, 72,455 after — 3,930 more, on all three runs.
+- `.neo4j-password` added to `.gitignore`; the run scripts read it when `NEO4J_LOCAL_PASSWORD` is not exported.
+
 ## 1.6.0 — 2026-09-13
 - **We withdraw the label-repair anomaly, and `ANOMALY-label-repair.md` is deleted.** It claimed pgrepair returned two different repairs on one graph — 3,930 labels at weight 3,930 on 2026-09-10 13:16:52, and 3,930 nodes at 34,392 on every run since. A deterministic program on one input returns one answer, so something differed, and the first place to look was our own tree, not theirs.
 - **What differed was ours, and the clock says so.** The loader that makes a type label a real Neo4j label was committed at 13:19:13, three minutes after that run. The workload it read was written at 13:16:32, twenty seconds before. The reader and the judge were rewritten in that same commit, to handle labels at all: we ran a label experiment three minutes before writing the code that can read one.
